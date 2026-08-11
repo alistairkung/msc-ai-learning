@@ -36,3 +36,21 @@ def longest_unique_substring(text):
         longest = max(longest, current_length)
 
     return longest
+
+
+def longest_sum_at_most(numbers, limit):
+    window_sum = 0
+    largest_window = 0
+    left = 0
+
+    for right, number in enumerate(numbers):
+        window_sum += number
+
+        while window_sum > limit:
+            window_sum -= numbers[left]
+            left += 1
+
+        current_window = right - left + 1
+        largest_window = max(largest_window, current_window)
+
+    return largest_window

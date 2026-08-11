@@ -1,4 +1,5 @@
 from exercises.lesson09_sliding_window import (
+    longest_sum_at_most,
     longest_unique_substring,
     max_average_of_k,
     max_sum_of_k,
@@ -73,3 +74,12 @@ def test_longest_unique_substring_empty_string():
 
 def test_longest_unique_substring_single_character():
     assert longest_unique_substring("a") == 1
+
+
+# --------------------------------------------------
+# 3. Variable window: sum at most
+# --------------------------------------------------
+
+
+def test_longest_sum_at_most():
+    assert longest_sum_at_most([2, 3, 1, 2, 4, 3], 10) == 4
