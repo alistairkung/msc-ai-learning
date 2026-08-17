@@ -5,6 +5,7 @@ from exercises.lesson12_linear_model import (
     mean_squared_error,
     model_loss,
     predict,
+    predicted_classes,
     prediction_errors,
     squared_errors,
 )
@@ -108,3 +109,21 @@ def test_linear_layer():
     )
 
     np.testing.assert_array_equal(result, expected)
+
+
+def test_predicted_classes():
+    scores = np.array(
+        [
+            [2.1, 5.7, 1.2],
+            [8.4, 3.2, 4.1],
+            [1.5, 2.8, 6.9],
+            [4.2, 7.1, 5.3],
+        ]
+    )
+
+    result = predicted_classes(scores)
+
+    np.testing.assert_array_equal(
+        result,
+        np.array([1, 0, 2, 1]),
+    )

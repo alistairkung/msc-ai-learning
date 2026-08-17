@@ -24,3 +24,7 @@ def model_loss(features, weights, bias, actual):
 
 def linear_layer(inputs, weights, biases):
     return inputs @ weights + biases
+
+
+def predicted_classes(scores):
+    return scores.argmax(axis=1)
