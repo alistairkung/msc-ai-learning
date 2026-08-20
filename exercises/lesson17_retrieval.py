@@ -6,6 +6,7 @@ def two_sum(numbers, target):
 
     for index, number in enumerate(numbers):
         lookup = target - number
+
         if lookup in seen:
             return (seen[lookup], index)
 
@@ -16,13 +17,13 @@ def two_sum(numbers, target):
 
 def max_sum_of_k(numbers, k):
     window_sum = sum(numbers[0:k])
-    largest_sum = window_sum
+    max_sum = window_sum
 
     for i in range(k, len(numbers)):
         window_sum = window_sum - numbers[i - k] + numbers[i]
-        largest_sum = max(window_sum, largest_sum)
+        max_sum = max(window_sum, max_sum)
 
-    return largest_sum
+    return max_sum
 
 
 def standardise_features(features):
