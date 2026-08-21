@@ -14,7 +14,7 @@ def center_features(features):
 def standardise_features(features):
     means = features.mean(axis=0)
     centered = features - means
-    std = features.std(axis=0)
+    std = centered.std(axis=0)
 
     return centered / std
 
