@@ -9,6 +9,9 @@ __pycache__/
 htmlcov/
 .ipynb_checkpoints/
 
+# Generated dashboard output
+dashboard/site/
+
 # Local environment / secrets
 .env
 .env.*

@@ -1,0 +1,312 @@
+meta:
+  title: MSc AI Learning Dashboard
+  last_updated: "2026-09-03"
+  current_lesson: 31
+  strategy: Stay roughly 1–2 syllabus weeks ahead while keeping a small January maths lane alive.
+
+status_definitions:
+  strong: Comfortable and repeatedly practised.
+  established: Implemented and understood; periodic retrieval still useful.
+  developing: Actively learning or incomplete.
+  planned: Not yet studied in a dedicated lesson.
+
+retrieval_definitions:
+  current: Recently retrieved or actively in use.
+  due: Learned before, but deliberate cold retrieval is due.
+  not_started: No retrieval expected yet.
+  n/a: Retrieval state is not meaningful yet.
+
+focus:
+  - stage: Current
+    title: Finish Lesson 31
+    detail: Run the real-data training loop end-to-end, inspect train/validation behaviour, then evaluate the held-out test set.
+  - stage: Next
+    title: Reactivate search
+    detail: Cold-retrieve BFS, DFS and A*, then add UCS, algorithm trade-offs, admissibility and consistency.
+  - stage: Then
+    title: Build the Week-3 buffer
+    detail: Refresh linear/logistic regression, then learn decision trees and random forests.
+  - stage: Longer-term
+    title: Protect the January maths lane
+    detail: Probability/statistics is the main prerequisite gap before Machine Learning Theory starts in January.
+
+domains:
+  Foundations:
+    description: Python, numerical/data tooling and mathematical prerequisites.
+    topics:
+      python_fluency:
+        label: Python fluency
+        status: strong
+        retrieval: current
+        lessons: ["01–07"]
+        note: Core containers, comprehensions, key functions and function signatures are no longer a blocker.
+      dsa_patterns:
+        label: DSA patterns
+        status: established
+        retrieval: current
+        lessons: ["08–09"]
+        note: Hash lookup, two pointers and sliding windows have been implemented; broader DSA fluency is still growing.
+      numpy:
+        label: NumPy and shape reasoning
+        status: strong
+        retrieval: current
+        lessons: ["10–17", "20", "27"]
+        gaps:
+          - Keep axis/reduction shapes and batch dimensions under cold retrieval.
+      pandas:
+        label: pandas
+        status: established
+        retrieval: current
+        lessons: ["18–20"]
+        note: Selection, filtering, aggregation, missing values and merges have been practised.
+      linear_algebra:
+        label: Linear algebra
+        status: developing
+        retrieval: due
+        lessons: []
+        gaps:
+          - Refresh vectors, matrices, norms and notation before AIMS5704.
+      calculus:
+        label: Calculus and gradients
+        status: established
+        retrieval: current
+        lessons: ["28"]
+        note: Derivatives, partials, chain rule, gradients and manual backprop are understood.
+      scientific_python:
+        label: SciPy, matplotlib and modality representations
+        status: planned
+        retrieval: not_started
+        lessons: []
+        gaps:
+          - Needed for AI in Practice Week 3; not yet practised systematically.
+      probability:
+        label: Probability and statistics
+        status: developing
+        retrieval: due
+        lessons: []
+        gaps:
+          - Main prerequisite risk for AIMS5704 in January.
+          - Refresh Bayes, random variables, expectation, variance and common distributions.
+
+  Machine Learning:
+    description: Classical supervised learning, evaluation and generalisation workflow.
+    topics:
+      linear_regression:
+        label: Linear regression
+        status: established
+        retrieval: current
+        lessons: ["12", "23"]
+        note: Manual linear mechanics and sklearn regression with MAE, MSE and R² have been implemented.
+      logistic_regression:
+        label: Logistic regression
+        status: established
+        retrieval: current
+        lessons: ["21–22"]
+        note: sklearn binary classification, probabilities, thresholds and confusion-matrix metrics have been practised.
+      evaluation:
+        label: Evaluation and generalisation
+        status: developing
+        retrieval: current
+        lessons: ["22", "31"]
+        gaps:
+          - Finish the real-data train/validation/test workflow in Lesson 31.
+      decision_trees:
+        label: Decision trees
+        status: planned
+        retrieval: not_started
+        lessons: []
+      random_forests:
+        label: Random forests
+        status: planned
+        retrieval: not_started
+        lessons: []
+      bayesian_networks:
+        label: Bayesian networks
+        status: planned
+        retrieval: not_started
+        lessons: []
+      hmm:
+        label: Hidden Markov Models
+        status: planned
+        retrieval: not_started
+        lessons: []
+      particle_filtering:
+        label: Particle filtering
+        status: planned
+        retrieval: not_started
+        lessons: []
+
+  Classical AI:
+    description: Search, logic and reasoning.
+    topics:
+      bfs:
+        label: BFS
+        status: established
+        retrieval: due
+        lessons: ["24"]
+        gaps:
+          - Reactivate completeness, optimality, time and memory reasoning.
+      dfs:
+        label: DFS
+        status: established
+        retrieval: due
+        lessons: ["25"]
+        gaps:
+          - Reactivate completeness, optimality, time and memory reasoning.
+      astar:
+        label: A*
+        status: established
+        retrieval: due
+        lessons: ["26"]
+        gaps:
+          - Add admissibility and consistency.
+          - Compare directly with UCS and uninformed search.
+      ucs:
+        label: Uniform-cost search
+        status: planned
+        retrieval: not_started
+        lessons: []
+      logic:
+        label: Logic and reasoning
+        status: planned
+        retrieval: not_started
+        lessons: []
+
+  Deep Learning:
+    description: PyTorch mechanics, optimisation and neural-network architectures.
+    topics:
+      tensor_operations:
+        label: Tensor operations
+        status: established
+        retrieval: current
+        lessons: ["27"]
+        gaps:
+          - Keep nn.Linear weight orientation and batch shapes automatic.
+      autograd:
+        label: Autograd and manual GD
+        status: established
+        retrieval: current
+        lessons: ["28"]
+        note: requires_grad, backward, grad clearing and parameter updates have been implemented.
+      pytorch_training:
+        label: PyTorch training loop
+        status: established
+        retrieval: current
+        lessons: ["29"]
+        note: nn.Linear, MSELoss and SGD training-loop structure is established.
+      mlp_classification:
+        label: MLP binary classification
+        status: established
+        retrieval: current
+        lessons: ["30"]
+        note: ReLU, BCEWithLogitsLoss, DataLoader, sigmoid and thresholding are established on synthetic data.
+      real_data_classification:
+        label: Real-data classification workflow
+        status: developing
+        retrieval: current
+        lessons: ["31"]
+        gaps:
+          - End-to-end training/validation/test evaluation is still incomplete.
+          - Keep train-only preprocessing and leakage reasoning automatic.
+      neural_regression:
+        label: Neural-network regression
+        status: planned
+        retrieval: not_started
+        lessons: []
+        gaps:
+          - Needed for the AI in Practice housing-price workflow.
+      cnn:
+        label: CNN
+        status: planned
+        retrieval: not_started
+        lessons: []
+      rnn:
+        label: RNN
+        status: planned
+        retrieval: not_started
+        lessons: []
+
+courses:
+  AIMS5701:
+    name: Fundamentals in Artificial Intelligence
+    term: Sep–Dec 2026
+    weeks:
+      - week: 1
+        label: Introduction, logic, reasoning and learning
+        topics: [logic]
+      - week: 2
+        label: Uninformed and informed search
+        topics: [bfs, dfs, ucs, astar]
+      - week: 3
+        label: Regression, classification and trees
+        topics: [linear_regression, logistic_regression, decision_trees, random_forests]
+      - week: 4
+        label: Bayesian networks, inference and sampling
+        topics: [probability, bayesian_networks]
+      - week: 5
+        label: HMMs and particle filtering
+        topics: [probability, hmm, particle_filtering]
+
+  AIMS5702:
+    name: Artificial Intelligence in Practice
+    term: Sep–Dec 2026
+    weeks:
+      - week: 1
+        label: Intro and simple ML
+        topics: [linear_regression, logistic_regression, evaluation]
+      - week: 2
+        label: Vector, matrix and tensor operations
+        topics: [numpy, tensor_operations]
+      - week: 3
+        label: Representations, SciPy, matplotlib and PyTorch
+        topics: [numpy, scientific_python, pytorch_training]
+      - week: 4
+        label: MLP, CNN and RNN
+        topics: [mlp_classification, cnn, rnn]
+      - week: 5
+        label: Housing-price prediction
+        topics: [linear_regression, neural_regression, evaluation]
+
+  AIMS5704:
+    name: Machine Learning Theory
+    term: Starts Jan 2027
+    weeks:
+      - week: "Prereqs"
+        label: Linear algebra, probability and statistics
+        topics: [linear_algebra, probability]
+      - week: 5
+        label: Gradient descent and convergence analysis
+        topics: [calculus, autograd]
+      - week: 6
+        label: SGD and adaptive optimisation
+        topics: [pytorch_training]
+
+timeline:
+  - lessons: "01–07"
+    label: Python fluency
+    detail: Core language conversion for ML work.
+  - lessons: "08–09"
+    label: DSA patterns
+    detail: Hash lookup, two pointers and sliding windows.
+  - lessons: "10–17"
+    label: NumPy → manual ML
+    detail: Shapes, broadcasting, standardisation and manual linear/classification pipelines.
+  - lessons: "18–20"
+    label: pandas and data workflow
+    detail: DataFrame manipulation, aggregation, joins and mixed retrieval.
+  - lessons: "21–23"
+    label: sklearn classical ML
+    detail: Logistic classification and linear regression.
+  - lessons: "24–26"
+    label: Classical search
+    detail: BFS, DFS and A* implementations.
+  - lessons: "27–29"
+    label: Tensors, autograd and PyTorch
+    detail: Tensor semantics, manual gradients and the standard training loop.
+  - lessons: "30"
+    label: Neural binary classification
+    detail: MLP, BCEWithLogitsLoss, mini-batches and accuracy.
+  - lessons: "31"
+    label: Real-data ML workflow
+    detail: Train/validation/test, leakage-safe scaling and generalisation.
+    active: true

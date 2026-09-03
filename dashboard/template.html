@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="A repo-generated dashboard for MSc AI learning progress, retrieval state and syllabus readiness.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">Learning system · generated from learning_progress.yaml</div>
+        <h1>{{TITLE}}</h1>
+        <p class="hero-copy">{{STRATEGY}}</p>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-card">
+          <span>Current lesson</span>
+          <strong>{{CURRENT_LESSON}}</strong>
+        </div>
+        <div class="meta-card">
+          <span>Last updated</span>
+          <strong>{{LAST_UPDATED}}</strong>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">What matters now</div>
+            <h2>Current focus</h2>
+          </div>
+          <p>Operational priorities from the learning state, not a generic topic ranking.</p>
+        </div>
+        <div class="focus-grid">
+          {{FOCUS}}
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Syllabus runway</div>
+            <h2>MSc readiness</h2>
+          </div>
+          <p>Each week takes the weakest status among the topics it depends on. Expand mentally into the topic chips rather than treating the week badge as a percentage score.</p>
+        </div>
+        <div class="course-grid">
+          {{READINESS}}
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">What do I know?</div>
+            <h2>Knowledge map</h2>
+          </div>
+          <p>Learning state and retrieval state are separate. A topic can be established but still due for cold retrieval.</p>
+        </div>
+        <div class="domain-grid">
+          {{KNOWLEDGE_MAP}}
+        </div>
+      </section>
+
+      <section class="section split-section">
+        <div>
+          <div class="section-heading compact">
+            <div>
+              <div class="eyebrow">How did I get here?</div>
+              <h2>Learning timeline</h2>
+            </div>
+          </div>
+          <div class="timeline">
+            {{TIMELINE}}
+          </div>
+        </div>
+
+        <aside class="legend-panel">
+          <div class="eyebrow">How to read this</div>
+          <h2>Legend</h2>
+          <p class="legend-intro">The dashboard deliberately avoids fake mastery percentages. States are qualitative and should move only when the learning evidence changes.</p>
+          <div class="legend-grid">
+            {{LEGEND}}
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <p>Source of truth: <code>learning_progress.yaml</code>. Lesson detail remains in <code>lesson_logs/</code>; current direction remains in <code>LEARNING_STATE.md</code>.</p>
+    </footer>
+  </div>
+</body>
+</html>
