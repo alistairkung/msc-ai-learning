@@ -27,12 +27,13 @@ The aim is not to pre-learn the whole MSc. The aim is to:
 - `pytest` remains a useful scaffold because it gives a concrete definition of “this implementation works”.
 - Library API recall is secondary to conceptual recall. PyTorch syntax may be looked up; the computation underneath should be explainable.
 - Shapes should always be interpreted semantically: e.g. `(32, 10)` = **32 samples represented by 10 features**.
+- Lesson-log backfill is complete through Lesson 31; `lesson_logs/INDEX.md` is the coverage index.
 
 ---
 
 # Verified exercise history
 
-The repository gives us a reliable spine for what has actually been implemented. Lesson 31 is currently a **lesson log + local work in progress**, so it should not yet be treated as a completed repo implementation.
+The repository gives us a reliable spine for what has actually been implemented. Lesson 31 is a **committed implementation in progress**, not yet a completed end-to-end result.
 
 | Repo lessons | What was practised | Status |
 |---|---|---|
@@ -48,7 +49,9 @@ The repository gives us a reliable spine for what has actually been implemented.
 | 28 | PyTorch autograd, scalar/multivariable gradients, manual GD, single-weight training, manual linear-model training | Strong conceptual milestone |
 | 29 | `nn.Linear` + `MSELoss` + SGD training loop | Established |
 | 30 | MLP binary classifier, ReLU, `BCEWithLogitsLoss`, `TensorDataset`, `DataLoader`, mini-batches/epochs, sigmoid/threshold accuracy | Established on synthetic data |
-| 31 | Real-data classification: stratified train/val/test split, train-only scaling, tensor conversion, DataLoader, train/validation histories, held-out evaluation discipline | **In progress; local implementation not yet committed; classifier test blocker to diagnose** |
+| 31 | Real-data classification: stratified train/val/test split, train-only scaling, tensor conversion, DataLoader, train/validation histories, held-out evaluation discipline | **In progress; exercise/test/log committed; known classifier-test import bug; end-to-end run pending** |
+
+All numbered Lessons **01–31 now have a lesson log**. Reconstructed logs use the exercise/test pair as factual evidence and recoverable tutoring context conservatively; they are retrieval blueprints, not invented transcripts.
 
 This table is an **audit anchor**, not a lesson log. Details belong in code/tests and `lesson_logs/`; this roadmap tracks dependencies and direction.
 
@@ -81,7 +84,7 @@ Search → classical AI; data pipelines → AI in Practice; implementation fluen
 ### Current position
 **Green/Amber.** Implemented and repeatedly retrieved: indexing/slicing, masks and axis reductions; feature centring/standardisation; reshape/transpose; matrix multiplication and linear layers; classification scores; batch and hidden-feature semantics.
 
-Lesson 31 added a useful real-data shape bridge: sklearn arrays `(samples, features)` → train/val/test splits → scaled NumPy arrays → float32 PyTorch tensors → `(batch, features)` DataLoader batches.
+Lesson 31 adds a useful real-data shape bridge: sklearn arrays `(samples, features)` → train/val/test splits → scaled NumPy arrays → float32 PyTorch tensors → `(batch, features)` DataLoader batches.
 
 ### Fragile points
 - PyTorch stores `nn.Linear(in, out).weight` as `(out, in)`; manual `X @ W` intuition often uses `(in, out)`.
@@ -102,6 +105,8 @@ Lesson 31 added a useful real-data shape bridge: sklearn arrays `(samples, featu
 ### Current position
 **Conceptually Green/Amber.** Covered slope/local rate, differentiation rules, partials, gradients, GD, chain rule, manual backprop, autograd and optimizer-based updates.
 
+Lesson 28 is now backed by a detailed retrieval log connecting manual derivatives/chain rule to `requires_grad`, `.backward()`, `.grad`, no-grad updates and gradient clearing. Lesson 29 then abstracts that into the standard PyTorch `nn.Linear`/MSE/SGD loop.
+
 ### Fragile points
 - derivative direction notation;
 - preserving constants/powers and algebraic accuracy;
@@ -118,7 +123,7 @@ Lesson 31 added a useful real-data shape bridge: sklearn arrays `(samples, featu
 ## Track D — Classical AI: logic, search and agents
 
 ### Current position
-**Search implementation exists; conceptual reactivation is urgent.** Repo 24–26 verifies BFS, DFS and A* implementations.
+**Search implementation exists; conceptual reactivation is urgent.** Repo 24–26 verifies BFS, DFS and A* implementations; dedicated lesson logs now preserve each algorithm's frontier/data-structure logic and explicitly flag the missing theory layer.
 
 ### What remains before Fundamentals Week 2
 - cold-recall implementations rather than relearn from zero;
@@ -139,7 +144,7 @@ Still largely **unstarted**. Preview Week-1 vocabulary before/around the first F
 ### Current position
 **Linear regression — Green/Amber.** Manual linear mechanics plus sklearn regression and MAE/MSE/R².
 
-**Logistic/binary classification — Green/Amber.** sklearn logistic workflow plus neural-network view of logit → sigmoid → BCE. Lesson 31 is extending this into proper train/validation/test evaluation and preprocessing discipline.
+**Logistic/binary classification — Green/Amber.** sklearn logistic workflow plus neural-network view of logit → sigmoid → BCE. Lesson 22 already introduced probability thresholding; Lesson 31 is extending classification into proper train/validation/test evaluation and leakage-safe preprocessing.
 
 ### Immediate gap: Fundamentals Week 3
 - **Decision trees — Red**: splits, impurity, leaves, depth, overfitting.
@@ -156,22 +161,21 @@ Bayesian networks/inference/sampling; HMMs/particle filters; KNN/K-means/SVM/gra
 **MLP mechanics Green/Amber; real-data workflow Amber/Green and active.** Verified progression through lessons 27–30: tensor operations, autograd, manual GD, `nn.Linear`, SGD, ReLU, MLP, logits/sigmoid/BCE, DataLoader and synthetic classification.
 
 ### Lesson 31 progress
-The previous gap — moving beyond synthetic same-data evaluation — is now substantially underway:
-
-- real sklearn dataset inspected;
+Repo implementation currently contains:
+- real sklearn breast-cancer dataset loading;
 - stratified 60/20/20 train/validation/test split;
 - `StandardScaler` fitted on **training only** to avoid leakage;
 - validation/test transformed with frozen training statistics;
 - standardisation behaviour tested (`mean≈0`, `std≈1` on train);
 - NumPy arrays converted to float32 tensors; labels reshaped `(n,) -> (n,1)`;
-- TensorDataset/DataLoader batching reconstructed;
-- `30 -> 16 -> ReLU -> 1` classifier designed;
-- epoch/batch nesting, train-loss averaging and validation-per-epoch structure developed;
-- accuracy pipeline reconstructed: logits → sigmoid → threshold → compare with targets;
-- test-set discipline established: use after development decisions are finished.
+- TensorDataset/DataLoader helper;
+- `30 -> 16 -> ReLU -> 1` classifier;
+- epoch/batch training loop with train + validation losses;
+- binary accuracy via sigmoid/threshold/target comparison;
+- test-set discipline established conceptually.
 
 ### Immediate unfinished item
-Lesson 31 stopped with a local `test_make_classifier()` failure even though the pasted architecture and expected `(32,1)` shape agree. **Get the exact traceback first next session; do not guess at a conceptual fix.** Then run the complete real-data training/evaluation pipeline and mark Lesson 31 complete.
+The known red classifier test is now source-level diagnosed: `tests/test_lesson31_real_data.py` imports **Lesson 30's** `make_classifier`, whose first layer expects 10 features, while the test passes a `(32,30)` input. Lesson 31 itself defines the intended 30-input classifier. Leave the import correction for the learner to perform in the next interactive session; then complete/verify the end-to-end training/validation/test run and mark Lesson 31 complete.
 
 ### After Lesson 31
 - convert the workflow to **NN regression / housing-price prediction** before AI in Practice Week 5;
@@ -243,7 +247,7 @@ Choose the next study topic by asking, in order:
 - **BFS / DFS / A\*** — **implemented in lessons 24–26**, deliberately parked; reactivate for Fundamentals Week 2. Add UCS + trade-off/heuristic theory rather than rewriting from scratch.
 - **Logic/reasoning** — Week 1 Fundamentals; not yet properly studied.
 - **Decision trees / random forests** — Week 3 Fundamentals; not present in repo yet.
-- **Real-data PyTorch workflow** — **active in Lesson 31, not complete**; finish classifier test diagnosis + end-to-end training/evaluation before closing.
+- **Real-data PyTorch workflow** — **active in Lesson 31, not complete**; fix known test import interactively + run end-to-end training/evaluation before closing.
 - **NN regression / housing-price workflow** — needed before AI in Practice Week 5.
 - **CNN/RNN preview** — needed before AI in Practice Week 4.
 - **Probability/statistics refresh** — mandatory parallel Term-1 lane for ML Theory Jan 11.

@@ -10,6 +10,7 @@ _Last updated: 2026-09-03_
 - Immediate courses: **Fundamentals in AI (AIMS5701)** and **AI in Practice (AIMS5702)**.
 - **Machine Learning Theory (AIMS5704)** starts **11 Jan 2027**; probability/statistics/LA preparation must run during Term 1.
 - Strategy: stay roughly **1–2 syllabus weeks ahead** while keeping a small January-maths lane alive.
+- Lesson-log backfill is now complete: **Lessons 01–31 all have retrieval logs**; `lesson_logs/INDEX.md` is the coverage index.
 
 ## Verified learning position
 
@@ -31,37 +32,34 @@ _Last updated: 2026-09-03_
 - Autograd/manual GD (28), standard linear training loop (29), synthetic binary MLP (30) implemented.
 
 ### Lesson 31 — real-data ML workflow (IN PROGRESS)
-- Cold retrieval at session start covered PyTorch shapes, logits/sigmoid/BCE, generalisation, train/validation/test roles, overfitting, early stopping and `zero_grad()`.
-- Using sklearn breast-cancer dataset as a built-in real-data classification exercise.
-- Implemented locally during session:
-  - `load_data()` using `load_breast_cancer(return_X_y=True)`; observed X `(569, 30)`, y `(569,)`.
-  - `split_data()` with stratified 60/20/20 train/validation/test split by splitting 60/40 then remainder 50/50; shapes train 341, val 114, test 114.
-  - `scale_data()` using `StandardScaler`: fit/fit_transform TRAIN only; transform validation/test with frozen train statistics.
-  - scaling tests: training feature means ≈ 0 and stds ≈ 1 using `np.allclose(..., atol=1e-7)`.
-  - `to_tensors()` converts features/labels to `torch.float32`, reshaping labels `(n,) -> (n,1)`.
-  - `make_dataloader()` with `TensorDataset`, shuffled mini-batches; 341 samples / batch 32 gives 11 batches, final batch 21.
-  - `make_classifier()` intended architecture `30 -> 16 -> ReLU -> 1`.
-  - training-loop structure: epoch loop around batch loop; SGD + BCEWithLogitsLoss; average batch losses per epoch; validation once per epoch under `torch.no_grad()`; store train/val loss histories.
-  - `classification_accuracy()` concept: logits -> sigmoid -> threshold -> compare predictions with y -> float mean, under no-grad.
-- **Current local blocker at pause:** `test_make_classifier()` is failing even though intended test/model shown in chat are logically compatible:
-  - test creates `X = torch.randn(32, 30)`, runs `logits = model(X)`, expects `(32,1)`.
-  - model shown: `nn.Sequential(nn.Linear(30,16), nn.ReLU(), nn.Linear(16,1))`.
-  - Exact failure traceback/message was NOT captured. Next session should inspect the actual local failure before changing code; likely surrounding/import/file-state issue rather than the shown architecture itself.
-- Lesson 31 is **not complete yet** and no lesson31 repo exercise/log was found on GitHub at session end; local work may be uncommitted.
+- Repo now contains `exercises/lesson31_real_data.py`, `tests/test_lesson31_real_data.py`, and `lesson_logs/lesson31_real_data_workflow.md`.
+- Implemented in the exercise:
+  - `load_data()` using sklearn breast-cancer data; X `(569,30)`, y `(569,)`.
+  - stratified 60/20/20 train/validation/test split; shapes train 341, val 114, test 114.
+  - `StandardScaler` fit on TRAIN only; validation/test transformed with frozen train statistics.
+  - NumPy → float32 tensors; binary labels reshaped `(n,) -> (n,1)`.
+  - shuffled `TensorDataset`/`DataLoader` helper.
+  - `make_classifier()` architecture `30 -> 16 -> ReLU -> 1`.
+  - epoch/batch training loop with SGD + `BCEWithLogitsLoss`, average train loss per epoch, validation loss under `torch.no_grad()`.
+  - binary accuracy: logits → sigmoid → threshold → compare to targets.
+- Existing tests currently cover data loading/splitting/scaling/tensor conversion plus a classifier-shape test.
+- **Exact known blocker from repo audit:** `tests/test_lesson31_real_data.py` imports `make_classifier` from `exercises.lesson30_binary_classification`, not Lesson 31. Lesson 30's classifier expects **10 input features**, while the Lesson 31 test feeds `(32,30)`. Lesson 31 itself already defines the intended 30-input classifier.
+- Leave that import fix for the next interactive session so the learner performs the debugging step rather than silently changing their exercise behind the scenes.
+- End-to-end training/validation/test evaluation has **not yet been completed**, so Lesson 31 remains active.
 
 ## Fragile under cold recall
 
 - `nn.Linear(in, out).weight.shape == (out, in)`; batch dimension occasional quick slips.
-- Standardisation: mean ≈ 0, std ≈ 1; validation/test use TRAIN scaler stats and need not themselves have mean 0/std 1.
+- Standardisation: mean ≈ 0, std ≈ 1 on TRAIN; validation/test use TRAIN scaler stats and need not themselves have mean 0/std 1.
 - `len(train_loader)` = number of batches; `train_loader.batch_size` = samples per normal batch.
-- Epoch loss bookkeeping: sum batch-average losses then divide by number of batches (simple current approach).
+- Epoch loss bookkeeping: simple current approach averages batch-average losses via `/ len(train_loader)`; final partial-batch weighting is a later refinement.
 - Accuracy requires comparing predictions to targets; `predictions.mean()` only measures fraction predicted class 1.
 - Keep logit → probability → class distinction automatic.
 - Search theory completeness/optimality/time/memory and heuristic properties remain non-automatic.
 
 ## Active highest-value sequence
 
-1. **Finish Lesson 31 real-data ML workflow** — first diagnose failing classifier test, then run training and final train/val/test evaluation; inspect learning/generalisation.
+1. **Finish Lesson 31 real-data ML workflow** — identify/fix the known wrong `make_classifier` import interactively, extend/confirm training/evaluation tests, run train/validation/test evaluation and inspect generalisation.
 2. **Search reactivation** — BFS/DFS/A* cold recall; compare them; add UCS/heuristic theory and light logic preview.
 3. **Fundamentals Week-3 buffer** — linear/logistic retrieval, then decision trees/random forests.
 
@@ -96,15 +94,15 @@ _Last updated: 2026-09-03_
 
 ## Next session target
 
-> Resume Lesson 31 by getting the **exact traceback from `test_make_classifier()`**. The shown architecture and expected `(32,1)` output agree, so diagnose before editing. Once green, complete training/evaluation and consolidate what the real-data workflow added beyond Lesson 30.
+> Resume Lesson 31 at the failing classifier test. Ask the learner to inspect the import: the test currently imports Lesson 30's 10-input `make_classifier` while feeding 30-feature data. Fix that first, re-run the test, then finish the end-to-end training/evaluation workflow.
 
 After Lesson 31, **do not sacrifice the search reactivation session** before/around classes.
 
 ## End-of-session update
 
-- **Completed:** Lesson 31 data pipeline through load → stratified split → train-only scaling → tensors → DataLoader; classifier/training/evaluation concepts mostly built.
-- **Now comfortable with:** train-only preprocessing, leakage rationale, tensor conversion/label reshape, DataLoader batch shapes, train-vs-validation roles, overfitting pattern.
-- **Still fragile:** epoch-loss averaging details; accuracy comparison syntax; some NumPy reduced-axis shape intuition; exact local classifier-test failure unresolved.
-- **Newly parked / unparked:** Real-data classification is active/incomplete, not parked. Search remains next major reactivation.
-- **Next session:** diagnose classifier test, finish Lesson 31, then search reactivation.
-- **Roadmap/syllabus change needed?** no — today advanced the existing real-data ML workflow track.
+- **Completed:** durable lesson-log reconstruction for Lessons 01–29; all Lessons 01–31 now have retrieval logs. Lesson 31 implementation state audited against repo.
+- **Now comfortable with:** durable curriculum can now be recovered lesson-by-lesson rather than relying on chat memory.
+- **Still fragile:** Lesson 31 has not been run end-to-end; epoch-loss averaging/accuracy syntax and some reduced-axis shape intuition still deserve retrieval; search theory remains pending.
+- **Newly parked / unparked:** no strategy change. Real-data classification remains active; search remains next major reactivation.
+- **Next session:** fix Lesson 31 import bug interactively, finish Lesson 31, then search reactivation.
+- **Roadmap/syllabus change needed?** roadmap audit wording updated; no strategic course change.
