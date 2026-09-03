@@ -2,6 +2,10 @@
 
 This repository is the durable record and planning system for my MSc AI preparation and study.
 
+## [📊 Open the Learning Dashboard](https://alistairkung.github.io/msc-ai-learning/)
+
+**Live view of current focus, MSc readiness, the knowledge map, retrieval state and the Lessons 01–31+ learning timeline.** The dashboard is generated from `learning_progress.yaml` and updates after relevant changes are merged to `main`.
+
 It serves two purposes at once:
 
 1. **Evidence of learning** — exercises and tests show what I have actually implemented.
