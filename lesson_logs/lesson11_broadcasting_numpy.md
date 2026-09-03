@@ -6,7 +6,7 @@ _Status: reconstructed retrospectively from repo + recoverable chat history_
 
 Lesson 10 introduced shapes, axes, masks and vectorised operations. Lesson 11 used those ideas to perform one of the first genuinely ML-relevant preprocessing operations: **centering and standardising features without Python loops**.
 
-Source: `exercises/lesson11_broadcasting_numpy.py` + `tests/test_lesson11_broadcasting_numpy.py`.
+Source: `foundations/numpy/lesson11_broadcasting_numpy.py` + `foundations/numpy/test_lesson11_broadcasting_numpy.py`.
 
 ## What was implemented
 

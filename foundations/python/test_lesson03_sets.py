@@ -1,4 +1,4 @@
-from exercises.lesson03_sets import (
+from lesson03_sets import (
     add_city,
     cities_only_in_first,
     cities_only_in_second,

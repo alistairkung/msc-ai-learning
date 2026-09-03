@@ -19,30 +19,37 @@ The repository exists because a long-running tutoring conversation is excellent 
 ├── LEARNING_ROADMAP.md
 ├── LEARNING_STATE.md
 ├── MSC_SYLLABUS_MAP.md
-├── exercises/
-│   ├── lesson01_...
-│   ├── lesson02_...
-│   └── ...
-├── tests/
-│   ├── test_lesson01_...
-│   ├── test_lesson02_...
-│   └── ...
+├── foundations/
+│   ├── python/        (lessons 01-07)
+│   ├── dsa/            (lessons 08-09)
+│   ├── numpy/          (lessons 10-11, 15)
+│   ├── pandas/         (lessons 18-20)
+│   └── retrieval/      (lessons 13, 17)
+├── machine_learning/
+│   ├── fundamentals/   (lessons 12, 14, 16)
+│   ├── classification/logistic_regression/ (lessons 21-22)
+│   └── regression/     (lesson 23)
+├── classical_ai/
+│   └── search/         (lessons 24-26)
+├── deep_learning/
+│   ├── tensor_operations/     (lesson 27)
+│   ├── autograd/               (lesson 28)
+│   ├── pytorch_fundamentals/   (lesson 29)
+│   └── mlp/                    (lessons 30-31)
 └── lesson_logs/
     ├── lesson30_binary_classification.md
     └── ...
 ```
 
-### `exercises/`
+Each topic directory holds a lesson's exercise and its test side by side (`lessonNN_topic.py` + `test_lessonNN_topic.py`), so a topic folder is self-contained. `STRUCTURE_PROPOSAL.md` records the design rules behind this layout.
 
-The implementation record. These files show what I have actually written and practised.
+### Topic directories (`foundations/`, `machine_learning/`, `classical_ai/`, `deep_learning/`)
+
+The implementation record, organised by knowledge domain rather than chronology. Each lesson's exercise module and its test module live together in the same topic folder.
 
 Examples include Python fundamentals, DSA patterns, NumPy/Pandas, sklearn pipelines, BFS/DFS/A*, autograd, PyTorch training loops and neural networks.
 
 An exercise proves that a topic was implemented at least once. It does **not by itself prove cold-recall mastery**.
-
-### `tests/`
-
-The executable learning scaffold.
 
 Tests provide a concrete definition of whether an implementation behaves as expected. They are particularly useful while learning because they answer the question: **"How do I know what I wrote actually works?"**
 

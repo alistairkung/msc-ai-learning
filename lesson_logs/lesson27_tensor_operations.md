@@ -8,7 +8,7 @@ This lesson refreshed and extended multidimensional NumPy shape reasoning immedi
 
 ## What was implemented
 
-Source: `exercises/lesson_27_tensor_operations.py` + `tests/test_lesson27_tensor_operations.py`.
+Source: `deep_learning/tensor_operations/lesson27_tensor_operations.py` + `deep_learning/tensor_operations/test_lesson27_tensor_operations.py`.
 
 Exercises covered:
 - batch mean via `X.mean(axis=0)`;

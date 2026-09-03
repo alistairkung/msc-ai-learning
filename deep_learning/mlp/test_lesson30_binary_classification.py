@@ -1,6 +1,6 @@
 import torch
 
-from exercises.lesson30_binary_classification import (
+from lesson30_binary_classification import (
     classification_accuracy,
     make_classifier,
     make_dataloader,

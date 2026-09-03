@@ -1,4 +1,4 @@
-from exercises.lesson05_comprehensions import (
+from lesson05_comprehensions import (
     course_names,
     even_numbers,
     grade_lookup,

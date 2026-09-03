@@ -1,6 +1,6 @@
 import numpy as np
 
-from exercises.lesson15_numpy_challenge import (
+from lesson15_numpy_challenge import (
     accuracy,
     best_class,
     center_columns,

@@ -175,7 +175,7 @@ Repo implementation currently contains:
 - test-set discipline established conceptually.
 
 ### Immediate unfinished item
-The known red classifier test is now source-level diagnosed: `tests/test_lesson31_real_data.py` imports **Lesson 30's** `make_classifier`, whose first layer expects 10 features, while the test passes a `(32,30)` input. Lesson 31 itself defines the intended 30-input classifier. Leave the import correction for the learner to perform in the next interactive session; then complete/verify the end-to-end training/validation/test run and mark Lesson 31 complete.
+The known red classifier test is now fixed: `deep_learning/mlp/test_lesson31_real_data.py` was importing **Lesson 30's** `make_classifier`, whose first layer expects 10 features, while the test passes a `(32,30)` input. It now imports Lesson 31's own intended 30-input classifier and the full suite passes. Complete/verify the end-to-end training/validation/test run next, then mark Lesson 31 complete.
 
 ### After Lesson 31
 - convert the workflow to **NN regression / housing-price prediction** before AI in Practice Week 5;
@@ -247,7 +247,7 @@ Choose the next study topic by asking, in order:
 - **BFS / DFS / A\*** — **implemented in lessons 24–26**, deliberately parked; reactivate for Fundamentals Week 2. Add UCS + trade-off/heuristic theory rather than rewriting from scratch.
 - **Logic/reasoning** — Week 1 Fundamentals; not yet properly studied.
 - **Decision trees / random forests** — Week 3 Fundamentals; not present in repo yet.
-- **Real-data PyTorch workflow** — **active in Lesson 31, not complete**; fix known test import interactively + run end-to-end training/evaluation before closing.
+- **Real-data PyTorch workflow** — **active in Lesson 31, not complete**; classifier import bug is fixed, still need to run end-to-end training/evaluation before closing.
 - **NN regression / housing-price workflow** — needed before AI in Practice Week 5.
 - **CNN/RNN preview** — needed before AI in Practice Week 4.
 - **Probability/statistics refresh** — mandatory parallel Term-1 lane for ML Theory Jan 11.

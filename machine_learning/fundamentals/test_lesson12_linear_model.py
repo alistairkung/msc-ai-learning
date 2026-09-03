@@ -1,6 +1,6 @@
 import numpy as np
 
-from exercises.lesson12_linear_model import (
+from lesson12_linear_model import (
     linear_layer,
     mean_squared_error,
     model_loss,

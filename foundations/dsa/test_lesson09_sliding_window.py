@@ -1,4 +1,4 @@
-from exercises.lesson09_sliding_window import (
+from lesson09_sliding_window import (
     longest_sum_at_most,
     longest_unique_substring,
     max_average_of_k,

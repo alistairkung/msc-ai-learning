@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from exercises.lesson18_pandas_basics import (
+from lesson18_pandas_basics import (
     add_passed_column,
     add_teacher_information,
     add_teacher_information_keep_all,

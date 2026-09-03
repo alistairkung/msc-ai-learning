@@ -6,7 +6,7 @@ _Status: reconstructed retrospectively from repo + recoverable chat history_
 
 After a long NumPy/ML block, Lesson 18 introduced pandas as the table-oriented layer for real datasets. The lesson was broad: selection, filtering, `.loc`/`.iloc`, derived columns, missing data, sorting, groupby/aggregation and joins.
 
-Source: `exercises/lesson18_pandas_basics.py` + `tests/test_lesson18_pandas_basics.py`.
+Source: `foundations/pandas/lesson18_pandas_basics.py` + `foundations/pandas/test_lesson18_pandas_basics.py`.
 
 ## What was implemented
 

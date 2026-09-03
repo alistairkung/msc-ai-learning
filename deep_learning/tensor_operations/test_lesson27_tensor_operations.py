@@ -1,6 +1,6 @@
 import numpy as np
 
-from exercises.lesson_27_tensor_operations import (
+from lesson27_tensor_operations import (
     batch_mean,
     center_features,
     flatten_samples,

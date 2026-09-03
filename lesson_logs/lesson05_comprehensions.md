@@ -8,7 +8,7 @@ This lesson shifted from explicit loops toward concise Python collection transfo
 
 ## What was implemented
 
-Source: `exercises/lesson05_comprehensions.py` + `tests/test_lesson05_comprehensions.py`.
+Source: `foundations/python/lesson05_comprehensions.py` + `foundations/python/test_lesson05_comprehensions.py`.
 
 Exercises covered:
 - list mapping: square each number;

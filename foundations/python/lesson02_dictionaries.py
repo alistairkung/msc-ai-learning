@@ -55,8 +55,10 @@ def merge_settings(defaults, overrides):
 def invert_dictionary(dictionary):
     new_dict = {}
 
-    for key, value in dictionary:
-        new_dict[dictionary.get(key)] = key
+    for key, value in dictionary.items():
+        if value in new_dict:
+            raise ValueError(f"Duplicate value {value!r} for key {key!r}")
+        new_dict[value] = key
 
     return new_dict
 

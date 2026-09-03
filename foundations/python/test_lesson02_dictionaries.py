@@ -1,6 +1,6 @@
 import pytest
 
-from exercises.lesson02_dictionaries import (
+from lesson02_dictionaries import (
     add_grade,
     average_grade,
     count_words,

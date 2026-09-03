@@ -1,6 +1,6 @@
 import numpy as np
 
-from exercises.lesson11_broadcasting_numpy import center_features, standardise_features
+from lesson11_broadcasting_numpy import center_features, standardise_features
 
 
 def test_center_features():

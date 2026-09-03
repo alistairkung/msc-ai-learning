@@ -1,6 +1,6 @@
 import torch
 
-from exercises.lesson29_torch_linear import train_linear_model_with_sgd
+from lesson29_torch_linear import train_linear_model_with_sgd
 
 
 def test_train_linear_model_with_sgd():

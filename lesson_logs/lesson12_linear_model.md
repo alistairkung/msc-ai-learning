@@ -6,7 +6,7 @@ _Status: reconstructed retrospectively from repo + recoverable chat history_
 
 This lesson connected NumPy matrix operations to ML mechanics. Instead of treating `@` as abstract matrix multiplication, it was used to build predictions, losses, multi-output linear layers and class selection.
 
-Source: `exercises/lesson12_linear_model.py` + `tests/test_lesson12_linear_model.py`.
+Source: `machine_learning/fundamentals/lesson12_linear_model.py` + `machine_learning/fundamentals/test_lesson12_linear_model.py`.
 
 ## What was implemented
 

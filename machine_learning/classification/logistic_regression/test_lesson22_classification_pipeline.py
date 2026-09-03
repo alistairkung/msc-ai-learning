@@ -1,6 +1,6 @@
 import pandas as pd
 
-from exercises.lesson22_classification_pipeline import (
+from lesson22_classification_pipeline import (
     predict_with_threshold,
     run_classification_pipeline,
 )

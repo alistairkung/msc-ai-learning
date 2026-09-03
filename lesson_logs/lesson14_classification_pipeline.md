@@ -6,7 +6,7 @@ _Status: reconstructed retrospectively from repo + recoverable chat history_
 
 Lesson 12 introduced linear scores and `argmax`; Lesson 14 turned those pieces into a small **multiclass classification pipeline**: compute class scores, choose the best class, compare with labels, calculate accuracy.
 
-Source: `exercises/lesson14_classification_pipeline.py` + `tests/test_lesson14_classification_pipeline.py`.
+Source: `machine_learning/fundamentals/lesson14_classification_pipeline.py` + `machine_learning/fundamentals/test_lesson14_classification_pipeline.py`.
 
 ## What was implemented
 

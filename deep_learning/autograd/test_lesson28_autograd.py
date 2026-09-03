@@ -1,6 +1,6 @@
 import torch
 
-from exercises.lesson28_autograd import (
+from lesson28_autograd import (
     gradient_descent_step,
     linear_model_gradients,
     scalar_gradient,

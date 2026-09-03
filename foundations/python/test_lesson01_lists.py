@@ -1,4 +1,4 @@
-from exercises.lesson01_lists import (
+from lesson01_lists import (
     add_city,
     alphabetical_cities,
     contains_city,

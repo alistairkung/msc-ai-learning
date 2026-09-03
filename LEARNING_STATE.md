@@ -32,7 +32,7 @@ _Last updated: 2026-09-03_
 - Autograd/manual GD (28), standard linear training loop (29), synthetic binary MLP (30) implemented.
 
 ### Lesson 31 — real-data ML workflow (IN PROGRESS)
-- Repo now contains `exercises/lesson31_real_data.py`, `tests/test_lesson31_real_data.py`, and `lesson_logs/lesson31_real_data_workflow.md`.
+- Repo now contains `deep_learning/mlp/lesson31_real_data.py`, `deep_learning/mlp/test_lesson31_real_data.py`, and `lesson_logs/lesson31_real_data_workflow.md`.
 - Implemented in the exercise:
   - `load_data()` using sklearn breast-cancer data; X `(569,30)`, y `(569,)`.
   - stratified 60/20/20 train/validation/test split; shapes train 341, val 114, test 114.
@@ -43,8 +43,7 @@ _Last updated: 2026-09-03_
   - epoch/batch training loop with SGD + `BCEWithLogitsLoss`, average train loss per epoch, validation loss under `torch.no_grad()`.
   - binary accuracy: logits → sigmoid → threshold → compare to targets.
 - Existing tests currently cover data loading/splitting/scaling/tensor conversion plus a classifier-shape test.
-- **Exact known blocker from repo audit:** `tests/test_lesson31_real_data.py` imports `make_classifier` from `exercises.lesson30_binary_classification`, not Lesson 31. Lesson 30's classifier expects **10 input features**, while the Lesson 31 test feeds `(32,30)`. Lesson 31 itself already defines the intended 30-input classifier.
-- Leave that import fix for the next interactive session so the learner performs the debugging step rather than silently changing their exercise behind the scenes.
+- **Resolved:** `test_lesson31_real_data.py` was importing `make_classifier` from Lesson 30 (10-input classifier) instead of Lesson 31's own 30-input classifier, causing `test_make_classifier` to fail with a shape mismatch on `(32, 30)` input. Fixed by importing `make_classifier` from `lesson31_real_data` directly; all tests now pass.
 - End-to-end training/validation/test evaluation has **not yet been completed**, so Lesson 31 remains active.
 
 ## Fragile under cold recall
@@ -59,7 +58,7 @@ _Last updated: 2026-09-03_
 
 ## Active highest-value sequence
 
-1. **Finish Lesson 31 real-data ML workflow** — identify/fix the known wrong `make_classifier` import interactively, extend/confirm training/evaluation tests, run train/validation/test evaluation and inspect generalisation.
+1. **Finish Lesson 31 real-data ML workflow** — the `make_classifier` import bug is now fixed; extend/confirm training/evaluation tests, run train/validation/test evaluation and inspect generalisation.
 2. **Search reactivation** — BFS/DFS/A* cold recall; compare them; add UCS/heuristic theory and light logic preview.
 3. **Fundamentals Week-3 buffer** — linear/logistic retrieval, then decision trees/random forests.
 
@@ -94,7 +93,7 @@ _Last updated: 2026-09-03_
 
 ## Next session target
 
-> Resume Lesson 31 at the failing classifier test. Ask the learner to inspect the import: the test currently imports Lesson 30's 10-input `make_classifier` while feeding 30-feature data. Fix that first, re-run the test, then finish the end-to-end training/evaluation workflow.
+> Lesson 31's `make_classifier` import bug is fixed and the full suite is green. Resume by finishing the end-to-end training/evaluation workflow (run the training loop across the real train/val split and inspect held-out test accuracy).
 
 After Lesson 31, **do not sacrifice the search reactivation session** before/around classes.
 

@@ -1,4 +1,4 @@
-from exercises.lesson24_bfs import bfs_path
+from lesson24_bfs import bfs_path
 
 
 def test_bfs_path():

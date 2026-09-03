@@ -1,4 +1,4 @@
-from exercises.lesson08_dsa_patterns import (
+from lesson08_dsa_patterns import (
     are_anagrams,
     contains_duplicate,
     first_duplicate,

@@ -8,7 +8,7 @@ This lesson marked the shift from “learn Python syntax” to “use Python to 
 
 ## What was implemented
 
-Source: `exercises/lesson08_dsa_patterns.py` + `tests/test_lesson08_dsa_patterns.py`.
+Source: `foundations/dsa/lesson08_dsa_patterns.py` + `foundations/dsa/test_lesson08_dsa_patterns.py`.
 
 ### Hash/set lookup patterns
 

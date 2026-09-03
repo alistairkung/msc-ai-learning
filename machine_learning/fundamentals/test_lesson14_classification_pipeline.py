@@ -1,6 +1,6 @@
 import numpy as np
 
-from exercises.lesson14_classification_pipeline import (
+from lesson14_classification_pipeline import (
     class_scores,
     classification_accuracy,
     predict_classes,

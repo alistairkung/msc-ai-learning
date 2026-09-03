@@ -8,7 +8,7 @@ Sets introduced uniqueness and fast membership checks, then connected naturally 
 
 ## What was implemented
 
-Source: `exercises/lesson03_sets.py` + `tests/test_lesson03_sets.py`.
+Source: `foundations/python/lesson03_sets.py` + `foundations/python/test_lesson03_sets.py`.
 
 Exercises covered:
 - set creation and `.add()`;

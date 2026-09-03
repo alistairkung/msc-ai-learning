@@ -1,4 +1,4 @@
-from exercises.lesson06_key_functions import (
+from lesson06_key_functions import (
     alphabetical_students,
     highest_grade,
     longest_name,

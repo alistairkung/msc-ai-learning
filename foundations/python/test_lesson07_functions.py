@@ -1,4 +1,4 @@
-from exercises.lesson07_functions import (
+from lesson07_functions import (
     build_profile,
     describe_person,
     greet,

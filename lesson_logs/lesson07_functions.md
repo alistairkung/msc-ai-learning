@@ -8,7 +8,7 @@ This lesson rounded out the initial Python-fundamentals block by making function
 
 ## What was implemented
 
-Source: `exercises/lesson07_functions.py` + `tests/test_lesson07_functions.py`.
+Source: `foundations/python/lesson07_functions.py` + `foundations/python/test_lesson07_functions.py`.
 
 Exercises covered:
 - default parameter values;

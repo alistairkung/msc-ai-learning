@@ -8,7 +8,7 @@ This was part of the initial Python conversion phase: the goal was not to teach 
 
 ## What was implemented
 
-Source: `exercises/lesson01_lists.py` + `tests/test_lesson01_lists.py`.
+Source: `foundations/python/lesson01_lists.py` + `foundations/python/test_lesson01_lists.py`.
 
 Functions practised:
 - create a list of cities;

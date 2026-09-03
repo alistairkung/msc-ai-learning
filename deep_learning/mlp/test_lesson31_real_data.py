@@ -1,8 +1,13 @@
 import numpy as np
 import torch
 
-from exercises.lesson30_binary_classification import make_classifier
-from exercises.lesson31_real_data import load_data, scale_data, split_data, to_tensors
+from lesson31_real_data import (
+    load_data,
+    make_classifier,
+    scale_data,
+    split_data,
+    to_tensors,
+)
 
 
 def test_make_classifier():

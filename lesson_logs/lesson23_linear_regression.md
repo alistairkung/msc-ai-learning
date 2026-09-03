@@ -8,7 +8,7 @@ This lesson transferred the standard sklearn workflow from classification to reg
 
 ## What was implemented
 
-Source: `exercises/lesson23_linear_regression.py` + `tests/test_lesson23_linear_regression.py`.
+Source: `machine_learning/regression/lesson23_linear_regression.py` + `machine_learning/regression/test_lesson23_linear_regression.py`.
 
 Synthetic housing data used:
 - features: `size`, `bedrooms`, `age`;

@@ -1,4 +1,4 @@
-from exercises.lesson26_astar import astar_path
+from lesson26_astar import astar_path
 
 
 def test_astar_finds_lowest_cost_path():

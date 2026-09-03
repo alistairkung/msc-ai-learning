@@ -1,6 +1,6 @@
 import numpy as np
 
-from exercises.lesson17_retrieval import (
+from lesson17_retrieval import (
     max_sum_of_k,
     model_loss,
     predict_classes,

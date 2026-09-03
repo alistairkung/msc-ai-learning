@@ -12,7 +12,7 @@ It introduced both:
 
 ## What was implemented
 
-Source: `exercises/lesson09_sliding_window.py` + `tests/test_lesson09_sliding_window.py`.
+Source: `foundations/dsa/lesson09_sliding_window.py` + `foundations/dsa/test_lesson09_sliding_window.py`.
 
 ### Fixed-size window
 

@@ -1,4 +1,4 @@
-from exercises.lesson25_dfs import dfs_path
+from lesson25_dfs import dfs_path
 
 
 def test_dfs_path():

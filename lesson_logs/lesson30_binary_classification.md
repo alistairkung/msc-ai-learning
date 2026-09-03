@@ -1,8 +1,8 @@
 # Lesson 30 — Binary Classification with PyTorch
 
 _Date logged: 2026-09-03_
-_Source exercise: `exercises/lesson30_binary_classification.py`_
-_Source tests: `tests/test_lesson30_binary_classification.py`_
+_Source exercise: `deep_learning/mlp/lesson30_binary_classification.py`_
+_Source tests: `deep_learning/mlp/test_lesson30_binary_classification.py`_
 
 ## Purpose of this log
 

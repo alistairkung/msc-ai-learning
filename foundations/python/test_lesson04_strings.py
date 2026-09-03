@@ -1,4 +1,4 @@
-from exercises.lesson04_strings import (
+from lesson04_strings import (
     acronym,
     count_words,
     extract_domain,

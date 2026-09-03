@@ -1,6 +1,6 @@
 import numpy as np
 
-from exercises.lesson10_numpy import (
+from lesson10_numpy import (
     add_arrays,
     add_ten,
     array_shape,

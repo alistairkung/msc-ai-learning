@@ -1,6 +1,6 @@
 import numpy as np
 
-from exercises.lesson13_cold_retrieval import (
+from lesson13_cold_retrieval import (
     add_row_offsets,
     column_means,
     first_duplicate,

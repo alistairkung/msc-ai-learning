@@ -1,6 +1,6 @@
 import numpy as np
 
-from exercises.refresher_np import (
+from refresher_np import (
     add_row_offsets,
     center_features,
     column_means,

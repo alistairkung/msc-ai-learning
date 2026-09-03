@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from exercises.lesson21_sklearn_intro import (
+from lesson21_sklearn_intro import (
     evaluate_accuracy,
     evaluate_classifier,
     get_confusion_matrix,

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from exercises.lesson19_pandas_challenge import (
+from lesson19_pandas_challenge import (
     clean_students,
     course_performance,
     top_students,

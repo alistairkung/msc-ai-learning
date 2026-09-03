@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from exercises.lesson20_np_pandas_refresher import (
+from lesson20_np_pandas_refresher import (
     add_weighted_score,
     course_summary,
     fill_missing_grades,

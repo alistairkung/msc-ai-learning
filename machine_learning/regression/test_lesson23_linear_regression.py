@@ -1,6 +1,6 @@
 import pandas as pd
 
-from exercises.lesson23_linear_regression import (
+from lesson23_linear_regression import (
     run_regression_pipeline,
 )
 
