@@ -1,6 +1,6 @@
 meta:
   title: MSc AI Learning Dashboard
-  last_updated: "2026-09-03"
+  last_updated: "2026-09-04"
   current_lesson: 31
   strategy: Stay roughly 1–2 syllabus weeks ahead while keeping a small January maths lane alive.
 
@@ -28,7 +28,7 @@ focus:
     detail: Refresh linear/logistic regression, then learn decision trees and random forests.
   - stage: Longer-term
     title: Protect the January maths lane
-    detail: Probability/statistics is the main prerequisite gap before Machine Learning Theory starts in January.
+    detail: Probability/statistics is the main prerequisite gap; periodically retrieve the established calculus foundation rather than relearning it.
 
 domains:
   Foundations:
@@ -69,9 +69,12 @@ domains:
       calculus:
         label: Calculus and gradients
         status: established
-        retrieval: current
-        lessons: ["28"]
-        note: Derivatives, partials, chain rule, gradients and manual backprop are understood.
+        retrieval: due
+        lessons: ["Historical calculus", "28"]
+        note: Historical chat/pen-and-paper work built slope/local-rate intuition, limits/difference quotient, power/product rules, partial derivatives, gradients, gradient descent, chain rule and manual backprop; Lesson 28 carries this into executable PyTorch autograd.
+        gaps:
+          - Cold-retrieve derivative direction, partials, gradient meaning and chain-rule mechanics periodically.
+          - Add logs/exponentials next; defer vector/Jacobian calculus until ML work needs it.
       scientific_python:
         label: SciPy, matplotlib and modality representations
         status: planned
@@ -187,7 +190,7 @@ domains:
         status: established
         retrieval: current
         lessons: ["28"]
-        note: requires_grad, backward, grad clearing and parameter updates have been implemented.
+        note: Executable continuation of the historical calculus foundation; requires_grad, backward, grad clearing and parameter updates have been implemented.
       pytorch_training:
         label: PyTorch training loop
         status: established
@@ -282,6 +285,9 @@ courses:
         topics: [pytorch_training]
 
 timeline:
+  - lessons: "Historical"
+    label: Calculus foundations
+    detail: Chat/pen-and-paper sequence from slope and derivatives through gradients, chain rule and manual backprop; later made executable in Lesson 28.
   - lessons: "01–07"
     label: Python fluency
     detail: Core language conversion for ML work.
@@ -302,7 +308,7 @@ timeline:
     detail: BFS, DFS and A* implementations.
   - lessons: "27–29"
     label: Tensors, autograd and PyTorch
-    detail: Tensor semantics, manual gradients and the standard training loop.
+    detail: Tensor semantics, manual gradients and the standard training loop; Lesson 28 operationalises the earlier calculus foundation.
   - lessons: "30"
     label: Neural binary classification
     detail: MLP, BCEWithLogitsLoss, mini-batches and accuracy.
