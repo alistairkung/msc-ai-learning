@@ -1,10 +1,20 @@
 # Lesson Log Index
 
-_Last audited: 2026-09-03_
+_Last audited: 2026-09-04_
 
 This directory is the durable conceptual/retrieval record for the learning sequence. Exercise/test files are the implementation evidence; these logs explain what should be understood and how to cold-retrieve it later.
 
-## Coverage
+## Historical pre-repo learning
+
+Some important learning happened interactively in chat before the numbered repository lesson workflow existed. These records are kept separately rather than being assigned invented lesson numbers.
+
+| Record | Topic | Log status |
+|---|---|---|
+| Historical calculus foundations | Slope/local rate → limits/difference quotient → power/product rules → partial derivatives → gradients → gradient descent → chain rule/manual backprop | Reconstructed from recoverable tutoring context; bridges directly into Lesson 28 |
+
+See `historical_calculus_foundations.md` and `foundations/calculus/README.md`.
+
+## Numbered lesson coverage
 
 All numbered lessons **01–31 now have a lesson log**.
 
@@ -42,11 +52,12 @@ All numbered lessons **01–31 now have a lesson log**.
 | 30 | PyTorch binary classification | Original detailed session log |
 | 31 | Real-data classification workflow | Original detailed session log — **in progress** |
 
-“Reconstructed” means the exercise/test pair is treated as the factual spine and recoverable tutoring context is added conservatively. These are not invented transcripts.
+“Reconstructed” means the available implementation evidence and recoverable tutoring context are used conservatively. These are not invented transcripts.
 
 ## Useful groupings
 
 ```text
+Historical calculus  slope → derivative → differentiation rules → gradients → chain rule/backprop
 01–07  Python language fluency
 08–09  DSA patterns
 10–17  NumPy / shape / manual ML + retrieval
@@ -66,5 +77,7 @@ For “cold retrieve Lesson N”:
 4. change numbers/context instead of repeating tests verbatim;
 5. probe known fragile points;
 6. stop once retention is clear.
+
+For “cold retrieve calculus foundations”, use `historical_calculus_foundations.md` in the same way. There is no historical exercise/test pair to inspect because that work was primarily conversational and pen-and-paper.
 
 For current study direction, do **not** infer priority from this index. Read `LEARNING_STATE.md` first, then `MSC_SYLLABUS_MAP.md`, with `LEARNING_ROADMAP.md` for longer-term choices.
