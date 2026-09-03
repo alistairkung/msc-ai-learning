@@ -8,7 +8,7 @@ Lesson 25 intentionally kept most of the BFS machinery the same so the effect of
 
 ## What was implemented
 
-Source: `exercises/lesson25_dfs.py` + `tests/test_lesson25_dfs.py`.
+Source: `classical_ai/search/lesson25_dfs.py` + `classical_ai/search/test_lesson25_dfs.py`.
 
 The implementation retains:
 - adjacency-list graph;

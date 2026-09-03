@@ -8,7 +8,7 @@ This was a major bridge lesson: calculus and manual backprop stopped being separ
 
 ## What was implemented
 
-Source: `exercises/lesson28_autograd.py` + `tests/test_lesson28_autograd.py`.
+Source: `deep_learning/autograd/lesson28_autograd.py` + `deep_learning/autograd/test_lesson28_autograd.py`.
 
 ### Scalar autograd
 

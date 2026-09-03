@@ -16,7 +16,7 @@ raw features
 
 This is an important stepping stone toward later sklearn and PyTorch workflows because it turns isolated operations into an end-to-end flow.
 
-Source: `exercises/lesson16_ml_pipeline.py` + `tests/test_lesson16_ml_pipeline.py`.
+Source: `machine_learning/fundamentals/lesson16_ml_pipeline.py` + `machine_learning/fundamentals/test_lesson16_ml_pipeline.py`.
 
 ## What was implemented
 

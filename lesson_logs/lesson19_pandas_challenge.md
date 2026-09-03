@@ -6,7 +6,7 @@ _Status: reconstructed retrospectively from repo + recoverable chat history_
 
 Lesson 19 consolidated Lesson 18 into three slightly larger data-manipulation tasks. Instead of one pandas operation per helper, each function combines several steps into a small workflow.
 
-Source: `exercises/lesson19_pandas_challenge.py` + `tests/test_lesson19_pandas_challenge.py`.
+Source: `foundations/pandas/lesson19_pandas_challenge.py` + `foundations/pandas/test_lesson19_pandas_challenge.py`.
 
 ## What was implemented
 

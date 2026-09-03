@@ -8,7 +8,7 @@ This lesson was the first move from hand-built NumPy classification mechanics in
 
 ## What was implemented
 
-Source: `exercises/lesson21_sklearn_intro.py` + `tests/test_lesson21_sklearn_intro.py`.
+Source: `machine_learning/classification/logistic_regression/lesson21_sklearn_intro.py` + `machine_learning/classification/logistic_regression/test_lesson21_sklearn_intro.py`.
 
 The lesson used `LogisticRegression` and practised:
 - selecting feature columns and a binary target from a DataFrame;

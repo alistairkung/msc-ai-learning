@@ -8,7 +8,7 @@ This lesson made Python's `key=` pattern explicit so sorting/min/max over struct
 
 ## What was implemented
 
-Source: `exercises/lesson06_key_functions.py` + `tests/test_lesson06_key_functions.py`.
+Source: `foundations/python/lesson06_key_functions.py` + `foundations/python/test_lesson06_key_functions.py`.
 
 Exercises included:
 - `max(words, key=len)` / `min(words, key=len)`;

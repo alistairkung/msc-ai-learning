@@ -12,7 +12,7 @@ Lesson 17 was another explicit retrieval checkpoint. Compared with Lesson 13, it
 - multiclass linear prediction;
 - linear-regression MSE loss.
 
-Source: `exercises/lesson17_retrieval.py` + `tests/test_lesson17_retrieval.py`.
+Source: `foundations/retrieval/lesson17_retrieval.py` + `foundations/retrieval/test_lesson17_retrieval.py`.
 
 ## What was retrieved
 

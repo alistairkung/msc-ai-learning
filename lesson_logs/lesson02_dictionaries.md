@@ -8,7 +8,7 @@ This lesson moved from ordered sequences to key/value lookup, mutation, aggregat
 
 ## What was implemented
 
-Source: `exercises/lesson02_dictionaries.py` + `tests/test_lesson02_dictionaries.py`.
+Source: `foundations/python/lesson02_dictionaries.py` + `foundations/python/test_lesson02_dictionaries.py`.
 
 Exercises covered:
 - constructing dictionaries;

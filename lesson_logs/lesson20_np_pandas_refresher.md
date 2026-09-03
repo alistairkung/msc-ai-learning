@@ -14,7 +14,7 @@ pandas data wrangling
 
 The purpose was retrieval and integration before moving into sklearn/classical ML lessons.
 
-Source: `exercises/lesson20_np_pandas_refresher.py` + `tests/test_lesson20_np_pandas_refresher.py`.
+Source: `foundations/pandas/lesson20_np_pandas_refresher.py` + `foundations/pandas/test_lesson20_np_pandas_refresher.py`.
 
 ## What was retrieved
 

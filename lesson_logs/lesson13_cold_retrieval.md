@@ -6,7 +6,7 @@ _Status: reconstructed retrospectively from repo + recoverable chat history_
 
 Lesson 13 was explicitly a **cold-retrieval lesson**, not a new-topic lesson. That matters for future tutors: the point was to see whether earlier patterns could be reconstructed without simply following the previous exercise file.
 
-Source: `exercises/lesson13_cold_retrieval.py` + `tests/test_lesson13_cold_retrieval.py`.
+Source: `foundations/retrieval/lesson13_cold_retrieval.py` + `foundations/retrieval/test_lesson13_cold_retrieval.py`.
 
 ## What was retrieved
 

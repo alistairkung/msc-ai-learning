@@ -8,7 +8,7 @@ Lesson 26 moved from uninformed graph traversal into cost-aware informed search.
 
 ## What was implemented
 
-Source: `exercises/lesson26_astar.py` + `tests/test_lesson26_astar.py`.
+Source: `classical_ai/search/lesson26_astar.py` + `classical_ai/search/test_lesson26_astar.py`.
 
 Implementation components:
 - weighted graph: neighbours stored as `(state, edge_cost)`;

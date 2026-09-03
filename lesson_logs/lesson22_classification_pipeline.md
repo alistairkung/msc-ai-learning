@@ -8,7 +8,7 @@ Lesson 22 consolidated the sklearn classification workflow into a reusable end-t
 
 ## What was implemented
 
-Source: `exercises/lesson22_classification_pipeline.py` + `tests/test_lesson22_classification_pipeline.py`.
+Source: `machine_learning/classification/logistic_regression/lesson22_classification_pipeline.py` + `machine_learning/classification/logistic_regression/test_lesson22_classification_pipeline.py`.
 
 The pipeline:
 

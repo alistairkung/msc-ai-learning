@@ -6,7 +6,7 @@ _Status: reconstructed retrospectively from repo + recoverable chat history_
 
 Lesson 15 was a consolidation/challenge lesson. Rather than introducing one new concept, it combined the NumPy/ML ideas from Lessons 10–14 and added a few practical array operations: feature concatenation, clipping and confidence-margin calculation.
 
-Source: `exercises/lesson15_numpy_challenge.py` + `tests/test_lesson15_numpy_challenge.py`.
+Source: `foundations/numpy/lesson15_numpy_challenge.py` + `foundations/numpy/test_lesson15_numpy_challenge.py`.
 
 ## What was implemented
 

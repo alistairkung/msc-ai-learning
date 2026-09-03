@@ -8,7 +8,7 @@ This began the classical-search block for Fundamentals in AI. It reused earlier 
 
 ## What was implemented
 
-Source: `exercises/lesson24_bfs.py` + `tests/test_lesson24_bfs.py`.
+Source: `classical_ai/search/lesson24_bfs.py` + `classical_ai/search/test_lesson24_bfs.py`.
 
 Implementation components:
 - graph represented as adjacency lists;

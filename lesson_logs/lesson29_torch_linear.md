@@ -8,7 +8,7 @@ Lesson 29 replaced Lesson 28's manually managed `W`, `b`, updates and gradient c
 
 ## What was implemented
 
-Source: `exercises/lesson29_torch_linear.py` + `tests/test_lesson29_torch_linear.py`.
+Source: `deep_learning/pytorch_fundamentals/lesson29_torch_linear.py` + `deep_learning/pytorch_fundamentals/test_lesson29_torch_linear.py`.
 
 Model/loss/optimiser:
 

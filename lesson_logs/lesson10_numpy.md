@@ -10,7 +10,7 @@ The repo shows that the actual sequence first built a firmer Python/DSA base, th
 
 ## What was implemented
 
-Source: `exercises/lesson10_numpy.py` + `tests/test_lesson10_numpy.py`.
+Source: `foundations/numpy/lesson10_numpy.py` + `foundations/numpy/test_lesson10_numpy.py`.
 
 ### Array metadata
 - `.shape`

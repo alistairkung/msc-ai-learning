@@ -8,7 +8,7 @@ Strings were used to practise Python slicing, built-in methods, normalisation, a
 
 ## What was implemented
 
-Source: `exercises/lesson04_strings.py` + `tests/test_lesson04_strings.py`.
+Source: `foundations/python/lesson04_strings.py` + `foundations/python/test_lesson04_strings.py`.
 
 Exercises included:
 - first/last character indexing;
