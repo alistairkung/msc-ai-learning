@@ -1,7 +1,7 @@
 # MSc Syllabus Preparation Map
 
 _Last reviewed: 2026-09-03_  
-_Readiness calibrated against the exercise repository on 2026-09-03_
+_Readiness calibrated against the exercise repository and Lesson 31 session on 2026-09-03_
 
 ## Use
 
@@ -22,11 +22,11 @@ Readiness key:
 |---|---|---|---|---|
 | W1 | Introduction, Logic, Reasoning and Learning | **Amber/Red** | General AI/ML vocabulary strong enough | Formal logic/reasoning vocabulary is new; preview propositions/rules/inference at a light level |
 | W2 | Uninformed search, informed search, searching with other agents | **Amber/Green** | Repo 24–26 implements BFS, DFS, A* | Reactivate from cold recall; add UCS; compare completeness/optimality/time/memory; heuristic admissibility/consistency; multi-agent search new |
-| W3 | Linear regression, logistic regression, decision trees, random forests | **Linear/logistic Green/Amber; trees Red** | Repo 21–23: sklearn logistic/linear pipelines + metrics; earlier manual linear models | Consolidate model maths; learn decision trees + random forests before W3 |
+| W3 | Linear regression, logistic regression, decision trees, random forests | **Linear/logistic Green/Amber; trees Red** | Repo 21–23 + Lessons 30–31 classification/evaluation work | Consolidate model maths; learn decision trees + random forests before W3 |
 | W4 | Bayesian networks, inference, sampling | **Red/Amber** | Prior probability study gives a hook | Probability/Bayes refresh; conditional independence; graph semantics; sampling intuition |
 | W5 | Hidden Markov Models, particle filtering | **Red** | Sequence/state intuition only | Conditional probability, Markov property, filtering and sampling foundations |
 | W6 | KNN, K-means, SVM, gradient boosting | **Red/Amber** | Distance/vector and classification workflow foundations | Fast conceptual + implementation survey; focus on model assumptions/trade-offs |
-| W7 | Neural networks | **Green/Amber** | Repo 27–30: tensor ops, autograd, SGD, MLP binary classifier | Real-data repetition; deeper architecture vocabulary |
+| W7 | Neural networks | **Green/Amber** | Repo 27–30 + Lesson 31 real-data workflow | Finish real-data end-to-end run; deeper architecture vocabulary |
 | W8 | Backpropagation and SGD | **Green/Amber** | Manual autograd/GD + standard PyTorch loops; chain rule/backprop derived by hand | Keep chain-rule notation warm; theory of convergence still later |
 | W9 | Computer vision | **Red/Amber** | Tensor/shape base | Image tensor semantics + CNN basics; AI in Practice should lead this |
 | W10 | NLP | **Red/Amber** | General software/LLM familiarity | Formal text representation/embedding/sequence-model basics |
@@ -47,12 +47,12 @@ Readiness key:
 
 | Week | MSc topic | Current readiness | Evidence / existing hook | Main gap before lecture |
 |---|---|---|---|---|
-| W1 | Intro + simple ML example | **Green** | Repo has sklearn classification/regression and PyTorch training pipelines | Do one genuine dataset end-to-end |
-| W2 | Vector, matrix, tensor ops; NumPy | **Green/Amber** | Repo 10–17 + 27 extensively practises shapes, axes, masks, broadcasting, standardisation, reshape/transpose | Keep PyTorch weight orientation/batch-shape retrieval active |
+| W1 | Intro + simple ML example | **Green/Amber** | sklearn classification/regression plus Lesson 31 real-data pipeline substantially built | Finish Lesson 31 end-to-end training/evaluation; current classifier test blocker unresolved |
+| W2 | Vector, matrix, tensor ops; NumPy | **Green/Amber** | Repo 10–17 + 27 plus Lesson 31 scaling/axis/tensor conversion | Keep PyTorch weight orientation and NumPy reduction-shape retrieval active |
 | W3 | 1D/2D signals; image/audio/text/video/sequential representation; SciPy, matplotlib, PyTorch | **Amber** | PyTorch/tensor base strong | SciPy/matplotlib + modality representations not yet systematic |
-| W4 | MLP, CNN, RNN | **MLP Green/Amber; CNN/RNN Red** | Repo 28–30 gives autograd, SGD, MLP classifier | CNN/RNN architecture intuition before W4; do not need mastery yet |
-| W5 | Housing-price prediction (Boston House Dataset) | **Amber/Green** | sklearn regression already done (repo 23); MLP/MSE mechanics known | Real-data preprocessing + NN regression + proper validation |
-| W6 | Data prep + data loading optimisation | **Amber/Green** | `TensorDataset`/`DataLoader`, mini-batches, shuffle already used in repo 30 | Workers/pinning/loading efficiency are new |
+| W4 | MLP, CNN, RNN | **MLP Green/Amber; CNN/RNN Red** | Repo 28–30 + Lesson 31 MLP workflow | CNN/RNN architecture intuition before W4; do not need mastery yet |
+| W5 | Housing-price prediction (Boston House Dataset) | **Amber/Green** | sklearn regression (23), MLP/MSE mechanics, Lesson 31 preprocessing/validation workflow | Finish classification workflow, then transfer same split/scaling/validation discipline to NN regression |
+| W6 | Data prep + data loading optimisation | **Amber/Green** | `TensorDataset`/`DataLoader`, mini-batches, shuffle retrieved again in Lesson 31 | Workers/pinning/loading efficiency are new |
 | W7 | Fashion-MNIST visual classification | **Red/Amber** | MLP + DataLoader base | CNN practical training before/around W7 |
 | W8 | Parallel / multi-GPU / distributed training | **Amber conceptually** | Strong distributed-systems/SWE background | PyTorch-specific parallel/distributed APIs |
 | W9 | IMDB sentiment analysis | **Red/Amber** | Classification pipeline base | Text preprocessing/embeddings/sequence model practice |
@@ -62,9 +62,22 @@ Readiness key:
 
 ### AI in Practice next priorities
 
-1. **Real dataset now**: split, scaling, training, validation, error inspection.
-2. **NN regression** before W5, building on repo 23 + 29–30.
+1. **Finish Lesson 31**: diagnose classifier test, run real-data training, inspect train/validation behaviour, then use held-out test once.
+2. **NN regression** before W5, transferring the same leakage-safe preprocessing and validation workflow.
 3. **CNN/RNN preview** before W4; deeper CNN before Fashion-MNIST.
+
+### Lesson 31 readiness gain
+
+New practical concepts now introduced and partly implemented:
+- 60/20/20 train/validation/test split with stratification;
+- train-only fitted `StandardScaler` and data-leakage reasoning;
+- validation/test transformed with frozen training statistics;
+- float32 tensor conversion and `(n,) -> (n,1)` target reshape;
+- DataLoader batch arithmetic including final partial batch;
+- one train-loss + one validation-loss value per epoch;
+- validation under `torch.no_grad()` without parameter updates;
+- overfitting recognised from falling train loss + rising validation loss;
+- held-out test set reserved for final evaluation.
 
 ---
 
@@ -78,7 +91,7 @@ This course explicitly assumes **linear algebra, probability and statistics**. I
 |---|---|---|---|---|
 | W1 | Probability + Linear Algebra tools | **Amber** | Probability/statistics not recently exercised; LA needs retrieval | Weekly probability/LA refresh; norms and notation |
 | W2 | MLE, exponential-family models | **Red/Amber** | Likelihood/log-likelihood/exponential-family form not yet systematic | Logs/exponentials, distributions, likelihood/MLE |
-| W3 | Empirical vs population risk; uniform convergence | **Red** | Current generalisation knowledge is practical, not formal | Translate train/val intuition into risk notation; concentration intuition |
+| W3 | Empirical vs population risk; uniform convergence | **Red/Amber** | Lesson 31 strengthens practical generalisation/train-val-test intuition, but formal risk notation remains new | Translate practical validation/generalisation intuition into empirical/population risk; concentration intuition |
 | W4 | VC dimension + generalisation bounds | **Red** | Capacity/proof/bounds are new | VC-dimension intuition + inequality/proof-reading practice |
 | W5 | GD + convergence analysis | **Mechanics Green; theory Amber/Red** | GD implemented and understood; convergence assumptions/derivations new | Convexity/smoothness/learning-rate effects; simple convergence derivations |
 | W6 | SGD, AdaGrad, Adam | **SGD Green/Amber; adaptive Red** | Mini-batch SGD known; adaptive algorithms/theory new | Compare update rules; learn Adam/AdaGrad later in Term 1 |
