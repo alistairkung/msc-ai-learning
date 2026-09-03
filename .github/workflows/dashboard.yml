@@ -1,0 +1,76 @@
+name: Learning dashboard
+
+on:
+  pull_request:
+    paths:
+      - "learning_progress.yaml"
+      - "dashboard/**"
+      - ".github/workflows/dashboard.yml"
+      - "requirements.txt"
+  push:
+    branches:
+      - main
+    paths:
+      - "learning_progress.yaml"
+      - "dashboard/**"
+      - ".github/workflows/dashboard.yml"
+      - "requirements.txt"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: learning-dashboard-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+
+      - name: Install dashboard dependency
+        run: python -m pip install "PyYAML>=6,<7"
+
+      - name: Build dashboard
+        run: python dashboard/build.py
+
+      - name: Upload pull-request preview artifact
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: learning-dashboard-preview
+          path: dashboard/site
+
+      - name: Configure GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+
+      - name: Upload GitHub Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard/site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
