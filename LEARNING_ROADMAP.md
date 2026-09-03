@@ -1,7 +1,7 @@
 # MSc AI Learning Roadmap
 
-_Last reviewed: 2026-09-03_  
-_Verified against `alistairkung/msc-ai-learning` (main) on 2026-09-03_
+_Last reviewed: 2026-09-04_  
+_Verified against `alistairkung/msc-ai-learning` learning record on 2026-09-04_
 
 ## Purpose
 
@@ -27,16 +27,18 @@ The aim is not to pre-learn the whole MSc. The aim is to:
 - `pytest` remains a useful scaffold because it gives a concrete definition of “this implementation works”.
 - Library API recall is secondary to conceptual recall. PyTorch syntax may be looked up; the computation underneath should be explainable.
 - Shapes should always be interpreted semantically: e.g. `(32, 10)` = **32 samples represented by 10 features**.
+- Historical calculus work predates the numbered repo workflow and is preserved separately in `lesson_logs/historical_calculus_foundations.md`.
 - Lesson-log backfill is complete through Lesson 31; `lesson_logs/INDEX.md` is the coverage index.
 
 ---
 
-# Verified exercise history
+# Verified learning history
 
-The repository gives us a reliable spine for what has actually been implemented. Lesson 31 is a **committed implementation in progress**, not yet a completed end-to-end result.
+The numbered repository lessons give us a reliable spine for what has actually been implemented. Important pre-repo learning is recorded separately rather than assigned invented lesson numbers. Lesson 31 is a **committed implementation in progress**, not yet a completed end-to-end result.
 
-| Repo lessons | What was practised | Status |
+| Learning record | What was practised | Status |
 |---|---|---|
+| Historical calculus foundations | Slope/local rate, intuitive limits and difference quotient, power/product rules, partial derivatives, gradients, gradient descent, chain rule and manual backprop | **Established conceptually; retrieval-worthy; bridges into Lesson 28** |
 | 01–07 | Lists, dictionaries, sets, strings, comprehensions, key/lambda functions, function arguments | Established |
 | 08 | Hash/set patterns, duplicate detection, two-sum, anagrams, two pointers, in-place reversal | Established; retrieve periodically |
 | 09 | Fixed + variable sliding window | Established once; not yet broad DSA fluency |
@@ -46,12 +48,12 @@ The repository gives us a reliable spine for what has actually been implemented.
 | 23 | sklearn linear regression, train/test split, MAE/MSE/R² | Established practical intro |
 | 24–26 | **BFS, DFS and A\*** with path reconstruction; deque/stack behaviour; heap frontier; A* cost + heuristic | **Implemented, then deliberately parked for reactivation** |
 | 27 | Tensor batch means, centring, flattening, transpose, linear layer | Established; keep shape retrieval active |
-| 28 | PyTorch autograd, scalar/multivariable gradients, manual GD, single-weight training, manual linear-model training | Strong conceptual milestone |
+| 28 | PyTorch autograd, scalar/multivariable gradients, manual GD, single-weight training, manual linear-model training | Strong conceptual milestone; executable continuation of historical calculus work |
 | 29 | `nn.Linear` + `MSELoss` + SGD training loop | Established |
 | 30 | MLP binary classifier, ReLU, `BCEWithLogitsLoss`, `TensorDataset`, `DataLoader`, mini-batches/epochs, sigmoid/threshold accuracy | Established on synthetic data |
-| 31 | Real-data classification: stratified train/val/test split, train-only scaling, tensor conversion, DataLoader, train/validation histories, held-out evaluation discipline | **In progress; exercise/test/log committed; known classifier-test import bug; end-to-end run pending** |
+| 31 | Real-data classification: stratified train/val/test split, train-only scaling, tensor conversion, DataLoader, train/validation histories, held-out evaluation discipline | **In progress; end-to-end run pending** |
 
-All numbered Lessons **01–31 now have a lesson log**. Reconstructed logs use the exercise/test pair as factual evidence and recoverable tutoring context conservatively; they are retrieval blueprints, not invented transcripts.
+All numbered Lessons **01–31 have a lesson log**. Historical calculus is intentionally indexed outside that numbering because it was learned through interactive chat and pen-and-paper before the repository workflow existed. Reconstructed logs use recoverable tutoring context conservatively; they are retrieval blueprints, not invented transcripts.
 
 This table is an **audit anchor**, not a lesson log. Details belong in code/tests and `lesson_logs/`; this roadmap tracks dependencies and direction.
 
@@ -103,27 +105,38 @@ Lesson 31 adds a useful real-data shape bridge: sklearn arrays `(samples, featur
 ## Track C — Calculus → gradients → backprop → optimisation
 
 ### Current position
-**Conceptually Green/Amber.** Covered slope/local rate, differentiation rules, partials, gradients, GD, chain rule, manual backprop, autograd and optimizer-based updates.
+**Conceptually Green/Amber and now historically documented.** The pre-repo chat/pen-and-paper sequence built the chain from slope and local rate of change through intuitive limits/difference quotients, power/product rules, partial derivatives, gradients, gradient descent, chain rule and manual backpropagation.
 
-Lesson 28 is now backed by a detailed retrieval log connecting manual derivatives/chain rule to `requires_grad`, `.backward()`, `.grad`, no-grad updates and gradient clearing. Lesson 29 then abstracts that into the standard PyTorch `nn.Linear`/MSE/SGD loop.
+That sequence is now preserved in `lesson_logs/historical_calculus_foundations.md`, including a cold-retrieval blueprint and known fragile points. It should be treated as genuine historical learning evidence, but not as a fabricated numbered code lesson.
+
+Lesson 28 is the executable continuation: it connects those manual derivatives and chain-rule ideas to `requires_grad`, `.backward()`, `.grad`, no-grad parameter updates and gradient clearing. Lesson 29 then abstracts the mechanics into the standard PyTorch `nn.Linear`/MSE/SGD loop.
+
+### Strong conceptual anchors
+- derivative = local slope / local rate of change;
+- gradient = vector of local sensitivities;
+- gradient-descent update moves opposite local increase;
+- chain rule combines local sensitivities along a dependency path;
+- backpropagation repeatedly applies that chain rule through a computation graph;
+- `.backward()` automates the gradient propagation already understood manually.
 
 ### Fragile points
-- derivative direction notation;
-- preserving constants/powers and algebraic accuracy;
-- chain-rule fluency should be maintained by short retrieval, not restarted.
+- derivative direction notation such as `dL/dw` versus its inverse;
+- preserving constants and powers during differentiation/substitution;
+- algebraic expansion/simplification can be shakier than the underlying calculus reasoning;
+- chain-rule fluency should be maintained by short retrieval, not restarted from zero.
 
 ### Next maths
-1. Keep derivatives/partials/chain rule alive with brief retrieval.
+1. Periodically cold-retrieve the historical calculus foundations, especially derivative meaning → partials → gradient → chain rule → backprop.
 2. Logs/exponentials + derivatives.
 3. Probability/statistics becomes the main maths priority during Term 1.
-4. Later: convexity/smoothness/convergence intuition for ML Theory.
+4. Later: vector/Jacobian intuition and convexity/smoothness/convergence when ML Theory needs them.
 
 ---
 
 ## Track D — Classical AI: logic, search and agents
 
 ### Current position
-**Search implementation exists; conceptual reactivation is urgent.** Repo 24–26 verifies BFS, DFS and A* implementations; dedicated lesson logs now preserve each algorithm's frontier/data-structure logic and explicitly flag the missing theory layer.
+**Search implementation exists; conceptual reactivation is urgent.** Repo 24–26 verifies BFS, DFS and A* implementations; dedicated lesson logs preserve each algorithm's frontier/data-structure logic and explicitly flag the missing theory layer.
 
 ### What remains before Fundamentals Week 2
 - cold-recall implementations rather than relearn from zero;
@@ -175,7 +188,7 @@ Repo implementation currently contains:
 - test-set discipline established conceptually.
 
 ### Immediate unfinished item
-The known red classifier test is now fixed: `deep_learning/mlp/test_lesson31_real_data.py` was importing **Lesson 30's** `make_classifier`, whose first layer expects 10 features, while the test passes a `(32,30)` input. It now imports Lesson 31's own intended 30-input classifier and the full suite passes. Complete/verify the end-to-end training/validation/test run next, then mark Lesson 31 complete.
+The known classifier-test import bug is fixed: `deep_learning/mlp/test_lesson31_real_data.py` now imports Lesson 31's intended 30-input classifier rather than Lesson 30's 10-input model, and the suite passes. Complete/verify the end-to-end training/validation/test run next, then mark Lesson 31 complete.
 
 ### After Lesson 31
 - convert the workflow to **NN regression / housing-price prediction** before AI in Practice Week 5;
@@ -214,8 +227,9 @@ Linear algebra + shapes
    ├──> MLP ──> CNN/RNN
    └──> kernels / ML Theory
 
-Calculus
-   └──> partials ──> gradients ──> chain rule ──> backprop ──> SGD/Adam
+Historical calculus foundations
+   └──> derivative/local sensitivity ──> partials/gradients ──> chain rule
+          └──> manual backprop ──> Lesson 28 autograd ──> SGD/Adam
 
 Probability/statistics
    ├──> Bayes/inference ──> HMM/particle filters
@@ -248,8 +262,8 @@ Choose the next study topic by asking, in order:
 - **Logic/reasoning** — Week 1 Fundamentals; not yet properly studied.
 - **Decision trees / random forests** — Week 3 Fundamentals; not present in repo yet.
 - **Real-data PyTorch workflow** — **active in Lesson 31, not complete**; classifier import bug is fixed, still need to run end-to-end training/evaluation before closing.
+- **Historical calculus retrieval** — foundation is established and now documented; periodically cold-retrieve rather than reteach. Extend with logs/exponentials and vector/Jacobian calculus only when upcoming ML work needs them.
 - **NN regression / housing-price workflow** — needed before AI in Practice Week 5.
 - **CNN/RNN preview** — needed before AI in Practice Week 4.
 - **Probability/statistics refresh** — mandatory parallel Term-1 lane for ML Theory Jan 11.
 - **Formal complexity + graph/tree DSA** — search works in code, but theory/complexity is not yet systematic.
-- **Vector/Jacobian calculus** — defer until deeper NN/theory work actually needs it.
