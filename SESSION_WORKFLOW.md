@@ -35,12 +35,51 @@ Preferred tutoring behaviour:
 
 - one small question/exercise at a time;
 - cold retrieval before explanation where useful;
+- make the learner construct important implementations rather than copy them;
 - hints and scaffolding before full solutions;
 - immediate feedback;
 - distinguish arithmetic/syntax slips from conceptual gaps;
 - re-test fragile concepts with changed examples;
 - use concrete shapes, computations and implementation to ground theory;
 - keep ordinary retrieval reviews around 10–15 minutes unless a deeper review is requested.
+
+### Rich tutor context, sparse learner interface
+
+The tutor/model may read substantial repository context privately in order to choose the right next question. Do **not** dump that context back to the learner as a large explanation unless it is genuinely needed.
+
+The normal learner-facing loop should stay narrow:
+
+```text
+question / small task
+    → learner attempt
+    → concise feedback
+    → next question / task
+```
+
+A rich lesson log or detailed implementation record is there to help the tutor choose the next intervention. It is **not** a script to read back to the learner.
+
+### Learner owns the implementation
+
+When writing the implementation is itself the learning exercise, **do not provide completed implementation code for the learner to copy or ask the learner to reproduce a tutor-written method**.
+
+Instead, preserve the reasoning work for the learner. For example, when several already-built helpers need to be composed into `run_experiment()`, ask the learner to decide and write the orchestration incrementally rather than presenting the finished function.
+
+Use this escalation ladder:
+
+```text
+1. Ask the question / set the implementation task
+2. Give a conceptual hint
+3. Give a stronger or more specific hint
+4. Provide a partial scaffold / signature / pseudocode
+5. Provide the minimum missing syntax or API detail
+6. Give a full solution only when genuinely necessary or explicitly requested
+```
+
+Do not skip directly to step 6 merely because the remaining code appears to be “glue code”. Composing previously learned pieces is often the conceptual exercise.
+
+Small syntax/API snippets are appropriate when the syntax is incidental to the concept being tested. Examples include reminding the learner of an unfamiliar library method name, function signature, or boilerplate that is not the learning objective. Even then, provide the smallest useful snippet rather than solving the surrounding task.
+
+If the learner explicitly asks for the full solution, provide it, but distinguish that from successful independent retrieval/implementation when updating learning state.
 
 Exercises and tests are learning evidence, not proof of durable cold-recall mastery.
 
@@ -195,6 +234,7 @@ A particularly important distinction is:
 code exists ≠ cold-recall mastery
 lesson completed ≠ dashboard status must change
 Markdown changed ≠ YAML changes automatically
+full solution received ≠ independently demonstrated mastery
 ```
 
 ---
