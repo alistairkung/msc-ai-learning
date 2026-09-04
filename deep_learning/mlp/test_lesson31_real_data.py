@@ -4,10 +4,39 @@ import torch
 from lesson31_real_data import (
     load_data,
     make_classifier,
+    prepare_data,
+    run_experiment,
     scale_data,
     split_data,
     to_tensors,
 )
+
+
+def test_run_experiment():
+    epochs = 3
+
+    model, train_losses, val_losses, test_accuracy = run_experiment(
+        batch_size=32,
+        learning_rate=0.01,
+        epochs=epochs,
+    )
+
+    assert model(torch.randn(4, 30)).shape == (4, 1)
+    assert len(train_losses) == epochs
+    assert len(val_losses) == epochs
+    assert all(np.isfinite(loss) for loss in train_losses)
+    assert all(np.isfinite(loss) for loss in val_losses)
+    assert 0.0 <= test_accuracy.item() <= 1.0
+
+
+def test_prepare_data():
+    train_loader, X_val, y_val, X_test, y_test = prepare_data(batch_size=32)
+
+    assert len(train_loader.dataset) == 341
+    assert X_val.shape == (114, 30)
+    assert y_val.shape == (114, 1)
+    assert X_test.shape == (114, 30)
+    assert y_test.shape == (114, 1)
 
 
 def test_make_classifier():

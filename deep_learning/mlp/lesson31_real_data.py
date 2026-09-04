@@ -8,6 +8,34 @@ from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 
 
+def run_experiment(batch_size, learning_rate, epochs):
+    train_loader, X_val, y_val, X_test, y_test = prepare_data(batch_size)
+
+    model = make_classifier()
+    train_losses, val_losses = train_classifier(
+        model, train_loader, X_val, y_val, learning_rate, epochs
+    )
+
+    test_accuracy = classification_accuracy(model, X_test, y_test, threshold=0.5)
+
+    return model, train_losses, val_losses, test_accuracy
+
+
+def prepare_data(batch_size):
+    X, y = load_data()
+    X_train, X_val, X_test, y_train, y_val, y_test = split_data(X, y)
+
+    X_train_scaled, X_val_scaled, X_test_scaled = scale_data(X_train, X_val, X_test)
+
+    X_train_tensor, y_train_tensor = to_tensors(X_train_scaled, y_train)
+    X_val_tensor, y_val_tensor = to_tensors(X_val_scaled, y_val)
+    X_test_tensor, y_test_tensor = to_tensors(X_test_scaled, y_test)
+
+    train_loader = make_dataloader(X_train_tensor, y_train_tensor, batch_size)
+
+    return train_loader, X_val_tensor, y_val_tensor, X_test_tensor, y_test_tensor
+
+
 def classification_accuracy(model, X, y, threshold=0.5):
     with torch.no_grad():
         probabilities = torch.sigmoid(model(X))
