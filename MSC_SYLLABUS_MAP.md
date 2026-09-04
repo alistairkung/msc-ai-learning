@@ -1,7 +1,7 @@
 # MSc Syllabus Preparation Map
 
-_Last reviewed: 2026-09-03_  
-_Readiness calibrated against the exercise repository and Lesson 31 session on 2026-09-03_
+_Last reviewed: 2026-09-04_
+_Readiness calibrated against the exercise repository and completed Lesson 31 workflow_
 
 ## Use
 
@@ -26,7 +26,7 @@ Readiness key:
 | W4 | Bayesian networks, inference, sampling | **Red/Amber** | Prior probability study gives a hook | Probability/Bayes refresh; conditional independence; graph semantics; sampling intuition |
 | W5 | Hidden Markov Models, particle filtering | **Red** | Sequence/state intuition only | Conditional probability, Markov property, filtering and sampling foundations |
 | W6 | KNN, K-means, SVM, gradient boosting | **Red/Amber** | Distance/vector and classification workflow foundations | Fast conceptual + implementation survey; focus on model assumptions/trade-offs |
-| W7 | Neural networks | **Green/Amber** | Repo 27–30 + Lesson 31 real-data workflow | Finish real-data end-to-end run; deeper architecture vocabulary |
+| W7 | Neural networks | **Green/Amber** | Repo 27–31, including the completed real-data workflow | Deeper architecture vocabulary |
 | W8 | Backpropagation and SGD | **Green/Amber** | Manual autograd/GD + standard PyTorch loops; chain rule/backprop derived by hand | Keep chain-rule notation warm; theory of convergence still later |
 | W9 | Computer vision | **Red/Amber** | Tensor/shape base | Image tensor semantics + CNN basics; AI in Practice should lead this |
 | W10 | NLP | **Red/Amber** | General software/LLM familiarity | Formal text representation/embedding/sequence-model basics |
@@ -47,11 +47,11 @@ Readiness key:
 
 | Week | MSc topic | Current readiness | Evidence / existing hook | Main gap before lecture |
 |---|---|---|---|---|
-| W1 | Intro + simple ML example | **Green/Amber** | sklearn classification/regression plus Lesson 31 real-data pipeline substantially built | Finish Lesson 31 end-to-end training/evaluation; current classifier test blocker unresolved |
+| W1 | Intro + simple ML example | **Green** | sklearn classification/regression plus completed Lesson 31 real-data train/validation/test pipeline | Retrieve and apply the workflow in a new context |
 | W2 | Vector, matrix, tensor ops; NumPy | **Green/Amber** | Repo 10–17 + 27 plus Lesson 31 scaling/axis/tensor conversion | Keep PyTorch weight orientation and NumPy reduction-shape retrieval active |
 | W3 | 1D/2D signals; image/audio/text/video/sequential representation; SciPy, matplotlib, PyTorch | **Amber** | PyTorch/tensor base strong | SciPy/matplotlib + modality representations not yet systematic |
 | W4 | MLP, CNN, RNN | **MLP Green/Amber; CNN/RNN Red** | Repo 28–30 + Lesson 31 MLP workflow | CNN/RNN architecture intuition before W4; do not need mastery yet |
-| W5 | Housing-price prediction (Boston House Dataset) | **Amber/Green** | sklearn regression (23), MLP/MSE mechanics, Lesson 31 preprocessing/validation workflow | Finish classification workflow, then transfer same split/scaling/validation discipline to NN regression |
+| W5 | Housing-price prediction (Boston House Dataset) | **Amber/Green** | sklearn regression (23), MLP/MSE mechanics, completed Lesson 31 preprocessing/validation workflow | Transfer the same split/scaling/validation discipline to NN regression |
 | W6 | Data prep + data loading optimisation | **Amber/Green** | `TensorDataset`/`DataLoader`, mini-batches, shuffle retrieved again in Lesson 31 | Workers/pinning/loading efficiency are new |
 | W7 | Fashion-MNIST visual classification | **Red/Amber** | MLP + DataLoader base | CNN practical training before/around W7 |
 | W8 | Parallel / multi-GPU / distributed training | **Amber conceptually** | Strong distributed-systems/SWE background | PyTorch-specific parallel/distributed APIs |
@@ -62,13 +62,13 @@ Readiness key:
 
 ### AI in Practice next priorities
 
-1. **Finish Lesson 31**: diagnose classifier test, run real-data training, inspect train/validation behaviour, then use held-out test once.
+1. **Search reactivation remains the cross-course primary next session**; Lesson 31 no longer blocks this course's introductory workflow readiness.
 2. **NN regression** before W5, transferring the same leakage-safe preprocessing and validation workflow.
 3. **CNN/RNN preview** before W4; deeper CNN before Fashion-MNIST.
 
 ### Lesson 31 readiness gain
 
-New practical concepts now introduced and partly implemented:
+New practical concepts implemented end to end:
 - 60/20/20 train/validation/test split with stratification;
 - train-only fitted `StandardScaler` and data-leakage reasoning;
 - validation/test transformed with frozen training statistics;
@@ -78,6 +78,8 @@ New practical concepts now introduced and partly implemented:
 - validation under `torch.no_grad()` without parameter updates;
 - overfitting recognised from falling train loss + rising validation loss;
 - held-out test set reserved for final evaluation.
+
+Optional continuation: retain and restore the best-validation checkpoint when early stopping/model selection is introduced.
 
 ---
 

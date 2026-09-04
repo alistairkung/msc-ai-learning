@@ -1,7 +1,7 @@
 # Lesson 31 — Real-Data Classification Workflow
 
-_Date: 2026-09-03_  
-_Status: **In progress — session paused before final end-to-end run**
+_Date: 2026-09-03; completed 2026-09-04_
+_Status: **Complete — end-to-end workflow implemented and tested**
 
 ## Why this lesson exists
 
@@ -21,7 +21,7 @@ real data
   -> final evaluation
 ```
 
-This advances the existing practical-ML/PyTorch track and prepares directly for AI in Practice real-data work. It is **not yet complete**: the local classifier test was failing at the stopping point, and the exact traceback was not captured.
+This advances the existing practical-ML/PyTorch track and prepares directly for AI in Practice real-data work. The follow-up session fixed the classifier-test import, connected the complete preparation/training/evaluation workflow, and verified it with tests.
 
 ---
 
@@ -603,9 +603,9 @@ Re-test these rather than re-teaching the whole lesson:
    - thresholding creates predictions;
    - compare predictions to targets before taking mean.
 
-7. **Classifier test blocker**
-   - pasted architecture/test should agree;
-   - diagnose exact traceback before changing working conceptual code.
+7. **Best-validation checkpoint (optional extension)**
+   - if early stopping/model selection is added, retain and restore the parameters from the best validation epoch;
+   - the current lesson correctly tracks validation loss but intentionally returns the final trained model.
 
 ---
 
@@ -645,16 +645,15 @@ Lesson 31 is ready to mark complete when the learner can:
 - explain why test evaluation is deferred;
 - run the complete pipeline successfully on the real dataset.
 
-The final bullet is **not yet satisfied** as of this session.
+All bullets are satisfied by the completed `prepare_data()` and `run_experiment()` integration and the passing Lesson 31 tests.
 
 ---
 
-# Resume point
+# Completion evidence and next step
 
-At the next session:
+- `prepare_data()` composes loading, stratified splitting, train-only scaling, tensor conversion and shuffled training batches.
+- `run_experiment()` trains the classifier, returns one train and validation loss per epoch, and evaluates held-out test accuracy once.
+- The classifier import now resolves to Lesson 31's 30-input model.
+- Verified on 2026-09-04: Lesson 31 and dashboard tests pass (`9 passed`).
 
-1. Get the exact pytest traceback for `test_make_classifier()`.
-2. Inspect the actual local exercise/test imports and definitions; do not assume the pasted architecture is the failing cause.
-3. Once green, finish the training/evaluation integration.
-4. Inspect train/validation histories and final held-out test accuracy.
-5. Consolidate Lesson 31, then move to the planned BFS/DFS/A*/UCS/search-theory reactivation session.
+Primary next session: reactivate BFS/DFS/A*, compare their guarantees and resource trade-offs, then add UCS and heuristic admissibility/consistency. Best-validation-checkpoint restoration is optional Lesson 31 continuation work, not the primary next target.

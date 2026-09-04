@@ -50,7 +50,7 @@ All numbered lessons **01–31 now have a lesson log**.
 | 28 | PyTorch autograd + manual GD | Reconstructed |
 | 29 | Standard PyTorch linear training loop | Reconstructed |
 | 30 | PyTorch binary classification | Original detailed session log |
-| 31 | Real-data classification workflow | Original detailed session log — **in progress** |
+| 31 | Real-data classification workflow | Original detailed session log — **complete** |
 
 “Reconstructed” means the available implementation evidence and recoverable tutoring context are used conservatively. These are not invented transcripts.
 
@@ -65,7 +65,7 @@ Historical calculus  slope → derivative → differentiation rules → gradient
 21–23  sklearn classical ML
 24–26  classical search
 27–30  tensors, autograd and PyTorch training
-31     real-data PyTorch workflow (active)
+31     real-data PyTorch workflow (complete)
 ```
 
 ## How to use

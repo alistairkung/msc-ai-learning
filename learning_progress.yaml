@@ -18,14 +18,14 @@ retrieval_definitions:
 
 focus:
   - stage: Current
-    title: Finish Lesson 31
-    detail: Run the real-data training loop end-to-end, inspect train/validation behaviour, then evaluate the held-out test set.
-  - stage: Next
     title: Reactivate search
     detail: Cold-retrieve BFS, DFS and A*, then add UCS, algorithm trade-offs, admissibility and consistency.
-  - stage: Then
+  - stage: Next
     title: Build the Week-3 buffer
     detail: Refresh linear/logistic regression, then learn decision trees and random forests.
+  - stage: Optional
+    title: Restore best validation checkpoint
+    detail: If Lesson 31 is extended with early stopping or model selection, retain and restore the best-validation model state.
   - stage: Longer-term
     title: Protect the January maths lane
     detail: Probability/statistics is the main prerequisite gap; periodically retrieve the established calculus foundation rather than relearning it.
@@ -108,11 +108,10 @@ domains:
         note: sklearn binary classification, probabilities, thresholds and confusion-matrix metrics have been practised.
       evaluation:
         label: Evaluation and generalisation
-        status: developing
+        status: established
         retrieval: current
         lessons: ["22", "31"]
-        gaps:
-          - Finish the real-data train/validation/test workflow in Lesson 31.
+        note: Lesson 31 connects leakage-safe preprocessing, per-epoch validation and final held-out test evaluation end to end.
       decision_trees:
         label: Decision trees
         status: planned
@@ -205,12 +204,12 @@ domains:
         note: ReLU, BCEWithLogitsLoss, DataLoader, sigmoid and thresholding are established on synthetic data.
       real_data_classification:
         label: Real-data classification workflow
-        status: developing
+        status: established
         retrieval: current
         lessons: ["31"]
         gaps:
-          - End-to-end training/validation/test evaluation is still incomplete.
           - Keep train-only preprocessing and leakage reasoning automatic.
+          - Optionally add best-validation-checkpoint restoration when introducing early stopping or model selection.
       neural_regression:
         label: Neural-network regression
         status: planned
@@ -314,5 +313,4 @@ timeline:
     detail: MLP, BCEWithLogitsLoss, mini-batches and accuracy.
   - lessons: "31"
     label: Real-data ML workflow
-    detail: Train/validation/test, leakage-safe scaling and generalisation.
-    active: true
+    detail: Completed train/validation/test workflow, leakage-safe scaling, per-epoch validation and held-out evaluation.

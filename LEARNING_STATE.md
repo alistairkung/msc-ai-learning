@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last updated: 2026-09-03_  
+_Last updated: 2026-09-04_
 
 > Update this file at the end of **every study session**. Keep it short. It should answer: **Where am I now, what is fragile, what is parked, and what should happen next?**
 
@@ -31,7 +31,7 @@ _Last updated: 2026-09-03_
 - Power/product rules, partial derivatives, gradients, chain rule and manual backprop understood.
 - Autograd/manual GD (28), standard linear training loop (29), synthetic binary MLP (30) implemented.
 
-### Lesson 31 — real-data ML workflow (IN PROGRESS)
+### Lesson 31 — real-data ML workflow (COMPLETE)
 - Repo now contains `deep_learning/mlp/lesson31_real_data.py`, `deep_learning/mlp/test_lesson31_real_data.py`, and `lesson_logs/lesson31_real_data_workflow.md`.
 - Implemented in the exercise:
   - `load_data()` using sklearn breast-cancer data; X `(569,30)`, y `(569,)`.
@@ -42,9 +42,11 @@ _Last updated: 2026-09-03_
   - `make_classifier()` architecture `30 -> 16 -> ReLU -> 1`.
   - epoch/batch training loop with SGD + `BCEWithLogitsLoss`, average train loss per epoch, validation loss under `torch.no_grad()`.
   - binary accuracy: logits → sigmoid → threshold → compare to targets.
-- Existing tests currently cover data loading/splitting/scaling/tensor conversion plus a classifier-shape test.
+- Tests cover data loading/splitting/scaling/tensor conversion, classifier shape, prepared split shapes, and the end-to-end experiment contract.
 - **Resolved:** `test_lesson31_real_data.py` was importing `make_classifier` from Lesson 30 (10-input classifier) instead of Lesson 31's own 30-input classifier, causing `test_make_classifier` to fail with a shape mismatch on `(32, 30)` input. Fixed by importing `make_classifier` from `lesson31_real_data` directly; all tests now pass.
-- End-to-end training/validation/test evaluation has **not yet been completed**, so Lesson 31 remains active.
+- Completed `prepare_data()` and `run_experiment()` integration: the real dataset now flows through split/scaling/tensor/DataLoader preparation, training with per-epoch train/validation histories, and one final held-out test-accuracy evaluation.
+- Verified on 2026-09-04: Lesson 31 plus dashboard tests pass (`9 passed`).
+- Optional continuation only: retain and restore the best-validation checkpoint if early stopping/model selection is added later; this is not required to close Lesson 31.
 
 ## Fragile under cold recall
 
@@ -58,16 +60,16 @@ _Last updated: 2026-09-03_
 
 ## Active highest-value sequence
 
-1. **Finish Lesson 31 real-data ML workflow** — the `make_classifier` import bug is now fixed; extend/confirm training/evaluation tests, run train/validation/test evaluation and inspect generalisation.
-2. **Search reactivation** — BFS/DFS/A* cold recall; compare them; add UCS/heuristic theory and light logic preview.
-3. **Fundamentals Week-3 buffer** — linear/logistic retrieval, then decision trees/random forests.
+1. **Search reactivation** — BFS/DFS/A* cold recall; compare them; add UCS/heuristic theory and light logic preview.
+2. **Fundamentals Week-3 buffer** — linear/logistic retrieval, then decision trees/random forests.
+3. **Optional Lesson 31 continuation** — add best-validation-checkpoint restoration if revisiting early stopping/model selection.
 
 # PARKED / MUST RETURN
 
 - [~] **BFS / DFS / A\*** — implemented lessons 24–26; reactivation pending.
 - [ ] **Logic/reasoning** — Fundamentals Week 1 preview.
 - [ ] **Decision trees / random forests** — Fundamentals Week 3.
-- [~] **Real-data PyTorch classification** — Lesson 31 active/incomplete.
+- [x] **Real-data PyTorch classification** — Lesson 31 complete; best-validation-checkpoint restoration is optional continuation work.
 - [ ] **NN regression / housing-price workflow** — AI in Practice Week 5.
 - [ ] **CNN/RNN architecture preview** — AI in Practice Week 4.
 - [ ] **Probability/statistics refresh** — recurring Term-1 lane for ML Theory January.
@@ -93,15 +95,15 @@ _Last updated: 2026-09-03_
 
 ## Next session target
 
-> Lesson 31's `make_classifier` import bug is fixed and the full suite is green. Resume by finishing the end-to-end training/evaluation workflow (run the training loop across the real train/val split and inspect held-out test accuracy).
+> **Reactivate search:** cold-retrieve BFS, DFS and A*, compare completeness/optimality/time/memory, then add UCS and heuristic admissibility/consistency.
 
-After Lesson 31, **do not sacrifice the search reactivation session** before/around classes.
+Lesson 31 is complete. Best-validation-checkpoint restoration remains optional continuation work and must not displace the search reactivation session.
 
 ## End-of-session update
 
-- **Completed:** durable lesson-log reconstruction for Lessons 01–29; all Lessons 01–31 now have retrieval logs. Lesson 31 implementation state audited against repo.
-- **Now comfortable with:** durable curriculum can now be recovered lesson-by-lesson rather than relying on chat memory.
-- **Still fragile:** Lesson 31 has not been run end-to-end; epoch-loss averaging/accuracy syntax and some reduced-axis shape intuition still deserve retrieval; search theory remains pending.
-- **Newly parked / unparked:** no strategy change. Real-data classification remains active; search remains next major reactivation.
-- **Next session:** fix Lesson 31 import bug interactively, finish Lesson 31, then search reactivation.
-- **Roadmap/syllabus change needed?** roadmap audit wording updated; no strategic course change.
+- **Completed:** Lesson 31's end-to-end real-data workflow and integration tests; all Lessons 01–31 have retrieval logs.
+- **Now comfortable with:** leakage-safe train/validation/test preparation, per-epoch train/validation measurement, and held-out test evaluation are connected in one executable pipeline.
+- **Still fragile:** epoch-loss averaging/accuracy syntax and some reduced-axis shape intuition still deserve retrieval; search theory remains pending.
+- **Newly parked / unparked:** real-data classification is closed; search is restored as the primary active target. Best-validation-checkpoint restoration is optional continuation work.
+- **Next session:** BFS/DFS/A* cold retrieval and comparison, then UCS plus admissibility/consistency.
+- **Roadmap/syllabus change needed?** stale Lesson 31 completion/readiness wording updated; overall strategy unchanged.

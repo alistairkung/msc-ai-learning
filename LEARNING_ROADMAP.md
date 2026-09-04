@@ -1,7 +1,7 @@
 # MSc AI Learning Roadmap
 
-_Last reviewed: 2026-09-04_  
-_Verified against `alistairkung/msc-ai-learning` learning record on 2026-09-04_
+_Last reviewed: 2026-09-04_
+_Verified against the current learning record and Lesson 31 implementation/tests on 2026-09-04_
 
 ## Purpose
 
@@ -34,7 +34,7 @@ The aim is not to pre-learn the whole MSc. The aim is to:
 
 # Verified learning history
 
-The numbered repository lessons give us a reliable spine for what has actually been implemented. Important pre-repo learning is recorded separately rather than assigned invented lesson numbers. Lesson 31 is a **committed implementation in progress**, not yet a completed end-to-end result.
+The numbered repository lessons give us a reliable spine for what has actually been implemented. Important pre-repo learning is recorded separately rather than assigned invented lesson numbers. Lesson 31 now provides a completed end-to-end real-data classification workflow.
 
 | Learning record | What was practised | Status |
 |---|---|---|
@@ -51,7 +51,7 @@ The numbered repository lessons give us a reliable spine for what has actually b
 | 28 | PyTorch autograd, scalar/multivariable gradients, manual GD, single-weight training, manual linear-model training | Strong conceptual milestone; executable continuation of historical calculus work |
 | 29 | `nn.Linear` + `MSELoss` + SGD training loop | Established |
 | 30 | MLP binary classifier, ReLU, `BCEWithLogitsLoss`, `TensorDataset`, `DataLoader`, mini-batches/epochs, sigmoid/threshold accuracy | Established on synthetic data |
-| 31 | Real-data classification: stratified train/val/test split, train-only scaling, tensor conversion, DataLoader, train/validation histories, held-out evaluation discipline | **In progress; end-to-end run pending** |
+| 31 | Real-data classification: stratified train/val/test split, train-only scaling, tensor conversion, DataLoader, train/validation histories, held-out evaluation discipline | **Complete; end-to-end preparation/training/evaluation integration tested** |
 
 All numbered Lessons **01–31 have a lesson log**. Historical calculus is intentionally indexed outside that numbering because it was learned through interactive chat and pen-and-paper before the repository workflow existed. Reconstructed logs use recoverable tutoring context conservatively; they are retrieval blueprints, not invented transcripts.
 
@@ -157,7 +157,7 @@ Still largely **unstarted**. Preview Week-1 vocabulary before/around the first F
 ### Current position
 **Linear regression — Green/Amber.** Manual linear mechanics plus sklearn regression and MAE/MSE/R².
 
-**Logistic/binary classification — Green/Amber.** sklearn logistic workflow plus neural-network view of logit → sigmoid → BCE. Lesson 22 already introduced probability thresholding; Lesson 31 is extending classification into proper train/validation/test evaluation and leakage-safe preprocessing.
+**Logistic/binary classification — Green/Amber.** sklearn logistic workflow plus neural-network view of logit → sigmoid → BCE. Lesson 22 introduced probability thresholding; Lesson 31 completes the move into proper train/validation/test evaluation and leakage-safe preprocessing.
 
 ### Immediate gap: Fundamentals Week 3
 - **Decision trees — Red**: splits, impurity, leaves, depth, overfitting.
@@ -171,7 +171,7 @@ Bayesian networks/inference/sampling; HMMs/particle filters; KNN/K-means/SVM/gra
 ## Track F — Practical deep learning / PyTorch
 
 ### Current position
-**MLP mechanics Green/Amber; real-data workflow Amber/Green and active.** Verified progression through lessons 27–30: tensor operations, autograd, manual GD, `nn.Linear`, SGD, ReLU, MLP, logits/sigmoid/BCE, DataLoader and synthetic classification.
+**MLP mechanics Green/Amber; real-data workflow established.** Verified progression through lessons 27–31: tensor operations, autograd, manual GD, `nn.Linear`, SGD, ReLU, MLP, logits/sigmoid/BCE, DataLoader and real-data evaluation.
 
 ### Lesson 31 progress
 Repo implementation currently contains:
@@ -185,10 +185,12 @@ Repo implementation currently contains:
 - `30 -> 16 -> ReLU -> 1` classifier;
 - epoch/batch training loop with train + validation losses;
 - binary accuracy via sigmoid/threshold/target comparison;
-- test-set discipline established conceptually.
+- held-out test evaluation connected in the executable experiment.
 
-### Immediate unfinished item
-The known classifier-test import bug is fixed: `deep_learning/mlp/test_lesson31_real_data.py` now imports Lesson 31's intended 30-input classifier rather than Lesson 30's 10-input model, and the suite passes. Complete/verify the end-to-end training/validation/test run next, then mark Lesson 31 complete.
+### Completion and optional continuation
+The classifier import now uses Lesson 31's intended 30-input model. `prepare_data()` composes the full data pipeline, while `run_experiment()` trains, records train/validation histories and performs final held-out evaluation. Lesson 31 and dashboard validation pass (`9 passed` on 2026-09-04).
+
+Best-validation-checkpoint restoration is an optional extension for future early stopping/model-selection work, not a blocker. The primary next session is search reactivation.
 
 ### After Lesson 31
 - convert the workflow to **NN regression / housing-price prediction** before AI in Practice Week 5;
@@ -261,7 +263,7 @@ Choose the next study topic by asking, in order:
 - **BFS / DFS / A\*** — **implemented in lessons 24–26**, deliberately parked; reactivate for Fundamentals Week 2. Add UCS + trade-off/heuristic theory rather than rewriting from scratch.
 - **Logic/reasoning** — Week 1 Fundamentals; not yet properly studied.
 - **Decision trees / random forests** — Week 3 Fundamentals; not present in repo yet.
-- **Real-data PyTorch workflow** — **active in Lesson 31, not complete**; classifier import bug is fixed, still need to run end-to-end training/evaluation before closing.
+- **Real-data PyTorch workflow** — **Lesson 31 complete**; best-validation-checkpoint restoration remains optional continuation work.
 - **Historical calculus retrieval** — foundation is established and now documented; periodically cold-retrieve rather than reteach. Extend with logs/exponentials and vector/Jacobian calculus only when upcoming ML work needs them.
 - **NN regression / housing-price workflow** — needed before AI in Practice Week 5.
 - **CNN/RNN preview** — needed before AI in Practice Week 4.
