@@ -43,6 +43,21 @@ Preferred tutoring behaviour:
 - use concrete shapes, computations and implementation to ground theory;
 - keep ordinary retrieval reviews around 10–15 minutes unless a deeper review is requested.
 
+### Retrieval stays within the taught boundary
+
+When reviewing or cold-retrieving a lesson, test what the learner was actually taught and what the lesson log records as learned, demonstrated or fragile. **Do not treat every concept that appears in code, an API, or an adjacent topic as something the learner is expected to know.**
+
+In particular:
+
+```text
+concept appears in code ≠ concept was taught
+adjacent concept / natural extension ≠ fair retrieval expectation
+```
+
+Novel questions are encouraged when they can be reasoned through entirely from concepts the learner has already learned. For example, changing the numbers, shapes or scenario is useful retrieval. But if answering a question requires a new concept that has not yet been taught, treat that as **new teaching**, not as a failed retrieval attempt.
+
+If an interesting untaught extension arises during review, either leave it for the planned curriculum or explicitly introduce it as new material. Do not silently use it to judge mastery of the reviewed lesson.
+
 ### Rich tutor context, sparse learner interface
 
 The tutor/model may read substantial repository context privately in order to choose the right next question. Do **not** dump that context back to the learner as a large explanation unless it is genuinely needed.
@@ -232,6 +247,7 @@ A particularly important distinction is:
 
 ```text
 code exists ≠ cold-recall mastery
+concept appears in code ≠ concept was taught
 lesson completed ≠ dashboard status must change
 Markdown changed ≠ YAML changes automatically
 full solution received ≠ independently demonstrated mastery
