@@ -41,7 +41,7 @@ SE(X_bar) = σ / sqrt(n)
 
 ### 3. Standardization
 
-When the population standard deviation `σ` is known, a sample mean can be expressed in standard-error units relative to a hypothesized/population mean:
+A sample mean can be expressed in standard-error units relative to a hypothesized/population mean:
 
 ```text
 Z = (X_bar - μ) / (σ / sqrt(n))
@@ -81,30 +81,30 @@ Important safeguards:
 
 ### 6. Recoverable worked example
 
-A representative historical example used:
+A representative historical example used a known/reference population standard deviation:
 
 ```text
 μ0 = 100
 n = 49
 X_bar = 104
-s = 21
+σ = 21
 ```
 
-Because the example uses the **sample** standard deviation `s` rather than a known population `σ`, the appropriate one-sample statistic is a **t-statistic**:
+The standard error was:
 
 ```text
-SE = s / sqrt(n) = 21 / sqrt(49) = 3
+SE = 21 / sqrt(49) = 3
 ```
 
-and:
+and the standardized statistic:
 
 ```text
-t = (104 - 100) / 3 ≈ 1.333
+Z ≈ (104 - 100) / 3 ≈ 1.333
 ```
 
-With `df = 48`, the corresponding one-tailed p-value is about `0.094`, so at `α = 0.05` the result would not be statistically significant.
+A one-tailed Normal p-value is about `0.091`, so at `α = 0.05` the result would not be statistically significant.
 
-The exact numbers are not retrieval targets; the conceptual pipeline is. The important distinction is also worth preserving: known population `σ` gives the usual Z setup, while substituting an estimated sample standard deviation `s` leads to a t setup.
+The exact numbers are not retrieval targets; the conceptual pipeline is. This log deliberately stays within the historically evidenced Z-style setup rather than introducing adjacent inference machinery that was not clearly recovered from the old tutoring trail.
 
 ## What was understood well
 
@@ -115,25 +115,23 @@ The strongest conceptual anchor was that inference reasons about where an observ
 ## Known fragile points
 
 1. **Raw distribution vs sampling distribution** — the CLT concerns the latter.
-2. **Standard deviation vs standard error** — `σ` describes individual observations; `σ/sqrt(n)` describes variability of the sample mean when population spread is known.
-3. **Z vs t setup** — known population `σ` supports the Z formulation; using estimated sample `s` calls for the corresponding t distribution.
-4. **Meaning of a standardized test statistic** — distance from the null/reference value in standard-error units.
-5. **Meaning of p-value** — probability of data/extremeness under `H0`, not probability the hypothesis is true.
-6. **Reject vs fail to reject** — do not turn “insufficient evidence” into acceptance/proof.
-7. **One-tailed vs two-tailed tests** — the alternative determines the relevant tail area.
+2. **Standard deviation vs standard error** — `σ` describes individual observations; `σ/sqrt(n)` describes variability of the sample mean.
+3. **Meaning of a Z/test statistic** — distance from the null/reference value in standard-error units.
+4. **Meaning of p-value** — probability of data/extremeness under `H0`, not probability the hypothesis is true.
+5. **Reject vs fail to reject** — do not turn “insufficient evidence” into acceptance/proof.
+6. **One-tailed vs two-tailed tests** — the alternative determines the relevant tail area.
 
 ## Cold-retrieval blueprint
 
 1. Ask what distribution the CLT is talking about.
 2. Given `μ`, `σ` and `n`, compute/interpret the standard error of the mean.
-3. Give a sample mean with known `σ` and ask for its Z-score relative to a null mean.
+3. Give a sample mean and ask for its Z-score relative to a null mean.
 4. Ask what a Z-score of `2` means in plain English.
-5. Give the same style of problem with only sample `s` known and ask what changes conceptually.
-6. State `H0`, `HA` and `α` for a small scenario.
-7. Give a p-value and ask for the correct decision language.
-8. Ask explicitly: “Does `p=0.03` mean there is a 3% chance H0 is true?”
-9. Ask what changes between one-tailed and two-tailed testing.
-10. Connect the workflow back to why repeated-sampling distributions matter.
+5. State `H0`, `HA` and `α` for a small scenario.
+6. Give a p-value and ask for the correct decision language.
+7. Ask explicitly: “Does `p=0.03` mean there is a 3% chance H0 is true?”
+8. Ask what changes between one-tailed and two-tailed testing.
+9. Connect the workflow back to why repeated-sampling distributions matter.
 
 ## Rebuild sequence if cold recall is weak
 
@@ -144,7 +142,6 @@ sample → statistic
 → CLT for sample mean
 → standard error
 → standardize against H0
-→ choose the correct reference distribution
 → tail probability / p-value
 → evidence-based decision
 ```
@@ -182,7 +179,7 @@ This file intentionally records the distinction rather than filling missing chat
 
 ## Mastery signal
 
-For the demonstrated portion, retrieval is strong when the learner can explain sampling distributions/CLT correctly, compute and interpret standard error, distinguish the Z/t setup at the level taught here, standardize a sample mean, explain a p-value and make a statistically correct reject/fail-to-reject statement.
+For the demonstrated portion, retrieval is strong when the learner can explain sampling distributions/CLT correctly, compute and interpret standard error, standardize a sample mean, explain a p-value and make a statistically correct reject/fail-to-reject statement.
 
 Markov chains and Poisson remain **diagnostic-needed** until new evidence is created.
 
