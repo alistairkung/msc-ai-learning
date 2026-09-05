@@ -1,7 +1,7 @@
 # MSc Syllabus Preparation Map
 
-_Last reviewed: 2026-09-04_
-_Readiness calibrated against the exercise repository and completed Lesson 31 workflow_
+_Last reviewed: 2026-09-05_
+_Readiness calibrated against the exercise repository, completed Lesson 31 workflow, and reconstructed historical JHU linear-algebra foundation_
 
 ## Use
 
@@ -22,7 +22,7 @@ Readiness key:
 |---|---|---|---|---|
 | W1 | Introduction, Logic, Reasoning and Learning | **Amber/Red** | General AI/ML vocabulary strong enough | Formal logic/reasoning vocabulary is new; preview propositions/rules/inference at a light level |
 | W2 | Uninformed search, informed search, searching with other agents | **Amber/Green** | Repo 24–26 implements BFS, DFS, A* | Reactivate from cold recall; add UCS; compare completeness/optimality/time/memory; heuristic admissibility/consistency; multi-agent search new |
-| W3 | Linear regression, logistic regression, decision trees, random forests | **Linear/logistic Green/Amber; trees Red** | Repo 21–23 + Lessons 30–31 classification/evaluation work | Consolidate model maths; learn decision trees + random forests before W3 |
+| W3 | Linear regression, logistic regression, decision trees, random forests | **Linear/logistic Green/Amber; trees Red** | Repo 21–23 + Lessons 30–31 classification/evaluation work + historical least-squares/normal-equation foundation | Consolidate model maths; learn decision trees + random forests before W3 |
 | W4 | Bayesian networks, inference, sampling | **Red/Amber** | Prior probability study gives a hook | Probability/Bayes refresh; conditional independence; graph semantics; sampling intuition |
 | W5 | Hidden Markov Models, particle filtering | **Red** | Sequence/state intuition only | Conditional probability, Markov property, filtering and sampling foundations |
 | W6 | KNN, K-means, SVM, gradient boosting | **Red/Amber** | Distance/vector and classification workflow foundations | Fast conceptual + implementation survey; focus on model assumptions/trade-offs |
@@ -48,7 +48,7 @@ Readiness key:
 | Week | MSc topic | Current readiness | Evidence / existing hook | Main gap before lecture |
 |---|---|---|---|---|
 | W1 | Intro + simple ML example | **Green** | sklearn classification/regression plus completed Lesson 31 real-data train/validation/test pipeline | Retrieve and apply the workflow in a new context |
-| W2 | Vector, matrix, tensor ops; NumPy | **Green/Amber** | Repo 10–17 + 27 plus Lesson 31 scaling/axis/tensor conversion | Keep PyTorch weight orientation and NumPy reduction-shape retrieval active |
+| W2 | Vector, matrix, tensor ops; NumPy | **Green/Amber** | Completed 2025 JHU linear algebra foundation + Repo 10–17 + 27 + Lesson 31 scaling/axis/tensor conversion | Cold-retrieve notation/matrix mechanics as needed; keep PyTorch weight orientation and NumPy reduction-shape retrieval active |
 | W3 | 1D/2D signals; image/audio/text/video/sequential representation; SciPy, matplotlib, PyTorch | **Amber** | PyTorch/tensor base strong | SciPy/matplotlib + modality representations not yet systematic |
 | W4 | MLP, CNN, RNN | **MLP Green/Amber; CNN/RNN Red** | Repo 28–30 + Lesson 31 MLP workflow | CNN/RNN architecture intuition before W4; do not need mastery yet |
 | W5 | Housing-price prediction (Boston House Dataset) | **Amber/Green** | sklearn regression (23), MLP/MSE mechanics, completed Lesson 31 preprocessing/validation workflow | Transfer the same split/scaling/validation discipline to NN regression |
@@ -89,15 +89,17 @@ Optional continuation: retain and restore the best-validation checkpoint when ea
 
 This course explicitly assumes **linear algebra, probability and statistics**. Its maths preparation must run during Term 1 rather than waiting until January.
 
+The linear-algebra prerequisite is **not first exposure**: the JHU Coursera specialization was completed in 2025 and is now preserved in four historical retrieval blueprints under `lesson_logs/`. The task during Term 1 is to keep that foundation retrievable and connect it to ML notation, while probability/statistics remains the larger prerequisite gap.
+
 | Week | Theory topic | Current readiness | Main gap | Term-1 preparation |
 |---|---|---|---|---|
-| W1 | Probability + Linear Algebra tools | **Amber** | Probability/statistics not recently exercised; LA needs retrieval | Weekly probability/LA refresh; norms and notation |
+| W1 | Probability + Linear Algebra tools | **LA Amber/Green; probability Amber/Red** | LA is established but cold retrieval is due; probability/statistics has not had recent deliberate practice | Short LA retrieval: vectors/matrices/norms, projections/least squares, eigen/symmetric/quadratic-form intuition; sustained probability refresh |
 | W2 | MLE, exponential-family models | **Red/Amber** | Likelihood/log-likelihood/exponential-family form not yet systematic | Logs/exponentials, distributions, likelihood/MLE |
 | W3 | Empirical vs population risk; uniform convergence | **Red/Amber** | Lesson 31 strengthens practical generalisation/train-val-test intuition, but formal risk notation remains new | Translate practical validation/generalisation intuition into empirical/population risk; concentration intuition |
 | W4 | VC dimension + generalisation bounds | **Red** | Capacity/proof/bounds are new | VC-dimension intuition + inequality/proof-reading practice |
-| W5 | GD + convergence analysis | **Mechanics Green; theory Amber/Red** | GD implemented and understood; convergence assumptions/derivations new | Convexity/smoothness/learning-rate effects; simple convergence derivations |
+| W5 | GD + convergence analysis | **Mechanics Green; theory Amber/Red** | GD implemented and understood; convergence assumptions/derivations new | Convexity/smoothness/learning-rate effects; simple convergence derivations; quadratic-form/positive-definite intuition when useful |
 | W6 | SGD, AdaGrad, Adam | **SGD Green/Amber; adaptive Red** | Mini-batch SGD known; adaptive algorithms/theory new | Compare update rules; learn Adam/AdaGrad later in Term 1 |
-| W7 | Representer theorem + kernels | **Red** | Kernel theory new | Feature maps, kernels, Gram matrices, norms |
+| W7 | Representer theorem + kernels | **Red** | Kernel theory new | Feature maps, kernels, Gram matrices, norms; reactivate inner-product/projection intuition |
 | W8 | NTK + deep-learning generalisation/optimisation | **Red** | Advanced | Do not pre-master; secure W7 and optimisation foundations |
 | W9 | Regret + expert advice | **Amber/Red** | Formal online-learning/regret new | Exploration/exploitation hook exists; learn regret notation later |
 | W10 | Greedy / ε-greedy | **Amber** | Bandit formalism new | Expected reward/regret + ε-greedy |
@@ -110,6 +112,7 @@ This course explicitly assumes **linear algebra, probability and statistics**. I
 By 11 Jan, aim to be able to:
 
 - manipulate vectors/matrices and common norms without shape panic;
+- retrieve core LA geometry (span/basis, orthogonality/projection, least squares, eigen/symmetric/quadratic-form ideas) when invoked rather than relearning it;
 - use conditional probability, Bayes rule, expectation/variance and common distributions comfortably;
 - derive a simple likelihood and log-likelihood;
 - differentiate composite scalar objectives and reason about gradients;
