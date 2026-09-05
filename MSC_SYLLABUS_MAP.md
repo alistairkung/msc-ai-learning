@@ -1,7 +1,7 @@
 # MSc Syllabus Preparation Map
 
-_Last reviewed: 2026-09-04_
-_Readiness calibrated against the exercise repository and completed Lesson 31 workflow_
+_Last reviewed: 2026-09-05_
+_Readiness calibrated against the exercise repository, completed Lesson 31 workflow, and reconstructed historical JHU maths foundations_
 
 ## Use
 
@@ -22,9 +22,9 @@ Readiness key:
 |---|---|---|---|---|
 | W1 | Introduction, Logic, Reasoning and Learning | **Amber/Red** | General AI/ML vocabulary strong enough | Formal logic/reasoning vocabulary is new; preview propositions/rules/inference at a light level |
 | W2 | Uninformed search, informed search, searching with other agents | **Amber/Green** | Repo 24–26 implements BFS, DFS, A* | Reactivate from cold recall; add UCS; compare completeness/optimality/time/memory; heuristic admissibility/consistency; multi-agent search new |
-| W3 | Linear regression, logistic regression, decision trees, random forests | **Linear/logistic Green/Amber; trees Red** | Repo 21–23 + Lessons 30–31 classification/evaluation work | Consolidate model maths; learn decision trees + random forests before W3 |
-| W4 | Bayesian networks, inference, sampling | **Red/Amber** | Prior probability study gives a hook | Probability/Bayes refresh; conditional independence; graph semantics; sampling intuition |
-| W5 | Hidden Markov Models, particle filtering | **Red** | Sequence/state intuition only | Conditional probability, Markov property, filtering and sampling foundations |
+| W3 | Linear regression, logistic regression, decision trees, random forests | **Linear/logistic Green/Amber; trees Red** | Repo 21–23 + Lessons 30–31 classification/evaluation work + historical least-squares/normal-equation foundation | Consolidate model maths; learn decision trees + random forests before W3 |
+| W4 | Bayesian networks, inference, sampling | **Amber** | Historical JHU probability strongly covers conditional probability, independence, total probability, Bayes, random variables and joint/marginal distributions | Cold-retrieve Bayes/conditioning; then learn graphical-model semantics, conditional independence in graphs and inference/sampling algorithms |
+| W5 | Hidden Markov Models, particle filtering | **Amber/Red** | Historical probability foundation established; learner remembers Markov chains but recoverable worked evidence is weak | Diagnose Markov-chain recall first; then Markov property, transition/state reasoning, filtering and particle sampling |
 | W6 | KNN, K-means, SVM, gradient boosting | **Red/Amber** | Distance/vector and classification workflow foundations | Fast conceptual + implementation survey; focus on model assumptions/trade-offs |
 | W7 | Neural networks | **Green/Amber** | Repo 27–31, including the completed real-data workflow | Deeper architecture vocabulary |
 | W8 | Backpropagation and SGD | **Green/Amber** | Manual autograd/GD + standard PyTorch loops; chain rule/backprop derived by hand | Keep chain-rule notation warm; theory of convergence still later |
@@ -37,7 +37,8 @@ Readiness key:
 
 1. **Search reactivation cannot disappear again.** Code exists; now build exam/lecture-level conceptual comparison.
 2. **Decision trees/random forests** create the Week-3 buffer.
-3. Start probability refresh early enough that W4–5 and January ML Theory reinforce one another.
+3. Before W4, cold-retrieve the historical Bayes/random-variable foundation rather than relearning probability from zero.
+4. Before W5, run a diagnostic on remembered Markov-chain material and rebuild only what does not return.
 
 ---
 
@@ -48,7 +49,7 @@ Readiness key:
 | Week | MSc topic | Current readiness | Evidence / existing hook | Main gap before lecture |
 |---|---|---|---|---|
 | W1 | Intro + simple ML example | **Green** | sklearn classification/regression plus completed Lesson 31 real-data train/validation/test pipeline | Retrieve and apply the workflow in a new context |
-| W2 | Vector, matrix, tensor ops; NumPy | **Green/Amber** | Repo 10–17 + 27 plus Lesson 31 scaling/axis/tensor conversion | Keep PyTorch weight orientation and NumPy reduction-shape retrieval active |
+| W2 | Vector, matrix, tensor ops; NumPy | **Green/Amber** | Completed 2025 JHU linear algebra foundation + Repo 10–17 + 27 + Lesson 31 scaling/axis/tensor conversion | Cold-retrieve notation/matrix mechanics as needed; keep PyTorch weight orientation and NumPy reduction-shape retrieval active |
 | W3 | 1D/2D signals; image/audio/text/video/sequential representation; SciPy, matplotlib, PyTorch | **Amber** | PyTorch/tensor base strong | SciPy/matplotlib + modality representations not yet systematic |
 | W4 | MLP, CNN, RNN | **MLP Green/Amber; CNN/RNN Red** | Repo 28–30 + Lesson 31 MLP workflow | CNN/RNN architecture intuition before W4; do not need mastery yet |
 | W5 | Housing-price prediction (Boston House Dataset) | **Amber/Green** | sklearn regression (23), MLP/MSE mechanics, completed Lesson 31 preprocessing/validation workflow | Transfer the same split/scaling/validation discipline to NN regression |
@@ -89,20 +90,22 @@ Optional continuation: retain and restore the best-validation checkpoint when ea
 
 This course explicitly assumes **linear algebra, probability and statistics**. Its maths preparation must run during Term 1 rather than waiting until January.
 
+Both prerequisite areas are **not first exposure**. JHU linear algebra and two JHU probability modules were completed in 2025 and are now preserved as historical retrieval blueprints. The Term-1 job is to reactivate them and connect them to ML notation while learning the genuinely new theory layer.
+
 | Week | Theory topic | Current readiness | Main gap | Term-1 preparation |
 |---|---|---|---|---|
-| W1 | Probability + Linear Algebra tools | **Amber** | Probability/statistics not recently exercised; LA needs retrieval | Weekly probability/LA refresh; norms and notation |
-| W2 | MLE, exponential-family models | **Red/Amber** | Likelihood/log-likelihood/exponential-family form not yet systematic | Logs/exponentials, distributions, likelihood/MLE |
-| W3 | Empirical vs population risk; uniform convergence | **Red/Amber** | Lesson 31 strengthens practical generalisation/train-val-test intuition, but formal risk notation remains new | Translate practical validation/generalisation intuition into empirical/population risk; concentration intuition |
-| W4 | VC dimension + generalisation bounds | **Red** | Capacity/proof/bounds are new | VC-dimension intuition + inequality/proof-reading practice |
-| W5 | GD + convergence analysis | **Mechanics Green; theory Amber/Red** | GD implemented and understood; convergence assumptions/derivations new | Convexity/smoothness/learning-rate effects; simple convergence derivations |
+| W1 | Probability + Linear Algebra tools | **Amber/Green retrieval** | Both foundations are established but cold retrieval is due; proof/notation fluency is less automatic | Short LA retrieval plus probability retrieval: Bayes, RVs/distributions, expectation/variance/covariance, CLT; diagnose Markov/Poisson separately |
+| W2 | MLE, exponential-family models | **Red/Amber** | Likelihood/log-likelihood/exponential-family form not yet systematically evidenced | Logs/exponentials, distributions, likelihood/MLE; build on established probability rather than restart it |
+| W3 | Empirical vs population risk; uniform convergence | **Red/Amber** | Lesson 31 strengthens practical generalisation intuition; formal risk/concentration notation remains new | Translate validation/generalisation intuition into empirical/population risk; concentration intuition |
+| W4 | VC dimension + generalisation bounds | **Red** | Capacity/proof/bounds are new | VC-dimension intuition + inequality/proof-reading practice; historical Markov/Chebyshev work is an early concentration hook |
+| W5 | GD + convergence analysis | **Mechanics Green; theory Amber/Red** | GD implemented and understood; convergence assumptions/derivations new | Convexity/smoothness/learning-rate effects; simple convergence derivations; quadratic-form/positive-definite intuition when useful |
 | W6 | SGD, AdaGrad, Adam | **SGD Green/Amber; adaptive Red** | Mini-batch SGD known; adaptive algorithms/theory new | Compare update rules; learn Adam/AdaGrad later in Term 1 |
-| W7 | Representer theorem + kernels | **Red** | Kernel theory new | Feature maps, kernels, Gram matrices, norms |
+| W7 | Representer theorem + kernels | **Red** | Kernel theory new | Feature maps, kernels, Gram matrices, norms; reactivate inner-product/projection intuition |
 | W8 | NTK + deep-learning generalisation/optimisation | **Red** | Advanced | Do not pre-master; secure W7 and optimisation foundations |
 | W9 | Regret + expert advice | **Amber/Red** | Formal online-learning/regret new | Exploration/exploitation hook exists; learn regret notation later |
-| W10 | Greedy / ε-greedy | **Amber** | Bandit formalism new | Expected reward/regret + ε-greedy |
-| W11 | UCB + Thompson sampling | **Amber** | UCB hook from prior BBO; Thompson sampling theory new | Probability/Bayesian refresh makes this much easier |
-| W12 | Score functions / score-based generative modelling | **Red** | Gradients of log densities + probability gap | Probability + logs + gradients must be solid first |
+| W10 | Greedy / ε-greedy | **Amber** | Bandit formalism new | Expected reward/regret + ε-greedy; expectation foundation already exists |
+| W11 | UCB + Thompson sampling | **Amber** | UCB hook from prior BBO; Thompson sampling theory new | Bayes/expectation refresh should make the formalism easier |
+| W12 | Score functions / score-based generative modelling | **Red** | Gradients of log densities + formal probability gap | Probability + logs + gradients must be solid first |
 | W13 | Langevin dynamics / diffusion sampling | **Red** | Advanced stochastic/calculus material | Leave until foundations are ready; preview in Dec if bandwidth exists |
 
 ## January-entry minimum standard
@@ -110,7 +113,9 @@ This course explicitly assumes **linear algebra, probability and statistics**. I
 By 11 Jan, aim to be able to:
 
 - manipulate vectors/matrices and common norms without shape panic;
-- use conditional probability, Bayes rule, expectation/variance and common distributions comfortably;
+- retrieve core LA geometry when invoked rather than relearning it;
+- retrieve conditional probability/Bayes, random variables/distributions, expectation/variance/covariance and CLT without rebuilding the whole JHU course;
+- diagnose/rebuild Markov-chain and Poisson material if needed;
 - derive a simple likelihood and log-likelihood;
 - differentiate composite scalar objectives and reason about gradients;
 - explain GD vs SGD and learning-rate behaviour;

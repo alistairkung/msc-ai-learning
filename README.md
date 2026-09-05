@@ -29,11 +29,14 @@ The repository exists because a long-running tutoring conversation is excellent 
 ├── learning_progress.yaml
 ├── dashboard/
 ├── foundations/
-│   ├── python/        (lessons 01-07)
-│   ├── dsa/           (lessons 08-09)
-│   ├── numpy/         (lessons 10-11, 15)
-│   ├── pandas/        (lessons 18-20)
-│   └── retrieval/     (lessons 13, 17)
+│   ├── calculus/                (historical pre-repo retrieval blueprint)
+│   ├── linear_algebra/          (historical JHU retrieval sequence)
+│   ├── probability_statistics/  (historical JHU retrieval sequence)
+│   ├── python/                  (lessons 01-07)
+│   ├── dsa/                     (lessons 08-09)
+│   ├── numpy/                   (lessons 10-11, 15)
+│   ├── pandas/                  (lessons 18-20)
+│   └── retrieval/               (lessons 13, 17)
 ├── machine_learning/
 │   ├── fundamentals/  (lessons 12, 14, 16)
 │   ├── classification/logistic_regression/ (lessons 21-22)
@@ -46,25 +49,40 @@ The repository exists because a long-running tutoring conversation is excellent 
 │   ├── pytorch_fundamentals/  (lesson 29)
 │   └── mlp/                   (lessons 30-31)
 └── lesson_logs/
+    ├── historical_calculus_foundations.md
+    ├── historical_linear_algebra_01_linear_systems_vector_spaces.md
+    ├── historical_linear_algebra_02_matrices_eigenvalues_diagonalization.md
+    ├── historical_linear_algebra_03_orthogonality_projections_least_squares.md
+    ├── historical_linear_algebra_04_symmetric_quadratic_forms.md
+    ├── historical_probability_statistics_01_counting_conditional_bayes.md
+    ├── historical_probability_statistics_02_random_variables_distributions.md
+    ├── historical_probability_statistics_03_joint_expectation_variance_inequalities.md
+    ├── historical_probability_statistics_04_clt_hypothesis_testing_and_evidence_boundary.md
     ├── lesson30_binary_classification.md
     └── ...
 ```
 
-Each topic directory holds a lesson's exercise and its test side by side (`lessonNN_topic.py` + `test_lessonNN_topic.py`), so a topic folder is self-contained.
+Each numbered topic directory holds a lesson's exercise and its test side by side (`lessonNN_topic.py` + `test_lessonNN_topic.py`), so a topic folder is self-contained.
+
+Important pre-repository maths is intentionally different: the historical calculus, JHU linear-algebra, and JHU probability/statistics tracks were learned interactively through chat/pen-and-paper/notebook work before the numbered exercise/test workflow existed. They are preserved as retrieval blueprints rather than being assigned invented lesson numbers or fabricated tests.
 
 ### Topic directories
 
-The implementation record, organised by knowledge domain rather than chronology. Each lesson's exercise module and its test module live together in the same topic folder.
+The implementation record, organised by knowledge domain rather than chronology. Each numbered lesson's exercise module and its test module live together in the same topic folder.
 
 An exercise proves that a topic was implemented at least once. It does **not by itself prove cold-recall mastery**.
 
 Tests provide a concrete definition of whether an implementation behaves as expected. Not every future ML experiment needs to become a unit test, but pytest remains useful for deterministic contracts, shape checks, pipeline behaviour and small end-to-end learning checks.
 
+Historical foundation directories instead explain what was learned before the repo workflow, where the retrieval logs live, the evidence boundary, and how to rebuild familiarity later without pretending the historical study happened as numbered code lessons.
+
+The probability/statistics track adds one further distinction: some late-course topics such as **Markov chains and Poisson** are remembered historical study but currently have weaker recoverable worked evidence. They are recorded honestly as diagnostic-needed rather than silently promoted to demonstrated mastery.
+
 ### `lesson_logs/`
 
-The conceptual and retrieval record for individual lessons. A lesson log should capture what was learned and implemented, why it matters, important distinctions, known fragile points, cold-retrieval prompts, mastery signals and the bridge to the next lesson.
+The conceptual and retrieval record for individual lessons and historical foundation blocks. A lesson log should capture what was learned and implemented, why it matters, important distinctions, known fragile points, cold-retrieval prompts, mastery signals and the bridge to the next lesson.
 
-The aim is that months later I can say **“Cold retrieve lesson 30”** and a tutor/model can recreate useful interactive questioning without needing the original conversation.
+The aim is that months later I can say **“Cold retrieve lesson 30”**, **“Cold retrieve calculus foundations”**, **“Cold retrieve linear algebra: projections and least squares”**, or **“Cold retrieve probability: Bayes / CLT”** and a tutor/model can recreate useful interactive questioning without needing the original conversation.
 
 Lesson logs are not transcripts. They should be compact retrieval blueprints.
 
@@ -120,7 +138,7 @@ This is the slow-changing master curriculum: major learning tracks, prerequisite
 2. Read `LEARNING_STATE.md`.
 3. Check the next 1–2 relevant MSc weeks in `MSC_SYLLABUS_MAP.md`.
 4. Consult `LEARNING_ROADMAP.md` if choosing between competing longer-term priorities.
-5. Inspect relevant exercise/test and lesson log when building on prior work.
+5. Inspect relevant exercise/test and lesson log when building on prior work; for pre-repo maths, inspect the matching historical retrieval log instead.
 6. Choose the highest-value intersection of upcoming MSc demand, prerequisite weakness, cold-recall fragility and long-term AI/ML engineering value.
 
 ## During the session
@@ -140,6 +158,8 @@ Preferred teaching style:
 
 Retrieval should normally be timeboxed to around **10–15 minutes** so it maintains older knowledge without consuming the whole session.
 
+For historical maths foundations, retrieval should normally begin from the smallest relevant blueprint rather than replaying the whole course. If familiarity has genuinely decayed, follow the recorded rebuild sequence from concrete examples back to the abstraction. When the historical evidence itself is weak, treat retrieval as a diagnostic and create fresh evidence instead of assuming mastery.
+
 ## After the session
 
 A user instruction such as:
@@ -149,7 +169,7 @@ A user instruction such as:
 means:
 
 1. Preserve new/updated exercise and matching test files when implementation changed.
-2. Create/update the relevant `lesson_logs/lessonNN_*.md` retrieval blueprint.
+2. Create/update the relevant `lesson_logs/lessonNN_*.md` retrieval blueprint (or the relevant historical foundation log for pre-repo maths).
 3. **Always update `LEARNING_STATE.md` after a substantive session** with outcomes, fragile points, parked/unparked work, blockers and the next logical step.
 4. **Update `learning_progress.yaml` only if structured dashboard state materially changed** — topic status, retrieval status, known gaps, current/next focus, MSc readiness, or the timeline.
 5. Update `MSC_SYLLABUS_MAP.md` only if course-facing readiness/timing materially changed.
@@ -163,6 +183,8 @@ Markdown captures nuance.
 YAML captures structured dashboard state.
 Markdown changed ≠ YAML changes automatically.
 Code exists ≠ cold-recall mastery.
+Historical reconstruction ≠ invented transcript or fabricated implementation evidence.
+Course completion / remembered coverage ≠ demonstrated mastery of every syllabus topic.
 Lesson completed ≠ dashboard status must change.
 ```
 
@@ -180,8 +202,8 @@ Do not treat every file as interchangeable context. They have different roles an
 2. `LEARNING_STATE.md` — operational handover.
 3. Relevant part of `MSC_SYLLABUS_MAP.md` — upcoming MSc demand and urgency.
 4. `LEARNING_ROADMAP.md` — strategic dependencies when making curriculum choices.
-5. Relevant exercise/test — implementation evidence.
-6. Relevant `lesson_logs/` file — retrieval blueprint or lesson continuation.
+5. Relevant exercise/test — implementation evidence when the topic has a numbered repo lesson.
+6. Relevant `lesson_logs/` file — retrieval blueprint or lesson continuation, including historical foundation logs when applicable.
 7. `learning_progress.yaml` — structured dashboard state when relevant.
 
 The planning question is:
@@ -195,7 +217,7 @@ Do not let conversational recency dominate this decision.
 | Question | Primary source |
 |---|---|
 | What did I actually implement? | Exercise + test code |
-| What should I be able to explain/retrieve from a lesson? | `lesson_logs/` |
+| What should I be able to explain/retrieve from a lesson or historical foundation? | `lesson_logs/` |
 | Where am I right now? | `LEARNING_STATE.md` |
 | What structured status should the dashboard show? | `learning_progress.yaml` |
 | What is coming in the MSc and how ready am I? | `MSC_SYLLABUS_MAP.md` |
@@ -205,10 +227,10 @@ If these appear to disagree, **do not silently reconcile them**. Inspect the evi
 
 ## How to run cold retrieval
 
-When asked to cold retrieve a lesson:
+When asked to cold retrieve a lesson or historical foundation:
 
-1. Fetch that lesson's log.
-2. Inspect its exercise/test if useful.
+1. Fetch that lesson/foundation log.
+2. Inspect its exercise/test if useful and if one genuinely exists.
 3. Do **not** dump a summary first.
 4. Ask one question at a time.
 5. Change numbers/examples so recall is conceptual rather than memorised.
@@ -216,6 +238,8 @@ When asked to cold retrieve a lesson:
 7. If an answer is wrong, give concise feedback and re-test the concept shortly afterwards.
 8. Stop once retention is clear; do not mechanically exhaust the entire question bank.
 9. Timebox normal retrieval to ~10–15 minutes unless a deeper review is requested.
+
+For broad historical linear-algebra or probability/statistics rebuilds, follow the relevant logs in order; for ordinary maintenance, select only the smallest relevant one. For weak-evidence probability topics such as Markov chains/Poisson, begin as a diagnostic rather than assuming retained mastery.
 
 ## How to choose the next lesson
 
@@ -240,7 +264,7 @@ Preserve the pieces that matter for future decisions and retrieval, not every co
 
 ### Evidence + understanding
 
-Code/tests show implementation; lesson logs and learning state capture understanding. We need both.
+Code/tests show implementation; lesson logs and learning state capture understanding. Historical chat/pen-and-paper learning is represented honestly as retrieval blueprints rather than fabricated code evidence. We need those boundaries to stay explicit.
 
 ### Retrieval over rereading
 
@@ -252,7 +276,7 @@ Preparation should help immediate MSc demands while still building toward strong
 
 ### Depth before indiscriminate breadth
 
-Being able to explain why a training loop works, trace tensor shapes, derive a gradient, or compare search algorithms is more valuable than briefly touching many advanced topics with no durable mental model.
+Being able to explain why a training loop works, trace tensor shapes, derive a gradient, reason about a projection/least-squares fit, work through a Bayes/CLT argument, or compare search algorithms is more valuable than briefly touching many advanced topics with no durable mental model.
 
 ### Lightweight maintenance
 

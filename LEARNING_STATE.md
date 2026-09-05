@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last updated: 2026-09-04_
+_Last updated: 2026-09-05_
 
 > Update this file at the end of **every study session**. Keep it short. It should answer: **Where am I now, what is fragile, what is parked, and what should happen next?**
 
@@ -10,7 +10,7 @@ _Last updated: 2026-09-04_
 - Immediate courses: **Fundamentals in AI (AIMS5701)** and **AI in Practice (AIMS5702)**.
 - **Machine Learning Theory (AIMS5704)** starts **11 Jan 2027**; probability/statistics/LA preparation must run during Term 1.
 - Strategy: stay roughly **1–2 syllabus weeks ahead** while keeping a small January-maths lane alive.
-- Lesson-log backfill is now complete: **Lessons 01–31 all have retrieval logs**; `lesson_logs/INDEX.md` is the coverage index.
+- Lessons **01–31** all have retrieval logs; historical pre-repo maths is documented separately for calculus, JHU linear algebra and JHU probability/statistics.
 
 ## Verified learning position
 
@@ -19,9 +19,21 @@ _Last updated: 2026-09-04_
 - NumPy/Pandas foundations substantial (10–20, 27).
 - pytest is comfortable and remains useful as learning scaffolding.
 
+### Linear algebra
+- JHU Coursera **Linear Algebra from Elementary to Advanced** was completed in 2025; treat this as established prior learning with retrieval due, not a prerequisite to restart.
+- Four historical logs preserve the evidenced sequence from systems/vector spaces through eigen/diagonalization, orthogonality/projections/least squares, and symmetric matrices/quadratic forms.
+- Current role: **maintenance/application lane**. Use the relevant historical log for detailed fragile points and retrieval prompts.
+
+### Probability / statistics
+- Two JHU probability modules were completed in late 2025; the recoverable historical core is established prior learning with retrieval due.
+- Strong evidence covers conditional probability/Bayes, random variables/distributions, expectation/variance, joint/marginal distributions, covariance/correlation, Markov/Chebyshev inequalities, CLT, standard error and introductory hypothesis testing/p-values.
+- **Evidence boundary:** Markov chains and Poisson are distinctly remembered as studied but lack enough recovered worked evidence to claim current mastery. Diagnose them cold before relying on them.
+- Current role: **higher-priority retrieval/application lane**; likelihood/MLE, exponential families and formal generalisation/concentration remain genuine extensions.
+
 ### Classical ML
 - sklearn logistic regression/classification workflow (21–22) and linear regression (23) implemented.
-- Linear/logistic regression need consolidation, not first exposure; decision trees/random forests are still new.
+- Historical least-squares work gives useful geometry underneath regression.
+- Linear/logistic regression need consolidation, not first exposure; decision trees/random forests are new.
 
 ### Search
 - BFS, DFS and A* implemented in lessons 24–26.
@@ -29,40 +41,22 @@ _Last updated: 2026-09-04_
 
 ### Calculus / optimisation / PyTorch
 - Power/product rules, partial derivatives, gradients, chain rule and manual backprop understood.
-- Autograd/manual GD (28), standard linear training loop (29), synthetic binary MLP (30) implemented.
-
-### Lesson 31 — real-data ML workflow (COMPLETE)
-- Repo now contains `deep_learning/mlp/lesson31_real_data.py`, `deep_learning/mlp/test_lesson31_real_data.py`, and `lesson_logs/lesson31_real_data_workflow.md`.
-- Implemented in the exercise:
-  - `load_data()` using sklearn breast-cancer data; X `(569,30)`, y `(569,)`.
-  - stratified 60/20/20 train/validation/test split; shapes train 341, val 114, test 114.
-  - `StandardScaler` fit on TRAIN only; validation/test transformed with frozen train statistics.
-  - NumPy → float32 tensors; binary labels reshaped `(n,) -> (n,1)`.
-  - shuffled `TensorDataset`/`DataLoader` helper.
-  - `make_classifier()` architecture `30 -> 16 -> ReLU -> 1`.
-  - epoch/batch training loop with SGD + `BCEWithLogitsLoss`, average train loss per epoch, validation loss under `torch.no_grad()`.
-  - binary accuracy: logits → sigmoid → threshold → compare to targets.
-- Tests cover data loading/splitting/scaling/tensor conversion, classifier shape, prepared split shapes, and the end-to-end experiment contract.
-- **Resolved:** `test_lesson31_real_data.py` was importing `make_classifier` from Lesson 30 (10-input classifier) instead of Lesson 31's own 30-input classifier, causing `test_make_classifier` to fail with a shape mismatch on `(32, 30)` input. Fixed by importing `make_classifier` from `lesson31_real_data` directly; all tests now pass.
-- Completed `prepare_data()` and `run_experiment()` integration: the real dataset now flows through split/scaling/tensor/DataLoader preparation, training with per-epoch train/validation histories, and one final held-out test-accuracy evaluation.
-- Verified on 2026-09-04: Lesson 31 plus dashboard tests pass (`9 passed`).
-- Optional continuation only: retain and restore the best-validation checkpoint if early stopping/model selection is added later; this is not required to close Lesson 31.
+- Autograd/manual GD (28), standard linear training loop (29), synthetic binary MLP (30) and real-data classification workflow (31) implemented.
+- Lesson 31 includes stratified train/validation/test splitting, train-only scaling, tensor/DataLoader preparation, MLP training/validation and held-out evaluation; verified tests/dashboard passed on 2026-09-04.
 
 ## Fragile under cold recall
 
-- `nn.Linear(in, out).weight.shape == (out, in)`; batch dimension occasional quick slips.
-- Standardisation: mean ≈ 0, std ≈ 1 on TRAIN; validation/test use TRAIN scaler stats and need not themselves have mean 0/std 1.
-- `len(train_loader)` = number of batches; `train_loader.batch_size` = samples per normal batch.
-- Epoch loss bookkeeping: simple current approach averages batch-average losses via `/ len(train_loader)`; final partial-batch weighting is a later refinement.
-- Accuracy requires comparing predictions to targets; `predictions.mean()` only measures fraction predicted class 1.
-- Keep logit → probability → class distinction automatic.
-- Search theory completeness/optimality/time/memory and heuristic properties remain non-automatic.
+- **Linear algebra:** procedural details around RREF/free variables, determinant/eigen arithmetic, Gram–Schmidt/projections, least-squares equations and quadratic-form representation. See `lesson_logs/historical_linear_algebra_*.md` for the exact retrieval targets.
+- **Probability/statistics:** Bayes conditioning direction/denominator, PDF vs probability, expectation weighting, covariance vs correlation, CLT/sampling-distribution interpretation and p-value language. Markov chains/Poisson are diagnostic-needed. See `lesson_logs/historical_probability_statistics_*.md`.
+- **Practical ML/tensors:** `nn.Linear` weight orientation, batch/reduction shapes, train-only scaler semantics, loader length vs batch size, binary accuracy and logit → probability → class distinction.
+- **Search:** completeness/optimality/time/memory and heuristic properties remain non-automatic.
 
 ## Active highest-value sequence
 
 1. **Search reactivation** — BFS/DFS/A* cold recall; compare them; add UCS/heuristic theory and light logic preview.
 2. **Fundamentals Week-3 buffer** — linear/logistic retrieval, then decision trees/random forests.
-3. **Optional Lesson 31 continuation** — add best-validation-checkpoint restoration if revisiting early stopping/model selection.
+3. **Probability runway for Weeks 4–5 + January** — short Bayes/random-variable retrieval; diagnose Markov chains/Poisson before HMM/particle-filtering work; then extend toward likelihood/MLE.
+4. **January maths maintenance** — insert short LA/calculus retrieval where upcoming material invokes it.
 
 # PARKED / MUST RETURN
 
@@ -70,9 +64,11 @@ _Last updated: 2026-09-04_
 - [ ] **Logic/reasoning** — Fundamentals Week 1 preview.
 - [ ] **Decision trees / random forests** — Fundamentals Week 3.
 - [x] **Real-data PyTorch classification** — Lesson 31 complete; best-validation-checkpoint restoration is optional continuation work.
+- [~] **Historical linear algebra retrieval** — established and documented; retrieve in short targeted blocks rather than relearn from zero.
+- [~] **Historical probability/statistics retrieval** — core foundation established; Markov chains and Poisson require diagnostics before being treated as current.
+- [ ] **Likelihood / log-likelihood / MLE** — extend historical probability/statistics for AIMS5704.
 - [ ] **NN regression / housing-price workflow** — AI in Practice Week 5.
 - [ ] **CNN/RNN architecture preview** — AI in Practice Week 4.
-- [ ] **Probability/statistics refresh** — recurring Term-1 lane for ML Theory January.
 - [ ] **Formal complexity / graph-tree DSA** — reinforce around search.
 - [ ] **Vector/Jacobian calculus** — defer until needed.
 
@@ -82,28 +78,29 @@ _Last updated: 2026-09-04_
 - W1: introduction, logic, reasoning, learning → logic is the immediate unfamiliar piece.
 - W2: uninformed/informed/multi-agent search → BFS/DFS/A* already coded; reactivate and deepen.
 - W3: linear/logistic regression, decision trees, random forests → first two practised; trees/forests are the gap.
+- W4: Bayesian networks/inference/sampling → historical Bayes/probability foundation exists; reactivate, then learn graphical-model semantics/inference.
+- W5: HMMs/particle filtering → diagnose Markov-chain recall before relying on it.
 
 ### AI in Practice
-- W1–2: simple ML + vector/matrix/tensor/NumPy → current prep is strong.
-- W3: representations + SciPy/matplotlib/PyTorch → PyTorch strong enough; plotting/SciPy not yet systematic.
+- W1–2: simple ML + vector/matrix/tensor/NumPy → strong preparation; historical JHU LA makes the matrix layer retrieval/application rather than first exposure.
+- W3: representations + SciPy/matplotlib/PyTorch → PyTorch base strong; plotting/SciPy not systematic.
 - W4: MLP/CNN/RNN → MLP ahead; CNN/RNN pending.
-- W5: housing-price prediction → regression workflow needs real-data/NN practice.
+- W5: housing-price prediction → transfer Lesson 31's preprocessing/validation discipline to regression.
 
 ### ML Theory — January risk lane
-- Probability/statistics is the main prerequisite gap.
-- GD/backprop mechanics are an advantage, but convergence/generalisation theory is not yet prepared.
+- Linear algebra and core probability/statistics are established historical foundations with retrieval due.
+- Larger new gaps: likelihood/log-likelihood/MLE/exponential-family notation, formal risk/generalisation/concentration, convergence assumptions and proof-style derivations.
+- GD/backprop mechanics are an advantage.
 
 ## Next session target
 
 > **Reactivate search:** cold-retrieve BFS, DFS and A*, compare completeness/optimality/time/memory, then add UCS and heuristic admissibility/consistency.
 
-Lesson 31 is complete. Best-validation-checkpoint restoration remains optional continuation work and must not displace the search reactivation session.
+Historical maths backfill should not displace immediate Week-1/2 MSc preparation. Pull from LA/probability tactically as live course material calls for it.
 
 ## End-of-session update
 
-- **Completed:** Lesson 31's end-to-end real-data workflow and integration tests; all Lessons 01–31 have retrieval logs.
-- **Now comfortable with:** leakage-safe train/validation/test preparation, per-epoch train/validation measurement, and held-out test evaluation are connected in one executable pipeline.
-- **Still fragile:** epoch-loss averaging/accuracy syntax and some reduced-axis shape intuition still deserve retrieval; search theory remains pending.
-- **Newly parked / unparked:** real-data classification is closed; search is restored as the primary active target. Best-validation-checkpoint restoration is optional continuation work.
-- **Next session:** BFS/DFS/A* cold retrieval and comparison, then UCS plus admissibility/consistency.
-- **Roadmap/syllabus change needed?** stale Lesson 31 completion/readiness wording updated; overall strategy unchanged.
+- **Completed:** historical JHU linear-algebra and probability/statistics foundations reconstructed into focused retrieval logs and reflected in roadmap/syllabus/dashboard state.
+- **Now represented accurately:** these are established historical foundations with retrieval due, not unstudied prerequisites.
+- **Evidence boundary preserved:** Markov chains/Poisson remain diagnostic-needed; future LA/ML extensions are not treated as historical mastery.
+- **Immediate priority unchanged:** search reactivation remains first.
