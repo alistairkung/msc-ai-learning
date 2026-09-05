@@ -157,7 +157,7 @@ This makes the geometry of the quadratic form visible through the eigenvalues.
 
 ### 8. ML-relevant interpretation
 
-The later purpose is not to become fast at arbitrary quadratic-form algebra. These ideas support:
+The later purpose is not to become fast at arbitrary quadratic-form algebra. These ideas can later support:
 
 - curvature/Hessian reasoning in optimisation;
 - positive definite / semidefinite matrices;
@@ -166,7 +166,7 @@ The later purpose is not to become fast at arbitrary quadratic-form algebra. The
 - Gram matrices and kernel methods;
 - quadratic loss geometry.
 
-Positive-definite/semidefinite classification is therefore a natural retrieval/extension target before AIMS5704 even if it was not deeply drilled in the historical chat record.
+These are **future applications/extensions**, not automatic retrieval expectations from this historical block unless separately evidenced or taught.
 
 ## What was understood well
 
@@ -193,7 +193,6 @@ The quadratic-form computation `x^T A x` and the off-diagonal cross-term rule be
 6. Compute one quadratic form using `Ax` then `x^T(Ax)`.
 7. Convert a polynomial quadratic form into its symmetric matrix representation, including one cross term.
 8. Ask what diagonalizing the symmetric matrix does to the cross terms.
-9. Ask why eigenvalue signs will later matter for curvature/positive definiteness.
 
 ## Rebuild sequence if cold recall is weak
 
@@ -207,8 +206,11 @@ ordinary diagonalization
 → x^T A x
 → cross-term matrix representation
 → change into eigenbasis
-→ eigenvalue signs / geometry
 ```
+
+## Future extension — not part of historical retrieval mastery
+
+When later ML Theory or optimisation work actually introduces it, connect the eigenvalue signs of a symmetric quadratic form to positive-definite/semidefinite reasoning and curvature. Until then, do not use that extension to judge retrieval of this historical lesson.
 
 ## Mastery signal
 
@@ -218,7 +220,7 @@ The learner can identify symmetry, explain the spectral-theorem consequence at a
 
 ```text
 symmetric matrices + quadratic forms
-→ positive definite / semidefinite reasoning
+→ future: positive definite / semidefinite reasoning
 → covariance / PCA intuition
 → Hessian / optimisation curvature
 → kernels / Gram matrices
