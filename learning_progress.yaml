@@ -23,12 +23,12 @@ focus:
   - stage: Next
     title: Build the Week-3 buffer
     detail: Refresh linear/logistic regression, then learn decision trees and random forests.
-  - stage: Optional
-    title: Restore best validation checkpoint
-    detail: If Lesson 31 is extended with early stopping or model selection, retain and restore the best-validation model state.
+  - stage: Then
+    title: Reactivate probability for Weeks 4–5
+    detail: Retrieve Bayes/random variables/joint distributions/CLT, then diagnostically test Markov chains and Poisson before HMM and particle-filtering work.
   - stage: Longer-term
     title: Protect the January maths lane
-    detail: Probability/statistics is the main prerequisite gap; periodically cold-retrieve the established calculus and JHU linear-algebra foundations rather than relearning them.
+    detail: Linear algebra, calculus and core probability are established foundations; extend probability into likelihood/MLE and formal ML Theory rather than restarting completed courses.
 
 domains:
   Foundations:
@@ -64,7 +64,7 @@ domains:
         status: established
         retrieval: due
         lessons: ["Historical linear algebra"]
-        note: JHU Coursera Linear Algebra from Elementary to Advanced was completed in 2025; historical retrieval logs now preserve systems/vector spaces, eigen/diagonalization, orthogonality/projections/least squares, and symmetric matrices/quadratic forms.
+        note: JHU Coursera Linear Algebra from Elementary to Advanced was completed in 2025; historical retrieval logs preserve systems/vector spaces, eigen/diagonalization, orthogonality/projections/least squares, and symmetric matrices/quadratic forms.
         gaps:
           - Keep vectors, matrices, norms and notation warm for AIMS5702 and AIMS5704.
           - Cold-retrieve RREF/free-variable structure, eigenvalue/diagonalization mechanics, Gram–Schmidt/projections and least-squares normal equations periodically.
@@ -87,12 +87,15 @@ domains:
           - Needed for AI in Practice Week 3; not yet practised systematically.
       probability:
         label: Probability and statistics
-        status: developing
+        status: established
         retrieval: due
-        lessons: []
+        lessons: ["Historical probability/statistics"]
+        note: Two JHU probability modules were completed in late 2025. Strong recoverable evidence covers counting/conditional probability/Bayes, random variables and common distributions, expectation/variance, joint and marginal distributions, covariance/correlation, Markov/Chebyshev inequalities, CLT, standard error and introductory hypothesis testing.
         gaps:
-          - Main prerequisite risk for AIMS5704 in January.
-          - Refresh Bayes, random variables, expectation, variance and common distributions.
+          - Refresh Bayes, random variables, expectation/variance/covariance and CLT before AIMS5701 Weeks 4–5 and AIMS5704.
+          - Markov chains and Poisson are remembered historical study but have weak recoverable worked evidence; cold-diagnose before treating them as current.
+          - Add likelihood/log-likelihood/MLE and exponential-family notation for AIMS5704.
+          - Formal concentration/generalisation and proof-style probability remain future work.
 
   Machine Learning:
     description: Classical supervised learning, evaluation and generalisation workflow.
@@ -293,6 +296,9 @@ timeline:
   - lessons: "Historical"
     label: JHU linear algebra foundations
     detail: Linear systems/vector spaces, matrices/eigen/diagonalization, orthogonality/projections/least squares, and symmetric matrices/quadratic forms completed before the MSc; now preserved as cold-retrieval blueprints.
+  - lessons: "Historical"
+    label: JHU probability and statistics foundations
+    detail: Two completed late-2025 modules with strong recovered evidence from counting/Bayes through distributions, joint moments, inequalities, CLT and hypothesis testing; Markov-chain/Poisson coverage is remembered but diagnostic-needed.
   - lessons: "01–07"
     label: Python fluency
     detail: Core language conversion for ML work.
