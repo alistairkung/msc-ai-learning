@@ -29,13 +29,14 @@ The repository exists because a long-running tutoring conversation is excellent 
 ├── learning_progress.yaml
 ├── dashboard/
 ├── foundations/
-│   ├── calculus/      (historical pre-repo retrieval blueprint)
-│   ├── linear_algebra/ (historical JHU retrieval sequence)
-│   ├── python/        (lessons 01-07)
-│   ├── dsa/           (lessons 08-09)
-│   ├── numpy/         (lessons 10-11, 15)
-│   ├── pandas/        (lessons 18-20)
-│   └── retrieval/     (lessons 13, 17)
+│   ├── calculus/                (historical pre-repo retrieval blueprint)
+│   ├── linear_algebra/          (historical JHU retrieval sequence)
+│   ├── probability_statistics/  (historical JHU retrieval sequence)
+│   ├── python/                  (lessons 01-07)
+│   ├── dsa/                     (lessons 08-09)
+│   ├── numpy/                   (lessons 10-11, 15)
+│   ├── pandas/                  (lessons 18-20)
+│   └── retrieval/               (lessons 13, 17)
 ├── machine_learning/
 │   ├── fundamentals/  (lessons 12, 14, 16)
 │   ├── classification/logistic_regression/ (lessons 21-22)
@@ -53,13 +54,17 @@ The repository exists because a long-running tutoring conversation is excellent 
     ├── historical_linear_algebra_02_matrices_eigenvalues_diagonalization.md
     ├── historical_linear_algebra_03_orthogonality_projections_least_squares.md
     ├── historical_linear_algebra_04_symmetric_quadratic_forms.md
+    ├── historical_probability_statistics_01_counting_conditional_bayes.md
+    ├── historical_probability_statistics_02_random_variables_distributions.md
+    ├── historical_probability_statistics_03_joint_expectation_variance_inequalities.md
+    ├── historical_probability_statistics_04_clt_hypothesis_testing_and_evidence_boundary.md
     ├── lesson30_binary_classification.md
     └── ...
 ```
 
 Each numbered topic directory holds a lesson's exercise and its test side by side (`lessonNN_topic.py` + `test_lessonNN_topic.py`), so a topic folder is self-contained.
 
-Important pre-repository maths is intentionally different: the historical calculus and JHU linear-algebra tracks were learned interactively through chat/pen-and-paper before the numbered exercise/test workflow existed. They are preserved as retrieval blueprints rather than being assigned invented lesson numbers or fabricated tests.
+Important pre-repository maths is intentionally different: the historical calculus, JHU linear-algebra, and JHU probability/statistics tracks were learned interactively through chat/pen-and-paper/notebook work before the numbered exercise/test workflow existed. They are preserved as retrieval blueprints rather than being assigned invented lesson numbers or fabricated tests.
 
 ### Topic directories
 
@@ -69,13 +74,15 @@ An exercise proves that a topic was implemented at least once. It does **not by 
 
 Tests provide a concrete definition of whether an implementation behaves as expected. Not every future ML experiment needs to become a unit test, but pytest remains useful for deterministic contracts, shape checks, pipeline behaviour and small end-to-end learning checks.
 
-Historical foundation directories such as `foundations/calculus/` and `foundations/linear_algebra/` instead explain what was learned before the repo workflow, where the retrieval logs live, the evidence boundary, and how to rebuild familiarity later without pretending the historical study happened as numbered code lessons.
+Historical foundation directories instead explain what was learned before the repo workflow, where the retrieval logs live, the evidence boundary, and how to rebuild familiarity later without pretending the historical study happened as numbered code lessons.
+
+The probability/statistics track adds one further distinction: some late-course topics such as **Markov chains and Poisson** are remembered historical study but currently have weaker recoverable worked evidence. They are recorded honestly as diagnostic-needed rather than silently promoted to demonstrated mastery.
 
 ### `lesson_logs/`
 
 The conceptual and retrieval record for individual lessons and historical foundation blocks. A lesson log should capture what was learned and implemented, why it matters, important distinctions, known fragile points, cold-retrieval prompts, mastery signals and the bridge to the next lesson.
 
-The aim is that months later I can say **“Cold retrieve lesson 30”**, **“Cold retrieve calculus foundations”**, or **“Cold retrieve linear algebra: projections and least squares”** and a tutor/model can recreate useful interactive questioning without needing the original conversation.
+The aim is that months later I can say **“Cold retrieve lesson 30”**, **“Cold retrieve calculus foundations”**, **“Cold retrieve linear algebra: projections and least squares”**, or **“Cold retrieve probability: Bayes / CLT”** and a tutor/model can recreate useful interactive questioning without needing the original conversation.
 
 Lesson logs are not transcripts. They should be compact retrieval blueprints.
 
@@ -151,7 +158,7 @@ Preferred teaching style:
 
 Retrieval should normally be timeboxed to around **10–15 minutes** so it maintains older knowledge without consuming the whole session.
 
-For historical maths foundations, retrieval should normally begin from the smallest relevant blueprint rather than replaying the whole course. If familiarity has genuinely decayed, follow the recorded rebuild sequence from concrete examples back to the abstraction.
+For historical maths foundations, retrieval should normally begin from the smallest relevant blueprint rather than replaying the whole course. If familiarity has genuinely decayed, follow the recorded rebuild sequence from concrete examples back to the abstraction. When the historical evidence itself is weak, treat retrieval as a diagnostic and create fresh evidence instead of assuming mastery.
 
 ## After the session
 
@@ -177,6 +184,7 @@ YAML captures structured dashboard state.
 Markdown changed ≠ YAML changes automatically.
 Code exists ≠ cold-recall mastery.
 Historical reconstruction ≠ invented transcript or fabricated implementation evidence.
+Course completion / remembered coverage ≠ demonstrated mastery of every syllabus topic.
 Lesson completed ≠ dashboard status must change.
 ```
 
@@ -231,7 +239,7 @@ When asked to cold retrieve a lesson or historical foundation:
 8. Stop once retention is clear; do not mechanically exhaust the entire question bank.
 9. Timebox normal retrieval to ~10–15 minutes unless a deeper review is requested.
 
-For a broad historical linear-algebra rebuild, follow the four logs in order; for ordinary maintenance, select only the relevant one.
+For broad historical linear-algebra or probability/statistics rebuilds, follow the relevant logs in order; for ordinary maintenance, select only the smallest relevant one. For weak-evidence probability topics such as Markov chains/Poisson, begin as a diagnostic rather than assuming retained mastery.
 
 ## How to choose the next lesson
 
@@ -268,7 +276,7 @@ Preparation should help immediate MSc demands while still building toward strong
 
 ### Depth before indiscriminate breadth
 
-Being able to explain why a training loop works, trace tensor shapes, derive a gradient, reason about a projection/least-squares fit, or compare search algorithms is more valuable than briefly touching many advanced topics with no durable mental model.
+Being able to explain why a training loop works, trace tensor shapes, derive a gradient, reason about a projection/least-squares fit, work through a Bayes/CLT argument, or compare search algorithms is more valuable than briefly touching many advanced topics with no durable mental model.
 
 ### Lightweight maintenance
 
