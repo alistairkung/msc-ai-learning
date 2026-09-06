@@ -1,12 +1,12 @@
 # Learning State — Current Handover
 
-_Last updated: 2026-09-05_
+_Last updated: 2026-09-06_
 
 > Update this file at the end of **every study session**. Keep it short. It should answer: **Where am I now, what is fragile, what is parked, and what should happen next?**
 
 ## Current phase
 
-- MSc Term 1: **7 Sep–4 Dec 2026**.
+- MSc Term 1: **7 Sep–4 Dec 2026**; school starts Monday and the first AIMS5701 Fundamentals class is Wednesday.
 - Immediate courses: **Fundamentals in AI (AIMS5701)** and **AI in Practice (AIMS5702)**.
 - **Machine Learning Theory (AIMS5704)** starts **11 Jan 2027**; probability/statistics/LA preparation must run during Term 1.
 - Strategy: stay roughly **1–2 syllabus weeks ahead** while keeping a small January-maths lane alive.
@@ -35,9 +35,11 @@ _Last updated: 2026-09-05_
 - Historical least-squares work gives useful geometry underneath regression.
 - Linear/logistic regression need consolidation, not first exposure; decision trees/random forests are new.
 
-### Search
-- BFS, DFS and A* implemented in lessons 24–26.
-- Search remains deliberately parked pending **cold retrieval + comparison/theory + UCS + heuristic properties**.
+### Search — reactivation in progress
+- BFS, DFS and A* were originally implemented in lessons 24–26.
+- **2026-09-06 theory reactivation complete:** BFS/DFS traversal intuition survived; A* `g/h/f` recovered; UCS introduced; admissibility, consistency, completeness and optimality added at course-appropriate introductory depth.
+- The learner can now distinguish: BFS → lowest depth, UCS → lowest `g(n)`, A* → lowest `g(n)+h(n)`; DFS → LIFO/depth-first behaviour.
+- Next evidence needed is **cold implementation reconstruction**, not more conceptual rereading.
 
 ### Calculus / optimisation / PyTorch
 - Power/product rules, partial derivatives, gradients, chain rule and manual backprop understood.
@@ -46,21 +48,24 @@ _Last updated: 2026-09-05_
 
 ## Fragile under cold recall
 
-- **Linear algebra:** procedural details around RREF/free variables, determinant/eigen arithmetic, Gram–Schmidt/projections, least-squares equations and quadratic-form representation. See `lesson_logs/historical_linear_algebra_*.md` for the exact retrieval targets.
+- **Linear algebra:** procedural details around RREF/free variables, determinant/eigen arithmetic, Gram–Schmidt/projections, least-squares equations and quadratic-form representation. See `lesson_logs/historical_linear_algebra_*.md`.
 - **Probability/statistics:** Bayes conditioning direction/denominator, PDF vs probability, expectation weighting, covariance vs correlation, CLT/sampling-distribution interpretation and p-value language. Markov chains/Poisson are diagnostic-needed. See `lesson_logs/historical_probability_statistics_*.md`.
 - **Practical ML/tensors:** `nn.Linear` weight orientation, batch/reduction shapes, train-only scaler semantics, loader length vs batch size, binary accuracy and logit → probability → class distinction.
-- **Search:** completeness/optimality/time/memory and heuristic properties remain non-automatic.
+- **Search:** frontier vs visited-set responsibility; precise FIFO/LIFO language; `h(n)` means remaining cost from `n`; admissibility direction; consistency requires edge + neighbour information; keep assumptions attached to completeness/optimality claims. Implementation reconstruction remains untested after the retrieval gap.
 
 ## Active highest-value sequence
 
-1. **Search reactivation** — BFS/DFS/A* cold recall; compare them; add UCS/heuristic theory and light logic preview.
-2. **Fundamentals Week-3 buffer** — linear/logistic retrieval, then decision trees/random forests.
-3. **Probability runway for Weeks 4–5 + January** — short Bayes/random-variable retrieval; diagnose Markov chains/Poisson before HMM/particle-filtering work; then extend toward likelihood/MLE.
-4. **January maths maintenance** — insert short LA/calculus retrieval where upcoming material invokes it.
+1. **Search implementation reconstruction** — write BFS from cold, derive DFS from frontier behaviour, implement UCS with accumulated `g`, then reconstruct A* as `g+h`; add/adjust small tests.
+2. **Search theory consolidation** — after implementation, briefly re-test completeness/optimality/admissibility/consistency and add time/memory complexity if useful for AIMS5701.
+3. **Fundamentals Week-3 buffer** — linear/logistic retrieval, then decision trees/random forests.
+4. **Probability runway for Weeks 4–5 + January** — short Bayes/random-variable retrieval; diagnose Markov chains/Poisson before HMM/particle-filtering work; then extend toward likelihood/MLE.
+5. **January maths maintenance** — retrieve LA/calculus tactically when upcoming material invokes it.
 
 # PARKED / MUST RETURN
 
-- [~] **BFS / DFS / A\*** — implemented lessons 24–26; reactivation pending.
+- [~] **BFS / DFS / A\*** — conceptual/theory reactivation completed 2026-09-06; cold code reconstruction is next.
+- [~] **UCS** — concept introduced and traced correctly; implementation not yet written.
+- [~] **Search guarantees / heuristic theory** — admissibility, consistency, completeness and optimality introduced; consolidate after implementation and attach assumptions carefully.
 - [ ] **Logic/reasoning** — Fundamentals Week 1 preview.
 - [ ] **Decision trees / random forests** — Fundamentals Week 3.
 - [x] **Real-data PyTorch classification** — Lesson 31 complete; best-validation-checkpoint restoration is optional continuation work.
@@ -76,7 +81,7 @@ _Last updated: 2026-09-05_
 
 ### Fundamentals
 - W1: introduction, logic, reasoning, learning → logic is the immediate unfamiliar piece.
-- W2: uninformed/informed/multi-agent search → BFS/DFS/A* already coded; reactivate and deepen.
+- W2: uninformed/informed/multi-agent search → conceptual reactivation now underway; implementation reconstruction next, then use the lecture to deepen/verify theory.
 - W3: linear/logistic regression, decision trees, random forests → first two practised; trees/forests are the gap.
 - W4: Bayesian networks/inference/sampling → historical Bayes/probability foundation exists; reactivate, then learn graphical-model semantics/inference.
 - W5: HMMs/particle filtering → diagnose Markov-chain recall before relying on it.
@@ -94,13 +99,13 @@ _Last updated: 2026-09-05_
 
 ## Next session target
 
-> **Reactivate search:** cold-retrieve BFS, DFS and A*, compare completeness/optimality/time/memory, then add UCS and heuristic admissibility/consistency.
+> **Reconstruct search implementations from cold:** BFS → DFS → UCS → A*. Do not inspect the old implementations first. Build one decision at a time, with the learner writing the important code. Finish with small path/cost tests and a brief theory re-check.
 
-Historical maths backfill should not displace immediate Week-1/2 MSc preparation. Pull from LA/probability tactically as live course material calls for it.
+After this, decide whether search is course-ready for AIMS5701 or whether time/memory complexity and graph-search-specific details need one more short pass.
 
 ## End-of-session update
 
-- **Completed:** historical JHU linear-algebra and probability/statistics foundations reconstructed into focused retrieval logs and reflected in roadmap/syllabus/dashboard state.
-- **Now represented accurately:** these are established historical foundations with retrieval due, not unstudied prerequisites.
-- **Evidence boundary preserved:** Markov chains/Poisson remain diagnostic-needed; future LA/ML extensions are not treated as historical mastery.
-- **Immediate priority unchanged:** search reactivation remains first.
+- **Completed:** conceptual search reactivation for BFS/DFS/A* plus new UCS, admissibility, consistency, completeness and optimality material.
+- **Demonstrated:** traversal reasoning, weighted-vs-unweighted distinction, UCS `g(n)`, A* `g+h`, admissibility after one correction, consistency after several examples, and completeness/optimality vocabulary after introduction.
+- **Still fragile:** implementation reconstruction after the retrieval gap; frontier vs visited-set role; consistency semantics; guarantee assumptions.
+- **Next:** reconstruct BFS/DFS/UCS/A* code without rereading the old implementations, then consolidate theory/complexity.
