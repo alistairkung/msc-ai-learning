@@ -38,8 +38,9 @@ _Last updated: 2026-09-06_
 ### Search — reactivation in progress
 - BFS, DFS and A* were originally implemented in lessons 24–26.
 - **2026-09-06 theory reactivation complete:** BFS/DFS traversal intuition survived; A* `g/h/f` recovered; UCS introduced; admissibility, consistency, completeness and optimality added at course-appropriate introductory depth.
-- The learner can now distinguish: BFS → lowest depth, UCS → lowest `g(n)`, A* → lowest `g(n)+h(n)`; DFS → LIFO/depth-first behaviour.
-- Next evidence needed is **cold implementation reconstruction**, not more conceptual rereading.
+- **2026-09-06 implementation continuation:** BFS was reconstructed incrementally without inspecting the old implementation: `parents={start: None}`, FIFO `deque([start])`, `popleft()`, neighbour discovery, parent recording, enqueueing, goal detection and backwards parent-chain path reconstruction were all recovered with light syntax prompting. DFS was then correctly derived from the same skeleton by changing frontier removal to LIFO `pop()`; the learner also correctly reasoned about neighbour-order reversal.
+- A skipped pytest practice exercise now exists for independent BFS implementation before continuing. This is deliberately practice-only and must not block CI.
+- UCS implementation is the next genuinely new coding step; A* follows as UCS + heuristic priority.
 
 ### Calculus / optimisation / PyTorch
 - Power/product rules, partial derivatives, gradients, chain rule and manual backprop understood.
@@ -51,19 +52,20 @@ _Last updated: 2026-09-06_
 - **Linear algebra:** procedural details around RREF/free variables, determinant/eigen arithmetic, Gram–Schmidt/projections, least-squares equations and quadratic-form representation. See `lesson_logs/historical_linear_algebra_*.md`.
 - **Probability/statistics:** Bayes conditioning direction/denominator, PDF vs probability, expectation weighting, covariance vs correlation, CLT/sampling-distribution interpretation and p-value language. Markov chains/Poisson are diagnostic-needed. See `lesson_logs/historical_probability_statistics_*.md`.
 - **Practical ML/tensors:** `nn.Linear` weight orientation, batch/reduction shapes, train-only scaler semantics, loader length vs batch size, binary accuracy and logit → probability → class distinction.
-- **Search:** frontier vs visited-set responsibility; precise FIFO/LIFO language; `h(n)` means remaining cost from `n`; admissibility direction; consistency requires edge + neighbour information; keep assumptions attached to completeness/optimality claims. Implementation reconstruction remains untested after the retrieval gap.
+- **Search:** independent full-code reconstruction still needs evidence; deque syntax needed a small prompt; path reconstruction initially omitted the goal and included `None` before the append-before-parent-lookup pattern was derived. Theory fragilities remain `h(n)` semantics, consistency and guarantee assumptions.
 
 ## Active highest-value sequence
 
-1. **Search implementation reconstruction** — write BFS from cold, derive DFS from frontier behaviour, implement UCS with accumulated `g`, then reconstruct A* as `g+h`; add/adjust small tests.
-2. **Search theory consolidation** — after implementation, briefly re-test completeness/optimality/admissibility/consistency and add time/memory complexity if useful for AIMS5701.
-3. **Fundamentals Week-3 buffer** — linear/logistic retrieval, then decision trees/random forests.
-4. **Probability runway for Weeks 4–5 + January** — short Bayes/random-variable retrieval; diagnose Markov chains/Poisson before HMM/particle-filtering work; then extend toward likelihood/MLE.
-5. **January maths maintenance** — retrieve LA/calculus tactically when upcoming material invokes it.
+1. **BFS independent practice** — implement BFS against the skipped practice test without rereading `lesson24_bfs.py`.
+2. **Search implementation continuation** — review the BFS attempt, then implement UCS with accumulated `g` and cheaper-path updates; reconstruct A* as `g+h`.
+3. **Search theory consolidation** — after implementation, briefly re-test completeness/optimality/admissibility/consistency and add time/memory complexity if useful for AIMS5701.
+4. **Fundamentals Week-3 buffer** — linear/logistic retrieval, then decision trees/random forests.
+5. **Probability runway for Weeks 4–5 + January** — short Bayes/random-variable retrieval; diagnose Markov chains/Poisson before HMM/particle-filtering work; then extend toward likelihood/MLE.
+6. **January maths maintenance** — retrieve LA/calculus tactically when upcoming material invokes it.
 
 # PARKED / MUST RETURN
 
-- [~] **BFS / DFS / A\*** — conceptual/theory reactivation completed 2026-09-06; cold code reconstruction is next.
+- [~] **BFS / DFS / A\*** — BFS guided reconstruction and DFS derivation completed 2026-09-06; independent BFS practice is next, then A* after UCS.
 - [~] **UCS** — concept introduced and traced correctly; implementation not yet written.
 - [~] **Search guarantees / heuristic theory** — admissibility, consistency, completeness and optimality introduced; consolidate after implementation and attach assumptions carefully.
 - [ ] **Logic/reasoning** — Fundamentals Week 1 preview.
@@ -81,7 +83,7 @@ _Last updated: 2026-09-06_
 
 ### Fundamentals
 - W1: introduction, logic, reasoning, learning → logic is the immediate unfamiliar piece.
-- W2: uninformed/informed/multi-agent search → conceptual reactivation now underway; implementation reconstruction next, then use the lecture to deepen/verify theory.
+- W2: uninformed/informed/multi-agent search → theory reactivated; BFS/DFS implementation mechanics now reconstructed with independent practice pending; UCS/A* coding next.
 - W3: linear/logistic regression, decision trees, random forests → first two practised; trees/forests are the gap.
 - W4: Bayesian networks/inference/sampling → historical Bayes/probability foundation exists; reactivate, then learn graphical-model semantics/inference.
 - W5: HMMs/particle filtering → diagnose Markov-chain recall before relying on it.
@@ -99,13 +101,13 @@ _Last updated: 2026-09-06_
 
 ## Next session target
 
-> **Reconstruct search implementations from cold:** BFS → DFS → UCS → A*. Do not inspect the old implementations first. Build one decision at a time, with the learner writing the important code. Finish with small path/cost tests and a brief theory re-check.
+> **First, attempt the skipped BFS practice test independently without rereading the old BFS implementation.** Use the test as a specification, not as a timed memory exam. Review any failures to distinguish syntax from conceptual gaps. Then continue forward into UCS implementation (`g`, priority queue, cheaper-path updates) and derive A* as `g+h`.
 
-After this, decide whether search is course-ready for AIMS5701 or whether time/memory complexity and graph-search-specific details need one more short pass.
+Do not begin the next session with another broad cold theory retrieval. Continue from today's implementation work.
 
 ## End-of-session update
 
-- **Completed:** conceptual search reactivation for BFS/DFS/A* plus new UCS, admissibility, consistency, completeness and optimality material.
-- **Demonstrated:** traversal reasoning, weighted-vs-unweighted distinction, UCS `g(n)`, A* `g+h`, admissibility after one correction, consistency after several examples, and completeness/optimality vocabulary after introduction.
-- **Still fragile:** implementation reconstruction after the retrieval gap; frontier vs visited-set role; consistency semantics; guarantee assumptions.
-- **Next:** reconstruct BFS/DFS/UCS/A* code without rereading the old implementations, then consolidate theory/complexity.
+- **Completed:** guided BFS implementation reconstruction and BFS → DFS transformation, following the earlier theory/UCS/heuristics session.
+- **Demonstrated:** parent-map-as-seen-state reasoning, FIFO frontier mechanics, neighbour discovery, parent-chain path reconstruction after one correction, DFS as a frontier-policy change, and DFS neighbour-order implications.
+- **Still fragile:** independent end-to-end BFS implementation; exact deque syntax; path reconstruction details without scaffolding; UCS/A* implementation remains undone.
+- **Next:** independent BFS practice exercise, then continue directly to UCS rather than repeating conceptual retrieval.
