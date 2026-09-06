@@ -156,13 +156,65 @@ Given neighbours `['B', 'C']`, the learner correctly predicted that appending B 
 
 ---
 
+## Independent BFS practice result
+
+The learner then used the skipped `test_practice_bfs_reconstruction.py` exercise and independently reached a correct complete BFS implementation. The solution itself is intentionally **not committed**: the skipped test is being retained as a reusable periodic reconstruction exercise.
+
+### Fragilities exposed by the independent attempt
+
+1. **Fixed search variable vs moving reconstruction cursor.** During path reconstruction the learner initially used `path.append(current)` and `node = parents[current]`. Because `current` remains the goal node and never changes inside the reconstruction loop, this caused an infinite loop. The corrected mental model is:
+
+```text
+current = fixed node that ended the search / goal
+node    = moving cursor walking goal → parent → parent → ... → start
+```
+
+Correct invariant:
+
+```python
+while node is not None:
+    path.append(node)
+    node = parents[node]
+```
+
+2. **Graph membership vs discovered-state membership.** The neighbour loop was briefly inverted into logic resembling:
+
+```python
+if current not in graph:
+    for node in graph[current]:
+        ...
+```
+
+This confused two separate responsibilities:
+
+```text
+graph[current]      → which neighbours are reachable from current?
+node not in parents → has this neighbour already been discovered?
+```
+
+The correct expansion shape was recovered:
+
+```python
+for node in graph[current]:
+    if node not in parents:
+        parents[node] = current
+        frontier.append(node)
+```
+
+### Interpretation
+
+These errors are implementation/state-role confusions rather than failures of the BFS conceptual model. The independent final implementation correctly contained FIFO frontier behaviour, parent/discovered tracking, goal detection, neighbour expansion, duplicate prevention, path reversal and unreachable-goal handling. No further full BFS reconstruction is required immediately; future BFS practice should use the retained skipped test periodically rather than turning BFS into repeated cold-retrieval sessions.
+
+---
+
 ## Current demonstrated strengths
 
 - BFS level/depth reasoning and unweighted shortest-path intuition.
-- FIFO queue semantics and `popleft()` after light syntax prompting.
+- Independent successful BFS implementation after debugging two state-role errors.
+- FIFO queue semantics and `popleft()`.
 - Parent map serving both predecessor reconstruction and discovered-state tracking.
 - BFS neighbour expansion and duplicate prevention.
-- Parent-chain path reconstruction after one concrete debugging trace.
+- Parent-chain path reconstruction with the fixed-`current` vs moving-`node` distinction now explicitly identified.
 - DFS as the same graph-search skeleton with LIFO frontier policy.
 - DFS neighbour-order implications.
 - Weighted-vs-unweighted distinction.
@@ -171,31 +223,26 @@ Given neighbours `['B', 'C']`, the learner correctly predicted that appending B 
 
 ## Still fragile / evidence needed
 
-1. Independent end-to-end BFS coding without conversational scaffolding.
-2. Exact Python container syntax (`deque`) versus conceptual understanding.
-3. Parent-chain reconstruction without the earlier append-order slip.
-4. UCS implementation: weighted neighbours, priority queue, accumulated `g`, cheaper-path updates.
-5. A* implementation as UCS + `h`.
-6. Consistency semantics and guarantee assumptions after implementation work.
+1. Keep variable roles explicit during path reconstruction: fixed `current` vs moving `node`.
+2. Keep graph adjacency (`graph[current]`) separate from discovered-state membership (`node in parents`).
+3. UCS implementation: weighted neighbours, priority queue, accumulated `g`, cheaper-path updates.
+4. A* implementation as UCS + `h`.
+5. Consistency semantics and guarantee assumptions after implementation work.
 
 ---
 
-## Deliberate pause / independent exercise
+## Practice asset
 
-The learner chose to pause before UCS and independently implement BFS first. A separate skipped pytest practice file is being added under `classical_ai/search/` so it can be used as an exercise without blocking the normal test pipeline.
-
-The exercise should be treated as a specification, not another theory quiz. Do not inspect `lesson24_bfs.py` before attempting it.
+`classical_ai/search/test_practice_bfs_reconstruction.py` remains module-skipped so it cannot block CI. It should remain **solution-free** and can be revisited periodically as a lightweight reconstruction check. Do not turn it into a frequent compulsory retrieval loop.
 
 ## Next continuation
 
-1. Attempt the BFS practice test independently.
-2. Review the implementation/failures and distinguish conceptual gaps from syntax slips.
-3. Continue directly into UCS implementation:
-   - weighted neighbour representation;
-   - `heapq` priority frontier;
-   - accumulated `g` cost;
-   - `cost_so_far` / cheaper-path updates.
-4. Derive A* by changing priority to `g+h`.
-5. Finish with a brief guarantees/heuristics check and complexity only if useful.
+Continue directly into UCS implementation:
+- weighted neighbour representation;
+- `heapq` priority frontier;
+- accumulated `g` cost;
+- `cost_so_far` / cheaper-path updates.
 
-Do **not** restart the next session with broad cold retrieval of BFS/DFS/A* theory.
+Then derive A* by changing priority to `g+h`. Finish with a brief guarantees/heuristics check and complexity only if useful.
+
+Do **not** restart with broad cold retrieval of BFS/DFS/A* theory.
