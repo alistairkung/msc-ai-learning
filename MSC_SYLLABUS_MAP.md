@@ -1,6 +1,6 @@
 # MSc Syllabus Preparation Map
 
-_Last reviewed: 2026-09-08_
+_Last reviewed: 2026-09-09_
 _Readiness calibrated against the exercise repository, completed Lesson 31 workflow, reconstructed historical JHU maths foundations, the one-week AIMS5701 start delay, and live FTEC5660 Lecture 1 / Prompt Chaining material_
 
 ## Use
@@ -57,6 +57,36 @@ Readiness key:
 | W3 | 1D/2D signals; image/audio/text/video/sequential representation; SciPy, matplotlib, PyTorch | **Amber** | PyTorch/tensor base strong | SciPy/matplotlib + modality representations not yet systematic |
 | W4 | MLP, CNN, RNN | **MLP Green/Amber; CNN/RNN Red** | Repo 28–30 + Lesson 31 MLP workflow | CNN/RNN architecture intuition before W4; do not need mastery yet |
 | W5 | Housing-price prediction (Boston House Dataset) | **Amber/Green** | sklearn regression (23), MLP/MSE mechanics, completed Lesson 31 preprocessing/validation workflow | Transfer the same split/scaling/validation discipline to NN regression |
+| W6 | Data prep + data loading optimisation | **Amber/Green** | `TensorDataset`/`DataLoader`, mini-batches, shuffle retrieved again in Lesson 31 | Workers/pinning/loading efficiency are new |
+| W7 | Fashion-MNIST visual classification | **Red/Amber** | MLP + DataLoader base | CNN practical training before/around W7 |
+| W8 | Parallel / multi-GPU / distributed training | **Amber conceptually** | Strong distributed-systems/SWE background | PyTorch-specific parallel/distributed APIs |
+| W9 | IMDB sentiment analysis | **Red/Amber** | Classification pipeline base | Text preprocessing/embeddings/sequence model practice |
+| W10 | Model optimisation + on-device deployment | **Amber** | Strong production engineering base | ML export/quantisation/performance tooling |
+| W11 | Foundation models / diffusion / LLM / segmentation | **Amber** | Modern-AI familiarity | Framework-specific practical work; foundations should be sufficient by then |
+| W12 | Project presentation | **TBD** | Engineering/project communication strength | Keep experiments/reproducibility tidy from the start |
+
+### AI in Practice next priorities
+
+1. **Search reactivation remains the cross-course primary next session**; Lesson 31 no longer blocks this course's introductory workflow readiness.
+2. **NN regression** before W5, transferring the same leakage-safe preprocessing and validation workflow.
+3. **CNN/RNN preview** before W4; deeper CNN before Fashion-MNIST.
+
+### Lesson 31 readiness gain
+
+New practical concepts implemented end to end:
+- 60/20/20 train/validation/test split with stratification;
+- train-only fitted `StandardScaler` and data-leakage reasoning;
+- validation/test transformed with frozen training statistics;
+- float32 tensor conversion and `(n,) -> (n,1)` target reshape;
+- DataLoader batch arithmetic including final partial batch;
+- one train-loss + one validation-loss value per epoch;
+- validation under `torch.no_grad()` without parameter updates;
+- overfitting recognised from falling train loss + rising validation loss;
+- held-out test set reserved for final evaluation.
+
+Optional continuation: retain and restore the best-validation checkpoint when early stopping/model selection is introduced.
+
+_Restoration note (2026-09-09): the W6–12 rows and supporting preparation notes above were restored from the version preceding commit `273e13e1e91c9106e07297a1f11bc0b0a00d991f`. This restores the recorded syllabus; it is not a newly verified official timetable or a new learner assessment._
 
 ---
 
@@ -241,3 +271,17 @@ By 11 Jan, aim to be able to:
 - differentiate composite scalar objectives and reason about gradients;
 - explain GD vs SGD and learning-rate behaviour;
 - follow basic proof/inequality arguments without notation becoming the primary blocker.
+
+---
+
+# Rolling buffer policy
+
+During term:
+
+1. Update `LEARNING_STATE.md` after each substantive study session/lecture.
+2. Look **1–2 course-specific syllabus weeks ahead**; keep AIMS5701, AIMS5702 and FTEC5660 timing separate.
+3. Choose one upcoming prerequisite bottleneck and one application, without allowing search to obscure the earlier logic preview.
+4. Protect a small recurring **ML Theory maths lane**; resize it around verified assessment demands.
+5. Keep paused work visible until explicitly reactivated or rescheduled.
+
+The dashboard's anchors and remaining requirements are a projection of this map, not automatic whole-week mastery scores. Unconfirmed dates and incomplete requirement mappings must remain visible.
