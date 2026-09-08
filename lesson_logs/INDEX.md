@@ -29,9 +29,10 @@ Live lecture records are intentionally separate from the numbered implementation
 | Record | Topic | Log status |
 |---|---|---|
 | `ftec5660_course_context.md` | FTEC5660 course spine, assessment/workload notes, personal learning lens, durable synthesis across lectures | Active course-level context; distinguish lecture-supported content from personal working hypotheses |
-| `ftec5660_lecture01_introduction.md` | Agentic AI introduction: goal-directed systems, perceive/reason/act/escalate loop, 21 pattern vocabulary, complexity levels, multi-agent framing; plus SWE/finance reinterpretation | Original lecture + post-lecture synthesis log; includes separate course-material and personal-synthesis cold recall |
+| `ftec5660_lecture01_introduction.md` | Agentic AI introduction: goal-directed systems, perceive/reason/act/escalate loop, pattern catalogue, complexity levels, multi-agent framing; plus SWE/finance reinterpretation | Original lecture + post-lecture synthesis log; introductory pattern catalogue is a reference map rather than a list-recall target |
+| `ftec5660_pattern01_prompt_chaining.md` | Pattern 1 prompt chaining: decomposition, checkable stage interfaces, context engineering, trade-offs; LangChain/LCEL tutorial through successful JSON parsing | **Concept taught; tutorial partial.** Includes a bounded syntax-reconstruction plan for this week and explicitly excludes later notebook cells from current mastery |
 
-For FTEC5660, future lecture/project logs should preserve the same source boundary: **what the lecturer/material supports** vs **my own synthesis or hypothesis**.
+For FTEC5660, future lecture/project logs should preserve the same source boundary: **what the lecturer/material supports** vs **my own synthesis or hypothesis**. Tutorial logs must also preserve the actual in-class stopping point: code appearing later in a supplied notebook is not automatically learned material.
 
 ## Numbered lesson coverage
 
@@ -79,7 +80,7 @@ All numbered lessons **01–31 now have a lesson log**.
 Historical calculus  slope → derivative → differentiation rules → gradients → chain rule/backprop
 Historical linear algebra  systems/vector spaces → matrices/eigen → orthogonality/least squares → symmetric/quadratic forms
 Historical probability/statistics  counting/Bayes → random variables/distributions → joint moments/inequalities → CLT/inference
-FTEC5660 live course  lecture material → personal SWE/finance synthesis → course-level context
+FTEC5660 live course  course material → pattern-focused logs → personal SWE/finance synthesis
 01–07  Python language fluency
 08–09  DSA patterns
 10–17  NumPy / shape / manual ML + retrieval
@@ -100,12 +101,13 @@ For “cold retrieve Lesson N”:
 5. probe known fragile points;
 6. stop once retention is clear.
 
-For an FTEC5660 lecture:
-1. read the relevant lecture log;
+For an FTEC5660 lecture/pattern:
+1. read the relevant focused log;
 2. cold-retrieve **course material** first;
 3. sample only a few **personal-synthesis** prompts per session rather than replaying the whole discussion;
 4. connect the concept to a familiar payments/KYC/AML example;
-5. update `ftec5660_course_context.md` only when a cross-lecture synthesis thread materially changes.
+5. for code tutorials, quiz only syntax/mechanisms that the class or a later independent practice session actually reached;
+6. update `ftec5660_course_context.md` only when a cross-lecture synthesis thread materially changes.
 
 For historical maths, choose the smallest relevant log rather than loading the whole subject. For broad rebuilds, follow that subject's logs in order.
 
