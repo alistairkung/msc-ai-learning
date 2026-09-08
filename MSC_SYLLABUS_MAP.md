@@ -70,35 +70,45 @@ Readiness key:
 
 This course is being taught through the lens of automating finance/fintech/business workflows rather than purely through autonomous software engineering. Prior cross-border payments, KYC/onboarding and AML experience should be used deliberately as an interpretation layer.
 
-## Pattern spine and current readiness
+## Lecture-1 overview of future course coverage
 
-Lecture 1 presented the following **21 agentic design patterns** as an overview/reference map for later teaching. The full catalogue is not itself a cold-recall list. Promote a pattern into retrieval only when it is taught/applied substantively.
+Lecture 1 showed a catalogue of **21 named agentic design patterns** as an introductory overview of material the course will cover. The slide groups them around orchestration, enterprise knowledge/system access, multi-agent collaboration, decision intelligence, and governance/safety/operational control.
 
-| # | Pattern | Current readiness / hook |
-|---|---|---|
-| 1 | Prompt chaining | **Concept Amber/Green; LangChain syntax Amber/Red** — substantively taught. Understand stable/checkable stage decomposition, structured handoffs, deterministic validation/normalisation, context engineering and trade-offs. Tutorial reached `ChatPromptTemplate`/LCEL/parsers and successful expense-ledger JSON parsing; independent reconstruction from memory is the immediate gap |
-| 2 | Routing | **Amber** — strong SWE routing/dispatch analogues; dynamic LLM routing is new |
-| 3 | Parallelization | **Amber** — concurrency/orchestration hooks exist; agent pattern specifics pending |
-| 4 | Planning | **Amber** — conceptually engaged after Lecture 1; implementation/formalism pending |
-| 5 | Goal Setting and Monitoring | **Amber** — strong engineering monitoring intuition; agent goal-management specifics pending |
-| 6 | Tool Use (Function Calling) | **Amber** — APIs/tools familiar; autonomous tool choice/permissions are new study material |
-| 7 | Model Context Protocol | **Red/Amber** — general familiarity only; course treatment pending |
-| 8 | Memory Management | **Amber/Red** — conceptual familiarity; systematic agent memory design pending |
-| 9 | Knowledge Retrieval | **Amber** — RAG/retrieval concept familiar; enterprise grounding implications to deepen |
-| 10 | Multi-Agent Collaboration | **Amber/Red** — first-pass conceptual understanding; real coordination design pending |
-| 11 | Inter-Agent Communication | **Amber/Red** — distributed-systems analogue strong; agent semantics/protocols pending |
-| 12 | Reflection | **Amber/Red** — intuitive concept; evaluation/reliability implications pending |
-| 13 | Learning and Adaptation | **Amber/Red** — ML foundation exists; agent adaptation framing pending |
-| 14 | Reasoning | **Amber** — general LLM/AI familiarity; course-specific treatment pending |
-| 15 | Exploration and Discovery | **Amber** — strong hook from search/BBO; agentic use pending |
-| 16 | Exception Handling and Recovery | **Amber** — strong production-SWE analogue; agent recovery policy is new |
-| 17 | Human in the Loop | **Amber** — governance intuition strong; systematic design pending |
-| 18 | Resource Aware Optimization | **Amber/Red** — engineering cost/performance intuition; agent-specific trade-offs pending |
-| 19 | Guardrails | **Amber** — strong risk/control intuition; concrete mechanisms pending |
-| 20 | Evaluation and Monitoring | **Amber** — testing/CI/observability background is a strong hook; agent evals are new |
-| 21 | Prioritization | **Amber** — planning/product intuition exists; agentic prioritisation mechanisms pending |
+The names shown were:
+
+- prompt chaining;
+- routing;
+- parallelisation;
+- planning;
+- goal setting and monitoring;
+- tool use / function calling;
+- Model Context Protocol;
+- memory management;
+- knowledge retrieval;
+- multi-agent collaboration;
+- inter-agent communication;
+- reflection;
+- learning and adaptation;
+- reasoning;
+- exploration and discovery;
+- exception handling and recovery;
+- human in the loop;
+- resource-aware optimisation;
+- guardrails;
+- evaluation and monitoring;
+- prioritisation.
+
+### Important learning boundary
+
+This list is **orientation, not a 21-item readiness table and not a cold-recall target from Lecture 1**.
+
+Do not ask the learner to enumerate the full catalogue. Do not assign Green/Amber/Red readiness to individual patterns merely because their names appeared on the overview slide. Add a pattern to active readiness/retrieval tracking only when later lectures, labs or projects teach/apply it substantively.
+
+Prompt Chaining is now the first pattern to cross that boundary.
 
 ## Pattern 1 — Prompt Chaining current boundary
+
+**Current readiness:** **Concept Amber/Green; LangChain syntax Amber/Red.**
 
 Conceptual baseline now fair for retrieval:
 
@@ -151,9 +161,19 @@ Schedule one dedicated session **this week** to reconstruct the LangChain syntax
 
 Do not mark syntax established until it can be produced and explained independently.
 
+## Lecture-1 conceptual baseline
+
+The useful first-lecture readiness target remains:
+
+- explain what makes a system agentic;
+- explain the perceive → reason/plan → act → learn/escalate loop;
+- explain why multi-step agent behaviour creates reliability/coordination problems;
+- understand the rough complexity progression from reasoning core to connected/strategic/collaborative agents;
+- recognise that the remaining pattern catalogue is the roadmap for later teaching rather than material already mastered.
+
 ## Personal learning strategy for this course
 
-For each pattern:
+When a specific pattern is actually taught:
 
 1. recover the lecturer's definition first;
 2. place it beside the closest conventional SWE concept;
@@ -174,12 +194,12 @@ Even before the exact weighting is verified, treat FTEC5660 as a **high-variance
 
 ### Planning implications
 
-- Do **not** pre-study all 21 patterns simply because the list exists; let live lectures/projects drive depth.
-- After each lecture, use a short retrieval block and preserve only durable personal synthesis.
+- Do **not** pre-study or memorise the 21-pattern overview simply because the list exists; let live lectures/projects determine which patterns deserve depth.
+- After each lecture, use a short retrieval block focused on concepts actually taught and preserve only durable personal synthesis.
 - When a live tutorial introduces a library syntax layer, distinguish **concept understood** from **syntax independently retrievable** and schedule a bounded practice session when needed.
 - When project dates/scope become known, add them explicitly to the planning state.
 - During heavy FTEC5660 project weeks, allow the general preparation buffer to shrink, but preserve a **minimum January maths continuity lane** for AIMS5704 rather than dropping maths entirely.
-- Use the projects as opportunities to connect agentic patterns with real financial-domain/system-reliability questions rather than treating them as isolated demo builds.
+- Use the projects as opportunities to connect newly taught agentic patterns with real financial-domain/system-reliability questions rather than treating them as isolated demo builds.
 
 ---
 
