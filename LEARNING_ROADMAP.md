@@ -1,7 +1,7 @@
 # MSc AI Learning Roadmap
 
-_Last reviewed: 2026-09-05_
-_Verified against the current learning record, Lesson 31 implementation/tests, and reconstructed historical JHU maths foundations_
+_Last reviewed: 2026-09-08_
+_Verified against the current learning record, Lesson 31 implementation/tests, reconstructed historical JHU maths foundations, and the first live FTEC5660 lecture_
 
 ## Purpose
 
@@ -15,14 +15,18 @@ The aim is not to pre-learn the whole MSc. The aim is to:
 - build prerequisites before they become blockers;
 - keep maths attached to models and code;
 - preserve deliberately parked threads so they cannot disappear;
-- maintain a **Term-1 maths lane** so Machine Learning Theory in January is not a sudden jump.
+- maintain a **Term-1 maths lane** so Machine Learning Theory in January is not a sudden jump;
+- account explicitly for **large live-course assessment spikes**, especially FTEC5660 project work, instead of pretending every week has equal preparation capacity.
 
 ## Learner profile / learning rules
 
 - Experienced software engineer: strong debugging, systems reasoning, decomposition and code-reading skills.
+- Cross-border payments, KYC/onboarding and AML experience should be used as domain anchors when studying agentic systems.
 - Python is now usable for ML work, but not yet as automatic as long-used backend languages.
 - Formal maths is the higher-risk lane, especially retrieval under pressure and proof-style derivations.
 - Best learning pattern: **small interactive steps → retrieval → concrete example → derive by hand → implement → inspect/debug**.
+- For live FTEC5660 material, add a second learning loop: **lecturer definition → conventional-SWE analogue → finance-domain example → ask what genuinely benefits from agenticity → identify the new failure/governance burden**.
+- Keep lecturer-supported material distinct from personal synthesis/working hypotheses in course logs.
 - Prefer hints/scaffolding over complete solutions.
 - `pytest` remains a useful scaffold because it gives a concrete definition of “this implementation works”.
 - Library API recall is secondary to conceptual recall. PyTorch syntax may be looked up; the computation underneath should be explainable.
@@ -30,19 +34,20 @@ The aim is not to pre-learn the whole MSc. The aim is to:
 - Historical calculus work predates the numbered repo workflow and is preserved separately in `lesson_logs/historical_calculus_foundations.md`.
 - Historical JHU linear algebra predates the numbered workflow and is preserved as four focused retrieval blueprints plus `foundations/linear_algebra/README.md`.
 - Historical JHU probability/statistics also predates the workflow and is preserved as four retrieval blueprints plus an explicit evidence boundary for weakly recovered late-course topics.
-- Lesson-log backfill is complete through Lesson 31; `lesson_logs/INDEX.md` is the coverage index for numbered and historical records.
+- Lesson-log backfill is complete through Lesson 31; `lesson_logs/INDEX.md` is the coverage index for numbered, historical and live-course records.
 
 ---
 
 # Verified learning history
 
-The numbered repository lessons give us a reliable spine for what has actually been implemented. Important pre-repo learning is recorded separately rather than assigned invented lesson numbers. Lesson 31 now provides a completed end-to-end real-data classification workflow.
+The numbered repository lessons give us a reliable spine for what has actually been implemented. Important pre-repo learning is recorded separately rather than assigned invented lesson numbers. Lesson 31 now provides a completed end-to-end real-data classification workflow. Live MSc lecture records are also kept outside the numbered implementation sequence.
 
 | Learning record | What was practised | Status |
 |---|---|---|
 | Historical calculus foundations | Slope/local rate, intuitive limits and difference quotient, power/product rules, partial derivatives, gradients, gradient descent, chain rule and manual backprop | **Established conceptually; retrieval-worthy; bridges into Lesson 28** |
 | Historical JHU linear algebra | Linear systems/RREF/free variables; span/independence/basis; matrix algebra/determinants; eigenvalues/eigenvectors/diagonalization; orthogonality/Gram–Schmidt/projections/least squares; symmetric matrices/orthogonal diagonalization/quadratic forms | **Established through 2025 JHU specialization; retrieval due after long gap; documented** |
 | Historical JHU probability/statistics | Counting/conditional probability/Bayes; random variables/distributions; expectation/variance; joint/marginal distributions; covariance/correlation; Markov/Chebyshev inequalities; CLT, standard error and hypothesis testing | **Two JHU modules completed late 2025; strong evidence for core arc; Markov chains/Poisson remembered but diagnostic-needed** |
+| FTEC5660 Lecture 1 | Agentic-system definition/loop; 21 design-pattern vocabulary; agent complexity levels; multi-agent framing; post-lecture SWE + payments/KYC/AML synthesis | **Live course underway; first-pass concepts recorded; personal synthesis intentionally marked as working hypotheses** |
 | 01–07 | Lists, dictionaries, sets, strings, comprehensions, key/lambda functions, function arguments | Established |
 | 08 | Hash/set patterns, duplicate detection, two-sum, anagrams, two pointers, in-place reversal | Established; retrieve periodically |
 | 09 | Fixed + variable sliding window | Established once; not yet broad DSA fluency |
@@ -57,7 +62,7 @@ The numbered repository lessons give us a reliable spine for what has actually b
 | 30 | MLP binary classifier, ReLU, `BCEWithLogitsLoss`, `TensorDataset`, `DataLoader`, mini-batches/epochs, sigmoid/threshold accuracy | Established on synthetic data |
 | 31 | Real-data classification: stratified train/val/test split, train-only scaling, tensor conversion, DataLoader, train/validation histories, held-out evaluation discipline | **Complete; end-to-end preparation/training/evaluation integration tested** |
 
-All numbered Lessons **01–31 have a lesson log**. Historical calculus, linear algebra and probability/statistics are intentionally indexed outside that numbering because they were learned through interactive chat, pen-and-paper and notebook work before the repository workflow existed. Reconstructed logs use recoverable tutoring context conservatively; they are retrieval blueprints, not invented transcripts.
+All numbered Lessons **01–31 have a lesson log**. Historical calculus, linear algebra and probability/statistics are intentionally indexed outside that numbering because they were learned through interactive chat, pen-and-paper and notebook work before the repository workflow existed. FTEC5660 lecture/course logs are also intentionally outside the numbered coding sequence. Reconstructed logs use recoverable tutoring context conservatively; they are retrieval blueprints, not invented transcripts.
 
 This table is an **audit anchor**, not a lesson log. Details belong in code/tests and `lesson_logs/`; this roadmap tracks dependencies and direction.
 
@@ -294,6 +299,93 @@ Enter ML Theory able to **retrieve** undergraduate probability language and calc
 
 ---
 
+## Track H — FTEC5660 agentic AI in finance / fintech
+
+### Why this is a roadmap track
+
+FTEC5660 is now a live Term-1 module with two effects on the broader plan:
+
+1. it introduces a new agentic-systems learning track that strongly connects to prior SWE and financial-domain experience;
+2. its project-heavy assessment structure is likely to create large workload spikes that compete with AIMS5701/AIMS5702 preparation and the protected January maths lane.
+
+### Current position
+
+**Lecture 1 complete; conceptually Amber; implementation/project depth not yet established.** The first lecture introduced goal-directed agentic systems, a perceive → reason/plan → act → learn/escalate loop, increasing levels of agent complexity, multi-agent framing and a 21-pattern vocabulary spanning orchestration, tool/knowledge access, collaboration, decision intelligence and governance/control.
+
+Detailed state lives in:
+
+- `lesson_logs/ftec5660_course_context.md`
+- `lesson_logs/ftec5660_lecture01_introduction.md`
+
+### Durable personal learning lens
+
+For each pattern:
+
+```text
+course definition
+    -> conventional SWE analogue
+    -> payments / KYC / AML example
+    -> what genuinely improves through agenticity?
+    -> what new failure / governance / verification burden appears?
+```
+
+This is deliberately not a claim that traditional design patterns and agentic patterns are equivalent. It is a way to attach new material to an existing engineering model.
+
+### Working synthesis worth revisiting
+
+- **Autonomy as decision rights:** separate reasoning/proposal autonomy from authority to use or introduce production capabilities.
+- **Underspecification risk:** human task prompts may omit regulation, replay/DR, reconciliation, policy or institutional constraints.
+- **Verification as a boundary:** regression/acceptance/integration tests, CI gates, evals and production evidence may become more valuable as generation gets cheaper.
+- **Tool discovery vs tool authority:** an agent should be able to recognise that an unavailable capability would help without necessarily being authorised to install it.
+- **Architecture economics:** agents compress learning/prototyping/implementation cost faster than they eliminate production complexity and operational ownership.
+- **Selective agenticity:** ambiguous investigation/planning/evidence-gathering are stronger candidates than crisp deterministic controls.
+
+Treat these as **working hypotheses** until later course material provides evidence.
+
+### Course spine
+
+Lecture 1 lists 21 patterns. Use the live course to develop them rather than front-loading all of them. The exact week-by-week pattern mapping is not yet recorded and should not be invented.
+
+### Assessment / capacity risk
+
+Learner recollection from class:
+
+- one hackathon project;
+- one final project;
+- roughly **80% combined weighting**, exact figure still to verify from official assessment material.
+
+The exact weighting uncertainty does not change the strategic conclusion: **FTEC5660 is a potentially high-variance workload lane.**
+
+### Term-1 capacity rule
+
+Normal week:
+
+```text
+live course work
+  + next-1–2-week prerequisite prep
+  + January maths continuity
+```
+
+FTEC5660 project-spike week:
+
+```text
+project deadline dominates
+  -> cut speculative/pre-emptive study first
+  -> keep the most imminent AIMS5701/AIMS5702 blocker work
+  -> preserve at least a small maths retrieval/application touchpoint
+```
+
+After the spike:
+
+```text
+restore syllabus buffer
+  -> restore fuller probability/LA/calculus lane
+```
+
+The goal is not a rigid hourly quota. It is to stop urgent project work from silently deleting the January-preparation objective for several weeks at a time.
+
+---
+
 # Dependency map
 
 ```text
@@ -331,6 +423,12 @@ Probability extensions
 Evaluation discipline
    └──> train/val/test + leakage-safe preprocessing + metrics + generalisation
           └──> reliable AI/ML engineering
+
+Prior SWE + cross-border payments/KYC/AML experience
+   └──> FTEC5660 agentic patterns
+          ├──> planning / routing / tool use / memory / retrieval
+          ├──> multi-agent coordination
+          └──> guardrails / HITL / evaluation / operational control
 ```
 
 ---
@@ -339,11 +437,14 @@ Evaluation discipline
 
 Choose the next study topic by asking, in order:
 
-1. Is it required in the **next 1–2 MSc weeks**?
-2. Is it a prerequisite that unlocks several later topics?
-3. Is it fragile under cold recall?
-4. Can one exercise connect theory + implementation + syllabus?
-5. Does it preserve January ML-Theory readiness without derailing Term 1?
+1. Is there an **imminent graded deliverable or live-course deadline** that materially changes available capacity?
+2. Is the topic required in the **next 1–2 MSc weeks**?
+3. Is it a prerequisite that unlocks several later topics?
+4. Is it fragile under cold recall?
+5. Can one exercise connect theory + implementation + syllabus?
+6. Does the resulting plan preserve **January ML-Theory readiness** without ignoring real Term-1 workload?
+
+For FTEC5660 specifically, do not treat the existence of a 21-pattern list as a reason to pre-study the whole module. Prefer live-course/project relevance. For AIMS5704 preparation, do not treat a project spike as a reason to abandon maths continuity entirely.
 
 ---
 
@@ -352,6 +453,8 @@ Choose the next study topic by asking, in order:
 - **BFS / DFS / A\*** — **implemented in lessons 24–26**, deliberately parked; reactivate for Fundamentals Week 2. Add UCS + trade-off/heuristic theory rather than rewriting from scratch.
 - **Logic/reasoning** — Week 1 Fundamentals; not yet properly studied.
 - **Decision trees / random forests** — Week 3 Fundamentals; not present in repo yet.
+- **FTEC5660 pattern spine** — live course now underway; learn patterns through lectures/projects, with short cold recall and domain reinterpretation rather than front-loading all 21.
+- **FTEC5660 hackathon/final-project planning** — exact dates/scope/weighting still to verify; once known they must become explicit capacity constraints rather than surprise workload.
 - **Real-data PyTorch workflow** — **Lesson 31 complete**; best-validation-checkpoint restoration remains optional continuation work.
 - **Historical calculus retrieval** — foundation is established and documented; periodically cold-retrieve rather than reteach.
 - **Historical linear algebra retrieval** — JHU foundation is established and documented across four focused logs; use short cold retrieval before relevant MSc topics rather than replaying the course.
