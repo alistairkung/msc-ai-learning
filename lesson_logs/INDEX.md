@@ -1,6 +1,6 @@
 # Lesson Log Index
 
-_Last audited: 2026-09-05_
+_Last audited: 2026-09-08_
 
 This directory is the durable conceptual/retrieval record for the learning sequence. Exercise/test files are the implementation evidence; these logs explain what should be understood and how to cold-retrieve it later.
 
@@ -21,6 +21,17 @@ Some important learning happened interactively in chat before the numbered repos
 | Historical probability/statistics 04 | CLT → sampling distributions → standard error → hypothesis testing/p-values; Markov-chain/Poisson evidence boundary | Strong evidence for CLT/testing; Markov chains and Poisson recorded as historically studied but diagnostic-needed |
 
 See the historical foundation directories under `foundations/` and the corresponding logs in this directory. Historical records are retrieval blueprints, not invented transcripts or fabricated exercise/test evidence.
+
+## Live MSc course lecture records
+
+Live lecture records are intentionally separate from the numbered implementation lessons. They can preserve lecturer material, course-level planning context and personal synthesis without inventing a numbered coding lesson.
+
+| Record | Topic | Log status |
+|---|---|---|
+| `ftec5660_course_context.md` | FTEC5660 course spine, assessment/workload notes, personal learning lens, durable synthesis across lectures | Active course-level context; distinguish lecture-supported content from personal working hypotheses |
+| `ftec5660_lecture01_introduction.md` | Agentic AI introduction: goal-directed systems, perceive/reason/act/escalate loop, 21 pattern vocabulary, complexity levels, multi-agent framing; plus SWE/finance reinterpretation | Original lecture + post-lecture synthesis log; includes separate course-material and personal-synthesis cold recall |
+
+For FTEC5660, future lecture/project logs should preserve the same source boundary: **what the lecturer/material supports** vs **my own synthesis or hypothesis**.
 
 ## Numbered lesson coverage
 
@@ -68,6 +79,7 @@ All numbered lessons **01–31 now have a lesson log**.
 Historical calculus  slope → derivative → differentiation rules → gradients → chain rule/backprop
 Historical linear algebra  systems/vector spaces → matrices/eigen → orthogonality/least squares → symmetric/quadratic forms
 Historical probability/statistics  counting/Bayes → random variables/distributions → joint moments/inequalities → CLT/inference
+FTEC5660 live course  lecture material → personal SWE/finance synthesis → course-level context
 01–07  Python language fluency
 08–09  DSA patterns
 10–17  NumPy / shape / manual ML + retrieval
@@ -87,6 +99,13 @@ For “cold retrieve Lesson N”:
 4. change numbers/context instead of repeating tests verbatim;
 5. probe known fragile points;
 6. stop once retention is clear.
+
+For an FTEC5660 lecture:
+1. read the relevant lecture log;
+2. cold-retrieve **course material** first;
+3. sample only a few **personal-synthesis** prompts per session rather than replaying the whole discussion;
+4. connect the concept to a familiar payments/KYC/AML example;
+5. update `ftec5660_course_context.md` only when a cross-lecture synthesis thread materially changes.
 
 For historical maths, choose the smallest relevant log rather than loading the whole subject. For broad rebuilds, follow that subject's logs in order.
 

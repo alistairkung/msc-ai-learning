@@ -1,7 +1,7 @@
 # MSc Syllabus Preparation Map
 
 _Last reviewed: 2026-09-08_
-_Readiness calibrated against the exercise repository, completed Lesson 31 workflow, reconstructed historical JHU maths foundations, and the one-week AIMS5701 start delay_
+_Readiness calibrated against the exercise repository, completed Lesson 31 workflow, reconstructed historical JHU maths foundations, the one-week AIMS5701 start delay, and the first live FTEC5660 lecture_
 
 ## Use
 
@@ -60,6 +60,87 @@ Readiness key:
 
 ---
 
+# FTEC5660 — Agentic AI in Finance / FinTech
+
+**Term:** Sep–Dec 2026  
+**Live status:** Lecture 1 completed on **2026-09-08**.  
+**Detailed course context:** `lesson_logs/ftec5660_course_context.md`  
+**Lecture 1 retrieval log:** `lesson_logs/ftec5660_lecture01_introduction.md`
+
+This course is being taught through the lens of automating finance/fintech/business workflows rather than purely through autonomous software engineering. Prior cross-border payments, KYC/onboarding and AML experience should be used deliberately as an interpretation layer.
+
+## Lecture-1 pattern spine
+
+Lecture 1 presents the following **21 agentic design patterns** as a durable course vocabulary. Treat this as a syllabus-like pattern spine, but **do not invent a week-by-week mapping until later course material confirms it**.
+
+| # | Pattern | Initial readiness / hook |
+|---|---|---|
+| 1 | Prompt chaining | **Amber** — familiar workflow decomposition idea; agent-specific practice pending |
+| 2 | Routing | **Amber** — strong SWE routing/dispatch analogues; dynamic LLM routing is new |
+| 3 | Parallelization | **Amber** — concurrency/orchestration hooks exist; agent pattern specifics pending |
+| 4 | Planning | **Amber** — conceptually engaged after Lecture 1; implementation/formalism pending |
+| 5 | Goal Setting and Monitoring | **Amber** — strong engineering monitoring intuition; agent goal-management specifics pending |
+| 6 | Tool Use (Function Calling) | **Amber** — APIs/tools familiar; autonomous tool choice/permissions are new study material |
+| 7 | Model Context Protocol | **Red/Amber** — general familiarity only; course treatment pending |
+| 8 | Memory Management | **Amber/Red** — conceptual familiarity; systematic agent memory design pending |
+| 9 | Knowledge Retrieval | **Amber** — RAG/retrieval concept familiar; enterprise grounding implications to deepen |
+| 10 | Multi-Agent Collaboration | **Amber/Red** — first-pass conceptual understanding; real coordination design pending |
+| 11 | Inter-Agent Communication | **Amber/Red** — distributed-systems analogue strong; agent semantics/protocols pending |
+| 12 | Reflection | **Amber/Red** — intuitive concept; evaluation/reliability implications pending |
+| 13 | Learning and Adaptation | **Amber/Red** — ML foundation exists; agent adaptation framing pending |
+| 14 | Reasoning | **Amber** — general LLM/AI familiarity; course-specific treatment pending |
+| 15 | Exploration and Discovery | **Amber** — strong hook from search/BBO; agentic use pending |
+| 16 | Exception Handling and Recovery | **Amber** — strong production-SWE analogue; agent recovery policy is new |
+| 17 | Human in the Loop | **Amber** — governance intuition strong; systematic design pending |
+| 18 | Resource Aware Optimization | **Amber/Red** — engineering cost/performance intuition; agent-specific trade-offs pending |
+| 19 | Guardrails | **Amber** — strong risk/control intuition; concrete mechanisms pending |
+| 20 | Evaluation and Monitoring | **Amber** — testing/CI/observability background is a strong hook; agent evals are new |
+| 21 | Prioritization | **Amber** — planning/product intuition exists; agentic prioritisation mechanisms pending |
+
+## Lecture-1 conceptual baseline
+
+Agentic AI is framed as goal-directed systems that:
+
+```text
+perceive context
+    -> reason and plan
+    -> act through tools
+    -> learn and escalate
+```
+
+The slides highlight tool choice, error recovery and coordination as recurring hard problems once agent behaviour becomes stateful and multi-step.
+
+## Personal learning strategy for this course
+
+For each pattern:
+
+1. recover the lecturer's definition first;
+2. place it beside the closest conventional SWE concept;
+3. reinterpret it through payments/KYC/AML;
+4. ask what genuinely improves by making the workflow agentic;
+5. identify the new failure/verification/governance burden.
+
+This is a deliberate course-learning method, not extra material to memorise.
+
+## Assessment / workload planning
+
+**Learner recollection from class — verify against official assessment documentation:**
+
+- two major project-style assessments: a **hackathon** and a **final project**;
+- recollection is that they account for **roughly 80% of the module grade combined**.
+
+Even before the exact weighting is verified, treat FTEC5660 as a **high-variance Term-1 workload source**. Project periods may temporarily consume much more time than ordinary lecture weeks.
+
+### Planning implications
+
+- Do **not** pre-study all 21 patterns simply because the list exists; let live lectures/projects drive depth.
+- After each lecture, use a short retrieval block and preserve only durable personal synthesis.
+- When project dates/scope become known, add them explicitly to the planning state.
+- During heavy FTEC5660 project weeks, allow the general preparation buffer to shrink, but preserve a **minimum January maths continuity lane** for AIMS5704 rather than dropping maths entirely.
+- Use the projects as opportunities to connect agentic patterns with real financial-domain/system-reliability questions rather than treating them as isolated demo builds.
+
+---
+
 # AIMS5704 — Machine Learning Theory
 
 **Starts:** 11 Jan 2027
@@ -67,6 +148,8 @@ Readiness key:
 This course explicitly assumes **linear algebra, probability and statistics**. Its maths preparation must run during Term 1 rather than waiting until January.
 
 Both prerequisite areas are **not first exposure**. JHU linear algebra and two JHU probability modules were completed in 2025 and are now preserved as historical retrieval blueprints. The Term-1 job is to reactivate them and connect them to ML notation while learning the genuinely new theory layer.
+
+FTEC5660's project-heavy assessment structure creates a competing Term-1 time demand. The response should be to **scale the maths lane during peak project weeks, not erase it**.
 
 | Week | Theory topic | Current readiness | Main gap | Term-1 preparation |
 |---|---|---|---|---|
