@@ -1,7 +1,7 @@
 # MSc Syllabus Preparation Map
 
 _Last reviewed: 2026-09-08_
-_Readiness calibrated against the exercise repository, completed Lesson 31 workflow, reconstructed historical JHU maths foundations, the one-week AIMS5701 start delay, and the first live FTEC5660 lecture_
+_Readiness calibrated against the exercise repository, completed Lesson 31 workflow, reconstructed historical JHU maths foundations, the one-week AIMS5701 start delay, and live FTEC5660 Lecture 1 / Prompt Chaining material_
 
 ## Use
 
@@ -63,19 +63,20 @@ Readiness key:
 # FTEC5660 — Agentic AI in Finance / FinTech
 
 **Term:** Sep–Dec 2026  
-**Live status:** Lecture 1 completed on **2026-09-08**.  
+**Live status:** Lecture 1 completed on **2026-09-08**; Pattern 1 Prompt Chaining taught, with tutorial progress through successful JSON parsing.  
 **Detailed course context:** `lesson_logs/ftec5660_course_context.md`  
-**Lecture 1 retrieval log:** `lesson_logs/ftec5660_lecture01_introduction.md`
+**Introduction retrieval log:** `lesson_logs/ftec5660_lecture01_introduction.md`  
+**Pattern 1 retrieval/tutorial log:** `lesson_logs/ftec5660_pattern01_prompt_chaining.md`
 
 This course is being taught through the lens of automating finance/fintech/business workflows rather than purely through autonomous software engineering. Prior cross-border payments, KYC/onboarding and AML experience should be used deliberately as an interpretation layer.
 
-## Lecture-1 pattern spine
+## Pattern spine and current readiness
 
-Lecture 1 presents the following **21 agentic design patterns** as a durable course vocabulary. Treat this as a syllabus-like pattern spine, but **do not invent a week-by-week mapping until later course material confirms it**.
+Lecture 1 presented the following **21 agentic design patterns** as an overview/reference map for later teaching. The full catalogue is not itself a cold-recall list. Promote a pattern into retrieval only when it is taught/applied substantively.
 
-| # | Pattern | Initial readiness / hook |
+| # | Pattern | Current readiness / hook |
 |---|---|---|
-| 1 | Prompt chaining | **Amber** — familiar workflow decomposition idea; agent-specific practice pending |
+| 1 | Prompt chaining | **Concept Amber/Green; LangChain syntax Amber/Red** — substantively taught. Understand stable/checkable stage decomposition, structured handoffs, deterministic validation/normalisation, context engineering and trade-offs. Tutorial reached `ChatPromptTemplate`/LCEL/parsers and successful expense-ledger JSON parsing; independent reconstruction from memory is the immediate gap |
 | 2 | Routing | **Amber** — strong SWE routing/dispatch analogues; dynamic LLM routing is new |
 | 3 | Parallelization | **Amber** — concurrency/orchestration hooks exist; agent pattern specifics pending |
 | 4 | Planning | **Amber** — conceptually engaged after Lecture 1; implementation/formalism pending |
@@ -97,18 +98,58 @@ Lecture 1 presents the following **21 agentic design patterns** as a durable cou
 | 20 | Evaluation and Monitoring | **Amber** — testing/CI/observability background is a strong hook; agent evals are new |
 | 21 | Prioritization | **Amber** — planning/product intuition exists; agentic prioritisation mechanisms pending |
 
-## Lecture-1 conceptual baseline
+## Pattern 1 — Prompt Chaining current boundary
 
-Agentic AI is framed as goal-directed systems that:
+Conceptual baseline now fair for retrieval:
 
 ```text
-perceive context
-    -> reason and plan
-    -> act through tools
-    -> learn and escalate
+complex task
+    -> focused stage
+    -> structured/checkable handoff
+    -> focused stage
+    -> final result
 ```
 
-The slides highlight tool choice, error recovery and coordination as recurring hard problems once agent behaviour becomes stateful and multi-step.
+Important distinctions:
+
+- chaining is useful when stages are stable, sequential and independently checkable;
+- structured outputs and explicit interfaces make intermediate state inspectable;
+- deterministic code/validation can sit between LLM stages — a chain is not necessarily LLM -> LLM -> LLM;
+- additional stages trade latency/cost/maintenance complexity for control and diagnosability;
+- routing, parallelisation or a true agent are better fits when the task shape itself is not a fixed sequential chain.
+
+### Tutorial progress
+
+The supplied notebook goes considerably beyond class progress. Current evidence stops at/around the successful expense-ledger **LLM parse into JSON**.
+
+Syntax encountered so far:
+
+- `ChatDeepSeek(...)` and `.invoke(...)`;
+- `ChatPromptTemplate.from_template(...)`;
+- LCEL pipe composition with `|`;
+- `StrOutputParser()` vs `JsonOutputParser()`;
+- invocation dictionaries matching prompt placeholders;
+- mapping an earlier extraction sub-chain into a later prompt variable.
+
+Not yet a fair taught/mastery target from later notebook cells:
+
+- substantive `RunnablePassthrough.assign(...)` use;
+- `RunnableLambda(...)` in the completed ledger pipeline;
+- full `parse -> compute -> explain` wiring;
+- later validation gates / repair loops in code;
+- TaxCalcBench workflow.
+
+### Immediate preparation task
+
+Schedule one dedicated session **this week** to reconstruct the LangChain syntax from memory using the same incremental approach used for NumPy:
+
+1. explain object roles;
+2. rebuild a one-stage `prompt -> llm -> parser` chain from a blank file;
+3. change to structured JSON output;
+4. build a two-stage chain that passes one result into the next;
+5. repeat using a small payments/KYC/AML-flavoured example rather than copying the tutorial.
+
+Do not mark syntax established until it can be produced and explained independently.
 
 ## Personal learning strategy for this course
 
@@ -135,6 +176,7 @@ Even before the exact weighting is verified, treat FTEC5660 as a **high-variance
 
 - Do **not** pre-study all 21 patterns simply because the list exists; let live lectures/projects drive depth.
 - After each lecture, use a short retrieval block and preserve only durable personal synthesis.
+- When a live tutorial introduces a library syntax layer, distinguish **concept understood** from **syntax independently retrievable** and schedule a bounded practice session when needed.
 - When project dates/scope become known, add them explicitly to the planning state.
 - During heavy FTEC5660 project weeks, allow the general preparation buffer to shrink, but preserve a **minimum January maths continuity lane** for AIMS5704 rather than dropping maths entirely.
 - Use the projects as opportunities to connect agentic patterns with real financial-domain/system-reliability questions rather than treating them as isolated demo builds.
