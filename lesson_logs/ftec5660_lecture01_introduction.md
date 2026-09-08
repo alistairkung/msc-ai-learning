@@ -13,6 +13,16 @@ This is a retrieval blueprint for the first FTEC5660 lecture. It deliberately se
 
 Do not treat the personal synthesis as if it came from the lecturer.
 
+### Important retrieval boundary
+
+The long list of agentic design patterns in Lecture 1 was presented as an **introductory overview of what the course will cover**, not as 21 items taught in depth during this lecture.
+
+Therefore:
+
+> **Do not ask the learner to name, enumerate or reconstruct the full pattern list from memory.**
+
+The list is a course map/reference. A pattern becomes a fair cold-recall target only after it has been substantively taught, discussed or applied. Future retrieval should favour explanation, recognition, comparison and application over catalogue memorisation.
+
 ---
 
 # 1. Course material
@@ -58,39 +68,19 @@ Agent behaviour introduces **state + multi-step control flow**. The lecture high
 
 Patterns are intended to improve structure, maintainability and reliability and to avoid reinventing recurring solutions.
 
-## Agentic design-pattern spine
+## Introductory overview of patterns to be covered
 
-Lecture 1 lists 21 patterns that will provide an important vocabulary for the course:
+Lecture 1 showed the course's broader pattern catalogue, including prompt chaining, routing, parallelisation, planning, goal setting/monitoring, tool use, MCP, memory, knowledge retrieval, multi-agent collaboration/communication, reflection, learning/adaptation, reasoning, exploration/discovery, exception handling/recovery, human-in-the-loop, resource-aware optimisation, guardrails, evaluation/monitoring and prioritisation.
 
-1. Prompt chaining
-2. Routing
-3. Parallelization
-4. Planning
-5. Goal Setting and Monitoring
-6. Tool Use (Function Calling)
-7. Model Context Protocol
-8. Memory Management
-9. Knowledge Retrieval
-10. Multi-Agent Collaboration
-11. Inter-Agent Communication
-12. Reflection
-13. Learning and Adaptation
-14. Reasoning
-15. Exploration and Discovery
-16. Exception Handling and Recovery
-17. Human in the Loop
-18. Resource Aware Optimization
-19. Guardrails
-20. Evaluation and Monitoring
-21. Prioritization
-
-The lecture groups the pattern space around:
+At this point the useful takeaway is **the shape of the course**, not memorising the names. The slides group the pattern space around:
 
 - orchestration;
 - enterprise knowledge and system access;
 - multi-agent collaboration;
 - decision intelligence;
 - governance, safety and operational control.
+
+As later lectures teach individual patterns in depth, add those patterns to retrieval based on what was actually taught.
 
 ## Evolution from LLM workflow to agentic AI
 
@@ -184,7 +174,7 @@ case / objective
   -> recommend action or escalate
 ```
 
-This provides concrete hooks for planning, routing, tool use, knowledge retrieval, reflection, HITL, guardrails and evaluation.
+This provides concrete hooks for planning, routing, tool use, knowledge retrieval, reflection, HITL, guardrails and evaluation **when those patterns are taught later**.
 
 ## Cross-border payments
 
@@ -327,13 +317,13 @@ Useful principle:
 
 > **Experiment freely; adopt conservatively.**
 
-Cheap implementation may actually make it easier to compare a boring batch/outbox solution against Flink/Kafka/etc. using real prototypes rather than architecture-by-opinion.
+Cheap implementation may make it easier to compare a boring batch/outbox solution against Flink/Kafka/etc. using real prototypes rather than architecture-by-opinion.
 
 Counter-risk:
 
 > **Overengineering becomes cheap too.**
 
-Historically, six months of implementation effort acted as a natural brake on unnecessary architectural complexity. An agent capable of producing the entire elaborate system quickly removes that brake while leaving the production system with all of its moving parts.
+Historically, large implementation effort acted as a natural brake on unnecessary architectural complexity. An agent capable of producing an elaborate system quickly removes that brake while leaving the production system with all of its moving parts.
 
 ## SWIFT / outbox / replay nuance
 
@@ -352,17 +342,20 @@ Do these **without looking above first**.
 1. In your own words, what makes a system agentic rather than just an LLM call?
 2. Reconstruct the four-stage loop from context perception through escalation.
 3. Why do the lecture slides argue that agentic systems need design patterns?
-4. Name the three hard problems explicitly highlighted when behaviour becomes stateful/multi-step.
-5. Reconstruct as many of the 21 patterns as you can, but prioritise grouping them meaningfully over exact list-order memorisation.
-6. Explain the difference between Level 0, Level 1, Level 2 and Level 3 agent complexity.
-7. What changes as the lecture moves from a simple LLM workflow to RAG to an AI agent to collaborative agentic AI?
-8. Why are communication/shared context important in multi-agent systems?
+4. What kinds of hard problems arise when agent behaviour becomes stateful and multi-step?
+5. Explain the difference between Level 0, Level 1, Level 2 and Level 3 agent complexity.
+6. What changes as the lecture moves from a simple LLM workflow to RAG to an AI agent to collaborative agentic AI?
+7. Why are communication/shared context important in multi-agent systems?
+
+### Explicit non-question
+
+Do **not** ask "name all the patterns", "how many patterns were there?", or any equivalent enumeration question. Lecture 1 only used the catalogue as an overview of later course content.
 
 ---
 
 # 9. Cold recall — personal synthesis
 
-These prompts intentionally test **my own post-lecture reasoning**, not only lecturer material.
+These prompts intentionally test **my own post-lecture reasoning**, not only lecturer material. Sample 2–3 at a time rather than replaying the whole list.
 
 1. Why did the phrase "agentic design patterns" initially feel jarring from a traditional SWE background? Reconstruct the distinction you eventually made.
 2. Reconstruct your argument that agent autonomy is better thought of as **decision rights** than "AI can do anything".
@@ -382,7 +375,7 @@ These prompts intentionally test **my own post-lecture reasoning**, not only lec
 # 10. Open / unresolved
 
 - Exact assessment weighting for the hackathon + final project should be verified from official module material; current memory is roughly 80% combined.
-- The 21-pattern list is established by Lecture 1, but the exact week-by-week mapping of individual patterns should be added only when course material confirms it.
+- The pattern catalogue is established as a Lecture-1 **overview of future course coverage**; add individual patterns to retrieval only when later material teaches/applies them substantively.
 - Later lectures should test/refine the working hypotheses around bounded autonomy, verification provenance, tool discovery and agent-vs-deterministic boundaries.
 
 ---
@@ -392,6 +385,7 @@ These prompts intentionally test **my own post-lecture reasoning**, not only lec
 Before or after the next lecture:
 
 1. run a short cold recall from the **course-material** prompts;
-2. pick only 2–3 **personal-synthesis** prompts, not all twelve;
-3. connect the next pattern(s) to one familiar payments/KYC/AML workflow;
-4. update `ftec5660_course_context.md` only when the new lecture materially changes a cross-cutting synthesis thread.
+2. pick only 2–3 **personal-synthesis** prompts;
+3. connect newly taught pattern(s) to one familiar payments/KYC/AML workflow;
+4. add those specific patterns to retrieval only once they have actually been taught/applied;
+5. update `ftec5660_course_context.md` only when the new lecture materially changes a cross-cutting synthesis thread.
