@@ -1,328 +1,809 @@
+# Learning Atlas schema v2. Defaults are explicit YAML merges, not inferred learning.
+schema_version: 2
 meta:
-  title: MSc AI Learning Dashboard
-  last_updated: "2026-09-05"
-  current_lesson: 31
-  strategy: Stay roughly 1–2 syllabus weeks ahead while keeping a small January maths lane alive.
-
-status_definitions:
-  strong: Comfortable and repeatedly practised.
-  established: Implemented and understood; periodic retrieval still useful.
-  developing: Actively learning or incomplete.
-  planned: Not yet studied in a dedicated lesson.
-
-retrieval_definitions:
-  current: Recently retrieved or actively in use.
-  due: Learned before, but deliberate cold retrieval is due.
-  not_started: No retrieval expected yet.
-  n/a: Retrieval state is not meaningful yet.
-
-focus:
-  - stage: Current
-    title: Reactivate search
-    detail: Cold-retrieve BFS, DFS and A*, then add UCS, algorithm trade-offs, admissibility and consistency.
-  - stage: Next
-    title: Build the Week-3 buffer
-    detail: Refresh linear/logistic regression, then learn decision trees and random forests.
-  - stage: Then
-    title: Reactivate probability for Weeks 4–5
-    detail: Retrieve Bayes/random variables/joint distributions/CLT, then diagnostically test Markov chains and Poisson before HMM and particle-filtering work.
-  - stage: Longer-term
-    title: Protect the January maths lane
-    detail: Linear algebra, calculus and core probability are established foundations; extend probability into likelihood/MLE and formal ML Theory rather than restarting completed courses.
-
-domains:
-  Foundations:
-    description: Python, numerical/data tooling and mathematical prerequisites.
-    topics:
-      python_fluency:
-        label: Python fluency
-        status: strong
-        retrieval: current
-        lessons: ["01–07"]
-        note: Core containers, comprehensions, key functions and function signatures are no longer a blocker.
-      dsa_patterns:
-        label: DSA patterns
-        status: established
-        retrieval: current
-        lessons: ["08–09"]
-        note: Hash lookup, two pointers and sliding windows have been implemented; broader DSA fluency is still growing.
-      numpy:
-        label: NumPy and shape reasoning
-        status: strong
-        retrieval: current
-        lessons: ["10–17", "20", "27"]
-        gaps:
-          - Keep axis/reduction shapes and batch dimensions under cold retrieval.
-      pandas:
-        label: pandas
-        status: established
-        retrieval: current
-        lessons: ["18–20"]
-        note: Selection, filtering, aggregation, missing values and merges have been practised.
-      linear_algebra:
-        label: Linear algebra
-        status: established
-        retrieval: due
-        lessons: ["Historical linear algebra"]
-        note: JHU Coursera Linear Algebra from Elementary to Advanced was completed in 2025; historical retrieval logs preserve systems/vector spaces, eigen/diagonalization, orthogonality/projections/least squares, and symmetric matrices/quadratic forms.
-        gaps:
-          - Keep vectors, matrices, norms and notation warm for AIMS5702 and AIMS5704.
-          - Cold-retrieve RREF/free-variable structure, eigenvalue/diagonalization mechanics, Gram–Schmidt/projections and least-squares normal equations periodically.
-          - Revisit positive definite/semidefinite reasoning, Gram matrices and ML-specific applications when AIMS5704 approaches.
-      calculus:
-        label: Calculus and gradients
-        status: established
-        retrieval: due
-        lessons: ["Historical calculus", "28"]
-        note: Historical chat/pen-and-paper work built slope/local-rate intuition, limits/difference quotient, power/product rules, partial derivatives, gradients, gradient descent, chain rule and manual backprop; Lesson 28 carries this into executable PyTorch autograd.
-        gaps:
-          - Cold-retrieve derivative direction, partials, gradient meaning and chain-rule mechanics periodically.
-          - Add logs/exponentials next; defer vector/Jacobian calculus until ML work needs it.
-      scientific_python:
-        label: SciPy, matplotlib and modality representations
-        status: planned
-        retrieval: not_started
-        lessons: []
-        gaps:
-          - Needed for AI in Practice Week 3; not yet practised systematically.
-      probability:
-        label: Probability and statistics
-        status: established
-        retrieval: due
-        lessons: ["Historical probability/statistics"]
-        note: Two JHU probability modules were completed in late 2025. Strong recoverable evidence covers counting/conditional probability/Bayes, random variables and common distributions, expectation/variance, joint and marginal distributions, covariance/correlation, Markov/Chebyshev inequalities, CLT, standard error and introductory hypothesis testing.
-        gaps:
-          - Refresh Bayes, random variables, expectation/variance/covariance and CLT before AIMS5701 Weeks 4–5 and AIMS5704.
-          - Markov chains and Poisson are remembered historical study but have weak recoverable worked evidence; cold-diagnose before treating them as current.
-          - Add likelihood/log-likelihood/MLE and exponential-family notation for AIMS5704.
-          - Formal concentration/generalisation and proof-style probability remain future work.
-
-  Machine Learning:
-    description: Classical supervised learning, evaluation and generalisation workflow.
-    topics:
-      linear_regression:
-        label: Linear regression
-        status: established
-        retrieval: current
-        lessons: ["12", "23"]
-        note: Manual linear mechanics and sklearn regression with MAE, MSE and R² have been implemented; historical least-squares work provides the projection/normal-equation foundation.
-      logistic_regression:
-        label: Logistic regression
-        status: established
-        retrieval: current
-        lessons: ["21–22"]
-        note: sklearn binary classification, probabilities, thresholds and confusion-matrix metrics have been practised.
-      evaluation:
-        label: Evaluation and generalisation
-        status: established
-        retrieval: current
-        lessons: ["22", "31"]
-        note: Lesson 31 connects leakage-safe preprocessing, per-epoch validation and final held-out test evaluation end to end.
-      decision_trees:
-        label: Decision trees
-        status: planned
-        retrieval: not_started
-        lessons: []
-      random_forests:
-        label: Random forests
-        status: planned
-        retrieval: not_started
-        lessons: []
-      bayesian_networks:
-        label: Bayesian networks
-        status: planned
-        retrieval: not_started
-        lessons: []
-      hmm:
-        label: Hidden Markov Models
-        status: planned
-        retrieval: not_started
-        lessons: []
-      particle_filtering:
-        label: Particle filtering
-        status: planned
-        retrieval: not_started
-        lessons: []
-
-  Classical AI:
-    description: Search, logic and reasoning.
-    topics:
-      bfs:
-        label: BFS
-        status: established
-        retrieval: due
-        lessons: ["24"]
-        gaps:
-          - Reactivate completeness, optimality, time and memory reasoning.
-      dfs:
-        label: DFS
-        status: established
-        retrieval: due
-        lessons: ["25"]
-        gaps:
-          - Reactivate completeness, optimality, time and memory reasoning.
-      astar:
-        label: A*
-        status: established
-        retrieval: due
-        lessons: ["26"]
-        gaps:
-          - Add admissibility and consistency.
-          - Compare directly with UCS and uninformed search.
-      ucs:
-        label: Uniform-cost search
-        status: planned
-        retrieval: not_started
-        lessons: []
-      logic:
-        label: Logic and reasoning
-        status: planned
-        retrieval: not_started
-        lessons: []
-
-  Deep Learning:
-    description: PyTorch mechanics, optimisation and neural-network architectures.
-    topics:
-      tensor_operations:
-        label: Tensor operations
-        status: established
-        retrieval: current
-        lessons: ["27"]
-        gaps:
-          - Keep nn.Linear weight orientation and batch shapes automatic.
-      autograd:
-        label: Autograd and manual GD
-        status: established
-        retrieval: current
-        lessons: ["28"]
-        note: Executable continuation of the historical calculus foundation; requires_grad, backward, grad clearing and parameter updates have been implemented.
-      pytorch_training:
-        label: PyTorch training loop
-        status: established
-        retrieval: current
-        lessons: ["29"]
-        note: nn.Linear, MSELoss and SGD training-loop structure is established.
-      mlp_classification:
-        label: MLP binary classification
-        status: established
-        retrieval: current
-        lessons: ["30"]
-        note: ReLU, BCEWithLogitsLoss, DataLoader, sigmoid and thresholding are established on synthetic data.
-      real_data_classification:
-        label: Real-data classification workflow
-        status: established
-        retrieval: current
-        lessons: ["31"]
-        gaps:
-          - Keep train-only preprocessing and leakage reasoning automatic.
-          - Optionally add best-validation-checkpoint restoration when introducing early stopping or model selection.
-      neural_regression:
-        label: Neural-network regression
-        status: planned
-        retrieval: not_started
-        lessons: []
-        gaps:
-          - Needed for the AI in Practice housing-price workflow.
-      cnn:
-        label: CNN
-        status: planned
-        retrieval: not_started
-        lessons: []
-      rnn:
-        label: RNN
-        status: planned
-        retrieval: not_started
-        lessons: []
-
+  title: Learning Atlas
+  subtitle: MSc AI
+  reviewed_on: '2026-09-09'
+  evidence_through: '2026-09-08'
+  repository: alistairkung/msc-ai-learning
+  source_ref: 2c434398b9ef7b73105ae2359533f56e5b2e275e
+  review_note: Migrated from the existing learning record. No new learner assessment was performed.
+  stale_after_days: 21
+sources:
+  state:
+    path: LEARNING_STATE.md
+    sha: ea24b4c4d59b306e23a23b599a83bf4cfa3a4da4
+  syllabus:
+    path: MSC_SYLLABUS_MAP.md
+    sha: 3ee9d299c052388c0c4d5bdb05c73d7dc5709268
+  roadmap:
+    path: LEARNING_ROADMAP.md
+    sha: 1630df3ac09358276a1ce2e07f2fe0865f3d88e9
+  search:
+    path: lesson_logs/search_reactivation_2026_09_06.md
+    sha: a64c14471791948bcfae578e85716c1961c012d7
+  prompt:
+    path: lesson_logs/ftec5660_pattern01_prompt_chaining.md
+    sha: 3ffbf91b66bd24dc260c1aeb0c1d73d431a1b157
+  pipeline:
+    path: deep_learning/mlp/lesson31_real_data.py
+    sha: bbe9b6cecbc70fa6cbc3bcb8cd6e89dc50dead23
+defaults:
+  new_material: &new
+    concept: planned
+    performance: pending
+    review: not_due
+    action: learn
+    boundary: Prerequisite familiarity does not establish this capability. Teach explicitly before using it as a recall expectation.
+    next: Introduce at the relevant syllabus point after checking its documented prerequisites.
+    sources: [syllabus, roadmap]
+    evidence_on: null
+    depends_on: []
+  implemented: &built
+    concept: demonstrated
+    performance: implemented
+    review: unknown
+    action: maintain
+    boundary: Imported from the prior learning record, not freshly tested in this migration. Code presence does not establish independent authorship or current retention.
+    next: Use a changed example when the next course task invokes this skill. Record support needed; do not automatically repeat the whole lesson.
+    sources: [state, roadmap]
+    evidence_on: null
+    depends_on: []
+  historical: &history
+    concept: historical
+    performance: historical
+    review: diagnostic
+    action: retrieve
+    boundary: Historical worked learning is not a new test of current retention. Select the relevant subtopic; do not interpret a due diagnostic as failure.
+    next: Retrieve one small relevant example before its course application; rebuild only the gap actually observed.
+    sources: [state, roadmap]
+    evidence_on: null
+    depends_on: []
+topics:
+  bfs:
+    name: BFS
+    area: Classical AI
+    concept: demonstrated
+    performance: independent
+    review: recorded
+    action: maintain
+    evidence: The 6 September session log records a complete independent BFS reconstruction after debugging two state-role mistakes. The practice solution was intentionally not committed.
+    boundary: This is a logged session result, not an independently rerun test in this migration. It does not prove fluency in every search guarantee or permanent retention.
+    next: Move forward to UCS. Keep the solution-free BFS practice test for occasional maintenance, not another compulsory repeat.
+    sources: [search, state]
+    evidence_on: '2026-09-06'
+    depends_on: []
+  dfs:
+    name: DFS
+    area: Classical AI
+    concept: demonstrated
+    performance: guided
+    review: recorded
+    action: maintain
+    evidence: The session log records a successful BFS-to-DFS derivation and reasoning about neighbour insertion order.
+    boundary: A guided transformation is distinct from a separate, independently reconstructed DFS implementation.
+    next: Reuse this understanding during the search comparison. Do not restart a full DFS lesson unless a specific gap appears.
+    sources: [search, state]
+    evidence_on: '2026-09-06'
+    depends_on: []
+  ucs:
+    name: Uniform-cost search
+    area: Classical AI
+    concept: taught
+    performance: pending
+    review: recorded
+    action: build
+    evidence: The learner traced accumulated-cost frontier choices correctly. Both the current state and the latest search log identify UCS implementation as the next step.
+    boundary: No new standalone UCS implementation is recorded. Correct conceptual answers are not evidence of independent code reconstruction.
+    next: Write UCS incrementally from a blank file, then compare paths and costs on a small weighted graph. The learner writes the implementation.
+    sources: [search, state]
+    evidence_on: '2026-09-06'
+    depends_on: [bfs]
+  astar:
+    name: A* search
+    area: Classical AI
+    concept: demonstrated
+    performance: implemented
+    review: recorded
+    action: build
+    evidence: Lesson 26 records an earlier implementation. The 6 September session recovered g, h and f; admissibility and consistency were introduced, with consistency still fragile.
+    boundary: An existing function is not proof of present independent recall. Graph-search guarantees and complexity are not recorded as fully consolidated.
+    next: Reconstruct A* from the new UCS implementation. Then use a brief check of heuristic meaning and the assumptions behind guarantees.
+    sources: [search, state]
+    evidence_on: '2026-09-06'
+    depends_on: [ucs]
+  prompt_chaining:
+    name: Prompt chaining
+    area: Agentic systems
+    concept: taught
+    performance: guided
+    review: recorded
+    action: retrieve
+    evidence: The log distinguishes the taught concept from the tutorial. Class reached successful expense-ledger parsing into JSON; the intended parse → compute → explain pipeline was introduced.
+    boundary: The later notebook cells are not completed learning. The other 20 patterns in the overview are not automatic recall targets.
+    next: Briefly retrieve why checkable stages help, when not to chain, and the role of deterministic processing. Use a payments example.
+    sources: [prompt, state]
+    evidence_on: '2026-09-08'
+    depends_on: []
+  lcel:
+    name: LangChain / LCEL basics
+    area: Agentic systems
+    concept: taught
+    performance: guided
+    review: recorded
+    action: practice
+    evidence: The current record says prompt templates, pipe composition, string/JSON parsers, invocation dictionaries and simple sub-chain mapping were encountered.
+    boundary: Imported names are not taught syntax. RunnableLambda and RunnablePassthrough tutorial sections had not been reached. API lookup is not the same issue as inability to compose the pipeline.
+    next: 'One bounded reconstruction session: a tiny chain, structured output, then a two-stage example. Keep syntax support minimal and separate from conceptual assessment.'
+    sources: [prompt, state]
+    evidence_on: '2026-09-08'
+    depends_on: [prompt_chaining]
+  bayes:
+    <<: *history
+    name: Bayes & conditioning
+    area: Math foundations
+    evidence: The historical record preserves joint-versus-posterior confusion, constructing the total-probability denominator and the effect of base rates.
+    boundary: This does not establish mastery of graphical-model inference or current unaided Bayes performance.
+    next: Use a changed finite-counts/Bayes example without a refresher. Record the support needed, then repair only the observed gap.
+  calculus:
+    name: Derivatives → gradients
+    area: Math foundations
+    concept: historical
+    performance: implemented
+    review: diagnostic
+    action: retrieve
+    evidence: The historical calculus log records the conceptual progression into gradients and chain rule; Lesson 28 provides an executable continuation.
+    boundary: Backpropagation mechanics do not establish convergence proofs, Hessians, convexity or adaptive-optimizer theory.
+    next: Retrieve derivative meaning and a short chain-rule calculation. Introduce later optimisation theory explicitly as new material.
+    sources: [state, roadmap]
+    evidence_on: null
+    depends_on: []
+  real_data_classification:
+    name: Real-data ML workflow
+    area: Model building
+    concept: demonstrated
+    performance: implemented
+    review: recorded
+    action: transfer
+    evidence: Lesson 31 contains data splitting, train-only scaling, tensor conversion, training/validation and final held-out evaluation.
+    boundary: Repository code is observable; the degree of independent authorship and current transfer ability cannot be inferred from code alone.
+    next: Transfer the pipeline to a changed problem when the course requires it. Ask the learner to choose and explain the pieces, not copy an orchestration method.
+    sources: [pipeline, state]
+    evidence_on: '2026-09-04'
+    depends_on: []
+  mle:
+    name: Likelihood / MLE
+    area: Math foundations
+    concept: planned
+    performance: pending
+    review: not_due
+    action: learn
+    evidence: The roadmap and syllabus identify likelihood, log-likelihood and MLE as genuine extensions beyond the recovered probability foundation.
+    boundary: Do not cold-test this as though it was covered in JHU. Missing new theory is not evidence that earlier probability has been forgotten.
+    next: Plan explicit teaching after retrieving relevant distributions and introducing logs/exponentials. Do not pre-master the whole January module now.
+    sources: [state, roadmap]
+    evidence_on: null
+    depends_on: [distributions, logs_exponentials]
+  python_fluency:
+    <<: *built
+    name: Python fluency
+    area: Foundations
+    evidence: Lessons 01–07 record containers, comprehensions, key functions and function arguments.
+  dsa_patterns:
+    <<: *built
+    name: DSA patterns
+    area: Foundations
+    evidence: Lessons 08–09 record hash lookup, two pointers and sliding windows; broader algorithmic fluency is still developing.
+  numpy:
+    <<: *built
+    name: NumPy & shape reasoning
+    area: Foundations
+    evidence: Lessons 10–17, 20 and 27 record numerical operations, broadcasting, axes and shape reasoning.
+  pandas:
+    <<: *built
+    name: pandas / data preparation
+    area: Foundations
+    evidence: Lessons 18–20 record selection, aggregation, missing values, joins and mixed retrieval.
+  linear_regression:
+    <<: *built
+    name: Linear regression
+    area: Model building
+    evidence: Lessons 12 and 23 record manual linear mechanics, sklearn regression and MAE/MSE/R².
+  logistic_regression:
+    <<: *built
+    name: Logistic regression
+    area: Model building
+    evidence: Lessons 21–22 record binary classification, probabilities, thresholds and confusion-matrix metrics.
+  evaluation:
+    <<: *built
+    name: Evaluation & generalisation workflow
+    area: Model building
+    evidence: Lesson 31 connects train-only preprocessing, per-epoch validation and final held-out evaluation.
+  tensor_operations:
+    <<: *built
+    name: Tensor operations
+    area: Model building
+    evidence: Lesson 27 records batch means, centring, flattening, transpose and linear-layer shapes.
+  autograd:
+    <<: *built
+    name: Autograd & manual gradient descent
+    area: Model building
+    evidence: Lesson 28 makes the earlier manual gradient/chain-rule understanding executable.
+  pytorch_training:
+    <<: *built
+    name: PyTorch training loop
+    area: Model building
+    evidence: Lesson 29 records nn.Linear, MSELoss, SGD and the training-loop structure.
+  mlp_classification:
+    <<: *built
+    name: MLP binary classification
+    area: Model building
+    evidence: Lesson 30 records ReLU, BCEWithLogitsLoss, batches, sigmoid and thresholds.
+  linear_algebra:
+    <<: *history
+    name: Linear algebra — overview
+    area: Math foundations
+    evidence: Four historical blocks cover systems, eigenstructure, projections/least squares, and symmetric quadratic forms.
+  la_systems:
+    <<: *history
+    name: Systems, span & basis
+    area: Math foundations
+    evidence: Historical JHU study covers RREF, pivots/free variables, span, independence and basis.
+  la_eigen:
+    <<: *history
+    name: Eigenvalues & diagonalisation
+    area: Math foundations
+    evidence: Historical JHU study covers determinants, eigenvectors and matched eigenbasis/eigenvalue ordering.
+  la_projection:
+    <<: *history
+    name: Orthogonality & least squares
+    area: Math foundations
+    evidence: Historical JHU study covers Gram–Schmidt, projections, exact residuals and normal equations.
+    depends_on: [la_systems]
+  la_quadratic:
+    <<: *history
+    name: Symmetric matrices & quadratic forms
+    area: Math foundations
+    evidence: Historical JHU study covers orthogonal diagonalisation and the matrix representation of quadratic cross terms.
+    depends_on: [la_eigen]
+  probability:
+    <<: *history
+    name: Probability — overview
+    area: Math foundations
+    evidence: Historical worked learning covers Bayes, distributions, moments, inequalities and CLT/inference; Markov/Poisson evidence is weaker.
+  distributions:
+    <<: *history
+    name: Random variables & distributions
+    area: Math foundations
+    evidence: Historical work covers geometric waiting time, expectation/variance, PDF/CDF and Uniform/Exponential/Normal distributions.
+  joint_moments:
+    <<: *history
+    name: Joint distributions & moments
+    area: Math foundations
+    evidence: Historical work covers marginals, expectation, indicators, covariance/correlation and Markov/Chebyshev inequalities.
+  clt_inference:
+    <<: *history
+    name: CLT & introductory inference
+    area: Math foundations
+    evidence: Historical work covers sampling distributions, standard error and Z-style testing/p-value interpretation.
+  markov:
+    name: Markov chains
+    area: Math foundations
+    concept: unknown
+    performance: unknown
+    review: diagnostic
+    action: diagnose
+    evidence: The learner remembers studying this, but the recovered worked trail is incomplete.
+    boundary: Unknown is not failed. Do not infer detailed coverage or stationary-distribution proficiency.
+    next: Diagnose Markov basics before HMM work; rebuild only what does not return.
+    sources: [state, syllabus]
+    evidence_on: null
+    depends_on: []
+  poisson:
+    name: Poisson material
+    area: Math foundations
+    concept: unknown
+    performance: unknown
+    review: diagnostic
+    action: diagnose
+    evidence: The learner remembers studying this, but the recovered worked trail is incomplete.
+    boundary: Unknown is not failed. The depth of Poisson-distribution versus Poisson-process coverage is not established.
+    next: Diagnose Poisson separately when relevant, without inventing a coursework deadline.
+    sources: [state, syllabus]
+    evidence_on: null
+    depends_on: []
+  logic:
+    <<: *new
+    name: Logic & reasoning
+    area: Classical AI
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+  other_agents:
+    <<: *new
+    name: Searching with other agents
+    area: Classical AI
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    boundary: The syllabus title is confirmed; the exact scope is not. Minimax/alpha-beta is a provisional interpretation, not verified course coverage.
+    next: Confirm lecture scope, then teach the relevant multi-agent search material before AIMS5701 Week 2.
+  search_complexity:
+    name: Search guarantees & complexity
+    area: Classical AI
+    concept: taught
+    performance: pending
+    review: recorded
+    action: learn
+    evidence: Introductory completeness, optimality, admissibility and consistency were introduced; complexity and graph-search assumptions are not consolidated.
+    boundary: Introductory vocabulary is not a complete guarantee analysis. Complexity is new work; do not treat it as failed recall.
+    next: Consolidate after UCS/A* implementation, distinguishing new complexity material from introductory theory retrieval.
+    sources: [search, state]
+    evidence_on: '2026-09-06'
+    depends_on: []
+  scientific_python:
+    <<: *new
+    name: Scientific Python & representations
+    area: Foundations
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+  decision_trees:
+    <<: *new
+    name: Decision trees
+    area: Model building
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+  random_forests:
+    <<: *new
+    name: Random forests
+    area: Model building
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    depends_on: [decision_trees]
+  bayesian_networks:
+    <<: *new
+    name: Bayesian networks & inference
+    area: Model building
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    depends_on: [bayes, joint_moments]
+  hmm:
+    <<: *new
+    name: Hidden Markov Models
+    area: Model building
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    depends_on: [markov, bayes]
+  particle_filtering:
+    <<: *new
+    name: Particle filtering
+    area: Model building
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    depends_on: [hmm]
+  neural_regression:
+    <<: *new
+    name: Neural-network regression
+    area: Model building
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    depends_on: [real_data_classification, linear_regression]
+  cnn:
+    <<: *new
+    name: Convolutional neural networks
+    area: Model building
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+  rnn:
+    <<: *new
+    name: Recurrent neural networks
+    area: Model building
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+  logs_exponentials:
+    <<: *new
+    name: Logs & exponentials
+    area: Math foundations
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+  convergence:
+    <<: *new
+    name: Convergence analysis
+    area: Math foundations
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    depends_on: [calculus, la_quadratic]
+  adaptive_optimisation:
+    <<: *new
+    name: Adaptive optimisation
+    area: Math foundations
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    depends_on: [pytorch_training]
+  risk_concentration:
+    <<: *new
+    name: Risk & concentration
+    area: Math foundations
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    depends_on: [joint_moments]
+  vc_bounds:
+    <<: *new
+    name: Capacity & generalisation bounds
+    area: Math foundations
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    depends_on: [risk_concentration]
+  kernels:
+    <<: *new
+    name: Feature maps & kernels
+    area: Math foundations
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    depends_on: [la_projection]
+  exponential_families:
+    <<: *new
+    name: Exponential-family models
+    area: Math foundations
+    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+lanes:
+- id: continue
+  label: Continue next · Fundamentals
+  title: Build UCS → reconstruct A*
+  summary: BFS reconstruction is logged. Move forward, rather than restarting search.
+  target: ucs
+  tasks:
+  - title: UCS, then A*
+    when: Next study session
+    topics: [ucs, astar]
+    detail: Learner writes the important code. Keep conceptual help separate from API reminders.
+  - title: Finish the Week-2 search coverage
+    when: Before AIMS5701 Week 2
+    topics: [bfs, dfs, search_complexity, other_agents]
+    detail: Consolidate guarantees/complexity, confirm other-agent scope, then do one integrated review.
+- id: parallel
+  label: Parallel block · live teaching
+  title: Practise the chain syntax
+  summary: The concept was taught. Rebuild the small LCEL patterns already encountered.
+  target: lcel
+  tasks:
+  - title: LCEL reconstruction
+    when: This week
+    topics: [lcel, prompt_chaining]
+    detail: A tiny chain, structured JSON output, then two stages. Stay inside the recorded tutorial boundary.
+  - title: Logic preview
+    when: Before AIMS5701 Week 1
+    topics: [logic]
+    detail: Reserve a short preview alongside search; do not wait until all Week-2 work is complete.
+  - title: Confirm FTEC5660 assessments
+    when: When official details arrive
+    topics: []
+    detail: Hackathon/final-project dates, scope and weighting remain unconfirmed. Unknown workload is not zero workload.
+- id: protect
+  label: Protected continuity · January theory
+  title: Retrieve maths selectively
+  summary: Historical foundations exist. Check retention; distinguish refresh from new theory.
+  target: bayes
+  tasks:
+  - title: One relevant maths target
+    when: Recurring small block
+    topics: [la_systems, bayes]
+    detail: Choose the smallest useful diagnostic for upcoming matrix or inference work. No calendar booking implied.
+  - title: Explicit new theory later
+    when: Before the relevant January demand
+    topics: [mle, convergence, kernels]
+    detail: Protect continuity through project spikes. New topics are not an overdue recall pile.
 courses:
   AIMS5701:
-    name: Fundamentals in Artificial Intelligence
-    term: Sep–Dec 2026
+    name: Fundamentals in AI
+    timing: Start delayed one week (learner report); exact revised dates unconfirmed. Course weeks are not calendar weeks.
+    expected_weeks: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
     weeks:
-      - week: 1
-        label: Introduction, logic, reasoning and learning
-        topics: [logic]
-      - week: 2
-        label: Uninformed and informed search
-        topics: [bfs, dfs, ucs, astar]
-      - week: 3
-        label: Regression, classification and trees
-        topics: [linear_regression, logistic_regression, decision_trees, random_forests]
-      - week: 4
-        label: Bayesian networks, inference and sampling
-        topics: [probability, bayesian_networks]
-      - week: 5
-        label: HMMs and particle filtering
-        topics: [probability, hmm, particle_filtering]
-
+    - week: '1'
+      title: Introduction, Logic, Reasoning and Learning
+      anchors: []
+      remaining: [logic]
+      note: ''
+      scope: mapped
+      due_on: null
+    - week: '2'
+      title: Uninformed search, informed search, searching with other agents
+      anchors: [bfs, dfs]
+      remaining: [ucs, astar, search_complexity, other_agents]
+      note: Confirm what “searching with other agents” includes.
+      scope: scope_unconfirmed
+      due_on: null
+    - week: '3'
+      title: Linear regression, logistic regression, decision trees, random forests
+      anchors: [linear_regression, logistic_regression, la_projection]
+      remaining: [decision_trees, random_forests]
+      note: ''
+      scope: mapped
+      due_on: null
+    - week: '4'
+      title: Bayesian networks, inference, sampling
+      anchors: [bayes, distributions, joint_moments]
+      remaining: [bayesian_networks]
+      note: ''
+      scope: mapped
+      due_on: null
+    - week: '5'
+      title: Hidden Markov Models, particle filtering
+      anchors: [bayes, distributions]
+      remaining: [markov, hmm, particle_filtering]
+      note: ''
+      scope: mapped
+      due_on: null
+    - week: '6'
+      title: KNN, K-means, SVM, gradient boosting
+      anchors: [numpy, la_projection]
+      remaining: []
+      note: Algorithm-specific preparation is not yet tracked individually.
+      scope: not_mapped
+      due_on: null
+    - week: '7'
+      title: Neural networks
+      anchors: [mlp_classification, pytorch_training]
+      remaining: [cnn, rnn]
+      note: Existing MLP evidence is an anchor, not coverage of every architecture.
+      scope: mapped
+      due_on: null
+    - week: '8'
+      title: Backpropagation and SGD
+      anchors: [calculus, autograd, pytorch_training]
+      remaining: []
+      note: Keep chain-rule notation warm. Readiness is not inferred from these anchors.
+      scope: mapped
+      due_on: null
+    - week: '9'
+      title: Computer vision
+      anchors: [tensor_operations]
+      remaining: [cnn]
+      note: ''
+      scope: mapped
+      due_on: null
+    - week: '10'
+      title: NLP
+      anchors: [logistic_regression]
+      remaining: [rnn]
+      note: Text representations/embedding requirements need further mapping.
+      scope: not_mapped
+      due_on: null
+    - week: '11'
+      title: Reinforcement learning, recommendation
+      anchors: [joint_moments]
+      remaining: []
+      note: MDP/value/policy/Q and recommendation are new; detailed requirements not yet mapped.
+      scope: not_mapped
+      due_on: null
+    - week: '12'
+      title: Generative models
+      anchors: [distributions, mlp_classification]
+      remaining: []
+      note: Generative-model-specific learning remains new.
+      scope: not_mapped
+      due_on: null
+  FTEC5660:
+    name: Agentic AI in Finance / FinTech
+    timing: Live teaching recorded through 8 September 2026. Pattern order is not a weekly timetable.
+    expected_weeks: [Lecture 1, Pattern 1, Later, Projects]
+    weeks:
+    - week: Lecture 1
+      title: Agentic-system introduction
+      anchors: []
+      remaining: []
+      note: Introductory catalogue is orientation, not 21 completed patterns or 21 recall tasks.
+      scope: overview
+      due_on: null
+    - week: Pattern 1
+      title: Prompt Chaining
+      anchors: [prompt_chaining]
+      remaining: [lcel]
+      note: Tutorial stopped at JSON parsing. Later compute/wiring/gates remain untaught.
+      scope: partial_tutorial
+      due_on: null
+    - week: Later
+      title: Remaining pattern catalogue
+      anchors: []
+      remaining: []
+      note: Activate individual patterns only after substantive teaching.
+      scope: overview
+      due_on: null
+    - week: Projects
+      title: Hackathon + final project
+      anchors: []
+      remaining: []
+      note: Learner recalls about 80% combined; dates, scope and exact weighting need official verification.
+      scope: scope_unconfirmed
+      due_on: null
   AIMS5702:
-    name: Artificial Intelligence in Practice
-    term: Sep–Dec 2026
+    name: AI in Practice
+    timing: Original Sep–Dec sequence retained. The Fundamentals delay is not applied to this course.
+    expected_weeks: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
     weeks:
-      - week: 1
-        label: Intro and simple ML
-        topics: [linear_regression, logistic_regression, evaluation]
-      - week: 2
-        label: Vector, matrix and tensor operations
-        topics: [linear_algebra, numpy, tensor_operations]
-      - week: 3
-        label: Representations, SciPy, matplotlib and PyTorch
-        topics: [numpy, scientific_python, pytorch_training]
-      - week: 4
-        label: MLP, CNN and RNN
-        topics: [mlp_classification, cnn, rnn]
-      - week: 5
-        label: Housing-price prediction
-        topics: [linear_regression, neural_regression, evaluation]
-
+    - week: '1'
+      title: Intro + simple ML example
+      anchors: [linear_regression, logistic_regression, evaluation]
+      remaining: []
+      note: ''
+      scope: mapped
+      due_on: null
+    - week: '2'
+      title: Vector, matrix, tensor ops; NumPy
+      anchors: [linear_algebra, numpy, tensor_operations]
+      remaining: []
+      note: Select a targeted matrix/shape check.
+      scope: mapped
+      due_on: null
+    - week: '3'
+      title: Signals and modality representations; SciPy, matplotlib, PyTorch
+      anchors: [numpy, pytorch_training]
+      remaining: [scientific_python]
+      note: ''
+      scope: mapped
+      due_on: null
+    - week: '4'
+      title: MLP, CNN, RNN
+      anchors: [mlp_classification]
+      remaining: [cnn, rnn]
+      note: ''
+      scope: mapped
+      due_on: null
+    - week: '5'
+      title: Housing-price prediction
+      anchors: [linear_regression, evaluation, real_data_classification]
+      remaining: [neural_regression]
+      note: The historical syllabus names the Boston House Dataset; dataset choice is not changed by this migration.
+      scope: mapped
+      due_on: null
+    - week: '6'
+      title: Data prep + data loading optimisation
+      anchors: [real_data_classification]
+      remaining: []
+      note: Worker/pinning/loading-efficiency requirements are new and not yet mapped.
+      scope: not_mapped
+      due_on: null
+    - week: '7'
+      title: Fashion-MNIST visual classification
+      anchors: [pytorch_training]
+      remaining: [cnn]
+      note: ''
+      scope: mapped
+      due_on: null
+    - week: '8'
+      title: Parallel / multi-GPU / distributed training
+      anchors: [pytorch_training]
+      remaining: []
+      note: Prior SWE familiarity is not PyTorch distributed-training evidence.
+      scope: not_mapped
+      due_on: null
+    - week: '9'
+      title: IMDB sentiment analysis
+      anchors: [logistic_regression]
+      remaining: [rnn]
+      note: Text preprocessing and embeddings also need explicit preparation.
+      scope: not_mapped
+      due_on: null
+    - week: '10'
+      title: Model optimisation + on-device deployment
+      anchors: []
+      remaining: []
+      note: ML export, quantisation and performance tooling are not yet mapped.
+      scope: not_mapped
+      due_on: null
+    - week: '11'
+      title: Foundation models / diffusion / LLM / segmentation
+      anchors: []
+      remaining: []
+      note: Framework-specific requirements are not yet mapped.
+      scope: not_mapped
+      due_on: null
+    - week: '12'
+      title: Project presentation
+      anchors: []
+      remaining: []
+      note: Project dates, deliverables and readiness are not yet recorded.
+      scope: not_mapped
+      due_on: null
   AIMS5704:
     name: Machine Learning Theory
-    term: Starts Jan 2027
+    timing: Starts 11 January 2027 in the stored syllabus. Later exact lecture dates are not inferred.
+    expected_weeks: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']
     weeks:
-      - week: "Prereqs"
-        label: Linear algebra, probability and statistics
-        topics: [linear_algebra, probability]
-      - week: 5
-        label: Gradient descent and convergence analysis
-        topics: [calculus, autograd]
-      - week: 6
-        label: SGD and adaptive optimisation
-        topics: [pytorch_training]
-
+    - week: '1'
+      title: Probability + Linear Algebra tools
+      anchors: [linear_algebra, probability]
+      remaining: [bayes, distributions, joint_moments]
+      note: Historical anchors need retrieval; not a new course-completion claim.
+      scope: mapped
+      due_on: null
+    - week: '2'
+      title: MLE, exponential-family models
+      anchors: [distributions]
+      remaining: [logs_exponentials, mle, exponential_families]
+      note: ''
+      scope: mapped
+      due_on: null
+    - week: '3'
+      title: Empirical vs population risk; uniform convergence
+      anchors: [evaluation]
+      remaining: [risk_concentration]
+      note: ''
+      scope: mapped
+      due_on: null
+    - week: '4'
+      title: VC dimension + generalisation bounds
+      anchors: [joint_moments]
+      remaining: [vc_bounds]
+      note: ''
+      scope: mapped
+      due_on: null
+    - week: '5'
+      title: GD + convergence analysis
+      anchors: [calculus, autograd]
+      remaining: [convergence]
+      note: GD mechanics do not establish convergence analysis.
+      scope: mapped
+      due_on: null
+    - week: '6'
+      title: SGD, AdaGrad, Adam
+      anchors: [pytorch_training]
+      remaining: [adaptive_optimisation]
+      note: A training loop does not establish adaptive-optimiser theory.
+      scope: mapped
+      due_on: null
+    - week: '7'
+      title: Representer theorem + kernels
+      anchors: [la_projection]
+      remaining: [kernels]
+      note: Specific representer-theorem depth is not yet mapped.
+      scope: not_mapped
+      due_on: null
+    - week: '8'
+      title: NTK + deep-learning generalisation/optimisation
+      anchors: []
+      remaining: []
+      note: Advanced theory remains new; do not pre-master.
+      scope: not_mapped
+      due_on: null
+    - week: '9'
+      title: Regret + expert advice
+      anchors: [joint_moments]
+      remaining: []
+      note: Formal online-learning/regret requirements remain new.
+      scope: not_mapped
+      due_on: null
+    - week: '10'
+      title: Greedy / epsilon-greedy
+      anchors: [joint_moments]
+      remaining: []
+      note: Bandit formalism remains new.
+      scope: not_mapped
+      due_on: null
+    - week: '11'
+      title: UCB + Thompson sampling
+      anchors: [bayes, joint_moments]
+      remaining: []
+      note: Prior BBO is an intuition hook, not evidence of bandit theory.
+      scope: not_mapped
+      due_on: null
+    - week: '12'
+      title: Score functions / score-based generative modelling
+      anchors: [calculus, distributions]
+      remaining: []
+      note: Log-density gradients and score modelling remain new.
+      scope: not_mapped
+      due_on: null
+    - week: '13'
+      title: Langevin dynamics / diffusion sampling
+      anchors: []
+      remaining: []
+      note: Advanced stochastic/calculus material remains new.
+      scope: not_mapped
+      due_on: null
+paths:
+- title: Weighted search
+  topics: [bfs, ucs, astar, other_agents]
+  note: Other-agent search is a new problem setting, not another frontier policy.
+- title: Probability into model fitting
+  topics: [bayes, distributions, logs_exponentials, mle, exponential_families]
+  note: A learning route, not a claim that every earlier item is a strict mathematical prerequisite.
+- title: Optimisation theory
+  topics: [calculus, autograd, la_quadratic, convergence]
+  note: The last step is explicit new teaching, not implied by implemented GD.
 timeline:
-  - lessons: "Historical"
-    label: Calculus foundations
-    detail: Chat/pen-and-paper sequence from slope and derivatives through gradients, chain rule and manual backprop; later made executable in Lesson 28.
-  - lessons: "Historical"
-    label: JHU linear algebra foundations
-    detail: Linear systems/vector spaces, matrices/eigen/diagonalization, orthogonality/projections/least squares, and symmetric matrices/quadratic forms completed before the MSc; now preserved as cold-retrieval blueprints.
-  - lessons: "Historical"
-    label: JHU probability and statistics foundations
-    detail: Two completed late-2025 modules with strong recovered evidence from counting/Bayes through distributions, joint moments, inequalities, CLT and hypothesis testing; Markov-chain/Poisson coverage is remembered but diagnostic-needed.
-  - lessons: "01–07"
-    label: Python fluency
-    detail: Core language conversion for ML work.
-  - lessons: "08–09"
-    label: DSA patterns
-    detail: Hash lookup, two pointers and sliding windows.
-  - lessons: "10–17"
-    label: NumPy → manual ML
-    detail: Shapes, broadcasting, standardisation and manual linear/classification pipelines.
-  - lessons: "18–20"
-    label: pandas and data workflow
-    detail: DataFrame manipulation, aggregation, joins and mixed retrieval.
-  - lessons: "21–23"
-    label: sklearn classical ML
-    detail: Logistic classification and linear regression.
-  - lessons: "24–26"
-    label: Classical search
-    detail: BFS, DFS and A* implementations.
-  - lessons: "27–29"
-    label: Tensors, autograd and PyTorch
-    detail: Tensor semantics, manual gradients and the standard training loop; Lesson 28 operationalises the earlier calculus foundation.
-  - lessons: "30"
-    label: Neural binary classification
-    detail: MLP, BCEWithLogitsLoss, mini-batches and accuracy.
-  - lessons: "31"
-    label: Real-data ML workflow
-    detail: Completed train/validation/test workflow, leakage-safe scaling, per-epoch validation and held-out evaluation.
+- label: Historical maths
+  detail: JHU linear algebra and probability, plus chat-based calculus; evidence strength varies by topic.
+- label: Lessons 01–09
+  detail: Python fluency and DSA patterns.
+- label: Lessons 10–20
+  detail: NumPy/manual ML and pandas/data workflow.
+- label: Lessons 21–26
+  detail: Classical regression/classification and search.
+- label: Lessons 27–31
+  detail: Tensors, autograd, PyTorch and an end-to-end real-data workflow.
+- label: 6 September
+  detail: BFS independent reconstruction, DFS derivation and introductory search theory recorded.
+- label: 8 September
+  detail: FTEC5660 Prompt Chaining taught; tutorial partial.

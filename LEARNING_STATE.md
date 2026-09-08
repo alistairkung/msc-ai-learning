@@ -1,155 +1,76 @@
 # Learning State — Current Handover
 
-_Last updated: 2026-09-08_
+_Last maintained: 2026-09-09. Learning evidence through 2026-09-08; this dashboard migration is not a new study session._
 
-> Update this file at the end of **every study session**. Keep it short. It should answer: **Where am I now, what is fragile, what is parked, and what should happen next?**
+Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` contains the compact evidence projection used by the dashboard; `dashboard/README.md` explains its schema. Use the focused lesson logs to recover detailed demonstrations and fragile points, not the dashboard alone.
 
-## Current phase
+## Three parallel commitments
 
-- MSc Term 1: **7 Sep–4 Dec 2026**.
-- **AIMS5701 Fundamentals start has been delayed by one week**, creating an extra preparation week before live Fundamentals teaching begins.
-- Immediate courses now include **FTEC5660 Agentic AI in Finance/FinTech**, **AIMS5701 Fundamentals in AI**, and **AIMS5702 AI in Practice**.
-- **FTEC5660 Lecture 1 completed 2026-09-08.** The introductory catalogue of 21 agentic design patterns is an overview/reference map, not a list-recall target from the introduction.
-- **Pattern 1: Prompt Chaining has now been substantively taught.** Concept coverage includes decomposition into sequential focused stages, explicit/checkable handoffs, deterministic validation/normalisation between LLM stages, context engineering, when chaining is/is not appropriate, and latency/cost/failure trade-offs.
-- The accompanying LangChain tutorial was only **partially completed in class**: setup/basic LCEL was introduced and the expense-ledger chain reached a successful LLM parse into structured JSON. Later notebook sections (Python compute, `RunnablePassthrough.assign`, full chain wiring, TaxCalcBench, gates, etc.) are **not yet taught/mastered** merely because they exist in the supplied notebook.
-- FTEC5660 is being taught through finance/fintech workflow automation rather than purely autonomous software engineering.
-- FTEC5660 appears **project-heavy**: learner recalls a hackathon + final project accounting for roughly **80% combined**, but exact assessment weighting still needs official verification. Treat the module as a likely source of uneven Term-1 workload spikes.
-- **Machine Learning Theory (AIMS5704)** starts **11 Jan 2027**; probability/statistics/LA preparation must run during Term 1.
-- Strategy: stay roughly **1–2 syllabus weeks ahead** where practical, let live FTEC5660 lectures/projects determine which individual patterns become retrieval targets, and keep a protected January-maths continuity lane even when project load spikes.
-- Lessons **01–31** all have retrieval logs; historical pre-repo maths is documented separately for calculus, JHU linear algebra and JHU probability/statistics. FTEC5660 live-course context now lives in `lesson_logs/ftec5660_course_context.md` plus focused lecture/pattern logs.
+| Lane | Next useful work | Why / boundary |
+|---|---|---|
+| Continue | **UCS implementation → A* reconstruction** | BFS independent reconstruction already succeeded. Do not restart BFS or a broad search-theory review. |
+| Keep up | **One bounded LangChain/LCEL reconstruction session**, plus a short logic preview | FTEC5660 syntax recognition is ahead of unaided construction. Logic is an AIMS5701 Week-1 gap, not something to leave until all Week-2 work is finished. |
+| Protect | **A small relevant maths retrieval block** | Maintain the January AIMS5704 prerequisites, resizing rather than abandoning this lane around project spikes. |
 
-## Verified learning position
+These lanes coexist; they are not one nine-item sequential queue. No calendar slots have been booked by this record.
 
-### FTEC5660 / agentic AI
-- Lecture 1 baseline: agentic systems pursue goals, perceive context, reason/plan, act through tools, and learn/escalate with limited supervision.
-- Lecture 1 showed a broad catalogue spanning prompt chaining, routing, parallelisation, planning, goal setting/monitoring, tool use, MCP, memory, knowledge retrieval, multi-agent collaboration/communication, reflection, learning/adaptation, reasoning, exploration/discovery, exception handling/recovery, HITL, resource-aware optimisation, guardrails, evaluation/monitoring and prioritisation.
-- **Retrieval boundary for the catalogue:** it was introductory orientation, not 21 concepts taught in depth. Do not quiz enumeration. Add individual patterns to cold recall only after later lectures/projects teach or apply them substantively.
-- **Prompt chaining is now an active retrieval topic.** Core concept: split a complex task into stable, focused, checkable stages; pass outputs forward; use structured interfaces and deterministic processing/validation where appropriate rather than making every stage an LLM call.
-- Expense-ledger tutorial anchor: a single prompt produced plausible but wrong totals; the decomposition proposed `LLM parse -> Python compute -> LLM explain`. Class reached the first step and successfully parsed 120 ledger rows into JSON.
-- LangChain syntax encountered so far: `ChatDeepSeek`, `ChatPromptTemplate.from_template(...)`, LCEL `|`, `StrOutputParser()`, `JsonOutputParser()`, `.invoke({...})`, and mapping an earlier sub-chain into a later prompt variable. **Recognition is ahead of independent reconstruction.**
-- `RunnableLambda` / `RunnablePassthrough` were imported in the notebook but their substantive tutorial sections had not yet been reached in class; do not test them as learned syntax yet.
-- Strong personal learning lens established: place newly taught agentic patterns beside conventional SWE, reinterpret them through cross-border payments/KYC/AML, ask what genuinely benefits from agenticity, then identify the new failure/governance/verification burden.
-- Durable working hypotheses recorded in `lesson_logs/ftec5660_course_context.md`: bounded autonomy/decision rights; underspecified human prompts vs authoritative organisational constraints; tests/evals as constraints on agent autonomy; tool discovery vs authority to introduce tools; cheap implementation vs lasting operational complexity; selective rather than blanket agenticity.
-- These synthesis points are **working hypotheses**, not lecturer-authored conclusions; later lectures should confirm, refine or reject them.
+## Course timing and goals
 
-### Python / DSA / data
-- Core Python containers/functions/comprehensions and DSA patterns practised in lessons 01–09.
-- NumPy/Pandas foundations substantial (10–20, 27).
-- pytest is comfortable and remains useful as learning scaffolding.
+- MSc Term 1: **7 Sep–4 Dec 2026** in the stored plan.
+- **AIMS5701 Fundamentals starts one week later than originally planned** (learner report). Exact revised dates are not independently confirmed. Do not apply the delay to the other courses or infer that every later lecture necessarily shifts unchanged.
+- Live Term-1 courses include **FTEC5660**, **AIMS5701** and **AIMS5702**.
+- **AIMS5704 Machine Learning Theory starts 11 Jan 2027** in the stored syllabus.
+- Aim to remain roughly 1–2 syllabus weeks ahead where practical, build prerequisites before they block learning, and combine existing production engineering experience with mathematical and practical AI/ML competence.
+- **FTEC5660 assessment uncertainty:** the learner recalls a hackathon and final project worth roughly 80% combined. Dates, scope and exact weighting still need official confirmation. Treat this as potentially uneven workload, not confirmed deadlines or zero demand.
 
-### Linear algebra
-- JHU Coursera **Linear Algebra from Elementary to Advanced** was completed in 2025; treat this as established prior learning with retrieval due, not a prerequisite to restart.
-- Four historical logs preserve the evidenced sequence from systems/vector spaces through eigen/diagonalization, orthogonality/projections/least squares, and symmetric matrices/quadratic forms.
-- Current role: **maintenance/application lane**. Use the relevant historical log for detailed fragile points and retrieval prompts.
+## Search — continue forward
 
-### Probability / statistics
-- Two JHU probability modules were completed in late 2025; the recoverable historical core is established prior learning with retrieval due.
-- Strong evidence covers conditional probability/Bayes, random variables/distributions, expectation/variance, joint/marginal distributions, covariance/correlation, Markov/Chebyshev inequalities, CLT, standard error and introductory hypothesis testing/p-values.
-- **Evidence boundary:** Markov chains and Poisson are distinctly remembered as studied but lack enough recovered worked evidence to claim current mastery. Diagnose them cold before relying on them.
-- Current role: **higher-priority retrieval/application lane**; likelihood/MLE, exponential families and formal generalisation/concentration remain genuine extensions.
+Source: `lesson_logs/search_reactivation_2026_09_06.md` and original Lessons 24–26.
 
-### Classical ML
-- sklearn logistic regression/classification workflow (21–22) and linear regression (23) implemented.
-- Historical least-squares work gives useful geometry underneath regression.
-- Linear/logistic regression need consolidation, not first exposure; decision trees/random forests are new.
+- **BFS:** independent successful reconstruction is logged after debugging two state-role errors. The solution was intentionally not committed. The skipped practice test remains solution-free for occasional maintenance; do not make it a compulsory immediate repeat.
+- **DFS:** traversal understanding and a BFS-to-DFS derivation with LIFO/neighbour-order reasoning are logged. This is not evidence of a separate unaided DFS reconstruction.
+- **UCS:** accumulated-cost choices were traced conceptually; implementation is the next new coding step.
+- **A*:** historical implementation exists; `g`, `h`, `f=g+h` were recovered. Reconstruct after UCS rather than rereading the old solution.
+- **Heuristic/search theory:** admissibility, consistency, completeness and optimality were introduced at introductory depth. Consistency and guarantee assumptions still need consolidation; time/space complexity is not yet systematic.
+- **Searching with other agents:** remains new. The exact course scope is unconfirmed; game trees/minimax/alpha-beta is a provisional route only if supported by course materials.
 
-### Search — reactivation in progress
-- BFS, DFS and A* were originally implemented in lessons 24–26.
-- **2026-09-06 theory reactivation complete:** BFS/DFS traversal intuition survived; A* `g/h/f` recovered; UCS introduced; admissibility, consistency, completeness and optimality added at course-appropriate introductory depth.
-- **2026-09-06 implementation continuation:** BFS was reconstructed incrementally without inspecting the old implementation; DFS was correctly derived from the same skeleton by changing frontier removal to LIFO `pop()` and reasoning about neighbour-order reversal.
-- **Independent BFS reconstruction is now complete:** the retained skipped practice test was used successfully without committing the solution. Future BFS reconstruction should be periodic maintenance, not an immediate repeat.
-- UCS implementation is the next genuinely new coding step; A* follows as UCS + heuristic priority.
-- AIMS5701 Week 2 also includes **“searching with other agents”**, which remains genuinely new. Plan a dedicated adversarial/multi-agent search block after closing UCS/A*; confirm the course framing from lecture materials when available rather than assuming more detail than the syllabus title supports.
+Retain two implementation fragilities: fixed search variable versus moving reconstruction cursor, and graph adjacency versus discovered-state membership. `h(n)` is remaining cost from `n`, not cost of reaching it.
 
-### Calculus / optimisation / PyTorch
-- Power/product rules, partial derivatives, gradients, chain rule and manual backprop understood.
-- Autograd/manual GD (28), standard linear training loop (29), synthetic binary MLP (30) and real-data classification workflow (31) implemented.
-- Lesson 31 includes stratified train/validation/test splitting, train-only scaling, tensor/DataLoader preparation, MLP training/validation and held-out evaluation; verified tests/dashboard passed on 2026-09-04.
+**Immediate session:** build weighted neighbours, priority frontier, accumulated `g`, cheaper-path updates and path reconstruction one decision at a time. Learner writes the important code. Then derive A* using `g+h` and run small path/cost tests.
 
-## Fragile under cold recall
+**Afterwards:** a short guarantees/complexity consolidation; confirm and teach the other-agent branch; one integrated review before AIMS5701 Week 2. Do not allow “single-agent search complete” to imply the whole syllabus line is covered.
 
-- **FTEC5660 Prompt Chaining concept:** make sure the value of chaining is not reduced to “more prompts”; retrieve checkable boundaries, deterministic processing, structured interfaces, context engineering and trade-offs.
-- **FTEC5660 LangChain syntax:** currently familiar from guided tutorial but **not yet independently reconstructable**. This week practise `ChatPromptTemplate`, `|`, parsers, `.invoke()` and sub-chain mapping from a blank file using changed examples.
-- **Linear algebra:** procedural details around RREF/free variables, determinant/eigen arithmetic, Gram–Schmidt/projections, least-squares equations and quadratic-form representation. See `lesson_logs/historical_linear_algebra_*.md`.
-- **Probability/statistics:** Bayes conditioning direction/denominator, PDF vs probability, expectation weighting, covariance vs correlation, CLT/sampling-distribution interpretation and p-value language. Markov chains/Poisson are diagnostic-needed. See `lesson_logs/historical_probability_statistics_*.md`.
-- **Practical ML/tensors:** `nn.Linear` weight orientation, batch/reduction shapes, train-only scaler semantics, loader length vs batch size, binary accuracy and logit → probability → class distinction.
-- **Search:** keep variable roles explicit during path reconstruction; keep graph adjacency separate from discovered-state membership; UCS/A* implementation remains to be demonstrated; theory fragilities remain `h(n)` semantics, consistency and guarantee assumptions.
+## FTEC5660 — taught boundary matters
 
-## Active highest-value sequence
+Sources: `lesson_logs/ftec5660_course_context.md`, `ftec5660_lecture01_introduction.md` and `ftec5660_pattern01_prompt_chaining.md` in `lesson_logs/`.
 
-1. **UCS implementation** — weighted neighbours, priority queue, accumulated `g`, `cost_so_far`, cheaper-path updates and path reconstruction.
-2. **A* reconstruction** — derive directly from UCS by adding heuristic priority `g+h` rather than rereading the old implementation.
-3. **Search theory consolidation** — short re-test of completeness/optimality/admissibility/consistency plus time/space complexity and assumptions where useful.
-4. **Searching with other agents** — dedicated new-material block before the delayed Week-2 lecture. If the course means standard adversarial search, build game-tree intuition → minimax → alpha-beta pruning; use actual course materials to confirm scope when available.
-5. **Integrated pre-lecture search review** — choose/trace algorithms across unweighted, weighted, heuristic and multi-agent scenarios; do not repeat full BFS drilling.
-6. **This week: one focused LangChain syntax reconstruction session** — use `lesson_logs/ftec5660_pattern01_prompt_chaining.md`; build from tiny `prompt -> llm -> parser` pieces, then a two-stage chain, from memory. Use a changed finance/payments example rather than copying tutorial code.
-7. **FTEC5660 live-course loop** — after each lecture, short cold recall of concepts actually taught + 2–3 personal-synthesis prompts; connect to one payments/KYC/AML example. Promote individual patterns into retrieval only when they have been substantively covered.
-8. **Then use remaining buffer** for Week-1 logic/reasoning and the Week-3 decision-tree/random-forest gap.
-9. **Probability runway for Weeks 4–5 + January** — short Bayes/random-variable retrieval; diagnose Markov chains/Poisson before HMM/particle-filtering work; then extend toward likelihood/MLE. Preserve this lane through FTEC5660 project spikes, even if temporarily reduced.
+- Lecture 1 is recorded as completed **2026-09-08**. The **21-pattern catalogue is orientation/reference**, not an enumeration task or 21 mastered concepts. Activate individual patterns after substantive teaching/application.
+- **Prompt Chaining is taught:** sequential focused stages, structured/checkable handoffs, deterministic validation/normalisation between LLM stages, context engineering, appropriate use and cost/latency/failure trade-offs are in scope for brief retrieval.
+- Expense-ledger anchor: a single prompt produced plausible but wrong totals. The proposed decomposition was **LLM parse → Python compute → LLM explain**. Class reached successful parsing of **120 rows into JSON**; the full pipeline was not completed.
+- Encountered syntax: `ChatDeepSeek`, prompt templates, LCEL `|`, string/JSON parsers, `.invoke({...})` and simple sub-chain mapping. **Recognition is ahead of independent reconstruction.** Provider-specific configuration is not the main memorisation target.
+- `RunnableLambda` / `RunnablePassthrough` imports do not establish taught use. Later Python compute, full wiring, TaxCalcBench, gates and repair-code sections remain future material.
+- Practice this week: a tiny chain, structured output, then two stages with changed examples. Do not hand over finished orchestration code to copy.
+- Use the learning lens **lecturer definition → conventional SWE analogue → payments/KYC/AML example → genuine benefit of agenticity → new verification/governance burden**.
+- Personal synthesis about decision rights, authoritative constraints, tests/evals, tool authority and operational complexity remains **working hypotheses**, not lecturer-authored conclusions or proven expertise.
 
-# PARKED / MUST RETURN
+## Established foundations and remaining uncertainty
 
-- [~] **BFS / DFS / A\*** — BFS independent reconstruction complete; DFS mechanics derived; A* reconstruction follows UCS.
-- [~] **UCS** — concept introduced and traced correctly; implementation is next.
-- [~] **Search guarantees / heuristic theory** — admissibility, consistency, completeness and optimality introduced; consolidate after implementation and attach assumptions carefully.
-- [ ] **Searching with other agents** — AIMS5701 Week 2; genuinely new. Confirm exact lecture scope, likely adversarial/game-tree search if course materials support that interpretation.
-- [~] **FTEC5660 pattern overview** — Lecture 1 showed the catalogue as orientation to later course coverage. Reference only; individual patterns become active retrieval topics as taught.
-- [~] **FTEC5660 Pattern 1: Prompt Chaining** — concept now taught and fair for cold recall; tutorial reached successful JSON parsing.
-- [ ] **LangChain/LCEL syntax reconstruction** — **do this this week**. Independently reproduce the syntax taught up to the JSON-parser boundary: prompt templates, pipe composition, parsers, invocation dictionary and simple sub-chain mapping. Do not jump ahead to `RunnablePassthrough`/full tutorial wiring until this base grammar is durable.
-- [ ] **Finish later Prompt Chaining tutorial sections** — Python compute, complete chain wiring and later benchmark/gating sections remain future material; do not mark them complete from notebook availability alone.
-- [ ] **FTEC5660 hackathon / final-project planning** — dates, scope and exact assessment weighting still need official confirmation; add explicit weekly capacity plan once known.
-- [ ] **Logic/reasoning** — Fundamentals Week 1 preview; extra start-delay runway means this can follow the core search implementation work without being rushed.
-- [ ] **Decision trees / random forests** — Fundamentals Week 3.
-- [x] **Real-data PyTorch classification** — Lesson 31 complete; best-validation-checkpoint restoration is optional continuation work.
-- [~] **Historical linear algebra retrieval** — established and documented; retrieve in short targeted blocks rather than relearn from zero.
-- [~] **Historical probability/statistics retrieval** — core foundation established; Markov chains and Poisson require diagnostics before being treated as current.
-- [ ] **Likelihood / log-likelihood / MLE** — extend historical probability/statistics for AIMS5704.
-- [ ] **NN regression / housing-price workflow** — AI in Practice Week 5.
-- [ ] **CNN/RNN architecture preview** — AI in Practice Week 4.
-- [ ] **Formal complexity / graph-tree DSA** — reinforce around search.
-- [ ] **Vector/Jacobian calculus** — defer until needed.
+- **Python / NumPy / pandas:** substantial practice in Lessons 01–20 and 27. Python-specific syntax may be less automatic than long-used backend languages. Complexity, recursion/tree fluency and unfamiliar scientific-Python reading still need work.
+- **Linear algebra:** completed JHU study is documented in four historical logs. Retrieve the smallest relevant block rather than restarting the course. Fragilities include RREF/free variables, eigen/determinant arithmetic, projections/Gram–Schmidt, normal equations and quadratic-form representation.
+- **Probability/statistics:** two completed JHU modules and recovered worked learning cover Bayes, distributions, joint moments, inequalities and CLT/inference. Retrieve conditioning direction/denominators, PDF versus probability, expectation weighting, covariance/correlation and sampling/p-value language. **Markov chains and Poisson are diagnostic-needed**, not failed or proven mastered.
+- **Calculus:** slope, differentiation rules, partials, gradients and chain-rule/manual-backprop understanding are historically documented. Keep notation direction, constants, powers and algebra separate from conceptual gaps.
+- **Practical ML:** linear/logistic regression and evaluation workflows are implemented. Lesson 31 connects stratified splitting, train-only scaling, tensors/DataLoader, training/validation and held-out evaluation. Code presence alone does not prove unaided authorship or transfer.
+- **Practical ML fragilities:** weight orientation, batch/reduction shapes, train-only scaler semantics, loader length versus batch size, accuracy and logit → probability → class.
+- **January extensions:** logs/exponentials, likelihood/MLE, exponential families, formal risk/generalisation/concentration, convergence assumptions and proof-style derivations are new work—not historical recall expectations.
 
-## Near-term syllabus runway
+## Parked / must return
 
-### FTEC5660
-- Lecture 1 introduction complete: retain agent definition/loop, why agentic systems need structure, complexity levels and the finance-workflow framing.
-- **Pattern 1 Prompt Chaining is now substantively covered:** retrieve decomposition, checkable/structured stage boundaries, deterministic processing between stages, when to use/not use chaining, context engineering and risks/trade-offs.
-- **Tutorial boundary matters:** class reached successful JSON parsing in the expense-ledger decomposition. Do not assume later notebook code has been learned.
-- Schedule a LangChain syntax-reconstruction session this week so `ChatPromptTemplate`, LCEL `|`, parsers and `.invoke()` can be produced rather than merely recognised.
-- Use prior payments/KYC/AML experience as a domain anchor when reconstructing examples.
-- Project load is likely substantial; once hackathon/final-project dates are confirmed, explicitly rebalance weekly preparation around them.
-- Preserve the distinction between **course material**, **tutorial progress**, and **personal working hypotheses** in future logs.
+- **AIMS5701:** logic before W1; full search coverage before W2; decision trees/random forests before W3; Bayes retrieval then graphical-model material before W4; Markov diagnostic before HMM/particle filtering in W5.
+- **AIMS5702:** scientific Python/representations before W3; CNN/RNN preview before W4; transfer the real-data workflow to neural regression before W5. Full W6–12 syllabus coverage is restored in `MSC_SYLLABUS_MAP.md`.
+- **FTEC5660:** bounded LCEL practice now; later tutorial sections only when actually studied; record assessment dates/weighting when verified.
+- **Maths:** selective LA/calculus/probability maintenance; diagnose Poisson separately when relevant; later MLE and formal-theory extensions.
+- **Optional, not blockers:** best-validation-checkpoint restoration when teaching model selection; vector/Jacobian calculus when needed.
 
-### Fundamentals
-- **Start delayed by one week:** use the added runway to close single-agent search implementation/theory and begin the untouched “searching with other agents” branch before it appears live.
-- W1: introduction, logic, reasoning, learning → logic remains unfamiliar; preview after the immediate UCS/A* implementation block rather than displacing it.
-- W2: uninformed/informed/searching with other agents → BFS/DFS reactivated; UCS/A* implementation next; guarantees/complexity consolidation after; multi-agent/adversarial branch still new.
-- W3: linear/logistic regression, decision trees, random forests → first two practised; trees/forests are the gap.
-- W4: Bayesian networks/inference/sampling → historical Bayes/probability foundation exists; reactivate, then learn graphical-model semantics/inference.
-- W5: HMMs/particle filtering → diagnose Markov-chain recall before relying on it.
+## Handover discipline
 
-### AI in Practice
-- W1–2: simple ML + vector/matrix/tensor/NumPy → strong preparation; historical JHU LA makes the matrix layer retrieval/application rather than first exposure.
-- W3: representations + SciPy/matplotlib/PyTorch → PyTorch base strong; plotting/SciPy not systematic.
-- W4: MLP/CNN/RNN → MLP ahead; CNN/RNN pending.
-- W5: housing-price prediction → transfer Lesson 31's preprocessing/validation discipline to regression.
-
-### ML Theory — January risk lane
-- Linear algebra and core probability/statistics are established historical foundations with retrieval due.
-- Larger new gaps: likelihood/log-likelihood/MLE/exponential-family notation, formal risk/generalisation/concentration, convergence assumptions and proof-style derivations.
-- GD/backprop mechanics are an advantage.
-- FTEC5660 project spikes may reduce available preparation hours; protect continuity rather than demanding a fixed weekly volume.
-
-## Next session target
-
-> **Continue directly into UCS implementation.** Do not repeat the BFS practice or restart broad theory retrieval. Build weighted neighbours, priority frontier, accumulated `g` and cheaper-path updates incrementally; then derive A* as `g+h`.
-
-Also reserve one separate block **this week** for the Prompt Chaining/LangChain syntax reconstruction; it does not need to displace the immediate UCS continuation.
-
-## End-of-session update
-
-- **FTEC5660 Pattern 1 activated:** Prompt Chaining has now been taught in depth enough to become a retrieval topic.
-- **Tutorial boundary recorded:** class stopped after successful expense-ledger parsing into JSON; later notebook cells are future material.
-- **New this-week learning debt:** independently reconstruct the LangChain/LCEL syntax already encountered, using the same small-step retrieval approach used for NumPy.
-- **Immediate implementation priority unchanged:** UCS, then A* reconstruction.
-- **Long-range constraint preserved:** January ML-Theory maths preparation remains a protected continuity lane even when FTEC5660 work rises.
+This maintenance pass changes representation and repairs planning coverage, not learning outcomes. After the next substantive session, update its log and this handover, then update only affected evidence dimensions, actions and source-review hashes in `learning_progress.yaml`. Never change an event date to make the dashboard look fresh. Keep historical detail in the logs.

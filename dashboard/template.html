@@ -2,98 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{TITLE}}</title>
-  <meta name="description" content="A repo-generated dashboard for MSc AI learning progress, retrieval state and syllabus readiness.">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Evidence-led learning: understanding, performance, course requirements and the next useful action.">
+  <title>{{TITLE}} · {{SUBTITLE}}</title>
+  <link rel="stylesheet" href="{{STYLE}}">
+  <script src="{{SCRIPT}}" defer></script>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="hero">
-      <div>
-        <div class="eyebrow">Learning system · generated from learning_progress.yaml</div>
-        <h1>{{TITLE}}</h1>
-        <p class="hero-copy">{{STRATEGY}}</p>
-      </div>
-      <div class="hero-meta">
-        <div class="meta-card">
-          <span>Current lesson</span>
-          <strong>{{CURRENT_LESSON}}</strong>
-        </div>
-        <div class="meta-card">
-          <span>Last updated</span>
-          <strong>{{LAST_UPDATED}}</strong>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <section class="section">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow">What matters now</div>
-            <h2>Current focus</h2>
-          </div>
-          <p>Operational priorities from the learning state, not a generic topic ranking.</p>
-        </div>
-        <div class="focus-grid">
-          {{FOCUS}}
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow">Syllabus runway</div>
-            <h2>MSc readiness</h2>
-          </div>
-          <p>Each week takes the weakest status among the topics it depends on. Expand mentally into the topic chips rather than treating the week badge as a percentage score.</p>
-        </div>
-        <div class="course-grid">
-          {{READINESS}}
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow">What do I know?</div>
-            <h2>Knowledge map</h2>
-          </div>
-          <p>Learning state and retrieval state are separate. A topic can be established but still due for cold retrieval.</p>
-        </div>
-        <div class="domain-grid">
-          {{KNOWLEDGE_MAP}}
-        </div>
-      </section>
-
-      <section class="section split-section">
-        <div>
-          <div class="section-heading compact">
-            <div>
-              <div class="eyebrow">How did I get here?</div>
-              <h2>Learning timeline</h2>
-            </div>
-          </div>
-          <div class="timeline">
-            {{TIMELINE}}
-          </div>
-        </div>
-
-        <aside class="legend-panel">
-          <div class="eyebrow">How to read this</div>
-          <h2>Legend</h2>
-          <p class="legend-intro">The dashboard deliberately avoids fake mastery percentages. States are qualitative and should move only when the learning evidence changes.</p>
-          <div class="legend-grid">
-            {{LEGEND}}
-          </div>
-        </aside>
-      </section>
-    </main>
-
-    <footer>
-      <p>Source of truth: <code>learning_progress.yaml</code>. Lesson detail remains in <code>lesson_logs/</code>; current direction remains in <code>LEARNING_STATE.md</code>.</p>
-    </footer>
+<a class="skip-link" href="#knowledge">Skip to knowledge</a>
+<div class="shell">
+<header class="mast">
+  <div class="brand"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>{{TITLE}} <span class="text-muted">/ {{SUBTITLE}}</span></span></div>
+  <div class="meta">Record reviewed {{REVIEWED}}<br><strong>Evidence through {{THROUGH}}</strong></div>
+</header>
+<div class="preview"><span><b>REPOSITORY RECORD</b> &nbsp; Snapshot {{REF}} · <span id="freshness">Review date {{REVIEWED}}</span></span><button class="quiet-btn" id="quality-btn">{{QUALITY}} ↗</button></div>
+<section class="hero"><div class="eyebrow">Your knowledge, with the evidence left visible</div><h1>What you know. What needs work.</h1><p>Separate understanding from independent performance — then choose the next useful action.</p></section>
+<section class="focus" aria-label="Three parallel priorities">{{FOCUS}}</section>
+<nav class="nav" role="tablist" aria-label="Dashboard views">
+  <button role="tab" id="tab-knowledge" aria-controls="knowledge" aria-selected="true" data-view="knowledge">Knowledge</button>
+  <button role="tab" id="tab-runway" aria-controls="runway" aria-selected="false" data-view="runway" tabindex="-1">Course runway</button>
+  <button role="tab" id="tab-queue" aria-controls="queue" aria-selected="false" data-view="queue" tabindex="-1">Study queue</button>
+</nav>
+<main>
+<section class="view" id="knowledge" role="tabpanel" aria-labelledby="tab-knowledge">
+  <div class="heading"><div><h2>Knowledge & evidence</h2><p>Start with the active targets, or browse the whole recorded curriculum. Select a topic for evidence and boundaries.</p></div><span class="count" id="count" aria-live="polite">{{COUNT}} recorded targets</span></div>
+  <div class="toolbar">
+    <div class="searchbox"><label class="filter-label" for="search">Search knowledge</label><input id="search" type="search" placeholder="Search a topic, skill or course…"></div>
+    <label class="filter-label" for="domain">Knowledge area</label><select id="domain"><option value="all">All knowledge areas</option>{{AREAS}}</select>
+    <label class="filter-label" for="kind">Evidence filter</label><select id="kind"><option value="focus">In focus</option><option value="all">All evidence states</option><option value="independent">Independent work logged</option><option value="practice">Build / practise next</option><option value="historical">Historical / diagnostic</option><option value="future">New material planned</option></select>
+    <button id="reset">Show all / reset</button>
   </div>
+  <div class="table-wrap"><table><caption class="sr-only">Concept and performance evidence are separate; no mastery percentages.</caption><colgroup><col style="width:22%"><col style="width:19%"><col style="width:23%"><col style="width:18%"><col style="width:14%"><col style="width:4%"></colgroup><thead><tr><th scope="col">Learning target</th><th scope="col">Concept evidence</th><th scope="col">Performance evidence</th><th scope="col">Recency / uncertainty</th><th scope="col">Next action</th><th scope="col"><span class="sr-only">Details</span></th></tr></thead><tbody id="topic-rows">{{ROWS}}</tbody></table><p class="no-data" id="empty" hidden>No matching topics. Try another area or reset the filters.</p></div>
+  <div class="legend"><span>Independent ≠ permanently mastered</span><span>Historical ≠ forgotten</span><span>Unknown ≠ failed</span><span>New material ≠ overdue recall</span></div>
+  <p class="footnote">Performance may mean explaining, calculating, deriving or coding. An API reminder is not the same as help with the reasoning. Dates identify recorded events, not automatic expiry of knowledge.</p>
+  <details class="learning-paths"><summary>How these topics connect</summary>{{PATHS}}</details>
+  <details class="learning-paths"><summary>Learning history</summary>{{TIMELINE}}</details>
+</section>
+<section class="view" id="runway" role="tabpanel" aria-labelledby="tab-runway">
+  <div class="heading"><div><h2>Readiness for a specific demand</h2><p>Available anchors, remaining requirements and unknowns. No whole-week score inferred from neighbouring skills.</p></div></div>
+  <div class="course-grid">{{COURSES}}</div>
+  <div class="notice">Course weeks are not calendar weeks. The one-week delay belongs to AIMS5701 only. No assessment dates or deadlines have been invented.</div>
+</section>
+<section class="view" id="queue" role="tabpanel" aria-labelledby="tab-queue">
+  <div class="heading"><div><h2>Three lanes, not one endless queue</h2><p>The immediate lesson, live-course follow-up and protected maths continuity can coexist.</p></div></div>
+  <div class="queue">{{LANES}}</div>
+  <p class="queue-note">This is a study plan, not a calendar booking. Resize the maths block around actual project demands; keep uncertain assessment details visible rather than treating them as zero workload.</p>
+</section>
+<noscript><section class="nojs"><h2>Topic details</h2><p>JavaScript is disabled. All topics, course requirements and source links remain available below.</p>{{NOJS_DETAILS}}</section></noscript>
+</main>
+<footer class="bottom"><span>{{REVIEW_NOTE}} No tracking or external assets.</span><a href="{{REPO_URL}}" target="_blank" rel="noopener noreferrer">Source snapshot {{REF}} ↗</a></footer>
+</div>
+<dialog id="detail" aria-labelledby="detail-title"><div class="dialog-head"><div><div id="detail-domain" class="eyebrow"></div><h2 id="detail-title"></h2></div><button class="close" id="detail-close" aria-label="Close topic details">×</button></div><div class="dialog-body" id="detail-body"></div></dialog>
+<dialog id="quality" aria-labelledby="quality-title"><div class="dialog-head"><div><div class="eyebrow">Record integrity · not learning failures</div><h2 id="quality-title">Source quality</h2></div><button class="close" id="quality-close" aria-label="Close source quality">×</button></div><div class="dialog-body"><h3>Reviewed source checks</h3>{{WARNINGS}}<h3>Remaining uncertainty</h3><p>FTEC5660 assessment dates/weighting and the exact other-agent-search scope still need confirmation. Historical learning has not been re-tested by this migration.</p><h3>Freshness</h3><p id="quality-freshness">Review date {{REVIEWED}}. A rebuild date is not a new learning event.</p></div></dialog>
+<script type="application/json" id="atlas-data">{{DATA}}</script>
 </body>
 </html>

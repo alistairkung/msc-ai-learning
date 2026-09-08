@@ -16,6 +16,9 @@ dashboard/site/
 .env
 .env.*
 
+# Private learner context (never publish)
+/LEARNER_PROFILE.md
+
 # Editor / IDE state
 .vscode/
 .idea/
