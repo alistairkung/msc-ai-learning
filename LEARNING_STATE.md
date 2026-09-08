@@ -9,19 +9,25 @@ _Last updated: 2026-09-08_
 - MSc Term 1: **7 Sep–4 Dec 2026**.
 - **AIMS5701 Fundamentals start has been delayed by one week**, creating an extra preparation week before live Fundamentals teaching begins.
 - Immediate courses now include **FTEC5660 Agentic AI in Finance/FinTech**, **AIMS5701 Fundamentals in AI**, and **AIMS5702 AI in Practice**.
-- **FTEC5660 Lecture 1 completed 2026-09-08.** It introduced agentic-AI framing and showed a catalogue of 21 agentic design patterns as an **overview of what the course will cover later**. The catalogue is a reference map, not a memorisation/cold-recall target from Lecture 1.
+- **FTEC5660 Lecture 1 completed 2026-09-08.** The introductory catalogue of 21 agentic design patterns is an overview/reference map, not a list-recall target from the introduction.
+- **Pattern 1: Prompt Chaining has now been substantively taught.** Concept coverage includes decomposition into sequential focused stages, explicit/checkable handoffs, deterministic validation/normalisation between LLM stages, context engineering, when chaining is/is not appropriate, and latency/cost/failure trade-offs.
+- The accompanying LangChain tutorial was only **partially completed in class**: setup/basic LCEL was introduced and the expense-ledger chain reached a successful LLM parse into structured JSON. Later notebook sections (Python compute, `RunnablePassthrough.assign`, full chain wiring, TaxCalcBench, gates, etc.) are **not yet taught/mastered** merely because they exist in the supplied notebook.
 - FTEC5660 is being taught through finance/fintech workflow automation rather than purely autonomous software engineering.
 - FTEC5660 appears **project-heavy**: learner recalls a hackathon + final project accounting for roughly **80% combined**, but exact assessment weighting still needs official verification. Treat the module as a likely source of uneven Term-1 workload spikes.
 - **Machine Learning Theory (AIMS5704)** starts **11 Jan 2027**; probability/statistics/LA preparation must run during Term 1.
 - Strategy: stay roughly **1–2 syllabus weeks ahead** where practical, let live FTEC5660 lectures/projects determine which individual patterns become retrieval targets, and keep a protected January-maths continuity lane even when project load spikes.
-- Lessons **01–31** all have retrieval logs; historical pre-repo maths is documented separately for calculus, JHU linear algebra and JHU probability/statistics. FTEC5660 live-course context now lives in `lesson_logs/ftec5660_course_context.md` plus per-lecture logs.
+- Lessons **01–31** all have retrieval logs; historical pre-repo maths is documented separately for calculus, JHU linear algebra and JHU probability/statistics. FTEC5660 live-course context now lives in `lesson_logs/ftec5660_course_context.md` plus focused lecture/pattern logs.
 
 ## Verified learning position
 
 ### FTEC5660 / agentic AI
 - Lecture 1 baseline: agentic systems pursue goals, perceive context, reason/plan, act through tools, and learn/escalate with limited supervision.
 - Lecture 1 showed a broad catalogue spanning prompt chaining, routing, parallelisation, planning, goal setting/monitoring, tool use, MCP, memory, knowledge retrieval, multi-agent collaboration/communication, reflection, learning/adaptation, reasoning, exploration/discovery, exception handling/recovery, HITL, resource-aware optimisation, guardrails, evaluation/monitoring and prioritisation.
-- **Retrieval boundary:** that catalogue was introductory orientation, not 21 concepts taught in depth. Do not quiz enumeration. Add individual patterns to cold recall only after later lectures/projects teach or apply them substantively.
+- **Retrieval boundary for the catalogue:** it was introductory orientation, not 21 concepts taught in depth. Do not quiz enumeration. Add individual patterns to cold recall only after later lectures/projects teach or apply them substantively.
+- **Prompt chaining is now an active retrieval topic.** Core concept: split a complex task into stable, focused, checkable stages; pass outputs forward; use structured interfaces and deterministic processing/validation where appropriate rather than making every stage an LLM call.
+- Expense-ledger tutorial anchor: a single prompt produced plausible but wrong totals; the decomposition proposed `LLM parse -> Python compute -> LLM explain`. Class reached the first step and successfully parsed 120 ledger rows into JSON.
+- LangChain syntax encountered so far: `ChatDeepSeek`, `ChatPromptTemplate.from_template(...)`, LCEL `|`, `StrOutputParser()`, `JsonOutputParser()`, `.invoke({...})`, and mapping an earlier sub-chain into a later prompt variable. **Recognition is ahead of independent reconstruction.**
+- `RunnableLambda` / `RunnablePassthrough` were imported in the notebook but their substantive tutorial sections had not yet been reached in class; do not test them as learned syntax yet.
 - Strong personal learning lens established: place newly taught agentic patterns beside conventional SWE, reinterpret them through cross-border payments/KYC/AML, ask what genuinely benefits from agenticity, then identify the new failure/governance/verification burden.
 - Durable working hypotheses recorded in `lesson_logs/ftec5660_course_context.md`: bounded autonomy/decision rights; underspecified human prompts vs authoritative organisational constraints; tests/evals as constraints on agent autonomy; tool discovery vs authority to introduce tools; cheap implementation vs lasting operational complexity; selective rather than blanket agenticity.
 - These synthesis points are **working hypotheses**, not lecturer-authored conclusions; later lectures should confirm, refine or reject them.
@@ -62,7 +68,8 @@ _Last updated: 2026-09-08_
 
 ## Fragile under cold recall
 
-- **FTEC5660:** retain the agentic-system definition/loop, why multi-step agents need structure, complexity-level framing and finance-domain interpretation. **Do not treat the introductory pattern catalogue as a recall list.**
+- **FTEC5660 Prompt Chaining concept:** make sure the value of chaining is not reduced to “more prompts”; retrieve checkable boundaries, deterministic processing, structured interfaces, context engineering and trade-offs.
+- **FTEC5660 LangChain syntax:** currently familiar from guided tutorial but **not yet independently reconstructable**. This week practise `ChatPromptTemplate`, `|`, parsers, `.invoke()` and sub-chain mapping from a blank file using changed examples.
 - **Linear algebra:** procedural details around RREF/free variables, determinant/eigen arithmetic, Gram–Schmidt/projections, least-squares equations and quadratic-form representation. See `lesson_logs/historical_linear_algebra_*.md`.
 - **Probability/statistics:** Bayes conditioning direction/denominator, PDF vs probability, expectation weighting, covariance vs correlation, CLT/sampling-distribution interpretation and p-value language. Markov chains/Poisson are diagnostic-needed. See `lesson_logs/historical_probability_statistics_*.md`.
 - **Practical ML/tensors:** `nn.Linear` weight orientation, batch/reduction shapes, train-only scaler semantics, loader length vs batch size, binary accuracy and logit → probability → class distinction.
@@ -75,9 +82,10 @@ _Last updated: 2026-09-08_
 3. **Search theory consolidation** — short re-test of completeness/optimality/admissibility/consistency plus time/space complexity and assumptions where useful.
 4. **Searching with other agents** — dedicated new-material block before the delayed Week-2 lecture. If the course means standard adversarial search, build game-tree intuition → minimax → alpha-beta pruning; use actual course materials to confirm scope when available.
 5. **Integrated pre-lecture search review** — choose/trace algorithms across unweighted, weighted, heuristic and multi-agent scenarios; do not repeat full BFS drilling.
-6. **FTEC5660 live-course loop** — after each lecture, short cold recall of concepts actually taught + 2–3 personal-synthesis prompts; connect to one payments/KYC/AML example. Promote individual patterns into retrieval only when they have been substantively covered.
-7. **Then use remaining buffer** for Week-1 logic/reasoning and the Week-3 decision-tree/random-forest gap.
-8. **Probability runway for Weeks 4–5 + January** — short Bayes/random-variable retrieval; diagnose Markov chains/Poisson before HMM/particle-filtering work; then extend toward likelihood/MLE. Preserve this lane through FTEC5660 project spikes, even if temporarily reduced.
+6. **This week: one focused LangChain syntax reconstruction session** — use `lesson_logs/ftec5660_pattern01_prompt_chaining.md`; build from tiny `prompt -> llm -> parser` pieces, then a two-stage chain, from memory. Use a changed finance/payments example rather than copying tutorial code.
+7. **FTEC5660 live-course loop** — after each lecture, short cold recall of concepts actually taught + 2–3 personal-synthesis prompts; connect to one payments/KYC/AML example. Promote individual patterns into retrieval only when they have been substantively covered.
+8. **Then use remaining buffer** for Week-1 logic/reasoning and the Week-3 decision-tree/random-forest gap.
+9. **Probability runway for Weeks 4–5 + January** — short Bayes/random-variable retrieval; diagnose Markov chains/Poisson before HMM/particle-filtering work; then extend toward likelihood/MLE. Preserve this lane through FTEC5660 project spikes, even if temporarily reduced.
 
 # PARKED / MUST RETURN
 
@@ -85,7 +93,10 @@ _Last updated: 2026-09-08_
 - [~] **UCS** — concept introduced and traced correctly; implementation is next.
 - [~] **Search guarantees / heuristic theory** — admissibility, consistency, completeness and optimality introduced; consolidate after implementation and attach assumptions carefully.
 - [ ] **Searching with other agents** — AIMS5701 Week 2; genuinely new. Confirm exact lecture scope, likely adversarial/game-tree search if course materials support that interpretation.
-- [~] **FTEC5660 pattern overview** — Lecture 1 showed the catalogue as orientation to later course coverage. **Reference only for now; not a list-recall target.** Individual patterns become active retrieval topics as the course teaches/applies them.
+- [~] **FTEC5660 pattern overview** — Lecture 1 showed the catalogue as orientation to later course coverage. Reference only; individual patterns become active retrieval topics as taught.
+- [~] **FTEC5660 Pattern 1: Prompt Chaining** — concept now taught and fair for cold recall; tutorial reached successful JSON parsing.
+- [ ] **LangChain/LCEL syntax reconstruction** — **do this this week**. Independently reproduce the syntax taught up to the JSON-parser boundary: prompt templates, pipe composition, parsers, invocation dictionary and simple sub-chain mapping. Do not jump ahead to `RunnablePassthrough`/full tutorial wiring until this base grammar is durable.
+- [ ] **Finish later Prompt Chaining tutorial sections** — Python compute, complete chain wiring and later benchmark/gating sections remain future material; do not mark them complete from notebook availability alone.
 - [ ] **FTEC5660 hackathon / final-project planning** — dates, scope and exact assessment weighting still need official confirmation; add explicit weekly capacity plan once known.
 - [ ] **Logic/reasoning** — Fundamentals Week 1 preview; extra start-delay runway means this can follow the core search implementation work without being rushed.
 - [ ] **Decision trees / random forests** — Fundamentals Week 3.
@@ -101,11 +112,13 @@ _Last updated: 2026-09-08_
 ## Near-term syllabus runway
 
 ### FTEC5660
-- Lecture 1 complete: retrieve agent definition/loop, why agentic systems need structure, complexity levels and the finance-workflow framing.
-- **Do not ask for the full pattern catalogue from memory.** It was an introduction to later course coverage.
-- Use prior payments/KYC/AML experience as a domain anchor when individual patterns are subsequently taught.
+- Lecture 1 introduction complete: retain agent definition/loop, why agentic systems need structure, complexity levels and the finance-workflow framing.
+- **Pattern 1 Prompt Chaining is now substantively covered:** retrieve decomposition, checkable/structured stage boundaries, deterministic processing between stages, when to use/not use chaining, context engineering and risks/trade-offs.
+- **Tutorial boundary matters:** class reached successful JSON parsing in the expense-ledger decomposition. Do not assume later notebook code has been learned.
+- Schedule a LangChain syntax-reconstruction session this week so `ChatPromptTemplate`, LCEL `|`, parsers and `.invoke()` can be produced rather than merely recognised.
+- Use prior payments/KYC/AML experience as a domain anchor when reconstructing examples.
 - Project load is likely substantial; once hackathon/final-project dates are confirmed, explicitly rebalance weekly preparation around them.
-- Preserve the distinction between **course material** and **personal working hypotheses** in future logs.
+- Preserve the distinction between **course material**, **tutorial progress**, and **personal working hypotheses** in future logs.
 
 ### Fundamentals
 - **Start delayed by one week:** use the added runway to close single-agent search implementation/theory and begin the untouched “searching with other agents” branch before it appears live.
@@ -131,13 +144,12 @@ _Last updated: 2026-09-08_
 
 > **Continue directly into UCS implementation.** Do not repeat the BFS practice or restart broad theory retrieval. Build weighted neighbours, priority frontier, accumulated `g` and cheaper-path updates incrementally; then derive A* as `g+h`.
 
-For the next FTEC5660 lecture, use `lesson_logs/ftec5660_lecture01_introduction.md` for a short cold recall rather than rereading the whole slide deck.
+Also reserve one separate block **this week** for the Prompt Chaining/LangChain syntax reconstruction; it does not need to displace the immediate UCS continuation.
 
 ## End-of-session update
 
-- **FTEC5660 now live:** Lecture 1 completed and recorded with separate course-material vs personal-synthesis recall.
-- **Retrieval correction:** the Lecture-1 pattern catalogue is an overview of future course coverage, not a memorisation target.
-- **Course planning change:** FTEC5660 is now visible as a project-heavy Term-1 workload source; hackathon/final-project exact dates and weighting remain to verify.
-- **Learning-method change:** use the conventional-SWE + payments/KYC/AML side-by-side lens once individual patterns are actually taught.
-- **Long-range constraint preserved:** January ML-Theory maths preparation remains a protected continuity lane even when FTEC5660 project load rises.
-- **Immediate next:** UCS implementation, then A* reconstruction.
+- **FTEC5660 Pattern 1 activated:** Prompt Chaining has now been taught in depth enough to become a retrieval topic.
+- **Tutorial boundary recorded:** class stopped after successful expense-ledger parsing into JSON; later notebook cells are future material.
+- **New this-week learning debt:** independently reconstruct the LangChain/LCEL syntax already encountered, using the same small-step retrieval approach used for NumPy.
+- **Immediate implementation priority unchanged:** UCS, then A* reconstruction.
+- **Long-range constraint preserved:** January ML-Theory maths preparation remains a protected continuity lane even when FTEC5660 work rises.
