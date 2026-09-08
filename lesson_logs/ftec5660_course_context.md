@@ -16,7 +16,7 @@ Use this file together with the individual FTEC5660 lecture logs. Do not treat p
 
 The course frames agentic AI as systems that can pursue goals, perceive context, reason/plan, act through tools, and learn/escalate with limited supervision. The lecture emphasises reusable agentic design patterns because multi-step agent behaviour introduces state, tool choice, error recovery and coordination problems.
 
-Lecture 1 presents **21 agentic design patterns**:
+Lecture 1 showed a catalogue of **21 named agentic design patterns as an introductory overview of what the course will cover later**:
 
 1. Prompt chaining
 2. Routing
@@ -48,6 +48,14 @@ The lecture groups these broadly into:
 - decision-intelligence patterns;
 - governance, safety and operational-control patterns.
 
+### Retrieval rule for the catalogue
+
+The list above is a **course map/reference**, not a list the learner is expected to memorise from Lecture 1.
+
+Do not ask for all patterns by name or number. Individual patterns become fair retrieval targets only after the course later teaches, discusses or applies them substantively. Retrieval should focus on explanation, recognition, distinction and application rather than catalogue enumeration.
+
+Prompt Chaining is now the first exception to the overview-only state: it has been substantively taught and has its own focused retrieval/tutorial log at `lesson_logs/ftec5660_pattern01_prompt_chaining.md`. The course-level rule remains unchanged for the other patterns.
+
 ### Lecturer comments / learner recollection to verify
 
 - The module has **two major project-style assessments**, described in class as a **hackathon** and a **final project**.
@@ -59,7 +67,7 @@ These are important planning constraints even while the exact percentage remains
 
 ## Personal learning lens
 
-For each new agentic pattern or workflow, deliberately ask:
+For each agentic pattern or workflow **once it is actually taught**, deliberately ask:
 
 1. **What does the lecturer mean by the pattern?**
 2. **What is the closest conventional software-engineering analogue, if any?**
@@ -214,7 +222,7 @@ case / goal
   -> recommend action or escalate
 ```
 
-This provides a concrete domain for studying planning, routing, tool use, retrieval, memory, reflection, guardrails, evaluation and human-in-the-loop.
+This provides a concrete domain for studying planning, routing, tool use, retrieval, memory, reflection, guardrails, evaluation and human-in-the-loop **as those topics are introduced in depth later**.
 
 ## SWIFT reference-data ingestion / outbox / replay
 
@@ -248,7 +256,7 @@ live FTEC5660 lectures + project work
 
 The maths lane should not disappear merely because an agentic project becomes interesting. During heavy project weeks, reduce the maths block if necessary but preserve continuity through short retrieval/application sessions where possible.
 
-Conversely, do not pre-study all 21 agentic patterns simply because they are listed. Let live FTEC5660 teaching/projects drive depth while the roadmap protects prerequisites for the more mathematically demanding ML Theory module.
+Conversely, do not pre-study or memorise the pattern catalogue simply because it was shown in Lecture 1. Let live FTEC5660 teaching/projects determine which individual patterns deserve depth while the roadmap protects prerequisites for the more mathematically demanding ML Theory module.
 
 ---
 
@@ -273,5 +281,6 @@ After each substantive FTEC5660 lecture/project session:
 1. update the relevant lecture/project log;
 2. add only durable cross-lecture synthesis here;
 3. convert particularly valuable personal reflections into **personal-synthesis cold-recall prompts**;
-4. revise working hypotheses when later course evidence contradicts them;
-5. update the global roadmap/state only when FTEC5660 materially changes term priorities or workload.
+4. add specific agentic patterns to recall only after they have been substantively taught/applied;
+5. revise working hypotheses when later course evidence contradicts them;
+6. update the global roadmap/state only when FTEC5660 materially changes term priorities or workload.
