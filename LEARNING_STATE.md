@@ -9,18 +9,20 @@ _Last updated: 2026-09-08_
 - MSc Term 1: **7 Sep–4 Dec 2026**.
 - **AIMS5701 Fundamentals start has been delayed by one week**, creating an extra preparation week before live Fundamentals teaching begins.
 - Immediate courses now include **FTEC5660 Agentic AI in Finance/FinTech**, **AIMS5701 Fundamentals in AI**, and **AIMS5702 AI in Practice**.
-- **FTEC5660 Lecture 1 completed 2026-09-08.** The course uses 21 agentic design patterns as a major vocabulary/spine and is being taught through finance/fintech workflow automation rather than purely autonomous software engineering.
+- **FTEC5660 Lecture 1 completed 2026-09-08.** It introduced agentic-AI framing and showed a catalogue of 21 agentic design patterns as an **overview of what the course will cover later**. The catalogue is a reference map, not a memorisation/cold-recall target from Lecture 1.
+- FTEC5660 is being taught through finance/fintech workflow automation rather than purely autonomous software engineering.
 - FTEC5660 appears **project-heavy**: learner recalls a hackathon + final project accounting for roughly **80% combined**, but exact assessment weighting still needs official verification. Treat the module as a likely source of uneven Term-1 workload spikes.
 - **Machine Learning Theory (AIMS5704)** starts **11 Jan 2027**; probability/statistics/LA preparation must run during Term 1.
-- Strategy: stay roughly **1–2 syllabus weeks ahead** where practical, use live FTEC5660 teaching rather than pre-learning all 21 patterns, and keep a protected January-maths continuity lane even when project load spikes.
+- Strategy: stay roughly **1–2 syllabus weeks ahead** where practical, let live FTEC5660 lectures/projects determine which individual patterns become retrieval targets, and keep a protected January-maths continuity lane even when project load spikes.
 - Lessons **01–31** all have retrieval logs; historical pre-repo maths is documented separately for calculus, JHU linear algebra and JHU probability/statistics. FTEC5660 live-course context now lives in `lesson_logs/ftec5660_course_context.md` plus per-lecture logs.
 
 ## Verified learning position
 
 ### FTEC5660 / agentic AI
 - Lecture 1 baseline: agentic systems pursue goals, perceive context, reason/plan, act through tools, and learn/escalate with limited supervision.
-- Course vocabulary introduced: prompt chaining, routing, parallelization, planning, goal setting/monitoring, tool use, MCP, memory, knowledge retrieval, multi-agent collaboration/communication, reflection, learning/adaptation, reasoning, exploration/discovery, exception handling/recovery, HITL, resource-aware optimisation, guardrails, evaluation/monitoring and prioritization.
-- Strong personal learning lens established: place each agentic pattern beside conventional SWE, reinterpret it through cross-border payments/KYC/AML, ask what genuinely benefits from agenticity, then identify the new failure/governance/verification burden.
+- Lecture 1 showed a broad catalogue spanning prompt chaining, routing, parallelisation, planning, goal setting/monitoring, tool use, MCP, memory, knowledge retrieval, multi-agent collaboration/communication, reflection, learning/adaptation, reasoning, exploration/discovery, exception handling/recovery, HITL, resource-aware optimisation, guardrails, evaluation/monitoring and prioritisation.
+- **Retrieval boundary:** that catalogue was introductory orientation, not 21 concepts taught in depth. Do not quiz enumeration. Add individual patterns to cold recall only after later lectures/projects teach or apply them substantively.
+- Strong personal learning lens established: place newly taught agentic patterns beside conventional SWE, reinterpret them through cross-border payments/KYC/AML, ask what genuinely benefits from agenticity, then identify the new failure/governance/verification burden.
 - Durable working hypotheses recorded in `lesson_logs/ftec5660_course_context.md`: bounded autonomy/decision rights; underspecified human prompts vs authoritative organisational constraints; tests/evals as constraints on agent autonomy; tool discovery vs authority to introduce tools; cheap implementation vs lasting operational complexity; selective rather than blanket agenticity.
 - These synthesis points are **working hypotheses**, not lecturer-authored conclusions; later lectures should confirm, refine or reject them.
 
@@ -60,7 +62,7 @@ _Last updated: 2026-09-08_
 
 ## Fragile under cold recall
 
-- **FTEC5660:** exact retrieval of the 21-pattern vocabulary is new; prioritise conceptual grouping and examples over list-order memorisation. Keep course material separate from personal synthesis when recalling.
+- **FTEC5660:** retain the agentic-system definition/loop, why multi-step agents need structure, complexity-level framing and finance-domain interpretation. **Do not treat the introductory pattern catalogue as a recall list.**
 - **Linear algebra:** procedural details around RREF/free variables, determinant/eigen arithmetic, Gram–Schmidt/projections, least-squares equations and quadratic-form representation. See `lesson_logs/historical_linear_algebra_*.md`.
 - **Probability/statistics:** Bayes conditioning direction/denominator, PDF vs probability, expectation weighting, covariance vs correlation, CLT/sampling-distribution interpretation and p-value language. Markov chains/Poisson are diagnostic-needed. See `lesson_logs/historical_probability_statistics_*.md`.
 - **Practical ML/tensors:** `nn.Linear` weight orientation, batch/reduction shapes, train-only scaler semantics, loader length vs batch size, binary accuracy and logit → probability → class distinction.
@@ -73,7 +75,7 @@ _Last updated: 2026-09-08_
 3. **Search theory consolidation** — short re-test of completeness/optimality/admissibility/consistency plus time/space complexity and assumptions where useful.
 4. **Searching with other agents** — dedicated new-material block before the delayed Week-2 lecture. If the course means standard adversarial search, build game-tree intuition → minimax → alpha-beta pruning; use actual course materials to confirm scope when available.
 5. **Integrated pre-lecture search review** — choose/trace algorithms across unweighted, weighted, heuristic and multi-agent scenarios; do not repeat full BFS drilling.
-6. **FTEC5660 live-course loop** — after each lecture, short cold recall of taught material + 2–3 personal-synthesis prompts; connect to one payments/KYC/AML example. Do not pre-study all 21 patterns by default.
+6. **FTEC5660 live-course loop** — after each lecture, short cold recall of concepts actually taught + 2–3 personal-synthesis prompts; connect to one payments/KYC/AML example. Promote individual patterns into retrieval only when they have been substantively covered.
 7. **Then use remaining buffer** for Week-1 logic/reasoning and the Week-3 decision-tree/random-forest gap.
 8. **Probability runway for Weeks 4–5 + January** — short Bayes/random-variable retrieval; diagnose Markov chains/Poisson before HMM/particle-filtering work; then extend toward likelihood/MLE. Preserve this lane through FTEC5660 project spikes, even if temporarily reduced.
 
@@ -83,7 +85,7 @@ _Last updated: 2026-09-08_
 - [~] **UCS** — concept introduced and traced correctly; implementation is next.
 - [~] **Search guarantees / heuristic theory** — admissibility, consistency, completeness and optimality introduced; consolidate after implementation and attach assumptions carefully.
 - [ ] **Searching with other agents** — AIMS5701 Week 2; genuinely new. Confirm exact lecture scope, likely adversarial/game-tree search if course materials support that interpretation.
-- [~] **FTEC5660 pattern spine** — Lecture 1 introduced 21 patterns; learn them through live course/project use rather than front-loading the full list. Course context + Lecture 1 cold-recall prompts now exist.
+- [~] **FTEC5660 pattern overview** — Lecture 1 showed the catalogue as orientation to later course coverage. **Reference only for now; not a list-recall target.** Individual patterns become active retrieval topics as the course teaches/applies them.
 - [ ] **FTEC5660 hackathon / final-project planning** — dates, scope and exact assessment weighting still need official confirmation; add explicit weekly capacity plan once known.
 - [ ] **Logic/reasoning** — Fundamentals Week 1 preview; extra start-delay runway means this can follow the core search implementation work without being rushed.
 - [ ] **Decision trees / random forests** — Fundamentals Week 3.
@@ -99,8 +101,9 @@ _Last updated: 2026-09-08_
 ## Near-term syllabus runway
 
 ### FTEC5660
-- Lecture 1 complete: retrieve agent definition/loop, pattern purpose, 21-pattern grouping and complexity levels.
-- Use prior payments/KYC/AML experience as a domain anchor rather than memorising abstract pattern names.
+- Lecture 1 complete: retrieve agent definition/loop, why agentic systems need structure, complexity levels and the finance-workflow framing.
+- **Do not ask for the full pattern catalogue from memory.** It was an introduction to later course coverage.
+- Use prior payments/KYC/AML experience as a domain anchor when individual patterns are subsequently taught.
 - Project load is likely substantial; once hackathon/final-project dates are confirmed, explicitly rebalance weekly preparation around them.
 - Preserve the distinction between **course material** and **personal working hypotheses** in future logs.
 
@@ -133,7 +136,8 @@ For the next FTEC5660 lecture, use `lesson_logs/ftec5660_lecture01_introduction.
 ## End-of-session update
 
 - **FTEC5660 now live:** Lecture 1 completed and recorded with separate course-material vs personal-synthesis recall.
+- **Retrieval correction:** the Lecture-1 pattern catalogue is an overview of future course coverage, not a memorisation target.
 - **Course planning change:** FTEC5660 is now visible as a project-heavy Term-1 workload source; hackathon/final-project exact dates and weighting remain to verify.
-- **Learning-method change:** use the conventional-SWE + payments/KYC/AML side-by-side lens to make agentic patterns durable.
+- **Learning-method change:** use the conventional-SWE + payments/KYC/AML side-by-side lens once individual patterns are actually taught.
 - **Long-range constraint preserved:** January ML-Theory maths preparation remains a protected continuity lane even when FTEC5660 project load rises.
 - **Immediate next:** UCS implementation, then A* reconstruction.
