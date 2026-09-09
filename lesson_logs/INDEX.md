@@ -1,6 +1,6 @@
 # Lesson Log Index
 
-_Last audited: 2026-09-08_
+_Last audited: 2026-09-09_
 
 This directory is the durable conceptual/retrieval record for the learning sequence. Exercise/test files are the implementation evidence; these logs explain what should be understood and how to cold-retrieve it later.
 
@@ -30,13 +30,15 @@ Live lecture records are intentionally separate from the numbered implementation
 |---|---|---|
 | `ftec5660_course_context.md` | FTEC5660 course spine, assessment/workload notes, personal learning lens, durable synthesis across lectures | Active course-level context; distinguish lecture-supported content from personal working hypotheses |
 | `ftec5660_lecture01_introduction.md` | Agentic AI introduction: goal-directed systems, perceive/reason/act/escalate loop, pattern catalogue, complexity levels, multi-agent framing; plus SWE/finance reinterpretation | Original lecture + post-lecture synthesis log; introductory pattern catalogue is a reference map rather than a list-recall target |
-| `ftec5660_pattern01_prompt_chaining.md` | Pattern 1 prompt chaining: decomposition, checkable stage interfaces, context engineering, trade-offs; LangChain/LCEL tutorial through successful JSON parsing | **Concept taught; tutorial partial.** Includes a bounded syntax-reconstruction plan for this week and explicitly excludes later notebook cells from current mastery |
+| `ftec5660_pattern01_prompt_chaining.md` | Pattern 1 prompt chaining: decomposition, checkable stage interfaces, context engineering, trade-offs; LangChain/LCEL tutorial through successful JSON parsing | **Concept taught; tutorial partial.** Later workbook sections remain separate from what class actually reached |
+| `ftec5660_lcel_guided_practice_2026_09_09.md` | Guided LCEL reconstruction: prompt templates, parsers, invocation and build/run-time separation | Taught/guided evidence; records support needs before Lesson 32 exercises |
+| `ftec5660_tutorial01_study_plan.md` | Plain-English follow-up route through Tutorial 1: state enrichment, Python runnables, gates, compact payments/KYC workflow, generated-code concept and routing bridge | **Parked plan.** Resume one day before the next FTEC5660 lecture; notebook itself is not committed |
 
 For FTEC5660, future lecture/project logs should preserve the same source boundary: **what the lecturer/material supports** vs **my own synthesis or hypothesis**. Tutorial logs must also preserve the actual in-class stopping point: code appearing later in a supplied notebook is not automatically learned material.
 
 ## Numbered lesson coverage
 
-All numbered lessons **01–31 now have a lesson log**.
+All numbered lessons **01–32 now have a lesson log**.
 
 | Lesson | Topic | Log status |
 |---|---|---|
@@ -71,6 +73,7 @@ All numbered lessons **01–31 now have a lesson log**.
 | 29 | Standard PyTorch linear training loop | Reconstructed |
 | 30 | PyTorch binary classification | Original detailed session log |
 | 31 | Real-data classification workflow | Original detailed session log — **complete** |
+| 32 | LangChain / LCEL basics | Original session log — **guided implementation + changed-example pytest complete; cold reconstruction due** |
 
 “Reconstructed” means the available implementation evidence and recoverable tutoring context are used conservatively. These are not invented transcripts.
 
@@ -80,7 +83,7 @@ All numbered lessons **01–31 now have a lesson log**.
 Historical calculus  slope → derivative → differentiation rules → gradients → chain rule/backprop
 Historical linear algebra  systems/vector spaces → matrices/eigen → orthogonality/least squares → symmetric/quadratic forms
 Historical probability/statistics  counting/Bayes → random variables/distributions → joint moments/inequalities → CLT/inference
-FTEC5660 live course  course material → pattern-focused logs → personal SWE/finance synthesis
+FTEC5660 live course  course material → pattern logs → guided/tutorial plan → payments/KYC reinterpretation
 01–07  Python language fluency
 08–09  DSA patterns
 10–17  NumPy / shape / manual ML + retrieval
@@ -89,6 +92,7 @@ FTEC5660 live course  course material → pattern-focused logs → personal SWE/
 24–26  classical search
 27–30  tensors, autograd and PyTorch training
 31     real-data PyTorch workflow (complete)
+32     LangChain / LCEL basics (guided; later cold reconstruction)
 ```
 
 ## How to use
@@ -107,7 +111,8 @@ For an FTEC5660 lecture/pattern:
 3. sample only a few **personal-synthesis** prompts per session rather than replaying the whole discussion;
 4. connect the concept to a familiar payments/KYC/AML example;
 5. for code tutorials, quiz only syntax/mechanisms that the class or a later independent practice session actually reached;
-6. update `ftec5660_course_context.md` only when a cross-lecture synthesis thread materially changes.
+6. when resuming Tutorial 1 after Lesson 32, follow `ftec5660_tutorial01_study_plan.md` rather than rereading the tax notebook line by line;
+7. update `ftec5660_course_context.md` only when a cross-lecture synthesis thread materially changes.
 
 For historical maths, choose the smallest relevant log rather than loading the whole subject. For broad rebuilds, follow that subject's logs in order.
 

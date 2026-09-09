@@ -8,8 +8,8 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **UCS implementation → A* reconstruction** | BFS independent reconstruction already succeeded. Do not restart BFS or broad search theory. |
-| Parallel | **LCEL Lesson 32 complete for now; later do one short cold reconstruction**, plus a short AIMS5701 logic preview | Changed-example LCEL tests now pass, but two-stage composition needed guidance and should not be labelled independent yet. |
+| Continue | **UCS implementation → A* reconstruction** | BFS independent reconstruction already succeeded. Do not restart BFS or broad search theory. This is the next study session. |
+| Parallel | **Short AIMS5701 logic preview** | Agentic AI is deliberately parked until one day before the next FTEC5660 lecture; do not let the newest live-course thread displace search. |
 | Protect | **A small relevant maths retrieval block** | Keep January AIMS5704 prerequisites alive even if live-course/project workload changes. |
 
 These lanes coexist; they are not one sequential queue.
@@ -19,7 +19,8 @@ These lanes coexist; they are not one sequential queue.
 - MSc Term 1 is recorded as **7 Sep–4 Dec 2026**.
 - **AIMS5701 Fundamentals** is reported to start one week later than originally planned; exact revised dates are not independently confirmed.
 - **AIMS5704 Machine Learning Theory** starts **11 Jan 2027** in the stored syllabus.
-- FTEC5660 remains a live learning source, but continued enrolment is uncertain because the learner may be unable to commit to the hackathon final/pitch day. Do not let that uncertainty erase useful agentic-AI learning, but if the module is dropped then course-specific FTEC syntax/project preparation should lose priority relative to AIMS5701/AIMS5702 and January maths.
+- FTEC5660 remains a useful learning source, but continued enrolment is uncertain because the learner may be unable to commit to the hackathon final/pitch day. Course-specific FTEC work is therefore deliberately parked for now.
+- **Return trigger for Agentic AI:** one day before the next FTEC5660 lecture. The exact calendar date is not stored here because it has not been independently confirmed.
 - The learner recalls a hackathon and final project worth roughly 80% combined; dates/scope/exact weighting still need official confirmation.
 
 ## Search — continue forward
@@ -35,11 +36,11 @@ Source: `lesson_logs/search_reactivation_2026_09_06.md` and Lessons 24–26.
 
 Retain two implementation fragilities: fixed search variable versus moving reconstruction cursor, and graph adjacency versus discovered-state membership. `h(n)` is remaining cost from `n`, not cost of reaching it.
 
-**Next search session:** weighted neighbours → priority frontier → accumulated `g` → cheaper-path updates → path reconstruction. Learner writes the important implementation. Then derive A* using `g+h`.
+**Next study session:** weighted neighbours → priority frontier → accumulated `g` → cheaper-path updates → path reconstruction. Learner writes the important implementation. Then derive A* using `g+h`.
 
-## FTEC5660 / LangChain — Lesson 32 complete for now
+## FTEC5660 / LangChain — parked after Lesson 32
 
-Sources: `lesson_logs/ftec5660_pattern01_prompt_chaining.md`, `lesson_logs/ftec5660_lcel_guided_practice_2026_09_09.md`, and `lesson_logs/lesson32_lcel_basics.md`.
+Sources: `lesson_logs/ftec5660_pattern01_prompt_chaining.md`, `lesson_logs/ftec5660_lcel_guided_practice_2026_09_09.md`, `lesson_logs/lesson32_lcel_basics.md`, and `lesson_logs/ftec5660_tutorial01_study_plan.md`.
 
 ### Prompt chaining concept
 
@@ -49,7 +50,7 @@ Sources: `lesson_logs/ftec5660_pattern01_prompt_chaining.md`, `lesson_logs/ftec5
 
 ### LCEL implementation — 9 Sep
 
-A tracked Lesson 32 implementation/test pair now exists under `agentic_ai/langchain/`. The learner completed changed-example pytest exercises using `FakeListChatModel` rather than real API calls.
+A tracked Lesson 32 implementation/test pair exists under `agentic_ai/langchain/`. The learner completed changed-example pytest exercises using `FakeListChatModel` rather than real API calls.
 
 Implemented and tested:
 
@@ -62,7 +63,7 @@ Implemented and tested:
 
 The first prompt/chain exercises transferred cleanly. The recurring fragility was **function object vs function call** (`builder` vs `builder()`), with similar taught-pass slips around parser class vs instance and passed `llm` object vs `llm()`. The learner's intended LCEL composition was generally correct; treat these as Python/API fluency rust rather than a conceptual LCEL failure.
 
-Two-stage mapping required conceptual support before the learner successfully implemented the passing version. Therefore **do not mark LCEL independent yet**. The next evidence step is one short changed-domain cold reconstruction later, not another full lesson now.
+Two-stage mapping required conceptual support before the learner successfully implemented the passing version. Therefore **do not mark LCEL independent yet**.
 
 ### Prompt-design retrieval target
 
@@ -77,7 +78,27 @@ Output structure
 
 Future retrieval should test transfer by giving a vague prompt and asking the learner to improve it using the four dimensions, rather than only asking for list recitation.
 
-Still outside the fair boundary: substantive `RunnableLambda`, `RunnablePassthrough`, full ledger compute/explain wiring, gates/repair loops, TaxCalcBench and later notebook abstractions.
+### Tutorial 1 follow-up plan
+
+The remainder of Tutorial 1 was reviewed and decomposed into a simpler study plan. The large US-tax example is treated as an architectural illustration rather than code to memorise. The durable next concepts are:
+
+1. short Lesson 32 cold reconstruction;
+2. `RunnablePassthrough.assign` as **state enrichment**;
+3. `RunnableLambda` as **ordinary Python participating in LCEL**;
+4. deterministic **gates / fail-fast validation**;
+5. one compact payments/KYC workflow combining extraction, validation, deterministic code and explanation;
+6. model-generated code as **generate artifact → test artifact → permit/reject artifact**;
+7. re-read the tax chain only as roles: extract / decide / validate / generate rule / compute / format;
+8. later changed-domain cold reconstruction;
+9. bridge from fixed chaining to the next course concept, **routing**.
+
+Full plan: `lesson_logs/ftec5660_tutorial01_study_plan.md`.
+
+**Resume protocol:** one day before the next FTEC5660 lecture, do only a 5–10 minute changed-example Lesson 32 check, then move into `RunnablePassthrough.assign` → `RunnableLambda` → gates. Use payments/KYC examples rather than reproducing US-tax calculations.
+
+The annotated notebook produced during review is intentionally **not committed**; only the durable learning plan is stored in the repository.
+
+Still outside demonstrated performance: substantive `RunnableLambda`, `RunnablePassthrough`, gates, full ledger compute/explain wiring, TaxCalcBench and generated-code workflows. They are planned new teaching, not failed recall.
 
 ## Established foundations / remaining uncertainty
 
@@ -92,9 +113,9 @@ Still outside the fair boundary: substantive `RunnableLambda`, `RunnablePassthro
 
 - **AIMS5701:** light logic preview before W1; finish search before W2; trees/random forests before W3; Bayes retrieval before W4; Markov diagnostic before W5.
 - **AIMS5702:** scientific-Python/representation work before W3; CNN/RNN preview before W4; transfer the real-data workflow to neural regression before W5.
-- **FTEC5660:** Lesson 32 is enough LCEL syntax work for now; later run one short cold reconstruction and reassess course-specific priority if enrolment changes.
+- **FTEC5660:** deliberately parked. Resume **one day before the next lecture** from `ftec5660_tutorial01_study_plan.md`; do not replay Lesson 32 in full.
 - **Maths:** selective LA/calculus/probability maintenance; later MLE and formal-theory extensions.
 
 ## Handover discipline
 
-After the next substantive session, update its focused log and this handover. Update `learning_progress.yaml` only when a structured evidence dimension/action materially changes. Lesson 32 adds richer guided implementation evidence but does not yet justify changing LCEL from `performance: guided` to `independent`. Historical detail belongs in logs, not this file.
+After the next substantive session, update its focused log and this handover. Update `learning_progress.yaml` when evidence or study-lane priorities materially change. Lesson 32 remains guided rather than independent. Historical detail belongs in logs, not this file.

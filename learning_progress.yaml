@@ -4,15 +4,15 @@ meta:
   title: Learning Atlas
   subtitle: MSc AI
   reviewed_on: '2026-09-09'
-  evidence_through: '2026-09-08'
+  evidence_through: '2026-09-09'
   repository: alistairkung/msc-ai-learning
   source_ref: 2c434398b9ef7b73105ae2359533f56e5b2e275e
-  review_note: Migrated from the existing learning record. No new learner assessment was performed.
+  review_note: Updated after Lesson 32 and the decision to park FTEC5660 until one day before the next lecture. No unsupported mastery upgrade was made.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: ea24b4c4d59b306e23a23b599a83bf4cfa3a4da4
+    sha: f2a57b44b1c61f04c96dbcfd5eac989cec5526d5
   syllabus:
     path: MSC_SYLLABUS_MAP.md
     sha: 3ee9d299c052388c0c4d5bdb05c73d7dc5709268
@@ -25,6 +25,12 @@ sources:
   prompt:
     path: lesson_logs/ftec5660_pattern01_prompt_chaining.md
     sha: 3ffbf91b66bd24dc260c1aeb0c1d73d431a1b157
+  lcel_lesson:
+    path: lesson_logs/lesson32_lcel_basics.md
+    sha: 93ecbea12e07d6a0d87f05c8754a107ab91948b1
+  lcel_plan:
+    path: lesson_logs/ftec5660_tutorial01_study_plan.md
+    sha: 31f0c46c625ef062b47154bab47e75d61240af2e
   pipeline:
     path: deep_learning/mlp/lesson31_real_data.py
     sha: bbe9b6cecbc70fa6cbc3bcb8cd6e89dc50dead23
@@ -121,8 +127,8 @@ topics:
     action: retrieve
     evidence: The log distinguishes the taught concept from the tutorial. Class reached successful expense-ledger parsing into JSON; the intended parse → compute → explain pipeline was introduced.
     boundary: The later notebook cells are not completed learning. The other 20 patterns in the overview are not automatic recall targets.
-    next: Briefly retrieve why checkable stages help, when not to chain, and the role of deterministic processing. Use a payments example.
-    sources: [prompt, state]
+    next: On the planned FTEC return, briefly retrieve why checkable stages help, when not to chain, and the role of deterministic processing before moving into the next Tutorial 1 mechanisms.
+    sources: [prompt, state, lcel_plan]
     evidence_on: '2026-09-08'
     depends_on: []
   lcel:
@@ -132,11 +138,11 @@ topics:
     performance: guided
     review: recorded
     action: practice
-    evidence: The current record says prompt templates, pipe composition, string/JSON parsers, invocation dictionaries and simple sub-chain mapping were encountered.
-    boundary: Imported names are not taught syntax. RunnableLambda and RunnablePassthrough tutorial sections had not been reached. API lookup is not the same issue as inability to compose the pipeline.
-    next: 'One bounded reconstruction session: a tiny chain, structured output, then a two-stage example. Keep syntax support minimal and separate from conceptual assessment.'
-    sources: [prompt, state]
-    evidence_on: '2026-09-08'
+    evidence: Lesson 32 records passing changed-example pytest exercises for prompt templates, string/JSON parsers, invocation dictionaries and a two-stage sub-chain mapping. Two-stage composition required conceptual support.
+    boundary: The implementation is guided evidence, not independent cold reconstruction. RunnablePassthrough.assign, RunnableLambda, gates and generated-code workflows remain new teaching rather than failed recall.
+    next: 'Parked until one day before the next FTEC5660 lecture: do a 5–10 minute changed-example cold check, then study RunnablePassthrough.assign → RunnableLambda → deterministic gates using the Tutorial 1 plan.'
+    sources: [prompt, state, lcel_lesson, lcel_plan]
+    evidence_on: '2026-09-09'
     depends_on: [prompt_chaining]
   bayes:
     <<: *history
@@ -443,19 +449,19 @@ lanes:
     topics: [bfs, dfs, search_complexity, other_agents]
     detail: Consolidate guarantees/complexity, confirm other-agent scope, then do one integrated review.
 - id: parallel
-  label: Parallel block · live teaching
-  title: Practise the chain syntax
-  summary: The concept was taught. Rebuild the small LCEL patterns already encountered.
-  target: lcel
+  label: Parallel block · Fundamentals
+  title: Preview logic; FTEC parked
+  summary: Keep a small Week-1 logic preview alongside search. Agentic AI resumes one day before the next FTEC5660 lecture.
+  target: logic
   tasks:
-  - title: LCEL reconstruction
-    when: This week
-    topics: [lcel, prompt_chaining]
-    detail: A tiny chain, structured JSON output, then two stages. Stay inside the recorded tutorial boundary.
   - title: Logic preview
     when: Before AIMS5701 Week 1
     topics: [logic]
     detail: Reserve a short preview alongside search; do not wait until all Week-2 work is complete.
+  - title: Resume Tutorial 1
+    when: One day before the next FTEC5660 lecture
+    topics: [lcel, prompt_chaining]
+    detail: Do a 5–10 minute Lesson 32 cold check, then follow the stored plan through state enrichment, Python runnables and deterministic gates. Use payments/KYC examples rather than the tax pipeline.
   - title: Confirm FTEC5660 assessments
     when: When official details arrive
     topics: []
@@ -566,7 +572,7 @@ courses:
       due_on: null
   FTEC5660:
     name: Agentic AI in Finance / FinTech
-    timing: Live teaching recorded through 8 September 2026. Pattern order is not a weekly timetable.
+    timing: Live teaching recorded through 8 September 2026. Pattern order is not a weekly timetable; course-specific study is parked until one day before the next lecture.
     expected_weeks: [Lecture 1, Pattern 1, Later, Projects]
     weeks:
     - week: Lecture 1
@@ -580,7 +586,7 @@ courses:
       title: Prompt Chaining
       anchors: [prompt_chaining]
       remaining: [lcel]
-      note: Tutorial stopped at JSON parsing. Later compute/wiring/gates remain untaught.
+      note: Class stopped at JSON parsing. Lesson 32 adds guided LCEL practice; the remainder of Tutorial 1 is preserved as a planned follow-up, not demonstrated performance.
       scope: partial_tutorial
       due_on: null
     - week: Later
@@ -807,3 +813,5 @@ timeline:
   detail: BFS independent reconstruction, DFS derivation and introductory search theory recorded.
 - label: 8 September
   detail: FTEC5660 Prompt Chaining taught; tutorial partial.
+- label: 9 September
+  detail: Lesson 32 LCEL basics completed with guided changed-example tests; Tutorial 1 follow-up plan stored and FTEC work deliberately parked until one day before the next lecture.
