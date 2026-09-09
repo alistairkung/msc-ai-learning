@@ -123,4 +123,10 @@ A short check should sample:
 
 ## Next step
 
-Stop adding new LCEL syntax for now. At a later maintenance point, do one short changed-example cold reconstruction. If that succeeds with little/no conceptual support, update LCEL performance evidence accordingly. Course-specific FTEC work should still be reassessed if enrolment changes.
+Agentic AI is **parked after this lesson** so the next study session can return to UCS/A*.
+
+Resume one day before the next FTEC5660 lecture. Start with only a 5–10 minute changed-example cold check of this lesson, then continue into the new Tutorial 1 mechanisms rather than replaying LCEL basics.
+
+Follow: `lesson_logs/ftec5660_tutorial01_study_plan.md`.
+
+The next new concepts there are `RunnablePassthrough.assign` as state enrichment, `RunnableLambda` as ordinary Python inside LCEL, and deterministic gates/fail-fast validation. Use payments/KYC examples; do not reproduce the US-tax arithmetic.
