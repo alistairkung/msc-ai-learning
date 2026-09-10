@@ -9,7 +9,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
 | Continue | **Search guarantees / complexity consolidation** | Lesson 33 completed the BFS/DFS/UCS/A* implementation block. Do not immediately rewrite all four algorithms again. |
-| Parallel | **AIMS5702 live-course consolidation** | First AI in Practice lecture begins 10 Sep. Pre-lecture bridge covered new dtype/memory/storage concepts; post-lecture review should follow what was actually emphasized. |
+| Parallel | **AIMS5702 representation translation** | Lecture 1 exposed a diagram/index-notation translation cost. Preserve shape reasoning as the anchor and practise diagram ↔ shapes ↔ indices ↔ PyTorch/parameter count. |
 | Protect | **A small relevant maths retrieval block** | Keep January AIMS5704 prerequisites alive without turning them into a broad restart. |
 
 These lanes coexist; they are not one sequential queue. FTEC5660 remains deliberately parked until one day before its next lecture.
@@ -18,18 +18,58 @@ These lanes coexist; they are not one sequential queue. FTEC5660 remains deliber
 
 - MSc Term 1 is recorded as **7 Sep–4 Dec 2026**.
 - **AIMS5701 Fundamentals** is reported to start one week later than originally planned; exact revised dates are not independently confirmed.
-- **AIMS5702 Artificial Intelligence in Practice:** first live lecture is 10 Sep 2026. Course-specific notes now live under `notes/aims5702/` rather than being forced into the numbered preparatory lesson sequence.
+- **AIMS5702 Artificial Intelligence in Practice:** first live lecture was 10 Sep 2026. Only the introductory/Lecture 1 material was covered in class; the dtype/memory/stride/einsum material studied beforehand remains a pre-read preview of later supplied slides.
+- AIMS5702 course-specific notes live under `notes/aims5702/` rather than being forced into the numbered preparatory lesson sequence.
 - **AIMS5704 Machine Learning Theory** starts **11 Jan 2027** in the stored syllabus.
 - FTEC5660 remains a useful learning source, but continued enrolment is uncertain because the learner may be unable to commit to the hackathon final/pitch day. Course-specific FTEC work is deliberately parked for now.
 - **Return trigger for Agentic AI:** one day before the next FTEC5660 lecture. The exact calendar date is intentionally not invented here.
 
-## AIMS5702 — pre-lecture bridge completed 10 Sep
+## AIMS5702 — Lecture 1 reflection + pre-read bridge
 
 Source: `notes/aims5702/lecture01_02_prelecture_bridge.md` plus prior Lessons 10, 11, 27–31.
 
+### Representation translation is now an explicit learning objective
+
+Lecture 1 used mathematical `i/j/...` index notation heavily and presented MLP/parameter-count reasoning through network/flowchart diagrams. The learner reports reasoning much more naturally through tensor shapes and does **not** want to replace that representation.
+
+Treat this as a translation gap rather than automatically as a conceptual gap. Existing preparation already supports shape tracing and MLP parameter counting.
+
+Preferred strategy:
+
+```text
+network diagram
+    ↕
+tensor shapes          <- primary reasoning anchor
+    ↕
+index notation
+    ↕
+PyTorch operations / modules
+    ↕
+parameter count
+```
+
+Example bridge:
+
+```text
+X_ij                    -> X.shape = (i,j)
+W_jk                    -> W.shape = (j,k)
+Σ_j X_ij W_jk           -> (i,j) @ (j,k)
+Y_ik                    -> Y.shape = (i,k)
+```
+
+When semantic labels help:
+
+```text
+i = batch/sample
+j = input feature
+k = output feature
+```
+
+For simple implementation, keep ordinary shape reasoning and `@`/`matmul` as the natural code representation. `einsum` is useful as a bridge to index/contraction notation and for more general tensor contractions; it should not displace the learner's successful shape-first reasoning.
+
 ### Existing preparation that transferred cleanly
 
-Cold recall before introducing new material showed that the learner could retrieve:
+Cold recall before class showed that the learner could retrieve:
 
 - tabular `(samples, features)` shape semantics;
 - reduction/axis reasoning: the reduced dimension disappears;
@@ -37,11 +77,11 @@ Cold recall before introducing new material showed that the learner could retrie
 - matrix-multiplication output shapes and sample preservation;
 - reduction shapes after tensor transformations.
 
-This confirms that much of the supplied Lecture 2 tensor manipulation material overlaps existing NumPy/tensor preparation rather than being wholly new. Image/channel conventions were explicitly treated as **new course material**, not falsely cold-tested as prior learning.
+This aligns with Lessons 10, 11 and 27. Image/channel conventions were explicitly treated as new course material, not falsely cold-tested as prior learning.
 
-### New systems foundation introduced
+### Pre-read systems foundation — not yet lecture-covered
 
-The genuinely new block was dtype/storage reasoning:
+Before class, later supplied slides were previewed. These concepts are **guided pre-read evidence**, not material actually taught in Lecture 1:
 
 ```text
 8 bits = 1 byte
@@ -54,41 +94,24 @@ memory bytes = elements * bytes per element
 
 The learner successfully solved changed memory-estimation examples after one initial bytes-vs-GB unit slip.
 
-Floating-point representation was introduced only at course-preview depth:
+Floating-point intuition was introduced only at preview depth:
 
 ```text
 more exponent bits -> wider range
 more mantissa/significand bits -> greater precision
 ```
 
-Exact IEEE encoding remains new/not required by today's evidence.
-
-### Tensor storage / stride / views
-
-New mental model:
+The new tensor-storage model was:
 
 ```text
 tensor view = shape + stride + offset over flat underlying storage
 ```
 
-The learner successfully reasoned through 2D contiguous strides and experimentally verified PyTorch transpose behaviour:
-
-```text
-x:   shape (2,3), stride (3,1), contiguous
-x.T: shape (3,2), stride (1,3), non-contiguous
-```
-
-Mutation through the transpose changed the original tensor, confirming shared storage. Basic slicing and explicit index-list selection were contrasted experimentally.
-
-**Fresh fragile point:** when a slice changes shape, the learner initially recalculated strides as if the sliced tensor had been repacked contiguously. Example: for a view of shape `(2,2,4)`, `(8,4,1)` was predicted rather than retaining the original-storage walk `(12,4,1)`. Durable correction:
+The learner experimentally verified transpose/view/contiguity behaviour in PyTorch. Fresh fragile point: a sliced view's stride was initially recomputed from its new shape as though it had been repacked contiguously. Durable correction:
 
 > Shape alone does not determine a view's stride. For views, reason from the underlying storage and transformation history.
 
-Transpose-axis reasoning improved during the session: `transpose(a,b)` swaps only those axes and their associated stride entries.
-
-### Einstein summation
-
-Introduced at the supplied deck's basic level. Learner can read simple expressions by identifying surviving and contracted indices:
+Basic `einsum` reading was also introduced as guided preview:
 
 ```text
 ij->i      keep i, sum j
@@ -96,20 +119,17 @@ ij->j      keep j, sum i
 ij,j->i    matrix-vector product
 ```
 
-A numerical example expanded `ij,j->i` into elementwise products followed by a sum. Treat this as newly taught/guided, not independent mastery.
-
 ### AIMS5702 next step
 
-After the first lecture, record what the lecturer actually emphasized. A later short cold check should prioritize:
+Do **not** abandon shape reasoning or restart NumPy wholesale. Next AIMS5702 study block should use actual Lecture 1-style MLP diagrams and practise translation:
 
-1. dtype/model-memory arithmetic;
-2. contiguous stride derivation;
-3. view stride after slicing/transpose;
-4. shared storage vs contiguity;
-5. basic einsum reading;
-6. CPU/GPU memory/device movement if the lecture makes it an active expectation.
+1. diagram -> layer widths -> tensor shapes;
+2. shapes -> parameter counts;
+3. shapes -> index notation and index notation -> shapes;
+4. shapes/index notation -> ordinary PyTorch (`@`, `nn.Linear`) and, where useful, equivalent `einsum`;
+5. distinguish a failure to translate representations from a failure to understand the underlying operation.
 
-Do not restart NumPy wholesale unless post-lecture evidence shows a real gap.
+When Lecture 2 systems material is actually taught, cold-check the pre-read rather than replaying it from scratch.
 
 ## Search — implementation block completed through Lesson 33
 
@@ -120,20 +140,18 @@ Sources: `lesson_logs/search_reactivation_2026_09_06.md`, Lessons 24–26, and `
 - FIFO / `popleft()` and level-order behaviour were cold-recalled correctly.
 - The learner correctly explained that BFS gives a fewest-edge path on an unweighted graph because of its frontier ordering.
 - BFS remains the strongest independent search evidence from the 6 September reconstruction.
-- During today's reconstruction, the **moving path-reconstruction cursor** fragility recurred: a moving cursor was created but fixed `current` was initially used inside the loop. This should remain a cold-recall probe.
+- During today's reconstruction, the moving path-reconstruction cursor fragility recurred: a moving cursor was created but fixed `current` was initially used inside the loop. This should remain a cold-recall probe.
 - A small `path.reverse` vs `path.reverse()` Python slip also appeared.
 
 ### DFS
 
 - LIFO / `pop()` behaviour, branch-deepening intuition, and non-shortest-path behaviour were recalled correctly.
 - DFS was reconstructed from the BFS skeleton and all practice tests passed after one indentation correction (`return None` had initially remained inside the search loop).
-- This is stronger current evidence than the earlier guided BFS→DFS derivation, but it followed immediate BFS recall and targeted debugging support. Keep DFS as **guided/refreshed implementation evidence**, not pristine cold independence.
+- Keep DFS as guided/refreshed implementation evidence, not pristine cold independence.
 
 ### UCS
 
 Lesson 33 introduced and implemented UCS using a priority queue.
-
-Cold-retrievable model:
 
 ```text
 frontier entry = (g, node)
@@ -141,11 +159,9 @@ g = accumulated cost from start to node
 cost_so_far[node] = cheapest known g for that node
 ```
 
-The learner correctly stated the key update condition conceptually: update when the neighbour is unseen **or** the new accumulated cost is cheaper.
+The learner correctly stated the key update condition conceptually: update when the neighbour is unseen or the new accumulated cost is cheaper. Passing practice tests cover lowest-cost path, start==goal, unreachable goal, cheaper-path replacement, and preferring lower cost over fewer edges.
 
-Passing practice tests cover lowest-cost path, start==goal, unreachable goal, cheaper-path replacement, and preferring lower cost over fewer edges.
-
-Support was needed for `heapq` mechanics, tuple unpacking, neighbour/edge-cost roles, unseen-or-cheaper syntax, and pushing `(new_cost, node)`. A trace also exposed an accumulated-cost slip (`2 + 3` initially treated as `3`). Therefore UCS is **successfully implemented with guided derivation**, not independent yet.
+Support was needed for `heapq` mechanics, tuple unpacking, neighbour/edge-cost roles, unseen-or-cheaper syntax, and pushing `(new_cost, node)`. A trace also exposed an accumulated-cost slip. Therefore UCS is successfully implemented with guided derivation, not independent yet.
 
 ### A*
 
@@ -156,20 +172,7 @@ UCS priority = g(n)
 A* priority  = f(n) = g(n) + h(n)
 ```
 
-The learner understood that the heap must preserve both priority and true path cost, leading to entries shaped as `(f, g, node)`.
-
-Passing practice tests cover lowest-cost path, start==goal, unreachable goal, cheaper-path replacement, heuristic-driven frontier priority, and `h=0` reducing A* to UCS.
-
-Support was needed for initial heap shape, tuple unpacking, using the **neighbour's** heuristic, and keeping `g` separate from `h`. Therefore A* is current implemented/guided evidence rather than new cold-independent evidence.
-
-### Compact comparison to retain
-
-```text
-BFS  -> FIFO / discovery order
-DFS  -> LIFO / most recently discovered
-UCS  -> lowest g
-A*   -> lowest g + h
-```
+Passing practice tests cover lowest-cost path, start==goal, unreachable goal, cheaper-path replacement, heuristic-driven frontier priority, and `h=0` reducing A* to UCS. Support was needed for initial heap shape, tuple unpacking, using the neighbour's heuristic, and keeping `g` separate from `h`. Treat as implemented/guided evidence rather than new cold-independent evidence.
 
 ### Search theory still due
 
@@ -181,7 +184,7 @@ Sources: `lesson_logs/ftec5660_pattern01_prompt_chaining.md`, `lesson_logs/ftec5
 
 - Prompt chaining concept is taught: stable sequential stages, checkable handoffs, deterministic processing between LLM stages, and cost/latency/failure trade-offs.
 - Lesson 32 implemented prompt templates, string/JSON parsers, invocation dictionaries and simple two-stage LCEL mapping with changed-example tests.
-- LCEL remains **guided**, because two-stage composition required support and Python/API role slips (`fn` vs `fn()`, parser class vs instance) recurred.
+- LCEL remains guided because two-stage composition required support and Python/API role slips (`fn` vs `fn()`, parser class vs instance) recurred.
 - Prompt-design cold-recall target remains `Task / Input / Constraints / Output structure`.
 - Tutorial 1 follow-up remains parked. Resume one day before the next FTEC5660 lecture with only a 5–10 minute Lesson 32 cold check, then move into `RunnablePassthrough.assign` → `RunnableLambda` → gates using payments/KYC examples.
 
@@ -192,16 +195,17 @@ Sources: `lesson_logs/ftec5660_pattern01_prompt_chaining.md`, `lesson_logs/ftec5
 - **Probability/statistics:** Bayes, distributions, joint moments, inequalities and CLT/inference have strong historical evidence. Markov chains and Poisson remain diagnostic-needed rather than proven current mastery.
 - **Calculus:** slope → derivatives → partials → gradients → chain rule/backprop is historically established.
 - **Practical ML:** linear/logistic regression and the Lesson 31 train/validation/test workflow are implemented; transfer should be tested on changed tasks.
-- **AIMS5702 systems/tensor representation:** dtype memory, flat storage, stride/view/contiguity and basic einsum are **newly introduced 10 Sep** and need later retrieval before any mastery claim.
+- **AIMS5702 representation translation:** newly identified learning need. Shape reasoning is the anchor; index/diagram fluency should be trained as translation, not replacement.
+- **AIMS5702 systems/tensor representation:** dtype memory, flat storage, stride/view/contiguity and basic einsum are guided pre-read material from 10 Sep and need later retrieval when the course reaches them.
 - **January extensions:** likelihood/MLE, exponential families, formal generalisation/concentration, convergence assumptions and proof-style derivations remain genuinely new work.
 
 ## Parked / must return
 
 - **AIMS5701:** next consolidate search guarantees/complexity; light logic preview before W1; trees/random forests before W3; Bayes retrieval before W4; Markov diagnostic before W5.
-- **AIMS5702:** after Lecture 1/2, consolidate only the new/fragile systems concepts under `notes/aims5702/`; later CNN/RNN and deployment/GPU work should follow the actual course sequence.
-- **FTEC5660:** deliberately parked. Resume **one day before the next lecture** from `ftec5660_tutorial01_study_plan.md`; do not replay Lesson 32 in full.
+- **AIMS5702:** next course-specific review should train diagram/index/shape translation from Lecture 1 examples. Later systems/GPU work should follow the actual course sequence.
+- **FTEC5660:** deliberately parked. Resume one day before the next lecture from `ftec5660_tutorial01_study_plan.md`; do not replay Lesson 32 in full.
 - **Maths:** selective LA/calculus/probability maintenance; later MLE and formal-theory extensions.
 
 ## Handover discipline
 
-After the next substantive session, update its focused log/course note and this handover. `learning_progress.yaml` remains due for structured-dashboard maintenance: Lesson 33 materially changed UCS/A* evidence, and today's AIMS5702 work adds a newly taught systems/tensor-representation area that should not be mislabeled as prior mastery.
+After the next substantive session, update its focused log/course note and this handover. `learning_progress.yaml` remains due for structured-dashboard maintenance: Lesson 33 materially changed UCS/A* evidence, and AIMS5702 now has a course-specific representation-translation target plus guided pre-read systems material.
