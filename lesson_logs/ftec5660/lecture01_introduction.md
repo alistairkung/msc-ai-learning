@@ -388,4 +388,4 @@ Before or after the next lecture:
 2. pick only 2–3 **personal-synthesis** prompts;
 3. connect newly taught pattern(s) to one familiar payments/KYC/AML workflow;
 4. add those specific patterns to retrieval only once they have actually been taught/applied;
-5. update `ftec5660_course_context.md` only when the new lecture materially changes a cross-cutting synthesis thread.
+5. update `lesson_logs/ftec5660/course_context.md` only when the new lecture materially changes a cross-cutting synthesis thread.

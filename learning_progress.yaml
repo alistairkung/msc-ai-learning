@@ -3,33 +3,33 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-09-09'
+  reviewed_on: '2026-09-10'
   evidence_through: '2026-09-09'
   repository: alistairkung/msc-ai-learning
-  source_ref: 2c434398b9ef7b73105ae2359533f56e5b2e275e
-  review_note: Updated after Lesson 32 and the decision to park FTEC5660 until one day before the next lecture. No unsupported mastery upgrade was made.
+  source_ref: 16c4210d84bd2fbe4feeadeb8470619cedfc570e
+  review_note: Structural source-path sync after grouping live-course logs by course. No learning-status or mastery upgrade is implied by this maintenance change.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: f2a57b44b1c61f04c96dbcfd5eac989cec5526d5
+    sha: 0262d26e2018cd9ce487089886d6428680052a27
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 3ee9d299c052388c0c4d5bdb05c73d7dc5709268
+    sha: 141601bafa07cff189eadf5dd7c1bb9f03ee9c57
   roadmap:
     path: LEARNING_ROADMAP.md
-    sha: 1630df3ac09358276a1ce2e07f2fe0865f3d88e9
+    sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
   search:
     path: lesson_logs/search_reactivation_2026_09_06.md
     sha: a64c14471791948bcfae578e85716c1961c012d7
   prompt:
-    path: lesson_logs/ftec5660_pattern01_prompt_chaining.md
+    path: lesson_logs/ftec5660/pattern01_prompt_chaining.md
     sha: 3ffbf91b66bd24dc260c1aeb0c1d73d431a1b157
   lcel_lesson:
     path: lesson_logs/lesson32_lcel_basics.md
-    sha: 93ecbea12e07d6a0d87f05c8754a107ab91948b1
+    sha: 4221e601c6c5ece40a31d0a6c817529f42348625
   lcel_plan:
-    path: lesson_logs/ftec5660_tutorial01_study_plan.md
+    path: lesson_logs/ftec5660/tutorial01_study_plan.md
     sha: 31f0c46c625ef062b47154bab47e75d61240af2e
   pipeline:
     path: deep_learning/mlp/lesson31_real_data.py

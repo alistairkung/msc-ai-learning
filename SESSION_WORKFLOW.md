@@ -14,6 +14,42 @@ Do not infer mastery mechanically from the existence of code, tests, lesson logs
 
 ---
 
+## Repository structure / where logs belong
+
+`lesson_logs/` contains two deliberately different kinds of learning record.
+
+### Cross-course preparation sequence
+
+Numbered lessons and reconstructed historical foundations stay directly under `lesson_logs/`:
+
+```text
+lesson_logs/
+  lessonNN_*.md
+  historical_*.md
+```
+
+These records belong to the learner's cross-course preparation sequence rather than to one MSc module. Their implementation/test evidence normally lives in the relevant topic directory such as `foundations/`, `machine_learning/`, `classical_ai/` or `deep_learning/`.
+
+### Live MSc course records
+
+Course-specific lecture/tutorial/assignment/project/reflection material belongs under a folder named with the course code:
+
+```text
+lesson_logs/
+  aims5701/
+  aims5702/
+  aims5704/
+  ftec5660/
+```
+
+A course folder may contain a `README.md` or `course_context.md` plus focused lecture, tutorial, assignment, project and reflection logs.
+
+**Do not create a separate top-level `notes/` hierarchy for live-course material.** If a new course-specific note is needed, put it in the matching `lesson_logs/<course_code>/` folder.
+
+When locating context for a live course, start in that course folder and read the smallest relevant file. Use `lesson_logs/INDEX.md` for coverage/discovery. Course folders are organisational boundaries, not evidence boundaries: still distinguish lecturer-supported material, learner synthesis, pre-reading and independently demonstrated learning.
+
+---
+
 ## Starting a study session
 
 Read context in this order:
@@ -22,7 +58,9 @@ Read context in this order:
 2. Relevant upcoming weeks in `MSC_SYLLABUS_MAP.md` — what the MSc is about to demand.
 3. `LEARNING_ROADMAP.md` when choosing between competing priorities or checking longer-term dependencies.
 4. Relevant exercise/test implementation as evidence of what has actually been built.
-5. Relevant `lesson_logs/lessonNN_*.md` when continuing or cold-retrieving an earlier lesson.
+5. Relevant lesson log:
+   - numbered/historical prep: `lesson_logs/lessonNN_*.md` or `lesson_logs/historical_*.md`;
+   - live-course work: `lesson_logs/<course_code>/...`.
 6. `learning_progress.yaml` when dashboard state or structured topic/readiness status is relevant.
 
 Do not let the most recent conversation or newest lesson silently override parked topics, upcoming MSc demand, or longer-term prerequisite work.
@@ -57,6 +95,15 @@ adjacent concept / natural extension ≠ fair retrieval expectation
 Novel questions are encouraged when they can be reasoned through entirely from concepts the learner has already learned. For example, changing the numbers, shapes or scenario is useful retrieval. But if answering a question requires a new concept that has not yet been taught, treat that as **new teaching**, not as a failed retrieval attempt.
 
 If an interesting untaught extension arises during review, either leave it for the planned curriculum or explicitly introduce it as new material. Do not silently use it to judge mastery of the reviewed lesson.
+
+For live-course notes, preserve source boundaries explicitly:
+
+```text
+what lecturer/material actually covered
+    ≠ pre-reading of later supplied material
+    ≠ learner's post-lecture synthesis
+    ≠ independently demonstrated mastery
+```
 
 ### Rich tutor context, sparse learner interface
 
@@ -112,7 +159,7 @@ should trigger the following workflow.
 
 If implementation changed during the lesson, preserve the lesson's implementation and matching test.
 
-For learning exercises, maintain the lesson identity convention:
+For numbered learning exercises, maintain the lesson identity convention:
 
 ```text
 lessonNN_topic.py
@@ -122,9 +169,17 @@ test_lessonNN_topic.py
 
 The exercise/test pair records what was actually implemented.
 
-## 2. Lesson log — normally update
+Live-course scratch work does not automatically need a numbered lesson identity. If it becomes durable implementation evidence, store it in the most sensible topic/code directory and link it from the course log.
 
-Create or update the relevant `lesson_logs/lessonNN_*.md` when the session creates reusable understanding.
+## 2. Lesson/course log — normally update
+
+For a numbered/preparatory session, create or update the relevant root `lesson_logs/lessonNN_*.md`.
+
+For a live MSc course session, create or update the relevant file under:
+
+```text
+lesson_logs/<course_code>/
+```
 
 Capture:
 
@@ -134,7 +189,8 @@ Capture:
 - what the learner demonstrated confidently;
 - fragile or incomplete points;
 - useful future cold-retrieval prompts;
-- the bridge to the next lesson/topic.
+- the bridge to the next lesson/topic;
+- for live courses, what came from the lecturer/material versus pre-reading or learner synthesis.
 
 Record outcomes, not a transcript.
 
@@ -152,7 +208,7 @@ Record only what matters for continuation:
 - the next logical session;
 - whether roadmap/syllabus priorities changed.
 
-Keep it concise and current. Historical detail belongs in lesson logs.
+Keep it concise and current. Historical detail belongs in lesson/course logs.
 
 ## 4. `learning_progress.yaml` — update only when structured state materially changed
 
@@ -180,6 +236,8 @@ Do **not** update YAML merely because a lesson occurred. Avoid cosmetic churn an
 
 Do not invent numeric mastery percentages. Prefer qualitative states backed by observed learning evidence.
 
+When YAML stores source file paths, keep them synchronized with repository moves such as course-folder reorganisations.
+
 ## 5. `MSC_SYLLABUS_MAP.md` — conditional
 
 Update only when course-facing readiness or timing materially changes, for example:
@@ -189,7 +247,7 @@ Update only when course-facing readiness or timing materially changes, for examp
 - the actual teaching sequence differs from the stored plan;
 - a new prerequisite is discovered.
 
-Do not rewrite this after every ordinary lesson.
+Do not rewrite this after every ordinary lesson. File-path references to course logs should still be updated when the repository structure changes.
 
 ## 6. `LEARNING_ROADMAP.md` — rare
 
@@ -201,13 +259,14 @@ Update only when strategy or dependency structure materially changes, for exampl
 - a new major learning track is added;
 - priorities are materially reordered.
 
-Do not use the roadmap as a chronological diary.
+Do not use the roadmap as a chronological diary. Structural path references should still remain valid after file moves.
 
 ## 7. Validate and propose repository changes
 
 Before presenting session bookkeeping as complete:
 
 - ensure lesson references and filenames are internally consistent;
+- ensure live-course notes are under the correct `lesson_logs/<course_code>/` folder;
 - run relevant tests when code changed;
 - ensure `learning_progress.yaml` remains valid for the dashboard when YAML changed;
 - keep generated `dashboard/site/` output out of Git;
@@ -222,7 +281,8 @@ GitHub Actions should then validate tests/dashboard generation. After merge to `
 | File/source | Purpose | Typical update cadence |
 |---|---|---|
 | Exercise + test | Evidence of implementation | When implementation changes |
-| `lesson_logs/` | Durable conceptual/retrieval record | Each substantive lesson |
+| Root `lesson_logs/lessonNN_*.md` + `historical_*.md` | Cross-course prep/retrieval record | Each substantive preparatory lesson |
+| `lesson_logs/<course_code>/` | Live-course lecture/tutorial/project/reflection context | Each substantive course session |
 | `LEARNING_STATE.md` | Current operational handover | Every substantive session |
 | `learning_progress.yaml` | Structured dashboard state | Only when state materially changes |
 | `MSC_SYLLABUS_MAP.md` | Course-facing readiness/timing | When readiness/timing materially changes |
@@ -235,7 +295,8 @@ GitHub Actions should then validate tests/dashboard generation. After merge to `
 Use the right source for the right claim:
 
 - **Implemented?** Inspect exercise/test code.
-- **What should be retrievable from a lesson?** Inspect the lesson log.
+- **What should be retrievable from a numbered lesson?** Inspect the root numbered lesson log.
+- **What happened in a particular live course?** Inspect `lesson_logs/<course_code>/` and preserve lecturer/pre-read/synthesis boundaries.
 - **Where is the learner right now?** Use `LEARNING_STATE.md`.
 - **What structured status should the dashboard show?** Use `learning_progress.yaml`.
 - **What does the MSc demand soon?** Use `MSC_SYLLABUS_MAP.md`.
@@ -248,6 +309,7 @@ A particularly important distinction is:
 ```text
 code exists ≠ cold-recall mastery
 concept appears in code ≠ concept was taught
+pre-read material ≠ lecture-covered material
 lesson completed ≠ dashboard status must change
 Markdown changed ≠ YAML changes automatically
 full solution received ≠ independently demonstrated mastery
