@@ -54,7 +54,7 @@ The list above is a **course map/reference**, not a list the learner is expected
 
 Do not ask for all patterns by name or number. Individual patterns become fair retrieval targets only after the course later teaches, discusses or applies them substantively. Retrieval should focus on explanation, recognition, distinction and application rather than catalogue enumeration.
 
-Prompt Chaining is now the first exception to the overview-only state: it has been substantively taught and has its own focused retrieval/tutorial log at `lesson_logs/ftec5660_pattern01_prompt_chaining.md`. The course-level rule remains unchanged for the other patterns.
+Prompt Chaining is now the first exception to the overview-only state: it has been substantively taught and has its own focused retrieval/tutorial log at `lesson_logs/ftec5660/pattern01_prompt_chaining.md`. The course-level rule remains unchanged for the other patterns.
 
 ### Lecturer comments / learner recollection to verify
 
