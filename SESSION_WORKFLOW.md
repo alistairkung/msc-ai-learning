@@ -1,6 +1,8 @@
 # Study Session Workflow
 
-This file is the canonical operational protocol for a tutor/model/agent working with this learning repository.
+This file is the canonical **operational protocol** for a tutor/model/agent working with this learning repository.
+
+For the system design — why the repository separates evidence, state, syllabus demand, strategy and dashboard projection — read `ARCHITECTURE.md`. This file should focus on **how to operate the system**, not duplicate the architecture rationale.
 
 The goal is to preserve learning continuity without turning repository maintenance into a second study task.
 
@@ -11,6 +13,20 @@ The goal is to preserve learning continuity without turning repository maintenan
 `learning_progress.yaml` is **not generated from the Markdown files**. A tutor/model must make an explicit judgement about whether a session materially changed the structured learning state and update the YAML when appropriate.
 
 Do not infer mastery mechanically from the existence of code, tests, lesson logs, or wording in `LEARNING_STATE.md`.
+
+---
+
+## Model/tutor entry point
+
+If this is the model's **first encounter with the repository architecture**, read in this order:
+
+```text
+ARCHITECTURE.md
+SESSION_WORKFLOW.md
+LEARNING_STATE.md
+```
+
+Once the architecture is understood, routine study sessions do **not** need to reread `ARCHITECTURE.md`. Start with this workflow and the current state, then load only the smallest relevant course/lesson evidence.
 
 ---
 
@@ -77,6 +93,7 @@ Preferred tutoring behaviour:
 - hints and scaffolding before full solutions;
 - immediate feedback;
 - distinguish arithmetic/syntax slips from conceptual gaps;
+- distinguish representation-translation cost from conceptual weakness when the learner understands an idea in one representation but not another;
 - re-test fragile concepts with changed examples;
 - use concrete shapes, computations and implementation to ground theory;
 - keep ordinary retrieval reviews around 10–15 minutes unless a deeper review is requested.
@@ -261,7 +278,13 @@ Update only when strategy or dependency structure materially changes, for exampl
 
 Do not use the roadmap as a chronological diary. Structural path references should still remain valid after file moves.
 
-## 7. Validate and propose repository changes
+## 7. `ARCHITECTURE.md` — very rare
+
+Update only when the **learning system itself** changes: source responsibilities, information flow, namespaces, evidence model, onboarding or another recurring structural rule.
+
+Do not put ordinary lesson outcomes or current priorities here. Architecture should remain stable enough that a future model can use it as a durable map of the system.
+
+## 8. Validate and propose repository changes
 
 Before presenting session bookkeeping as complete:
 
@@ -280,6 +303,8 @@ GitHub Actions should then validate tests/dashboard generation. After merge to `
 
 | File/source | Purpose | Typical update cadence |
 |---|---|---|
+| `ARCHITECTURE.md` | Learning-system architecture and information flow | Very rarely; structural changes only |
+| `SESSION_WORKFLOW.md` | Tutor/model operating rules | When operating protocol changes |
 | Exercise + test | Evidence of implementation | When implementation changes |
 | Root `lesson_logs/lessonNN_*.md` + `historical_*.md` | Cross-course prep/retrieval record | Each substantive preparatory lesson |
 | `lesson_logs/<course_code>/` | Live-course lecture/tutorial/project/reflection context | Each substantive course session |
@@ -294,6 +319,8 @@ GitHub Actions should then validate tests/dashboard generation. After merge to `
 
 Use the right source for the right claim:
 
+- **How does this learning system fit together?** Read `ARCHITECTURE.md`.
+- **How should a tutor/model operate it?** Read `SESSION_WORKFLOW.md`.
 - **Implemented?** Inspect exercise/test code.
 - **What should be retrievable from a numbered lesson?** Inspect the root numbered lesson log.
 - **What happened in a particular live course?** Inspect `lesson_logs/<course_code>/` and preserve lecturer/pre-read/synthesis boundaries.
