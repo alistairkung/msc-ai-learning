@@ -6,7 +6,7 @@ This repository is the durable learning record and planning system for my MSc AI
 
 **What I can explain, what I have demonstrated, what remains uncertain, and the next useful action.** The dashboard separates concept evidence from performance, maps course requirements without invented mastery percentages, and shows three parallel study lanes.
 
-> **Tutor/model/agent:** read `SESSION_WORKFLOW.md`, then `LEARNING_STATE.md` and the relevant syllabus/log. For dashboard changes, read `dashboard/README.md`. The YAML is deliberately maintained from evidence; it is not inferred automatically from Markdown or passing tests. A private local `LEARNER_PROFILE.md` may be available in the learner's own workspace; never copy private profile content into this public repository or dashboard.
+> **Tutor/model/agent:** read `SESSION_WORKFLOW.md`, then `LEARNING_STATE.md` and the relevant syllabus/log. For live-course work, use the matching folder under `lesson_logs/<course_code>/`. For dashboard changes, read `dashboard/README.md`. The YAML is deliberately maintained from evidence; it is not inferred automatically from Markdown or passing tests. A private local `LEARNER_PROFILE.md` may be available in the learner's own workspace; never copy private profile content into this public repository or dashboard.
 
 ## What the repository preserves
 
@@ -17,7 +17,7 @@ Code existing does not prove cold-recall mastery. Receiving a solution does not 
 ## Structure
 
 ```text
-SESSION_WORKFLOW.md       tutoring and maintenance contract
+SESSION_WORKFLOW.md       tutoring, repository-structure and maintenance contract
 LEARNING_STATE.md         concise operational handover
 MSC_SYLLABUS_MAP.md       course weeks, requirements and uncertainty
 LEARNING_ROADMAP.md       long-term goals and dependencies
@@ -34,16 +34,32 @@ foundations/
   pandas/                data preparation
   retrieval/             mixed retrieval checkpoints
 machine_learning/        manual ML, classification and regression
-classical_ai/search/     BFS, DFS, A* and solution-free practice
-deep_learning/          tensors, autograd, training loops and MLPs
-lesson_logs/             numbered, historical and live-course records
+classical_ai/search/     BFS, DFS, UCS/A* practice and search work
+deep_learning/           tensors, autograd, training loops and MLPs
+lesson_logs/
+  INDEX.md               coverage/index for durable learning records
+  aims5701/              live AIMS5701 course notes/logs
+  aims5702/              live AIMS5702 course notes/logs
+  aims5704/              live AIMS5704 course notes/logs
+  ftec5660/              live FTEC5660 course notes/logs
+  lessonNN_*.md          numbered preparatory lesson logs
+  historical_*.md        reconstructed pre-repo foundation logs
 ```
+
+### Lesson-log organisation
+
+`lesson_logs/` has two deliberately different kinds of record:
+
+- **Numbered/historical preparation logs** stay at the root because they belong to the cross-course learning sequence.
+- **Live MSc course material** belongs inside the folder for that course code, for example `lesson_logs/aims5702/` or `lesson_logs/ftec5660/`.
+
+A course folder may contain a `README.md`/course context plus lecture, tutorial, assignment, project or reflection logs. Do not create a second top-level `notes/` hierarchy for course material. When a future model is asked about a course, it should start with that course folder and then read the smallest relevant file.
 
 Each numbered exercise and its matching test normally live together in their topic directory. Historical chat/pen-and-paper learning is preserved as retrieval blueprints, not fabricated exercise/test pairs or invented lesson numbers. The coverage index is [`lesson_logs/INDEX.md`](lesson_logs/INDEX.md).
 
 ## How to resume study
 
-Read the workflow and current handover. Consult the upcoming **course-specific** syllabus weeks, then the smallest relevant lesson log. Use the roadmap when choosing among longer-term priorities. Inspect code privately when useful, but do not reveal an old solution before independent reconstruction.
+Read the workflow and current handover. Consult the upcoming **course-specific** syllabus weeks, then the smallest relevant lesson log. For live-course material, go to `lesson_logs/<course_code>/`; for preparatory numbered lessons, use the matching root `lesson_logs/lessonNN_*.md`. Use the roadmap when choosing among longer-term priorities. Inspect code privately when useful, but do not reveal an old solution before independent reconstruction.
 
 Choose work from the intersection of upcoming course demand, prerequisite gaps, observed fragility and long-term AI/ML engineering value. Do not let the newest topic displace deliberately parked work. Keep live-course follow-up and protected maths continuity alongside the main implementation task rather than behind one endless queue.
 
@@ -59,7 +75,7 @@ The logs support commands such as “cold retrieve Lesson 30”, “retrieve cal
 
 > Session's over. Update the learning state, lesson log, and learning progress YAML if anything materially changed.
 
-Preserve code/tests if implementation changed, update the focused log, and update the operational handover after every substantive session. Update the YAML only for materially changed evidence, next actions, course requirements or study lanes. Update the syllabus when course reality changes and the roadmap only when strategy changes. Validate the relevant code/dashboard and normally propose a PR unless a different workflow is explicitly requested.
+Preserve code/tests if implementation changed, update the focused log, and update the operational handover after every substantive session. Course-specific material goes in its `lesson_logs/<course_code>/` folder. Update the YAML only for materially changed evidence, next actions, course requirements or study lanes. Update the syllabus when course reality changes and the roadmap only when strategy changes. Validate the relevant code/dashboard and normally propose a PR unless a different workflow is explicitly requested.
 
 | Source | Authority | Cadence |
 |---|---|---|
