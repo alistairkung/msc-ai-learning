@@ -416,7 +416,65 @@ Not every session should churn every file.
 
 ---
 
-# 7. Retrieval is an architectural feature, not just a study technique
+# 7. CI/CD and the integrity boundary
+
+Repository changes normally move through a branch and pull request before they become part of the durable learning record or the published Learning Atlas.
+
+```text
+study / repository change
+          |
+          v
+        branch
+          |
+          v
+          PR
+          |
+          v
+     GitHub Actions
+       |       |
+       |       +--> build dashboard PR preview artifact
+       |
+       +----------> run tests + validate dashboard build/evidence references
+          |
+          v
+      human review
+          |
+          v
+        merge
+          |
+          v
+         main
+          |
+          v
+     GitHub Actions
+          |
+          +--> rebuild Learning Atlas
+          |
+          +--> deploy GitHub Pages
+```
+
+GitHub Actions acts as an **integrity boundary between proposed learning-system changes and the published projection**.
+
+A tutor/model may propose edits to code, logs, state or `learning_progress.yaml`, but its own output is not considered valid merely because it wrote the change. CI provides a separate mechanical check that the repository still builds and that the dashboard projection remains structurally coherent. Human review remains the judgement boundary for whether the proposed learning record is accurate.
+
+The pipeline deliberately separates **PR validation** from **publication**:
+
+- pull requests run validation and produce a downloadable dashboard preview artifact;
+- PRs do not overwrite the live Learning Atlas;
+- only changes that reach `main` trigger the deployment path that rebuilds and publishes GitHub Pages;
+- generated `dashboard/site/` output is not committed as source evidence.
+
+This mirrors a broader principle used throughout the learning system:
+
+> **Generation and verification should be separate concerns.**
+
+AI can help generate and maintain the learning record. Tests, build validation and human review provide independent constraints before that record becomes the durable/published state.
+
+The CI pipeline does **not** judge learning mastery. It validates repository and projection integrity. Pedagogical claims still come from the evidence/provenance model described above.
+
+---
+
+# 8. Retrieval is an architectural feature, not just a study technique
 
 The system assumes that durable learning requires **reconstruction after forgetting**, not permanent conversational context.
 
@@ -439,7 +497,7 @@ Implementation/tests can support this process, but tests should not be mistaken 
 
 ---
 
-# 8. Representation translation
+# 9. Representation translation
 
 The learning system should preserve successful internal representations rather than forcing one canonical style of reasoning.
 
@@ -467,7 +525,7 @@ This is a general principle:
 
 ---
 
-# 9. Failure modes the architecture is designed to prevent
+# 10. Failure modes the architecture is designed to prevent
 
 ## Context-window dependence
 
@@ -499,6 +557,12 @@ This is a general principle:
 
 **Countermeasure:** YAML is explicitly a reviewed projection; lesson logs/code remain evidence sources.
 
+## Self-validating generated state
+
+**Failure:** a tutor/model changes the learning record or dashboard projection and its own output becomes accepted/published without an independent check.
+
+**Countermeasure:** PR workflow, GitHub Actions validation, preview artifacts and human review before `main`; deployment is main-only.
+
 ## Documentation sprawl
 
 **Failure:** every reflection creates a new top-level context system.
@@ -507,7 +571,7 @@ This is a general principle:
 
 ---
 
-# 10. Document responsibilities
+# 11. Document responsibilities
 
 | Source | Architectural role | Main question answered |
 |---|---|---|
@@ -520,12 +584,13 @@ This is a general principle:
 | `LEARNING_ROADMAP.md` | Long-term strategy | What dependencies/priorities matter over months? |
 | `learning_progress.yaml` | Reviewed structured projection | What selected state should the dashboard display? |
 | `dashboard/` | Presentation | How is structured state visualised? |
+| `.github/workflows/` | Validation + publication boundary | Does the proposed repository state validate, and when may the dashboard be published? |
 
 If two sources conflict, do not silently choose one. Resolve the conflict using the evidence hierarchy and update the appropriate document.
 
 ---
 
-# 11. Model/tutor onboarding
+# 12. Model/tutor onboarding
 
 For a model that is **new to the repository**, read:
 
@@ -544,38 +609,3 @@ historical maths   -> smallest relevant historical log
 planning decision  -> syllabus + roadmap
 implementation     -> exercise/test
 structured/UI work -> YAML + dashboard guidance
-```
-
-For a model already familiar with the architecture, routine study sessions normally begin with `SESSION_WORKFLOW.md` and `LEARNING_STATE.md`; there is no need to reread this entire file every turn.
-
----
-
-# 12. Evolution principle
-
-The architecture should evolve only when a recurring problem appears.
-
-Good reasons to change it:
-
-- a new class of source cannot be represented cleanly;
-- models repeatedly put information in the wrong place;
-- context recovery is too expensive or unreliable;
-- evidence provenance is being lost;
-- state and strategy are becoming conflated.
-
-Bad reason:
-
-- one conversation produced an interesting detail.
-
-The repository should remain a **learning aid, not a bureaucracy**.
-
-The system is successful when a future tutor can quickly answer:
-
-```text
-What has been learned?
-How strong is the evidence?
-What remains fragile or unknown?
-What does the MSc need next?
-What should we do in this session?
-```
-
-without needing the original conversation that created the record.
