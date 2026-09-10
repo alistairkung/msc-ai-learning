@@ -1,6 +1,6 @@
 # Lesson Log Index
 
-_Last audited: 2026-09-09_
+_Last audited: 2026-09-10_
 
 This directory is the durable conceptual/retrieval record for the learning sequence. Exercise/test files are the implementation evidence; these logs explain what should be understood and how to cold-retrieve it later.
 
@@ -38,7 +38,7 @@ For FTEC5660, future lecture/project logs should preserve the same source bounda
 
 ## Numbered lesson coverage
 
-All numbered lessons **01–32 now have a lesson log**.
+All numbered lessons **01–33 now have a lesson log**.
 
 | Lesson | Topic | Log status |
 |---|---|---|
@@ -74,6 +74,7 @@ All numbered lessons **01–32 now have a lesson log**.
 | 30 | PyTorch binary classification | Original detailed session log |
 | 31 | Real-data classification workflow | Original detailed session log — **complete** |
 | 32 | LangChain / LCEL basics | Original session log — **guided implementation + changed-example pytest complete; cold reconstruction due** |
+| 33 | Search reconstruction: BFS / DFS / UCS / A* | Original session log — **integrated suite passes; UCS/A* guided derivation; guarantees/complexity next** |
 
 “Reconstructed” means the available implementation evidence and recoverable tutoring context are used conservatively. These are not invented transcripts.
 
@@ -89,10 +90,11 @@ FTEC5660 live course  course material → pattern logs → guided/tutorial plan 
 10–17  NumPy / shape / manual ML + retrieval
 18–20  pandas / data workflow
 21–23  sklearn classical ML
-24–26  classical search
+24–26  original classical-search lessons
 27–30  tensors, autograd and PyTorch training
 31     real-data PyTorch workflow (complete)
 32     LangChain / LCEL basics (guided; later cold reconstruction)
+33     integrated search reactivation: BFS/DFS recall → UCS → A*
 ```
 
 ## How to use
@@ -104,6 +106,14 @@ For “cold retrieve Lesson N”:
 4. change numbers/context instead of repeating tests verbatim;
 5. probe known fragile points;
 6. stop once retention is clear.
+
+For search after Lesson 33:
+1. do not immediately replay all four implementations;
+2. consolidate completeness/optimality and assumptions;
+3. retrieve admissibility vs consistency;
+4. add time/memory complexity;
+5. later use one short changed-graph UCS/A* reconstruction as the next independence check;
+6. keep the repeated path-reconstruction cursor fragility in the recall pool.
 
 For an FTEC5660 lecture/pattern:
 1. read the relevant focused log;
