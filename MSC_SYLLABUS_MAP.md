@@ -94,9 +94,9 @@ _Restoration note (2026-09-09): the W6–12 rows and supporting preparation note
 
 **Term:** Sep–Dec 2026  
 **Live status:** Lecture 1 completed on **2026-09-08**; Pattern 1 Prompt Chaining taught, with tutorial progress through successful JSON parsing.  
-**Detailed course context:** `lesson_logs/ftec5660_course_context.md`  
-**Introduction retrieval log:** `lesson_logs/ftec5660_lecture01_introduction.md`  
-**Pattern 1 retrieval/tutorial log:** `lesson_logs/ftec5660_pattern01_prompt_chaining.md`
+**Detailed course context:** `lesson_logs/ftec5660/course_context.md`  
+**Introduction retrieval log:** `lesson_logs/ftec5660/lecture01_introduction.md`  
+**Pattern 1 retrieval/tutorial log:** `lesson_logs/ftec5660/pattern01_prompt_chaining.md`
 
 This course is being taught through the lens of automating finance/fintech/business workflows rather than purely through autonomous software engineering. Prior cross-border payments, KYC/onboarding and AML experience should be used deliberately as an interpretation layer.
 
