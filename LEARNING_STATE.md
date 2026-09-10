@@ -19,14 +19,14 @@ These lanes coexist; they are not one sequential queue. FTEC5660 remains deliber
 - MSc Term 1 is recorded as **7 Sep–4 Dec 2026**.
 - **AIMS5701 Fundamentals** is reported to start one week later than originally planned; exact revised dates are not independently confirmed.
 - **AIMS5702 Artificial Intelligence in Practice:** first live lecture was 10 Sep 2026. Only the introductory/Lecture 1 material was covered in class; the dtype/memory/stride/einsum material studied beforehand remains a pre-read preview of later supplied slides.
-- AIMS5702 course-specific notes live under `notes/aims5702/` rather than being forced into the numbered preparatory lesson sequence.
+- AIMS5702 course-specific logs live under `lesson_logs/aims5702/`. Live-course material for other modules follows the same `lesson_logs/<course_code>/` convention.
 - **AIMS5704 Machine Learning Theory** starts **11 Jan 2027** in the stored syllabus.
 - FTEC5660 remains a useful learning source, but continued enrolment is uncertain because the learner may be unable to commit to the hackathon final/pitch day. Course-specific FTEC work is deliberately parked for now.
 - **Return trigger for Agentic AI:** one day before the next FTEC5660 lecture. The exact calendar date is intentionally not invented here.
 
 ## AIMS5702 — Lecture 1 reflection + pre-read bridge
 
-Source: `notes/aims5702/lecture01_02_prelecture_bridge.md` plus prior Lessons 10, 11, 27–31.
+Source: `lesson_logs/aims5702/lecture01_02_prelecture_bridge.md` plus prior Lessons 10, 11, 27–31.
 
 ### Representation translation is now an explicit learning objective
 
@@ -180,7 +180,7 @@ Next search block should cover completeness/optimality, UCS non-negative-cost as
 
 ## FTEC5660 / LangChain — parked after Lesson 32
 
-Sources: `lesson_logs/ftec5660_pattern01_prompt_chaining.md`, `lesson_logs/ftec5660_lcel_guided_practice_2026_09_09.md`, `lesson_logs/lesson32_lcel_basics.md`, and `lesson_logs/ftec5660_tutorial01_study_plan.md`.
+Sources: `lesson_logs/ftec5660/pattern01_prompt_chaining.md`, `lesson_logs/ftec5660/lcel_guided_practice_2026_09_09.md`, `lesson_logs/lesson32_lcel_basics.md`, and `lesson_logs/ftec5660/tutorial01_study_plan.md`.
 
 - Prompt chaining concept is taught: stable sequential stages, checkable handoffs, deterministic processing between LLM stages, and cost/latency/failure trade-offs.
 - Lesson 32 implemented prompt templates, string/JSON parsers, invocation dictionaries and simple two-stage LCEL mapping with changed-example tests.
@@ -203,7 +203,7 @@ Sources: `lesson_logs/ftec5660_pattern01_prompt_chaining.md`, `lesson_logs/ftec5
 
 - **AIMS5701:** next consolidate search guarantees/complexity; light logic preview before W1; trees/random forests before W3; Bayes retrieval before W4; Markov diagnostic before W5.
 - **AIMS5702:** next course-specific review should train diagram/index/shape translation from Lecture 1 examples. Later systems/GPU work should follow the actual course sequence.
-- **FTEC5660:** deliberately parked. Resume one day before the next lecture from `ftec5660_tutorial01_study_plan.md`; do not replay Lesson 32 in full.
+- **FTEC5660:** deliberately parked. Resume one day before the next lecture from `lesson_logs/ftec5660/tutorial01_study_plan.md`; do not replay Lesson 32 in full.
 - **Maths:** selective LA/calculus/probability maintenance; later MLE and formal-theory extensions.
 
 ## Handover discipline
