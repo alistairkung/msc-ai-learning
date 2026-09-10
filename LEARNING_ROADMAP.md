@@ -314,8 +314,8 @@ FTEC5660 is now a live Term-1 module with two effects on the broader plan:
 
 Detailed state lives in:
 
-- `lesson_logs/ftec5660_course_context.md`
-- `lesson_logs/ftec5660_lecture01_introduction.md`
+- `lesson_logs/ftec5660/course_context.md`
+- `lesson_logs/ftec5660/lecture01_introduction.md`
 
 ### Durable personal learning lens
 
