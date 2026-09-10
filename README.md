@@ -6,7 +6,7 @@ This repository is the durable learning record and planning system for my MSc AI
 
 **What I can explain, what I have demonstrated, what remains uncertain, and the next useful action.** The dashboard separates concept evidence from performance, maps course requirements without invented mastery percentages, and shows three parallel study lanes.
 
-> **Tutor/model/agent:** read `SESSION_WORKFLOW.md`, then `LEARNING_STATE.md` and the relevant syllabus/log. For live-course work, use the matching folder under `lesson_logs/<course_code>/`. For dashboard changes, read `dashboard/README.md`. The YAML is deliberately maintained from evidence; it is not inferred automatically from Markdown or passing tests. A private local `LEARNER_PROFILE.md` may be available in the learner's own workspace; never copy private profile content into this public repository or dashboard.
+> **Tutor/model/agent:** if you are new to this repository, read `ARCHITECTURE.md` once to understand how the system fits together, then use `SESSION_WORKFLOW.md` and `LEARNING_STATE.md` for normal operation. For live-course work, use the matching folder under `lesson_logs/<course_code>/`. For dashboard changes, read `dashboard/README.md`. The YAML is deliberately maintained from evidence; it is not inferred automatically from Markdown or passing tests. A private local `LEARNER_PROFILE.md` may be available in the learner's own workspace; never copy private profile content into this public repository or dashboard.
 
 ## What the repository preserves
 
@@ -14,9 +14,12 @@ This repository is the durable learning record and planning system for my MSc AI
 
 Code existing does not prove cold-recall mastery. Receiving a solution does not prove independent performance. A topic appearing in code or on an overview slide does not mean it was taught. Historical learning is not automatically current fluency, and unknown retention is not failure.
 
+For the design rationale behind these boundaries and the information flow between files, see [`ARCHITECTURE.md`](ARCHITECTURE.md).
+
 ## Structure
 
 ```text
+ARCHITECTURE.md           learning-system design and information flow
 SESSION_WORKFLOW.md       tutoring, repository-structure and maintenance contract
 LEARNING_STATE.md         concise operational handover
 MSC_SYLLABUS_MAP.md       course weeks, requirements and uncertainty
@@ -59,13 +62,13 @@ Each numbered exercise and its matching test normally live together in their top
 
 ## How to resume study
 
-Read the workflow and current handover. Consult the upcoming **course-specific** syllabus weeks, then the smallest relevant lesson log. For live-course material, go to `lesson_logs/<course_code>/`; for preparatory numbered lessons, use the matching root `lesson_logs/lessonNN_*.md`. Use the roadmap when choosing among longer-term priorities. Inspect code privately when useful, but do not reveal an old solution before independent reconstruction.
+For a model already familiar with the repository architecture, read the workflow and current handover. Consult the upcoming **course-specific** syllabus weeks, then the smallest relevant lesson log. For live-course material, go to `lesson_logs/<course_code>/`; for preparatory numbered lessons, use the matching root `lesson_logs/lessonNN_*.md`. Use the roadmap when choosing among longer-term priorities. Inspect code privately when useful, but do not reveal an old solution before independent reconstruction.
 
 Choose work from the intersection of upcoming course demand, prerequisite gaps, observed fragility and long-term AI/ML engineering value. Do not let the newest topic displace deliberately parked work. Keep live-course follow-up and protected maths continuity alongside the main implementation task rather than behind one endless queue.
 
 ## How tutoring works
 
-Use one small question or task at a time: **task → learner attempt → concise feedback → next task**. Retrieve before explaining where appropriate. Distinguish conceptual gaps from algebra, notation and incidental API slips. Escalate from a question through hints and a partial scaffold before a full solution. The learner writes the important implementation, including composition or orchestration when that is the exercise.
+Use one small question or task at a time: **task → learner attempt → concise feedback → next task**. Retrieve before explaining where appropriate. Distinguish conceptual gaps from algebra, notation, representation-translation cost and incidental API slips. Escalate from a question through hints and a partial scaffold before a full solution. The learner writes the important implementation, including composition or orchestration when that is the exercise.
 
 Novel questions using learned concepts are useful. Questions requiring an untaught concept are new teaching, not failed retrieval. Keep normal maintenance retrieval around 10–15 minutes unless a deeper review is requested; stop when enough evidence is available.
 
@@ -79,6 +82,8 @@ Preserve code/tests if implementation changed, update the focused log, and updat
 
 | Source | Authority | Cadence |
 |---|---|---|
+| `ARCHITECTURE.md` | System design and source responsibilities | Only when the learning system itself changes |
+| `SESSION_WORKFLOW.md` | Tutor/model operating protocol | When operating rules change |
 | Exercise + test | What implementation exists | When code changes |
 | Lesson logs | What was taught/demonstrated, support and fragile points | Substantive sessions |
 | Learning state | Immediate continuation and active/parked work | Substantive sessions |
@@ -104,4 +109,4 @@ Open the local server in a browser. Run the repository's complete suite with `py
 
 ## Maintenance principle
 
-Preserve useful evidence, not every conversational detail. The system should make learning durable and easier to resume—not turn infrastructure maintenance into a second course.
+Preserve useful evidence, not every conversational detail. The system should make learning durable and easier to resume—not turn infrastructure maintenance into a second course. Architectural rationale belongs in `ARCHITECTURE.md`; operational rules belong in `SESSION_WORKFLOW.md`; current learning detail belongs in state/logs rather than being duplicated across all three.
