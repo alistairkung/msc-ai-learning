@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-09-09. Learning evidence through 2026-09-09._
+_Last maintained: 2026-09-10. Learning evidence through 2026-09-10._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured dashboard projection; focused lesson logs remain the detailed evidence source. Do not infer mastery from code presence alone.
 
@@ -8,9 +8,9 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **UCS implementation → A* reconstruction** | BFS independent reconstruction already succeeded. Do not restart BFS or broad search theory. This is the next study session. |
-| Parallel | **Short AIMS5701 logic preview** | Agentic AI is deliberately parked until one day before the next FTEC5660 lecture; do not let the newest live-course thread displace search. |
-| Protect | **A small relevant maths retrieval block** | Keep January AIMS5704 prerequisites alive even if live-course/project workload changes. |
+| Continue | **Search guarantees / complexity consolidation** | Lesson 33 completed the BFS/DFS/UCS/A* implementation block. Do not immediately rewrite all four algorithms again. |
+| Parallel | **Short AIMS5701 logic preview** | Agentic AI remains deliberately parked until one day before the next FTEC5660 lecture. |
+| Protect | **A small relevant maths retrieval block** | Keep January AIMS5704 prerequisites alive without turning them into a broad restart. |
 
 These lanes coexist; they are not one sequential queue.
 
@@ -19,55 +19,115 @@ These lanes coexist; they are not one sequential queue.
 - MSc Term 1 is recorded as **7 Sep–4 Dec 2026**.
 - **AIMS5701 Fundamentals** is reported to start one week later than originally planned; exact revised dates are not independently confirmed.
 - **AIMS5704 Machine Learning Theory** starts **11 Jan 2027** in the stored syllabus.
-- FTEC5660 remains a useful learning source, but continued enrolment is uncertain because the learner may be unable to commit to the hackathon final/pitch day. Course-specific FTEC work is therefore deliberately parked for now.
-- **Return trigger for Agentic AI:** one day before the next FTEC5660 lecture. The exact calendar date is not stored here because it has not been independently confirmed.
-- The learner recalls a hackathon and final project worth roughly 80% combined; dates/scope/exact weighting still need official confirmation.
+- FTEC5660 remains a useful learning source, but continued enrolment is uncertain because the learner may be unable to commit to the hackathon final/pitch day. Course-specific FTEC work is deliberately parked for now.
+- **Return trigger for Agentic AI:** one day before the next FTEC5660 lecture. The exact calendar date is intentionally not invented here.
 
-## Search — continue forward
+## Search — implementation block completed through Lesson 33
 
-Source: `lesson_logs/search_reactivation_2026_09_06.md` and Lessons 24–26.
+Sources: `lesson_logs/search_reactivation_2026_09_06.md`, Lessons 24–26, and `lesson_logs/lesson33_search_reconstruction.md`.
 
-- **BFS:** independent successful reconstruction logged after debugging two state-role errors; retained solution-free practice test is for occasional maintenance only.
-- **DFS:** traversal/LIFO reasoning and a guided BFS→DFS derivation are logged; no separate unaided DFS reconstruction is claimed.
-- **UCS:** accumulated-cost reasoning is taught; implementation remains the next coding step.
-- **A\*:** historical implementation exists; `g`, `h`, `f=g+h` were recovered. Reconstruct after UCS.
-- **Theory:** admissibility, consistency, completeness and optimality are introduced; consistency/guarantee assumptions and complexity still need consolidation.
-- **Searching with other agents:** still new; exact course framing remains unconfirmed.
+### BFS
 
-Retain two implementation fragilities: fixed search variable versus moving reconstruction cursor, and graph adjacency versus discovered-state membership. `h(n)` is remaining cost from `n`, not cost of reaching it.
+- FIFO / `popleft()` and level-order behaviour were cold-recalled correctly.
+- The learner correctly explained that BFS gives a fewest-edge path on an unweighted graph because of its frontier ordering.
+- BFS remains the strongest independent search evidence from the 6 September reconstruction.
+- During today's reconstruction, the **moving path-reconstruction cursor** fragility recurred: a moving cursor was created but fixed `current` was initially used inside the loop. This should remain a cold-recall probe.
+- A small `path.reverse` vs `path.reverse()` Python slip also appeared.
 
-**Next study session:** weighted neighbours → priority frontier → accumulated `g` → cheaper-path updates → path reconstruction. Learner writes the important implementation. Then derive A* using `g+h`.
+### DFS
+
+- LIFO / `pop()` behaviour, branch-deepening intuition, and non-shortest-path behaviour were recalled correctly.
+- DFS was reconstructed from the BFS skeleton and all practice tests passed after one indentation correction (`return None` had initially remained inside the search loop).
+- This is stronger current evidence than the earlier guided BFS→DFS derivation, but it followed immediate BFS recall and targeted debugging support. Keep DFS as **guided/refreshed implementation evidence**, not pristine cold independence.
+
+### UCS
+
+Lesson 33 introduced and implemented UCS using a priority queue.
+
+Cold-retrievable model:
+
+```text
+frontier entry = (g, node)
+g = accumulated cost from start to node
+cost_so_far[node] = cheapest known g for that node
+```
+
+The learner correctly stated the key update condition conceptually: update when the neighbour is unseen **or** the new accumulated cost is cheaper.
+
+Passing practice tests cover:
+
+- lowest-cost path;
+- start==goal;
+- unreachable goal;
+- cheaper-path replacement;
+- preferring lower cost over fewer edges.
+
+Support was needed for `heapq` mechanics, tuple unpacking, neighbour/edge-cost roles, unseen-or-cheaper syntax, and pushing `(new_cost, node)`. A trace also exposed an accumulated-cost slip (`2 + 3` initially treated as `3`). Therefore UCS is **successfully implemented with guided derivation**, not independent yet.
+
+### A*
+
+A* was derived directly from UCS:
+
+```text
+UCS priority = g(n)
+A* priority  = f(n) = g(n) + h(n)
+```
+
+The learner understood that the heap must preserve both priority and true path cost, leading to entries shaped as:
+
+```text
+(f, g, node)
+```
+
+Passing practice tests cover:
+
+- lowest-cost path;
+- start==goal;
+- unreachable goal;
+- cheaper-path replacement;
+- heuristic-driven frontier priority;
+- `h=0` reducing A* to UCS.
+
+Support was needed for initial heap shape, tuple unpacking, using the **neighbour's** heuristic, and keeping `g` separate from `h`. Therefore A* is current implemented/guided evidence rather than new cold-independent evidence.
+
+### Compact comparison to retain
+
+```text
+BFS  -> FIFO / discovery order
+DFS  -> LIFO / most recently discovered
+UCS  -> lowest g
+A*   -> lowest g + h
+```
+
+```text
+g(n) = real accumulated cost from start to n
+h(n) = estimated remaining cost from n to goal
+f(n) = g(n) + h(n)
+```
+
+### Search theory still due
+
+Implementation success does **not** establish the guarantees/complexity material.
+
+Next search block should cover:
+
+1. completeness and optimality across BFS / DFS / UCS / A*;
+2. assumptions behind UCS optimality, especially non-negative edge costs;
+3. admissibility vs consistency for A*;
+4. why UCS/A* stop when the goal is **popped**, not merely discovered;
+5. qualitative then formal time/memory complexity as required by AIMS5701;
+6. confirm what the course means by “searching with other agents” before teaching it.
+
+Only later use one short changed-graph reconstruction to test whether UCS/A* have moved from guided to independent retrieval.
 
 ## FTEC5660 / LangChain — parked after Lesson 32
 
 Sources: `lesson_logs/ftec5660_pattern01_prompt_chaining.md`, `lesson_logs/ftec5660_lcel_guided_practice_2026_09_09.md`, `lesson_logs/lesson32_lcel_basics.md`, and `lesson_logs/ftec5660_tutorial01_study_plan.md`.
 
-### Prompt chaining concept
-
-- Stable sequential stages, structured/checkable handoffs, deterministic validation/normalisation between LLM stages, context engineering, and cost/latency/failure trade-offs are taught.
-- Expense-ledger anchor remains **LLM parse → Python compute → LLM explain**; class reached successful parsing of 120 rows into JSON, not the full pipeline.
-- The 21-pattern catalogue remains orientation/reference, not a recall backlog.
-
-### LCEL implementation — 9 Sep
-
-A tracked Lesson 32 implementation/test pair exists under `agentic_ai/langchain/`. The learner completed changed-example pytest exercises using `FakeListChatModel` rather than real API calls.
-
-Implemented and tested:
-
-- `ChatPromptTemplate.from_template(...)` with named placeholders;
-- `prompt | llm | StrOutputParser()`;
-- `prompt | llm | JsonOutputParser()`;
-- invocation dictionaries matching prompt placeholders;
-- free-text risk extraction into a Python dict;
-- a two-stage chain mapping an earlier extraction chain into a named input for a recommendation prompt.
-
-The first prompt/chain exercises transferred cleanly. The recurring fragility was **function object vs function call** (`builder` vs `builder()`), with similar taught-pass slips around parser class vs instance and passed `llm` object vs `llm()`. The learner's intended LCEL composition was generally correct; treat these as Python/API fluency rust rather than a conceptual LCEL failure.
-
-Two-stage mapping required conceptual support before the learner successfully implemented the passing version. Therefore **do not mark LCEL independent yet**.
-
-### Prompt-design retrieval target
-
-The learner explicitly wants this four-part checklist cold-retrievable:
+- Prompt chaining concept is taught: stable sequential stages, checkable handoffs, deterministic processing between LLM stages, and cost/latency/failure trade-offs.
+- Lesson 32 implemented prompt templates, string/JSON parsers, invocation dictionaries and simple two-stage LCEL mapping with changed-example tests.
+- LCEL remains **guided**, because two-stage composition required support and Python/API role slips (`fn` vs `fn()`, parser class vs instance) recurred.
+- Prompt-design cold-recall target remains:
 
 ```text
 Task
@@ -76,46 +136,25 @@ Constraints
 Output structure
 ```
 
-Future retrieval should test transfer by giving a vague prompt and asking the learner to improve it using the four dimensions, rather than only asking for list recitation.
-
-### Tutorial 1 follow-up plan
-
-The remainder of Tutorial 1 was reviewed and decomposed into a simpler study plan. The large US-tax example is treated as an architectural illustration rather than code to memorise. The durable next concepts are:
-
-1. short Lesson 32 cold reconstruction;
-2. `RunnablePassthrough.assign` as **state enrichment**;
-3. `RunnableLambda` as **ordinary Python participating in LCEL**;
-4. deterministic **gates / fail-fast validation**;
-5. one compact payments/KYC workflow combining extraction, validation, deterministic code and explanation;
-6. model-generated code as **generate artifact → test artifact → permit/reject artifact**;
-7. re-read the tax chain only as roles: extract / decide / validate / generate rule / compute / format;
-8. later changed-domain cold reconstruction;
-9. bridge from fixed chaining to the next course concept, **routing**.
-
-Full plan: `lesson_logs/ftec5660_tutorial01_study_plan.md`.
-
-**Resume protocol:** one day before the next FTEC5660 lecture, do only a 5–10 minute changed-example Lesson 32 check, then move into `RunnablePassthrough.assign` → `RunnableLambda` → gates. Use payments/KYC examples rather than reproducing US-tax calculations.
-
-The annotated notebook produced during review is intentionally **not committed**; only the durable learning plan is stored in the repository.
-
-Still outside demonstrated performance: substantive `RunnableLambda`, `RunnablePassthrough`, gates, full ledger compute/explain wiring, TaxCalcBench and generated-code workflows. They are planned new teaching, not failed recall.
+- Tutorial 1 follow-up remains parked. Resume one day before the next FTEC5660 lecture with only a 5–10 minute Lesson 32 cold check, then move into `RunnablePassthrough.assign` → `RunnableLambda` → gates using payments/KYC examples.
+- The large US-tax notebook remains an architecture illustration, not something to memorise or reproduce.
 
 ## Established foundations / remaining uncertainty
 
-- **Python / NumPy / pandas:** substantial practice in Lessons 01–20 and 27. Python/API syntax can still be less automatic than long-used backend languages; Lesson 32 exposed recurring bare-function-name invocation slips.
-- **Linear algebra:** historical JHU foundation established; retrieve small relevant blocks rather than restart. Fragilities include RREF/free variables, eigen/determinant arithmetic, projections/Gram–Schmidt, normal equations and quadratic forms.
+- **Python / NumPy / pandas:** substantial practice in Lessons 01–20 and 27. Python syntax/API fluency can still be less automatic than the learner's long-used backend languages.
+- **Linear algebra:** historical JHU foundation established; retrieve small relevant blocks rather than restart.
 - **Probability/statistics:** Bayes, distributions, joint moments, inequalities and CLT/inference have strong historical evidence. Markov chains and Poisson remain diagnostic-needed rather than proven current mastery.
-- **Calculus:** slope → derivatives → partials → gradients → chain rule/backprop is historically established; keep notation/algebra slips separate from conceptual gaps.
-- **Practical ML:** linear/logistic regression and the Lesson 31 train/validation/test workflow are implemented. Transfer ability should be tested on changed tasks rather than inferred from code.
+- **Calculus:** slope → derivatives → partials → gradients → chain rule/backprop is historically established.
+- **Practical ML:** linear/logistic regression and the Lesson 31 train/validation/test workflow are implemented; transfer should be tested on changed tasks.
 - **January extensions:** likelihood/MLE, exponential families, formal generalisation/concentration, convergence assumptions and proof-style derivations remain genuinely new work.
 
 ## Parked / must return
 
-- **AIMS5701:** light logic preview before W1; finish search before W2; trees/random forests before W3; Bayes retrieval before W4; Markov diagnostic before W5.
+- **AIMS5701:** next consolidate search guarantees/complexity; light logic preview before W1; trees/random forests before W3; Bayes retrieval before W4; Markov diagnostic before W5.
 - **AIMS5702:** scientific-Python/representation work before W3; CNN/RNN preview before W4; transfer the real-data workflow to neural regression before W5.
 - **FTEC5660:** deliberately parked. Resume **one day before the next lecture** from `ftec5660_tutorial01_study_plan.md`; do not replay Lesson 32 in full.
 - **Maths:** selective LA/calculus/probability maintenance; later MLE and formal-theory extensions.
 
 ## Handover discipline
 
-After the next substantive session, update its focused log and this handover. Update `learning_progress.yaml` when evidence or study-lane priorities materially change. Lesson 32 remains guided rather than independent. Historical detail belongs in logs, not this file.
+After the next substantive session, update its focused log and this handover. `learning_progress.yaml` should also be updated when the structured dashboard is next maintained: Lesson 33 materially changes UCS/A* evidence and the continue-lane target from implementation to guarantees/complexity. Historical detail belongs in focused logs, not this handover.
