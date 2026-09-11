@@ -1,98 +1,110 @@
 # MSc AI Learning Repository
 
-This repository is the durable learning record and planning system for my MSc AI preparation and study.
+This is my working learning repository for an MSc in Artificial Intelligence.
+
+It started as a place to keep coding exercises, but it has gradually become a system for making study **cumulative**: code records what I have built, lesson logs preserve what I actually understood or found fragile, course folders track live lectures, and a small set of planning files helps decide what is worth studying next.
+
+A big part of the experiment is using AI tutors without letting each new chat start from zero. The repository acts as durable external memory, while retrieval exercises and tests make sure that saved context does not get mistaken for actual learning.
 
 ## [Open the Learning Atlas](https://alistairkung.github.io/msc-ai-learning/)
 
-**What I can explain, what I have demonstrated, what remains uncertain, and the next useful action.** The dashboard separates concept evidence from performance, maps course requirements without invented mastery percentages, and shows three parallel study lanes.
+The Learning Atlas is a read-only dashboard over the structured learning record. It shows current evidence, course runway and the active study lanes without pretending that progress can be reduced to a single mastery percentage.
 
-> **Tutor/model/agent:** read `SESSION_WORKFLOW.md`, then `LEARNING_STATE.md` and the relevant syllabus/log. For live-course work, use the matching folder under `lesson_logs/<course_code>/`. For dashboard changes, read `dashboard/README.md`. The YAML is deliberately maintained from evidence; it is not inferred automatically from Markdown or passing tests. A private local `LEARNER_PROFILE.md` may be available in the learner's own workspace; never copy private profile content into this public repository or dashboard.
+## How the learning loop works
 
-## What the repository preserves
+```mermaid
+flowchart TD
+    A[Live MSc courses<br/>lectures · tutorials · assignments] --> B[Course demand<br/>MSC_SYLLABUS_MAP.md]
+    B --> C[Choose the next useful study block]
+    D[Longer-term prerequisites<br/>LEARNING_ROADMAP.md] --> C
+    E[Current strengths, gaps and parked work<br/>LEARNING_STATE.md] --> C
 
-**Implementation evidence:** exercises and tests record what was built. **Learning continuity:** lesson logs preserve demonstrations, support needed, fragile points and taught boundaries. **Direction:** the syllabus and roadmap connect current work with future demands, especially January Machine Learning Theory.
+    C --> F[Study session<br/>retrieve · reason · implement · test]
+    F --> G[Implementation evidence<br/>exercises + tests]
+    F --> H[Learning evidence<br/>lesson_logs/]
 
-Code existing does not prove cold-recall mastery. Receiving a solution does not prove independent performance. A topic appearing in code or on an overview slide does not mean it was taught. Historical learning is not automatically current fluency, and unknown retention is not failure.
-
-## Structure
-
-```text
-SESSION_WORKFLOW.md       tutoring, repository-structure and maintenance contract
-LEARNING_STATE.md         concise operational handover
-MSC_SYLLABUS_MAP.md       course weeks, requirements and uncertainty
-LEARNING_ROADMAP.md       long-term goals and dependencies
-learning_progress.yaml   structured, reviewed evidence projection
-
-dashboard/               static builder, interface and validation tests
-foundations/
-  calculus/              historical chat-based preparation
-  linear_algebra/        historical JHU retrieval blocks
-  probability_statistics/ historical JHU retrieval blocks
-  python/                lessons 01–07
-  dsa/                   lessons 08–09
-  numpy/                 numerical foundations
-  pandas/                data preparation
-  retrieval/             mixed retrieval checkpoints
-machine_learning/        manual ML, classification and regression
-classical_ai/search/     BFS, DFS, UCS/A* practice and search work
-deep_learning/           tensors, autograd, training loops and MLPs
-lesson_logs/
-  INDEX.md               coverage/index for durable learning records
-  aims5701/              live AIMS5701 course notes/logs
-  aims5702/              live AIMS5702 course notes/logs
-  aims5704/              live AIMS5704 course notes/logs
-  ftec5660/              live FTEC5660 course notes/logs
-  lessonNN_*.md          numbered preparatory lesson logs
-  historical_*.md        reconstructed pre-repo foundation logs
+    G --> E
+    H --> E
+    E --> I[Reviewed structured projection<br/>learning_progress.yaml]
+    I --> J[Learning Atlas]
 ```
 
-### Lesson-log organisation
+The loop is deliberately evidence-based. A passing test means some implementation works; it does not automatically mean I can reconstruct it cold. A topic appearing in lecture slides does not mean it was taught in depth. Something learned months ago is useful evidence of prior exposure, but may still need retrieval before I rely on it.
 
-`lesson_logs/` has two deliberately different kinds of record:
+## What is in here
 
-- **Numbered/historical preparation logs** stay at the root because they belong to the cross-course learning sequence.
-- **Live MSc course material** belongs inside the folder for that course code, for example `lesson_logs/aims5702/` or `lesson_logs/ftec5660/`.
+The code is organised by subject area: Python/data foundations, machine learning, classical AI/search, deep learning and agentic AI. Most numbered exercises have matching tests so there is a concrete record of what was implemented.
 
-A course folder may contain a `README.md`/course context plus lecture, tutorial, assignment, project or reflection logs. Do not create a second top-level `notes/` hierarchy for course material. When a future model is asked about a course, it should start with that course folder and then read the smallest relevant file.
+`lesson_logs/` is the durable learning history. Numbered preparation lessons and reconstructed historical foundations sit at its root. Live MSc material is grouped by course so lectures, tutorials, reflections and course context stay together:
 
-Each numbered exercise and its matching test normally live together in their topic directory. Historical chat/pen-and-paper learning is preserved as retrieval blueprints, not fabricated exercise/test pairs or invented lesson numbers. The coverage index is [`lesson_logs/INDEX.md`](lesson_logs/INDEX.md).
+```text
+lesson_logs/
+├── aims5701/          Fundamentals in Artificial Intelligence
+├── aims5702/          Artificial Intelligence in Practice
+├── aims5704/          Machine Learning Theory
+├── ftec5660/          Agentic AI in Finance / FinTech
+├── lessonNN_*.md      numbered cross-course preparation lessons
+├── historical_*.md    reconstructed pre-repo maths/foundation learning
+└── INDEX.md           coverage index
+```
 
-## How to resume study
+The rest of the repository contains the executable learning work:
 
-Read the workflow and current handover. Consult the upcoming **course-specific** syllabus weeks, then the smallest relevant lesson log. For live-course material, go to `lesson_logs/<course_code>/`; for preparatory numbered lessons, use the matching root `lesson_logs/lessonNN_*.md`. Use the roadmap when choosing among longer-term priorities. Inspect code privately when useful, but do not reveal an old solution before independent reconstruction.
+```text
+foundations/            Python, DSA, NumPy, pandas and maths foundations
+machine_learning/       classical ML exercises
+classical_ai/search/    BFS, DFS, UCS, A* and related practice
+deep_learning/          tensors, autograd, training loops and MLPs
+agentic_ai/             agentic-AI / LangChain implementation work
+lesson_logs/            durable learning and course records
+dashboard/              Learning Atlas builder and tests
+```
 
-Choose work from the intersection of upcoming course demand, prerequisite gaps, observed fragility and long-term AI/ML engineering value. Do not let the newest topic displace deliberately parked work. Keep live-course follow-up and protected maths continuity alongside the main implementation task rather than behind one endless queue.
+## The documents that hold the system together
 
-## How tutoring works
+[`ARCHITECTURE.md`](ARCHITECTURE.md) explains **why the learning system is structured this way** and how evidence, state, course demand, strategy and the dashboard relate to one another.
 
-Use one small question or task at a time: **task → learner attempt → concise feedback → next task**. Retrieve before explaining where appropriate. Distinguish conceptual gaps from algebra, notation and incidental API slips. Escalate from a question through hints and a partial scaffold before a full solution. The learner writes the important implementation, including composition or orchestration when that is the exercise.
+[`SESSION_WORKFLOW.md`](SESSION_WORKFLOW.md) is the operating protocol for an AI tutor or model working with the repository. [`LEARNING_STATE.md`](LEARNING_STATE.md) is the short-lived handover: what is active, what is fragile, what is parked and what should happen next. [`MSC_SYLLABUS_MAP.md`](MSC_SYLLABUS_MAP.md) maps preparation against upcoming course material, while [`LEARNING_ROADMAP.md`](LEARNING_ROADMAP.md) holds the slower-changing prerequisite and dependency strategy.
 
-Novel questions using learned concepts are useful. Questions requiring an untaught concept are new teaching, not failed retrieval. Keep normal maintenance retrieval around 10–15 minutes unless a deeper review is requested; stop when enough evidence is available.
+`learning_progress.yaml` is the reviewed structured projection used by the dashboard. It is maintained from evidence rather than generated mechanically from Markdown or test results.
 
-The logs support commands such as “cold retrieve Lesson 30”, “retrieve calculus foundations”, or “retrieve Bayes”. For historical maths choose a focused block; diagnose weakly recovered topics such as Markov chains/Poisson instead of assuming mastery or restarting whole courses.
+## How I use it to study
 
-## End-of-session workflow
+The normal tutoring loop is intentionally small:
 
-> Session's over. Update the learning state, lesson log, and learning progress YAML if anything materially changed.
+```text
+question or task
+    → my attempt
+    → concise feedback / hint
+    → next task
+```
 
-Preserve code/tests if implementation changed, update the focused log, and update the operational handover after every substantive session. Course-specific material goes in its `lesson_logs/<course_code>/` folder. Update the YAML only for materially changed evidence, next actions, course requirements or study lanes. Update the syllabus when course reality changes and the roadmap only when strategy changes. Validate the relevant code/dashboard and normally propose a PR unless a different workflow is explicitly requested.
+Cold retrieval comes before explanation when that is useful. Important implementation work stays learner-owned rather than becoming copy/paste from a tutor. Changed examples are used to check transfer. Syntax slips, notation problems and conceptual gaps are recorded differently because they need different fixes.
 
-| Source | Authority | Cadence |
-|---|---|---|
-| Exercise + test | What implementation exists | When code changes |
-| Lesson logs | What was taught/demonstrated, support and fragile points | Substantive sessions |
-| Learning state | Immediate continuation and active/parked work | Substantive sessions |
-| Progress YAML | Reviewed structured evidence used by the UI | Material evidence/planning changes |
-| Syllabus map | Course-facing sequence, requirements and uncertainty | Course/timing/readiness changes |
-| Roadmap | Long-term goals and dependency strategy | Infrequently |
+The repository is also intentionally **lossy**. It is not meant to preserve every conversation. It keeps the bits that are useful later: what was learned, what needed help, what remains fragile, what evidence exists, and what should happen next.
 
-Conflicts require an explicit evidence check, not silent reconciliation. `learning_progress.yaml` schema v2 replaces the old single `status` / `retrieval` model; the workflow's qualitative examples are not literal v2 field names. See the dashboard guide before editing it.
+## If you are an AI tutor/model
 
-## Dashboard views
+Start here rather than inferring the workflow from random files:
 
-**Knowledge:** filterable evidence matrix with source-backed topic details, learning paths and history. **Course runway:** available anchors, actual remaining requirements and unmapped scope, not a weakest-topic “ready” score. **Study queue:** Continue, Parallel and Protect lanes.
+1. **First time in the repository:** read [`ARCHITECTURE.md`](ARCHITECTURE.md) to understand the system.
+2. Read [`SESSION_WORKFLOW.md`](SESSION_WORKFLOW.md) for the tutoring and maintenance rules.
+3. Read [`LEARNING_STATE.md`](LEARNING_STATE.md) for the current handover.
+4. Check the relevant upcoming section of [`MSC_SYLLABUS_MAP.md`](MSC_SYLLABUS_MAP.md).
+5. Load the **smallest relevant** lesson or course log. Live-course records are under `lesson_logs/<course_code>/`; numbered preparation logs remain at the root of `lesson_logs/`.
+6. Inspect exercise/test code when implementation evidence matters. Use `LEARNING_ROADMAP.md` when a longer-term priority decision is needed, and `learning_progress.yaml` when changing the dashboard state.
 
-The page is static and read-only. It makes no model calls, loads no external assets and does not book calendar events. Generated `dashboard/site/` output stays out of Git. GitHub Actions builds a PR preview artifact and deploys Pages only after changes reach `main`.
+Please preserve the evidence boundaries documented in the workflow: lecturer-covered material, pre-reading, guided work, independent performance, historical learning and personal synthesis are not interchangeable. A private local `LEARNER_PROFILE.md` may exist in the learner's own workspace; private profile content should never be copied into this public repository or dashboard.
+
+## Running the repository
+
+Run the full test suite with:
+
+```bash
+python -m pytest
+```
+
+To build the Learning Atlas locally:
 
 ```bash
 python -m pytest dashboard/test_build.py
@@ -100,8 +112,8 @@ python dashboard/build.py
 python -m http.server 8000 --directory dashboard/site
 ```
 
-Open the local server in a browser. Run the repository's complete suite with `python -m pytest`. Browser checks and schema-maintenance instructions are in [`dashboard/README.md`](dashboard/README.md).
+More dashboard maintenance details live in [`dashboard/README.md`](dashboard/README.md).
 
-## Maintenance principle
+## Guiding idea
 
-Preserve useful evidence, not every conversational detail. The system should make learning durable and easier to resume—not turn infrastructure maintenance into a second course.
+The point of all this is not to build elaborate study infrastructure for its own sake. It is to make learning easier to resume, harder to fake, and less dependent on one conversation remembering everything.
