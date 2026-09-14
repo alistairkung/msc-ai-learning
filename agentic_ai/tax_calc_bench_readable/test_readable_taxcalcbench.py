@@ -1,5 +1,6 @@
 import json
 
+import pytest
 from langchain_core.language_models.fake_chat_models import FakeListChatModel
 
 from agentic_ai.tax_calc_bench_readable.lecturer_case import (
@@ -86,8 +87,10 @@ def test_manual_tax_breakdown_exposes_each_bracket_for_lecturer_case():
 
     assert taxable_amounts[:4] == [11_600, 35_550, 53_375, 42_220]
     assert taxable_amounts[4:] == [0, 0, 0]
-    assert tax_amounts[:4] == [1_160, 4_266, 11_742.5, 10_132.8]
-    assert breakdown.unrounded_tax == 27_301.3
+    assert tax_amounts[:4] == pytest.approx(
+        [1_160, 4_266, 11_742.5, 10_132.8]
+    )
+    assert breakdown.unrounded_tax == pytest.approx(27_301.3)
     assert breakdown.rounded_tax == 27_301
 
 
