@@ -8,13 +8,13 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **FTEC5660 Lesson 34 implementation practice** | Agentic AI resumed 14 Sep. Work through the new stateful-LCEL tests: deterministic route → validation gate → extraction → `assign`/`RunnableLambda` pipeline. |
+| Continue | **FTEC5660 Tutorial 1 architecture → routing bridge** | Lesson 34 stateful LCEL implementation is green. Consolidate contracts/state/failure localisation, then continue toward generated-code architecture and routing rather than adding syntax for its own sake. |
 | Parallel | **AIMS5702 representation translation + light tensor maintenance** | Shape reasoning remains the anchor; train diagram ↔ shapes ↔ indices ↔ PyTorch when course work resumes. |
 | Protect | **Search theory + a small relevant maths retrieval block** | Search implementation is complete through Lesson 33 but guarantees/complexity remain due; keep January AIMS5704 prerequisites alive without a broad restart. |
 
 These lanes coexist; they are not one sequential queue.
 
-## FTEC5660 / LangChain — resumed 14 Sep
+## FTEC5660 / LangChain — Lesson 34 implemented 14 Sep
 
 Sources: `lesson_logs/lesson32_lcel_basics.md`, `lesson_logs/ftec5660/tutorial01_study_plan.md`, and `lesson_logs/ftec5660/lesson34_stateful_lcel_2026_09_14.md`.
 
@@ -37,59 +37,110 @@ The short resume check worked as intended rather than replaying the whole lesson
 
 Do not replay Lesson 32 again; sample these fragilities later with changed examples.
 
-### Lesson 34 new concepts — guided, implementation pending
+### Lesson 34 — stateful LCEL implementation complete
+
+The learner worked sequentially through the new practice suite and reported **all tests green**.
+
+Implemented:
+
+```text
+determine_review_route
+validate_extraction
+build_extraction_chain
+build_payment_pipeline
+```
+
+Final architecture:
+
+```text
+initial {payment_note}
+    ↓
+RunnablePassthrough.assign(extracted = LLM extraction)
+    ↓
+{payment_note, extracted}
+    ↓
+RunnableLambda(validate_extraction)
+    ↓
+{payment_note, extracted}       # unchanged but validated
+    ↓
+RunnablePassthrough.assign(review_route = deterministic Python)
+    ↓
+{payment_note, extracted, review_route}
+```
 
 #### `RunnablePassthrough.assign`
 
-Mental model:
+Current mental model:
 
 > Preserve the current state dictionary and add a runnable's result under a named key.
 
-The learner successfully traced nested/enriched state and understood the distinction between independent enrichments in one `assign` and dependent sequential assignments. Important correction retained: `|` means sequential runnable stages, not necessarily sequential LLM calls.
+The learner understands independent enrichments can share an incoming state in one assign, while dependent enrichments need sequential stages so the later runnable sees earlier enriched state.
 
 #### `RunnableLambda`
 
-Mental model:
+Current mental model:
 
-> Adapt ordinary deterministic Python into an LCEL runnable stage.
+> Adapt ordinary Python into a runnable that LCEL can invoke with runtime state.
 
-The learner correctly preferred deterministic Python for an exact threshold rule and implemented the underlying route function after one output-contract correction (`True/False` initially, then required `MANUAL_REVIEW`/`STANDARD`).
+The learner correctly chose deterministic Python for exact threshold policy rather than spending another LLM call on exact computation.
 
 #### Validation gates
 
-Contract:
+Current model:
 
 ```text
 valid state   -> return same state unchanged
 invalid state -> fail loudly
 ```
 
-The learner understood why downstream code should only receive state that passed the contract, why a successful gate must return state rather than `None`, and why validation should not silently repair/coerce malformed LLM output. Their explanation emphasized single responsibility and avoiding assumptions about producer intent.
+The learner implemented required-key/type/value checks, repaired missing-key handling after a test exposed `KeyError`, and correctly rejected a string `"15000"` where numeric amount was required.
 
-Python syntax in the first validator attempt was rusty (`&&`, `isinstance` syntax, nesting), so implementation evidence is still pending.
+They also articulated why validation should not silently repair/coerce malformed model output: it violates single responsibility and assumes producer intent. An explicit repair path should be separate if desired.
 
-### Practice now queued
+### Support / fragilities during implementation
 
-Files created on the current practice branch:
+The overall three-stage architecture was chosen correctly by the learner, but implementation still needed targeted support for:
 
-- `agentic_ai/langchain/lesson34_stateful_lcel_practice.py` — learner scaffold only;
-- `agentic_ai/langchain/test_lesson34_stateful_lcel_practice.py` — sequential practice tests.
+- `build_extraction_chain(llm)` builder invocation;
+- `RunnableLambda(determine_review_route)` callable vs `determine_review_route()` immediate invocation;
+- prompt output fields/types matching downstream validator/Python contracts;
+- required-key checks before dictionary value access.
 
-Work through tests in order:
+Callable timing (`fn` vs `fn()`) remains the clearest recurring Python/LCEL fragility. Keep this as a short future changed-example probe.
 
-1. deterministic `determine_review_route`;
-2. valid-state gate returns the identical state;
-3. malformed extraction fails fast;
-4. structured extraction chain;
-5. complete stateful pipeline preserving input + adding `extracted` + validated deterministic `review_route`;
-6. low-value route case;
-7. malformed LLM extraction fails before routing.
+### Post-green conceptual synthesis
 
-Do not provide the finished implementation up front. Use the normal hint ladder and let the learner own the orchestration.
+Immediate state tracing was correct:
 
-### Current evidence boundary
+```text
+{payment_note}
+-> {payment_note, extracted}
+-> {payment_note, extracted}       # gate
+-> {payment_note, extracted, review_route}
+```
 
-`RunnablePassthrough.assign`, `RunnableLambda`, and validation gates are **new guided concepts**, not independently implemented yet. Architectural reasoning is promising; implementation/tests will determine whether they transfer into executable LCEL.
+The learner then articulated an important interface model:
+
+- `{placeholder}` variables in a `ChatPromptTemplate` describe structural inputs expected from upstream;
+- `.invoke({...})` supplies the initial runtime inputs at the outer boundary;
+- inside a composed chain, mappings and `assign` stages can construct/enrich the state required by downstream prompts;
+- prompt placeholders alone are a weak structural contract; semantic/type guarantees require validation;
+- prompt output requirements, parser output, validation contract and deterministic Python input contract need to agree.
+
+This is a meaningful shift from memorising LangChain syntax toward reading LCEL as **state evolving through stages and contracts**.
+
+### Evidence boundary
+
+Lesson 34 now has successful **guided implementation + passing tests + immediate state tracing + architectural synthesis**. It is not yet delayed cold-independent implementation. Later reconstruction should use a changed domain and probe `assign`, `RunnableLambda`, callable timing, gate semantics and contract alignment.
+
+### FTEC5660 next step
+
+Do not immediately rebuild the same pipeline. Continue Tutorial 1 conceptually:
+
+1. reason about failure localisation and why/when explicit stages justify cost/latency;
+2. extend the compact payments/KYC architecture only if a new mechanism is required;
+3. inspect model-generated code as a validated artifact pattern rather than memorising tax rules;
+4. bridge from fixed prompt chaining to routing: when should the input determine which path runs next?
 
 ## AIMS5702 — current state
 
@@ -110,21 +161,21 @@ Sources: `lesson_logs/aims5702/lecture01_02_prelecture_bridge.md` and `lesson_lo
 
 ## Established foundations / remaining uncertainty
 
-- **Python / NumPy / pandas:** substantial practice; syntax/API fluency can be less automatic than the learner's long-used backend languages. Today's `&&`/`isinstance` validator slips fit this boundary rather than indicating an architectural misunderstanding.
+- **Python / NumPy / pandas:** substantial practice; syntax/API fluency can be less automatic than the learner's long-used backend languages. Callable timing remains a recurring implementation fragility.
 - **Linear algebra:** historical JHU foundation established; retrieve selectively.
 - **Probability/statistics:** strong historical evidence across major foundations; Markov chains/Poisson remain diagnostic-needed.
 - **Calculus:** historical derivative/gradient/chain-rule/backprop foundation established.
 - **Practical ML:** linear/logistic regression and train/validation/test workflow implemented; changed-task transfer still useful.
-- **Agentic/LCEL:** Lesson 32 basics now partly cold-retrievable; stateful composition/gates are the active new implementation target.
+- **Agentic/LCEL:** Lesson 32 basics are partly cold-retrievable; Lesson 34 stateful composition/gates have guided passing implementation evidence and strong immediate conceptual synthesis.
 - **January extensions:** likelihood/MLE, exponential families, formal generalisation/concentration, convergence assumptions and proof-style derivations remain new work.
 
 ## Parked / must return
 
-- **FTEC5660:** active now. Finish Lesson 34 tests before moving deeper into the Tutorial 1 architecture or routing.
+- **FTEC5660:** active now. Continue Tutorial 1 architecture/routing bridge; later cold-reconstruct Lesson 34 on a changed domain rather than replaying it immediately.
 - **AIMS5701/search:** guarantees/complexity still due after the current Agentic AI block.
 - **AIMS5702:** representation translation remains the next substantive course-specific review target.
 - **Maths:** selective LA/calculus/probability maintenance; later MLE/formal-theory extensions.
 
 ## Handover discipline
 
-After the Lesson 34 tests are complete, update `lesson_logs/ftec5660/lesson34_stateful_lcel_2026_09_14.md` and this handover with independent/guided implementation evidence. Update `learning_progress.yaml` only if the structured dashboard state materially changes; merely creating the practice scaffold does not establish implementation mastery.
+After the next substantive FTEC5660 block, update the focused course log and this handover. Update `learning_progress.yaml` only when the structured dashboard state materially changes; Lesson 34 should not be labelled cold-independent until delayed changed-domain reconstruction supports that claim.
