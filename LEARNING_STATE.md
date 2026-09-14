@@ -8,15 +8,15 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **FTEC5660 Tutorial 1 architecture → routing bridge** | Lesson 34 stateful LCEL implementation is green. Consolidate contracts/state/failure localisation, then continue toward generated-code architecture and routing rather than adding syntax for its own sake. |
+| Continue | **FTEC5660 routing / conditional workflow bridge** | Tutorial 1 chaining philosophy is now conceptually understood. Do not spend more time on US tax mechanics or compact notebook syntax; next use a changed non-tax domain to cold-recall decomposition, then move from fixed sequence to routing. |
 | Parallel | **AIMS5702 representation translation + light tensor maintenance** | Shape reasoning remains the anchor; train diagram ↔ shapes ↔ indices ↔ PyTorch when course work resumes. |
 | Protect | **Search theory + a small relevant maths retrieval block** | Search implementation is complete through Lesson 33 but guarantees/complexity remain due; keep January AIMS5704 prerequisites alive without a broad restart. |
 
 These lanes coexist; they are not one sequential queue.
 
-## FTEC5660 / LangChain — Lesson 34 implemented 14 Sep
+## FTEC5660 / LangChain — Lessons 34–35 on 14 Sep
 
-Sources: `lesson_logs/lesson32_lcel_basics.md`, `lesson_logs/ftec5660/tutorial01_study_plan.md`, and `lesson_logs/ftec5660/lesson34_stateful_lcel_2026_09_14.md`.
+Sources: `lesson_logs/lesson32_lcel_basics.md`, `lesson_logs/ftec5660/tutorial01_study_plan.md`, `lesson_logs/ftec5660/lesson34_stateful_lcel_2026_09_14.md`, and `lesson_logs/ftec5660/lesson35_tutorial01_architecture_2026_09_14.md`.
 
 ### Lesson 32 cold retrieval
 
@@ -129,18 +129,175 @@ The learner then articulated an important interface model:
 
 This is a meaningful shift from memorising LangChain syntax toward reading LCEL as **state evolving through stages and contracts**.
 
+### Lesson 35 — Tutorial 1 architecture understood
+
+A readable TaxCalcBench walkthrough was used to separate the tutorial's architecture from distracting US tax-domain details.
+
+The learner now understands the benchmark setup as:
+
+```text
+input.json   = unseen taxpayer case / exam question
+output.xml   = hidden benchmark answer key
+agent        = system attempting to reconstruct the completed return
+```
+
+The raw `input.json` is a large nested, machine-readable filled questionnaire containing taxpayer facts and source-form fields. The LLM first reduces this into a smaller inventory, then makes domain placement decisions, while deterministic code handles derived arithmetic.
+
+Durable decomposition:
+
+```text
+messy / variable representation
+        ↓
+LLM: interpret / extract
+        ↓
+structured artifact
+        ↓
+Python: validate
+        ↓
+LLM: map / supply changing domain knowledge
+        ↓
+Python: validate
+        ↓
+deterministic execution
+        ↓
+optional LLM explanation / formatting
+```
+
+#### Parse → compute → explain
+
+The learner explicitly understood why exact filtering/arithmetic should move out of the LLM once the problem is structured: ordinary Python is cheaper, faster, deterministic and easier to test.
+
+Current heuristic:
+
+> Use the LLM where variability or ambiguity requires interpretation; use deterministic software once the problem has become deterministic.
+
+#### Inventory vs placement
+
+Useful generic translation:
+
+```text
+inventory  = what source facts exist?
+placement  = where should each fact go under domain rules?
+compute    = derive totals/decisions from validated placements/rules
+```
+
+Tax-specific terminology is intentionally not a learning target. Source "boxes" are pre-labelled source-document fields; destination "lines" are return fields chosen by the model's placement stage.
+
+#### Structural vs semantic validation
+
+The learner identified a major limitation in the lecturer's lightweight checks.
+
+The checks can prove things such as:
+
+- a numeric amount existed somewhere upstream;
+- values were not silently dropped/duplicated;
+- a destination field is from an allowed set;
+- derived subtotal fields were not directly populated by the model.
+
+But they do **not** prove that a real amount was attributed to the correct source field or mapped to the correct valid destination field.
+
+Durable hierarchy:
+
+```text
+value exists upstream
+    < source attribution is correct
+    < semantic/domain placement is correct
+```
+
+Current principle:
+
+> Structurally valid does not imply semantically correct.
+
+#### Generated-code pattern — understood, not production default
+
+The lecturer's pattern was understood as:
+
+```text
+LLM recalls/interprets rule
+    ↓
+LLM emits Python source as text
+    ↓
+source is dynamically loaded into a callable
+    ↓
+known sample/test validates behaviour
+    ↓
+validated callable participates in deterministic computation
+    ↓
+final benchmark result is evaluated against ground truth
+```
+
+The learner understands why this externalises model knowledge into an inspectable/testable artifact, but should **not** internalise `exec(llm_output)` inside a production process as the default architecture.
+
+Preferred production instinct:
+
+```text
+LLM
+    ↓
+constrained JSON / rule configuration
+    ↓
+schema + semantic validation
+    ↓
+trusted API / application code interprets it
+    ↓
+deterministic execution
+```
+
+Example mental model: the LLM supplies bracket thresholds/rates as JSON; a narrow trusted API knows how to validate and apply those brackets.
+
+If genuinely dynamic code is useful, the learner now distinguishes a more defensible architecture:
+
+```text
+JSON input
+    ↓
+disposable isolated sandbox
+    ↓
+LLM-generated program
+    ↓
+restricted filesystem/network/secrets/resources
+    ↓
+validated JSON output
+    ↓
+main workflow continues
+```
+
+Security framing:
+
+> The key question is not only whether generated code is trusted, but what capabilities untrusted code can exercise if it behaves unexpectedly.
+
 ### Evidence boundary
 
-Lesson 34 now has successful **guided implementation + passing tests + immediate state tracing + architectural synthesis**. It is not yet delayed cold-independent implementation. Later reconstruction should use a changed domain and probe `assign`, `RunnableLambda`, callable timing, gate semantics and contract alignment.
+Lesson 34 has successful **guided implementation + passing tests + immediate state tracing + architectural synthesis**. It is not yet delayed cold-independent implementation.
+
+Tutorial 1 is now **conceptually learned, implementation partially learned**.
+
+Strong evidence:
+
+- can explain one-shot baseline vs decomposed chain;
+- can explain parse → deterministic compute → explain;
+- understands inventory vs placement vs derived computation;
+- understands failure localisation and validation boundaries;
+- understands structural validity vs semantic correctness;
+- understands model-generated code as an artifact that can be tested;
+- distinguishes unsafe in-process execution from capability-constrained sandbox execution;
+- prefers structured contracts + trusted executors as the production default;
+- can translate the tax example into a generic enterprise/fintech architecture.
+
+Not established:
+
+- line-by-line recall of the lecturer's compact TaxCalcBench implementation;
+- independent reconstruction of the full TaxCalcBench LCEL chain;
+- US tax-domain knowledge (intentionally out of scope).
 
 ### FTEC5660 next step
 
-Do not immediately rebuild the same pipeline. Continue Tutorial 1 conceptually:
+Do not immediately rebuild the same pipeline or continue learning US tax mechanics.
 
-1. reason about failure localisation and why/when explicit stages justify cost/latency;
-2. extend the compact payments/KYC architecture only if a new mechanism is required;
-3. inspect model-generated code as a validated artifact pattern rather than memorising tax rules;
-4. bridge from fixed prompt chaining to routing: when should the input determine which path runs next?
+Next useful work:
+
+1. cold-recall Tutorial 1 architecture using a changed non-tax domain;
+2. probe Lesson 34 callable timing / assign / validation with a changed example;
+3. bridge from fixed sequential prompt chains to routing/conditional paths: when should input determine which branch runs next?;
+4. revisit generated artifacts later only if a new mechanism such as sandbox execution, repair loops or tool routing is required.
 
 ## AIMS5702 — current state
 
@@ -166,16 +323,16 @@ Sources: `lesson_logs/aims5702/lecture01_02_prelecture_bridge.md` and `lesson_lo
 - **Probability/statistics:** strong historical evidence across major foundations; Markov chains/Poisson remain diagnostic-needed.
 - **Calculus:** historical derivative/gradient/chain-rule/backprop foundation established.
 - **Practical ML:** linear/logistic regression and train/validation/test workflow implemented; changed-task transfer still useful.
-- **Agentic/LCEL:** Lesson 32 basics are partly cold-retrievable; Lesson 34 stateful composition/gates have guided passing implementation evidence and strong immediate conceptual synthesis.
+- **Agentic/LCEL:** Lesson 32 basics are partly cold-retrievable; Lesson 34 stateful composition/gates have guided passing implementation evidence; Tutorial 1 architecture is conceptually understood but full implementation is not independently reconstructable yet.
 - **January extensions:** likelihood/MLE, exponential families, formal generalisation/concentration, convergence assumptions and proof-style derivations remain new work.
 
 ## Parked / must return
 
-- **FTEC5660:** active now. Continue Tutorial 1 architecture/routing bridge; later cold-reconstruct Lesson 34 on a changed domain rather than replaying it immediately.
+- **FTEC5660:** active now. Next bridge is routing/conditional workflows after one changed-domain recall of Tutorial 1 architecture.
 - **AIMS5701/search:** guarantees/complexity still due after the current Agentic AI block.
 - **AIMS5702:** representation translation remains the next substantive course-specific review target.
 - **Maths:** selective LA/calculus/probability maintenance; later MLE/formal-theory extensions.
 
 ## Handover discipline
 
-After the next substantive FTEC5660 block, update the focused course log and this handover. Update `learning_progress.yaml` only when the structured dashboard state materially changes; Lesson 34 should not be labelled cold-independent until delayed changed-domain reconstruction supports that claim.
+After the next substantive FTEC5660 block, update the focused course log and this handover. Update `learning_progress.yaml` only when the structured dashboard state materially changes. Do not label Lesson 34 cold-independent until delayed changed-domain reconstruction supports that claim, and do not label the TaxCalcBench implementation mastered merely because the readable reference implementation exists in the repo.
