@@ -1,3 +1,7 @@
+from langchain_core.output_parsers import JsonOutputParser, StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnableLambda, RunnablePassthrough
+
 """Lesson 34 practice: stateful LCEL pipelines.
 
 Implement this file from the tests. Do not look back at Lesson 32's solution
@@ -18,7 +22,9 @@ STANDARD = "STANDARD"
 
 def determine_review_route(state):
     """Return MANUAL_REVIEW or STANDARD from state['extracted']['amount']."""
-    raise NotImplementedError
+    if state["extracted"]["amount"] >= MANUAL_REVIEW_THRESHOLD:
+        return MANUAL_REVIEW
+    return STANDARD
 
 
 def validate_extraction(state):
@@ -32,12 +38,35 @@ def validate_extraction(state):
 
     Invalid state should fail loudly rather than being silently repaired.
     """
-    raise NotImplementedError
+    extracted = state["extracted"]
+
+    assert extracted is not None
+    assert "amount" in extracted
+    assert "currency" in extracted
+    assert isinstance(extracted["amount"], (int, float))
+    assert isinstance(extracted["currency"], str)
+    assert extracted["amount"] >= 0
+    assert len(extracted["currency"]) == 3
+
+    return state
 
 
 def build_extraction_chain(llm):
     """Build an LCEL chain extracting amount and currency from payment_note."""
-    raise NotImplementedError
+    prompt_string = """
+        Extract amount and currency from the following payment details.
+
+        Payment details:
+        {payment_note}    
+            
+        Return a JSON object with exactly these keys:
+        - "amount": number
+        - "currency": string
+    """
+
+    prompt = ChatPromptTemplate.from_template(prompt_string)
+
+    return prompt | llm | JsonOutputParser()
 
 
 def build_payment_pipeline(llm):
@@ -51,4 +80,10 @@ def build_payment_pipeline(llm):
         -> preserve state + assign deterministic 'review_route'
         -> enriched state
     """
-    raise NotImplementedError
+    return (
+        RunnablePassthrough.assign(extracted=build_extraction_chain(llm))
+        | RunnableLambda(validate_extraction)
+        | RunnablePassthrough.assign(
+            review_route=RunnableLambda(determine_review_route)
+        )
+    )
