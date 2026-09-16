@@ -7,8 +7,8 @@ import re
 import pytest
 import yaml
 
-from dashboard.build import (ROOT, DATA_PATH, blob_sha, build, render,
-                             source_path, validate)
+from dashboard.build import (ROOT, DATA_PATH, DEADLINES_PATH, blob_sha, build,
+                             render, source_path, validate, validate_deadlines)
 
 
 @pytest.fixture
@@ -16,8 +16,49 @@ def data():
     return yaml.safe_load(DATA_PATH.read_text(encoding='utf-8'))
 
 
+@pytest.fixture
+def deadlines():
+    return yaml.safe_load(DEADLINES_PATH.read_text(encoding='utf-8'))
+
+
 def test_real_schema(data):
     assert validate(data, root=None) == []
+
+
+def test_deadline_schema(data, deadlines):
+    validate_deadlines(deadlines, set(data['courses']))
+    assert [item['due_on'] for item in deadlines['deadlines']] == [
+        '2026-09-29', '2026-10-19']
+    assert deadlines['deadlines'][1]['mode'] == 'solo'
+
+
+def test_bad_deadline_date_rejected(data, deadlines):
+    deadlines['deadlines'][0]['due_on'] = '29/09/2026'
+    with pytest.raises(ValueError, match='invalid date'):
+        validate_deadlines(deadlines, set(data['courses']))
+
+
+def test_duplicate_deadline_id_rejected(data, deadlines):
+    deadlines['deadlines'][1]['id'] = deadlines['deadlines'][0]['id']
+    with pytest.raises(ValueError, match='Duplicate deadline'):
+        validate_deadlines(deadlines, set(data['courses']))
+
+
+def test_unknown_deadline_course_rejected(data, deadlines):
+    deadlines['deadlines'][0]['course'] = 'UNKNOWN9999'
+    with pytest.raises(ValueError, match='unknown course'):
+        validate_deadlines(deadlines, set(data['courses']))
+
+
+def test_deadline_lane_renders_separately_from_learning_lanes(data, deadlines):
+    html = render(data, [], data['meta']['source_ref'], deadlines)
+    assert 'Delivery lane · external constraints' in html
+    assert 'Receipts agentic AI homework' in html
+    assert '2026-09-29' in html
+    assert 'Hackathon' in html
+    assert '2026-10-19' in html
+    assert 'Learner-reported' in html
+    assert 'Continue next · Fundamentals' in html
 
 
 def test_repository_source_files_exist(data):
@@ -178,6 +219,8 @@ def test_build_has_hashed_assets_and_fallback(tmp_path):
     assert '<h1>What you know. What needs work.</h1>' in html
     assert '{{' not in html
     assert 'filesystem source verification was not run' in html
+    assert 'Receipts agentic AI homework' in html
+    assert '2026-10-19' in html
     for name in re.findall(r'(?:href|src)="((?:styles|app)\.[a-f0-9]{12}\.(?:css|js))"', html):
         assert (tmp_path/name).is_file()
     assert len(list(tmp_path.glob('styles.*.css'))) == 1
