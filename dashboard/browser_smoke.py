@@ -62,6 +62,11 @@ def check(site: Path, screenshots: Path | None = None) -> None:
         expect(page.get_by_text('Project presentation', exact=True)).to_be_visible()
         page.locator('#tab-queue').click()
         assert page.locator('.queue-col').count() == 3
+        assert page.locator('.deadline-card').count() == 2
+        expect(page.get_by_text('Receipts agentic AI homework', exact=True)).to_be_visible()
+        expect(page.get_by_text('2026-09-29', exact=True)).to_be_visible()
+        expect(page.get_by_text('Hackathon', exact=True)).to_be_visible()
+        expect(page.get_by_text('2026-10-19', exact=True)).to_be_visible()
         page.locator('#tab-knowledge').click()
         page.locator('#reset').click()
         page.locator('#domain').select_option('Agentic systems')
@@ -86,12 +91,13 @@ def check(site: Path, screenshots: Path | None = None) -> None:
         plain.goto(url)
         expect(plain.locator('#record-bfs')).to_be_visible()
         expect(plain.locator('#runway')).to_be_visible()
+        expect(plain.get_by_text('Receipts agentic AI homework', exact=True)).to_be_visible()
         assert plain.locator('#topic-rows tr').count() == count
         assert not remote, remote
         assert not errors, errors
         fallback.close()
         browser.close()
-    print('Browser checks passed: filters, details, keyboard, mobile, deep links and no-JS fallback.')
+    print('Browser checks passed: filters, details, keyboard, deadlines, mobile, deep links and no-JS fallback.')
 
 
 if __name__ == '__main__':
