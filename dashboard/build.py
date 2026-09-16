@@ -16,6 +16,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / 'learning_progress.yaml'
+DEADLINES_PATH = ROOT / 'deadlines.yaml'
 SITE_DIR = ROOT / 'dashboard' / 'site'
 CONCEPT = {'demonstrated': 'Understanding recorded', 'taught': 'Taught / introduced',
            'historical': 'Historical learning', 'planned': 'New material planned', 'unknown': 'Coverage uncertain'}
@@ -29,6 +30,10 @@ ACTIONS = {'maintain': 'Maintain', 'build': 'Build / reconstruct', 'practice': '
            'transfer': 'Transfer to a new task', 'confirm': 'Confirm scope'}
 SCOPES = {'mapped': 'Requirements mapped', 'scope_unconfirmed': 'Scope / dates unconfirmed',
           'not_mapped': 'Mapping incomplete', 'overview': 'Overview only', 'partial_tutorial': 'Tutorial partial'}
+DEADLINE_STATUS = {'upcoming': 'Upcoming', 'submitted': 'Submitted',
+                   'completed': 'Completed', 'cancelled': 'Cancelled'}
+DEADLINE_PROVENANCE = {'learner_report': 'Learner-reported',
+                       'course_material': 'Course material', 'official': 'Official'}
 ID_RE = re.compile(r'^[a-z][a-z0-9_]*$')
 SHA_RE = re.compile(r'^[0-9a-f]{40}$')
 SOURCE_TOKENS = re.compile(r'{{[A-Z_]+}}')
@@ -152,8 +157,55 @@ def validate(data: dict, root: Path | None = ROOT) -> list[str]:
     return warnings
 
 
+def validate_deadlines(data: dict, course_codes: set[str]) -> None:
+    """Validate delivery-planning data without turning it into learning evidence."""
+    require(isinstance(data, dict) and data.get('schema_version') == 1,
+            'Expected deadline schema_version: 1')
+    iso(data.get('reviewed_on'), 'deadlines.reviewed_on')
+    require(isinstance(data.get('provenance_note'), str) and data['provenance_note'].strip(),
+            'Deadline provenance note is required')
+    items = data.get('deadlines')
+    require(isinstance(items, list), 'deadlines must be a list')
+    seen = set()
+    for item in items:
+        key = item.get('id', '')
+        require(bool(ID_RE.fullmatch(key)), f'Invalid deadline id: {key}')
+        require(key not in seen, f'Duplicate deadline id: {key}')
+        seen.add(key)
+        require(item.get('course') in course_codes, f'{key}: unknown course')
+        for field in ('title', 'note', 'mode'):
+            require(isinstance(item.get(field), str) and item[field].strip(),
+                    f'{key}: missing {field}')
+        iso(item.get('due_on'), f'{key}.due_on')
+        require(item.get('status') in DEADLINE_STATUS, f'{key}: invalid status')
+        require(item.get('provenance') in DEADLINE_PROVENANCE,
+                f'{key}: invalid provenance')
+
+
 def badge(label: str, colour: str = 'muted') -> str:
     return f'<span class="tag {esc(colour)}">{esc(label)}</span>'
+
+
+def render_deadlines(data: dict) -> str:
+    """Render upcoming delivery constraints as a lane separate from study evidence."""
+    items = [item for item in data['deadlines'] if item['status'] == 'upcoming']
+    if not items:
+        return '<p class="deadline-empty">No upcoming deadlines recorded.</p>'
+    cards = []
+    for item in sorted(items, key=lambda row: row['due_on']):
+        provenance = DEADLINE_PROVENANCE[item['provenance']]
+        mode = item['mode'].replace('_', ' ').title()
+        cards.append(
+            '<article class="deadline-card">'
+            f'<div class="deadline-meta"><span>{esc(item["course"])}</span>'
+            f'<time datetime="{esc(item["due_on"])}">{esc(item["due_on"])}</time></div>'
+            f'<h3>{esc(item["title"])}</h3>'
+            f'<p>{esc(item["note"])}</p>'
+            f'<div class="deadline-tags">{badge(DEADLINE_STATUS[item["status"]], "amber")}'
+            f'{badge(provenance, "muted")}{badge(mode, "blue")}</div>'
+            '</article>'
+        )
+    return ''.join(cards)
 
 
 def target_link(key: str, topics: dict, label: str | None = None) -> str:
@@ -184,7 +236,8 @@ def current_ref(data: dict, root: Path) -> str:
     return candidate if SHA_RE.fullmatch(candidate) else data['meta']['source_ref']
 
 
-def render(data: dict, warnings: list[str], ref: str) -> str:
+def render(data: dict, warnings: list[str], ref: str,
+           deadline_data: dict | None = None) -> str:
     topics = data['topics']
     focus = ''.join(f'<article class="focus-card{ " first" if i == 0 else ""}"><div class="eyebrow">{esc(lane["label"])}</div><h2>{esc(lane["title"])}</h2><p>{esc(lane["summary"])}</p><div class="jump">{target_link(lane["target"], topics, "Inspect the evidence →")}</div></article>' for i, lane in enumerate(data['lanes']))
     rows, noscript, details = [], [], {}
@@ -226,21 +279,28 @@ def render(data: dict, warnings: list[str], ref: str) -> str:
         lanes.append(f'<article class="queue-col"><div class="eyebrow">{esc(lane["label"])}</div><h3>{esc(lane["title"])}</h3><p>{esc(lane["summary"])}</p>{tasks}</article>')
     paths = ''.join(f'<article><h3>{esc(route["title"])}</h3><p>{" → ".join(target_link(t, topics) for t in route["topics"])}</p><p class="footnote">{esc(route["note"])}</p></article>' for route in data.get('paths', []))
     timeline = ''.join(f'<p><strong>{esc(item["label"])}</strong> — {esc(item["detail"])}</p>' for item in data.get('timeline', []))
-    payload = {'details': details, 'meta': data['meta'], 'warnings': warnings}
+    deadline_html = render_deadlines(deadline_data) if deadline_data else '<p class="deadline-empty">No delivery record loaded.</p>'
+    payload = {'details': details, 'meta': data['meta'], 'warnings': warnings,
+               'deadline_meta': ({'reviewed_on': deadline_data['reviewed_on']}
+                                 if deadline_data else None)}
     safe_json = json.dumps(payload, ensure_ascii=True).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
-    replacements = {'TITLE':esc(data['meta']['title']), 'SUBTITLE':esc(data['meta']['subtitle']), 'REVIEWED':esc(data['meta']['reviewed_on']), 'THROUGH':esc(data['meta']['evidence_through']), 'REVIEW_NOTE':esc(data['meta']['review_note']), 'REF':ref[:7], 'REPO_URL':f'https://github.com/{data["meta"]["repository"]}/tree/{ref}', 'FOCUS':focus, 'ROWS':''.join(rows), 'COUNT':str(len(topics)), 'AREAS':''.join(f'<option>{esc(area)}</option>' for area in sorted({t['area'] for t in topics.values()})), 'COURSES':''.join(courses), 'LANES':''.join(lanes), 'PATHS':paths, 'TIMELINE':timeline, 'NOJS_DETAILS':''.join(noscript), 'DATA':safe_json, 'QUALITY':f'{len(warnings)} record warning(s)' if warnings else 'Source checks passed', 'WARNINGS':''.join(f'<p>{esc(w)}</p>' for w in warnings) or '<p>Source references and reviewed hashes match this checkout. This checks record integrity, not the truth of every learning claim or your current retention.</p>'}
+    replacements = {'TITLE':esc(data['meta']['title']), 'SUBTITLE':esc(data['meta']['subtitle']), 'REVIEWED':esc(data['meta']['reviewed_on']), 'THROUGH':esc(data['meta']['evidence_through']), 'REVIEW_NOTE':esc(data['meta']['review_note']), 'REF':ref[:7], 'REPO_URL':f'https://github.com/{data["meta"]["repository"]}/tree/{ref}', 'FOCUS':focus, 'ROWS':''.join(rows), 'COUNT':str(len(topics)), 'AREAS':''.join(f'<option>{esc(area)}</option>' for area in sorted({t['area'] for t in topics.values()})), 'COURSES':''.join(courses), 'LANES':''.join(lanes), 'DEADLINES':deadline_html, 'PATHS':paths, 'TIMELINE':timeline, 'NOJS_DETAILS':''.join(noscript), 'DATA':safe_json, 'QUALITY':f'{len(warnings)} record warning(s)' if warnings else 'Source checks passed', 'WARNINGS':''.join(f'<p>{esc(w)}</p>' for w in warnings) or '<p>Source references and reviewed hashes match this checkout. This checks record integrity, not the truth of every learning claim or your current retention.</p>'}
     template = (ROOT/'dashboard/template.html').read_text(encoding='utf-8')
     # Replace only known template tokens, never arbitrary double braces in source text.
     return SOURCE_TOKENS.sub(lambda m: replacements.get(m[0][2:-2], m[0]), template)
 
 
-def build(data_path: Path = DATA_PATH, output: Path = SITE_DIR, *, source_root: Path | None = ROOT) -> Path:
+def build(data_path: Path = DATA_PATH, output: Path = SITE_DIR, *,
+          deadlines_path: Path = DEADLINES_PATH,
+          source_root: Path | None = ROOT) -> Path:
     data = yaml.safe_load(data_path.read_text(encoding='utf-8'))
+    deadlines = yaml.safe_load(deadlines_path.read_text(encoding='utf-8'))
     warnings = validate(data, source_root)
+    validate_deadlines(deadlines, set(data['courses']))
     if source_root is None:
         warnings.append('Local preview: filesystem source verification was not run. Production builds verify all source paths and hashes.')
     ref = current_ref(data, source_root or ROOT)
-    html = render(data, warnings, ref)
+    html = render(data, warnings, ref, deadlines)
     output.mkdir(parents=True, exist_ok=True)
     for filename, token in [('styles.css', '{{STYLE}}'), ('app.js', '{{SCRIPT}}')]:
         raw = (ROOT/'dashboard/static'/filename).read_bytes()
