@@ -21,7 +21,7 @@
 <nav class="nav" role="tablist" aria-label="Dashboard views">
   <button role="tab" id="tab-knowledge" aria-controls="knowledge" aria-selected="true" data-view="knowledge">Knowledge</button>
   <button role="tab" id="tab-runway" aria-controls="runway" aria-selected="false" data-view="runway" tabindex="-1">Course runway</button>
-  <button role="tab" id="tab-queue" aria-controls="queue" aria-selected="false" data-view="queue" tabindex="-1">Study queue</button>
+  <button role="tab" id="tab-queue" aria-controls="queue" aria-selected="false" data-view="queue" tabindex="-1">Study & delivery</button>
 </nav>
 <main>
 <section class="view" id="knowledge" role="tabpanel" aria-labelledby="tab-knowledge">
@@ -41,19 +41,24 @@
 <section class="view" id="runway" role="tabpanel" aria-labelledby="tab-runway">
   <div class="heading"><div><h2>Readiness for a specific demand</h2><p>Available anchors, remaining requirements and unknowns. No whole-week score inferred from neighbouring skills.</p></div></div>
   <div class="course-grid">{{COURSES}}</div>
-  <div class="notice">Course weeks are not calendar weeks. The one-week delay belongs to AIMS5701 only. No assessment dates or deadlines have been invented.</div>
+  <div class="notice">Course weeks are not calendar weeks. Only dates explicitly recorded from a stated source are shown; no assessment date is inferred.</div>
 </section>
 <section class="view" id="queue" role="tabpanel" aria-labelledby="tab-queue">
-  <div class="heading"><div><h2>Three lanes, not one endless queue</h2><p>The immediate lesson, live-course follow-up and protected maths continuity can coexist.</p></div></div>
+  <div class="heading"><div><h2>Delivery constraints + three study lanes</h2><p>Deadlines constrain available time, but they are not learning evidence and do not become mastery signals.</p></div></div>
+  <section class="delivery-lane" aria-label="Upcoming delivery deadlines">
+    <div class="delivery-head"><div><div class="eyebrow">Delivery lane · external constraints</div><h3>Upcoming assessed work</h3></div><p>Dates are tracked separately from the learning-evidence projection.</p></div>
+    <div class="deadline-grid">{{DEADLINES}}</div>
+  </section>
+  <div class="study-lanes-head"><h3>Learning lanes</h3><p>Continue, Parallel and Protect remain the three study lanes. Delivery pressure can resize them without changing evidence state.</p></div>
   <div class="queue">{{LANES}}</div>
-  <p class="queue-note">This is a study plan, not a calendar booking. Resize the maths block around actual project demands; keep uncertain assessment details visible rather than treating them as zero workload.</p>
+  <p class="queue-note">This is a study plan, not a calendar booking. Resize the maths/fundamentals blocks around actual project demands; keep uncertain assessment scope visible rather than treating it as zero workload.</p>
 </section>
-<noscript><section class="nojs"><h2>Topic details</h2><p>JavaScript is disabled. All topics, course requirements and source links remain available below.</p>{{NOJS_DETAILS}}</section></noscript>
+<noscript><section class="nojs"><h2>Topic details</h2><p>JavaScript is disabled. All topics, course requirements and source-backed topic details remain available below.</p>{{NOJS_DETAILS}}</section></noscript>
 </main>
 <footer class="bottom"><span>{{REVIEW_NOTE}} No tracking or external assets.</span><a href="{{REPO_URL}}" target="_blank" rel="noopener noreferrer">Source snapshot {{REF}} ↗</a></footer>
 </div>
 <dialog id="detail" aria-labelledby="detail-title"><div class="dialog-head"><div><div id="detail-domain" class="eyebrow"></div><h2 id="detail-title"></h2></div><button class="close" id="detail-close" aria-label="Close topic details">×</button></div><div class="dialog-body" id="detail-body"></div></dialog>
-<dialog id="quality" aria-labelledby="quality-title"><div class="dialog-head"><div><div class="eyebrow">Record integrity · not learning failures</div><h2 id="quality-title">Source quality</h2></div><button class="close" id="quality-close" aria-label="Close source quality">×</button></div><div class="dialog-body"><h3>Reviewed source checks</h3>{{WARNINGS}}<h3>Remaining uncertainty</h3><p>FTEC5660 assessment dates/weighting and the exact other-agent-search scope still need confirmation. Historical learning has not been re-tested by this migration.</p><h3>Freshness</h3><p id="quality-freshness">Review date {{REVIEWED}}. A rebuild date is not a new learning event.</p></div></dialog>
+<dialog id="quality" aria-labelledby="quality-title"><div class="dialog-head"><div><div class="eyebrow">Record integrity · not learning failures</div><h2 id="quality-title">Source quality</h2></div><button class="close" id="quality-close" aria-label="Close source quality">×</button></div><div class="dialog-body"><h3>Reviewed source checks</h3>{{WARNINGS}}<h3>Remaining uncertainty</h3><p>FTEC5660 weighting/scope and official assessment-document verification can remain unresolved even when learner-reported delivery dates are tracked. The exact other-agent-search scope also still needs confirmation. Historical learning has not been re-tested by this migration.</p><h3>Freshness</h3><p id="quality-freshness">Review date {{REVIEWED}}. A rebuild date is not a new learning event.</p></div></dialog>
 <script type="application/json" id="atlas-data">{{DATA}}</script>
 </body>
 </html>

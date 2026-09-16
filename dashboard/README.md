@@ -1,6 +1,6 @@
 # Learning Atlas
 
-A static, evidence-led dashboard generated from **`learning_progress.yaml` (schema v2)**. No runtime API, database, analytics or external frontend dependencies. The approved concept's dark visual design is retained; the records are now repository data rather than hard-coded demo objects.
+A static, evidence-led dashboard generated from **`learning_progress.yaml` (schema v2)** plus a separate **`deadlines.yaml` delivery-planning record**. No runtime API, database, analytics or external frontend dependencies. The approved concept's dark visual design is retained; the records are repository data rather than hard-coded demo objects.
 
 ## Build and inspect
 
@@ -27,7 +27,7 @@ These checks exercise the actual generated page: filters, empty state/reset, top
 
 ## Data responsibilities
 
-`meta.reviewed_on` is the structured-record review date; `evidence_through` is the latest included learning event. Neither is a build timestamp or proof of fresh recall. `source_ref` is the fallback provenance snapshot; CI uses the checked-out commit for source links.
+`meta.reviewed_on` is the structured learning-record review date; `evidence_through` is the latest included learning event. Neither is a build timestamp or proof of fresh recall. `source_ref` is the fallback provenance snapshot; CI uses the checked-out commit for source links.
 
 Every topic has independent dimensions:
 
@@ -40,19 +40,41 @@ Also record a concise evidence summary, an explicit boundary, a useful next acti
 
 A source record contains a public repository `path` and reviewed Git blob `sha`. Compute the SHA with `git hash-object path/to/file` (or `dashboard.build.blob_sha`). Refresh it only after checking the source change against the affected records. If the hash changes, the dashboard warns; it never infers that learner knowledge changed. Hidden/private paths and `LEARNER_PROFILE.md` are forbidden as sources.
 
-### Updating after a lesson
+## Delivery deadlines are a separate planning plane
 
-1. Update the focused lesson log and the concise handover first.
+`deadlines.yaml` exists because a due date answers a different question from a learning-evidence record.
+
+```text
+learning_progress.yaml
+    -> what learning evidence is recorded?
+
+Continue / Parallel / Protect
+    -> what learning should happen next?
+
+deadlines.yaml
+    -> what external delivery constraints resize the available time?
+```
+
+The dashboard therefore renders **Upcoming assessed work** as a delivery lane beside, but not inside, the three study lanes. Adding a deadline must not create a fake learning topic, promote a skill, or change concept/performance status.
+
+Deadline entries contain an ID, course, title, ISO `due_on` date, status, provenance, mode and a short planning note. Current provenance values distinguish learner-reported dates from course-material or official dates. Learner-reported dates are useful workload constraints even when official weighting/scope still needs separate verification.
+
+When a deadline changes, update `deadlines.yaml` and the operational handover if the change affects priorities. Do **not** move learning evidence dates forward or edit mastery state merely because an assignment is urgent.
+
+### Updating after a lesson or planning change
+
+1. Update the focused lesson log and the concise handover first for substantive learning.
 2. Change only affected topics' evidence, support/performance, date, boundary and next action. Guided success is not automatically independent retrieval.
-3. Update the Continue/Parallel/Protect lanes or course requirements only when priorities change.
-4. Review and refresh hashes of changed sources. Do not move old event dates forward to clear an age warning.
-5. Run schema/source validation, build tests and relevant browser checks. Review the diff for unrelated deletions.
+3. Update the Continue/Parallel/Protect lanes or course requirements only when learning priorities change.
+4. Update `deadlines.yaml` when an assessed-work date/status changes; keep provenance explicit.
+5. Review and refresh hashes of changed learning sources only when reconciling the learning projection. Do not move old event dates forward to clear an age warning.
+6. Run schema/source validation, build tests and relevant browser checks. Review the diff for unrelated deletions.
 
-Markdown remains the nuanced evidence trail. The YAML is maintained deliberately, not generated from prose. Rendering, reference checks and recency prompts are deterministic. Browser recency prompts keep working even without a new deployment; age does not automatically demote knowledge.
+Markdown remains the nuanced evidence trail. The learning YAML is maintained deliberately, not generated from prose. Deadline planning is also explicit rather than inferred from syllabus week numbers. Rendering, reference checks and recency prompts are deterministic. Browser recency prompts keep working even without a new deployment; age does not automatically demote knowledge.
 
 ## Course requirements, not whole-week mastery
 
-Each entry records **anchors**, **remaining requirements**, scope, an explanatory note and an optional **confirmed** due date. They reference the same topic IDs used by the knowledge map. Anchors are not a “ready” verdict; older foundations may still need a diagnostic. No minimum/average topic score is calculated.
+Each course entry records **anchors**, **remaining requirements**, scope, an explanatory note and an optional **confirmed** due date. They reference the same topic IDs used by the knowledge map. Anchors are not a “ready” verdict; older foundations may still need a diagnostic. No minimum/average topic score is calculated.
 
 `scope` is `mapped`, `scope_unconfirmed`, `not_mapped`, `overview` or `partial_tutorial`. An incomplete mapping must remain visibly incomplete. MLE, convergence and adaptive optimisation have their own targets; basic probability, autograd or a training loop cannot silently stand in for them.
 
@@ -62,6 +84,6 @@ The original v1 topics are retained, with finer historical maths targets and exp
 
 ## Interface and privacy
 
-Default view shows active lane targets; Show all/reset exposes every recorded target. Search also searches course IDs. Topic dialogs show evidence, boundaries, next steps, sources and prerequisites. Views and topics have hash links. Native dialog keyboard behaviour and explicit tab navigation support keyboard use. Without JavaScript, the full table, course panels and source-backed topic details remain readable.
+Default view shows active learning-lane targets; Show all/reset exposes every recorded target. Search also searches course IDs. Topic dialogs show evidence, boundaries, next steps, sources and prerequisites. The Study & delivery view shows the deadline lane first and the three evidence-backed study lanes underneath it. Views and topics have hash links. Native dialog keyboard behaviour and explicit tab navigation support keyboard use. Without JavaScript, the full table, course panels and source-backed topic details remain readable.
 
-There are no trackers, external assets or automatic remote requests. The build reads only explicitly listed public source records; it never scans or embeds a local private learner profile. The practice BFS solution remains uncommitted and the exercise stays skipped for CI.
+There are no trackers, external assets or automatic remote requests. The build reads only explicitly listed public learning sources plus the repository-local deadline record; it never scans or embeds a local private learner profile. The practice BFS solution remains uncommitted and the exercise stays skipped for CI.

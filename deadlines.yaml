@@ -1,0 +1,23 @@
+# Delivery planning is separate from learning evidence.
+schema_version: 1
+reviewed_on: '2026-09-16'
+provenance_note: >-
+  Dates below are learner-reported planning constraints unless a stronger source is
+  named. They affect workload prioritisation, not learning/mastery evidence.
+deadlines:
+- id: ftec5660_receipts_homework
+  course: FTEC5660
+  title: Receipts agentic AI homework
+  due_on: '2026-09-29'
+  status: upcoming
+  provenance: learner_report
+  mode: individual
+  note: Primary assessed-work focus before the hackathon ramp.
+- id: ftec5660_hackathon
+  course: FTEC5660
+  title: Hackathon
+  due_on: '2026-10-19'
+  status: upcoming
+  provenance: learner_report
+  mode: solo
+  note: Solo by choice; incubate before the homework deadline, then ramp after 29 Sep.
