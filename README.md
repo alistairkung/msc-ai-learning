@@ -8,16 +8,18 @@ A big part of the experiment is using AI tutors without letting each new chat st
 
 ## [Open the Learning Atlas](https://alistairkung.github.io/msc-ai-learning/)
 
-The Learning Atlas is a read-only dashboard over the structured learning record. It shows current evidence, course runway and the active study lanes without pretending that progress can be reduced to a single mastery percentage.
+The Learning Atlas is a read-only dashboard over the structured learning record plus explicit delivery constraints. It shows current evidence, course runway, upcoming assessed-work dates and the active study lanes without pretending that progress can be reduced to a single mastery percentage.
 
 ## How the learning loop works
 
 ```mermaid
 flowchart TD
     A[Live MSc courses<br/>lectures · tutorials · assignments] --> B[Course demand<br/>MSC_SYLLABUS_MAP.md]
+    A --> K[Explicit delivery dates<br/>deadlines.yaml]
     B --> C[Choose the next useful study block]
     D[Longer-term prerequisites<br/>LEARNING_ROADMAP.md] --> C
     E[Current strengths, gaps and parked work<br/>LEARNING_STATE.md] --> C
+    K --> C
 
     C --> F[Study session<br/>retrieve · reason · implement · test]
     F --> G[Implementation evidence<br/>exercises + tests]
@@ -25,11 +27,12 @@ flowchart TD
 
     G --> E
     H --> E
-    E --> I[Reviewed structured projection<br/>learning_progress.yaml]
+    E --> I[Reviewed learning projection<br/>learning_progress.yaml]
     I --> J[Learning Atlas]
+    K --> J
 ```
 
-The loop is deliberately evidence-based. A passing test means some implementation works; it does not automatically mean I can reconstruct it cold. A topic appearing in lecture slides does not mean it was taught in depth. Something learned months ago is useful evidence of prior exposure, but may still need retrieval before I rely on it.
+The loop is deliberately evidence-based. A passing test means some implementation works; it does not automatically mean I can reconstruct it cold. A topic appearing in lecture slides does not mean it was taught in depth. Something learned months ago is useful evidence of prior exposure, but may still need retrieval before I rely on it. A deadline can change how I allocate time, but it does not change what I know.
 
 ## What is in here
 
@@ -57,6 +60,7 @@ classical_ai/search/    BFS, DFS, UCS, A* and related practice
 deep_learning/          tensors, autograd, training loops and MLPs
 agentic_ai/             agentic-AI / LangChain implementation work
 lesson_logs/            durable learning and course records
+deadlines.yaml          delivery dates / workload constraints (not mastery evidence)
 dashboard/              Learning Atlas builder and tests
 ```
 
@@ -66,7 +70,7 @@ dashboard/              Learning Atlas builder and tests
 
 [`SESSION_WORKFLOW.md`](SESSION_WORKFLOW.md) is the operating protocol for an AI tutor or model working with the repository. [`LEARNING_STATE.md`](LEARNING_STATE.md) is the short-lived handover: what is active, what is fragile, what is parked and what should happen next. [`MSC_SYLLABUS_MAP.md`](MSC_SYLLABUS_MAP.md) maps preparation against upcoming course material, while [`LEARNING_ROADMAP.md`](LEARNING_ROADMAP.md) holds the slower-changing prerequisite and dependency strategy.
 
-`learning_progress.yaml` is the reviewed structured projection used by the dashboard. It is maintained from evidence rather than generated mechanically from Markdown or test results.
+`learning_progress.yaml` is the reviewed structured projection used for learning evidence in the dashboard. It is maintained from evidence rather than generated mechanically from Markdown or test results. `deadlines.yaml` is deliberately separate: it records explicit delivery constraints that may resize study time but must not become learning/mastery claims.
 
 ## How I use it to study
 
@@ -81,7 +85,7 @@ question or task
 
 Cold retrieval comes before explanation when that is useful. Important implementation work stays learner-owned rather than becoming copy/paste from a tutor. Changed examples are used to check transfer. Syntax slips, notation problems and conceptual gaps are recorded differently because they need different fixes.
 
-The repository is also intentionally **lossy**. It is not meant to preserve every conversation. It keeps the bits that are useful later: what was learned, what needed help, what remains fragile, what evidence exists, and what should happen next.
+The repository is also intentionally **lossy**. It is not meant to preserve every conversation. It keeps the bits that are useful later: what was learned, what needed help, what remains fragile, what evidence exists, what deadlines constrain the plan, and what should happen next.
 
 ## If you are an AI tutor/model
 
@@ -92,9 +96,9 @@ Start here rather than inferring the workflow from random files:
 3. Read [`LEARNING_STATE.md`](LEARNING_STATE.md) for the current handover.
 4. Check the relevant upcoming section of [`MSC_SYLLABUS_MAP.md`](MSC_SYLLABUS_MAP.md).
 5. Load the **smallest relevant** lesson or course log. Live-course records are under `lesson_logs/<course_code>/`; numbered preparation logs remain at the root of `lesson_logs/`.
-6. Inspect exercise/test code when implementation evidence matters. Use `LEARNING_ROADMAP.md` when a longer-term priority decision is needed, and `learning_progress.yaml` when changing the dashboard state.
+6. Inspect exercise/test code when implementation evidence matters. Use `LEARNING_ROADMAP.md` when a longer-term priority decision is needed, `learning_progress.yaml` when changing learning-dashboard state, and `deadlines.yaml` when delivery pressure materially affects planning.
 
-Please preserve the evidence boundaries documented in the workflow: lecturer-covered material, pre-reading, guided work, independent performance, historical learning and personal synthesis are not interchangeable. A private local `LEARNER_PROFILE.md` may exist in the learner's own workspace; private profile content should never be copied into this public repository or dashboard.
+Please preserve the evidence boundaries documented in the workflow: lecturer-covered material, pre-reading, guided work, independent performance, historical learning and personal synthesis are not interchangeable. Deadline urgency is also not learning evidence. A private local `LEARNER_PROFILE.md` may exist in the learner's own workspace; private profile content should never be copied into this public repository or dashboard.
 
 ## Running the repository
 
