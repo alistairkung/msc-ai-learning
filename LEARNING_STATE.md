@@ -1,18 +1,29 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-09-14. Learning evidence through 2026-09-14._
+_Last maintained: 2026-09-16. Learning evidence through 2026-09-14._
 
-Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured dashboard projection; focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence alone.
+Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
 ## Three parallel commitments
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **FTEC5660 routing / conditional workflow bridge** | Tutorial 1 chaining philosophy is now conceptually understood. Do not spend more time on US tax mechanics or compact notebook syntax; next use a changed non-tax domain to cold-recall decomposition, then move from fixed sequence to routing. |
-| Parallel | **AIMS5702 representation translation + light tensor maintenance** | Shape reasoning remains the anchor; train diagram ↔ shapes ↔ indices ↔ PyTorch when course work resumes. |
-| Protect | **Search theory + a small relevant maths retrieval block** | Search implementation is complete through Lesson 33 but guarantees/complexity remain due; keep January AIMS5704 prerequisites alive without a broad restart. |
+| Continue | **FTEC5660 receipts homework + routing / conditional-workflow bridge** | The assessed homework is due 29 Sep. Use coursework as the main implementation vehicle where possible rather than maintaining a duplicate toy-project lane. Lesson 34 remains guided evidence; routing is the next conceptual mechanism. |
+| Parallel | **AIMS5701 search JIT, then regression / trees** | Week 2 is search; Week 3 is regression + decision trees/random forests. Search guarantees/complexity remain due, then shift the lead to trees rather than opening a broad new fundamentals project. |
+| Protect | **Small probability retrieval + AIMS5702 continuity** | Bayesian networks/HMMs arrive after regression/trees, but assessed FTEC work is nearer. Keep probability as a small maintenance/diagnostic block for now rather than a competing major lane. |
 
-These lanes coexist; they are not one sequential queue.
+These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is **not** a fourth learning-evidence lane and does not alter mastery state.
+
+## Delivery constraints — separate from learning evidence
+
+Source of dates: learner report on 16 Sep 2026. Treat these as explicit planning constraints; official weighting/scope can remain separately unverified.
+
+| Due | Course | Deliverable | Planning consequence |
+|---|---|---|---|
+| **2026-09-29** | FTEC5660 | Receipts agentic AI homework | Dominant assessed-work priority through submission; fold relevant routing/state/validation learning into the coursework where useful. |
+| **2026-10-19** | FTEC5660 | Hackathon | Learner has chosen to work **solo**. Keep it in incubation before 29 Sep, then ramp after the homework submission rather than letting it consume September. |
+
+Canonical structured copy: `deadlines.yaml`. Keep delivery planning distinct from `learning_progress.yaml`: the latter is an evidence projection, while deadlines are external workload constraints.
 
 ## FTEC5660 / LangChain — Lessons 34–35 on 14 Sep
 
@@ -328,11 +339,11 @@ Sources: `lesson_logs/aims5702/lecture01_02_prelecture_bridge.md` and `lesson_lo
 
 ## Parked / must return
 
-- **FTEC5660:** active now. Next bridge is routing/conditional workflows after one changed-domain recall of Tutorial 1 architecture.
-- **AIMS5701/search:** guarantees/complexity still due after the current Agentic AI block.
+- **FTEC5660:** active now, but receipts homework delivery is the near-term constraint. Use routing/conditional-workflow learning in service of the coursework where appropriate; hackathon ramps after 29 Sep.
+- **AIMS5701/search:** guarantees/complexity are the JIT target before Week 2; after that, shift toward regression/decision trees for Week 3.
 - **AIMS5702:** representation translation remains the next substantive course-specific review target.
-- **Maths:** selective LA/calculus/probability maintenance; later MLE/formal-theory extensions.
+- **Maths:** probability should stay a small maintenance/diagnostic block until W4 pressure increases; selective LA/calculus maintenance and later MLE/formal-theory extensions remain protected.
 
 ## Handover discipline
 
-After the next substantive FTEC5660 block, update the focused course log and this handover. Update `learning_progress.yaml` only when the structured dashboard state materially changes. Do not label Lesson 34 cold-independent until delayed changed-domain reconstruction supports that claim, and do not label the TaxCalcBench implementation mastered merely because the readable reference implementation exists in the repo.
+After the next substantive FTEC5660 block, update the focused course log and this handover. Update `learning_progress.yaml` only when the structured **learning-evidence** state materially changes. Update `deadlines.yaml` whenever an assessed-work date/status changes; deadline urgency must not be used as a mastery signal. Do not label Lesson 34 cold-independent until delayed changed-domain reconstruction supports that claim, and do not label the TaxCalcBench implementation mastered merely because the readable reference implementation exists in the repo.
