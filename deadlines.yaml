@@ -10,7 +10,7 @@ deadlines:
   title: Assignment 1 — tensor vectorisation and bilinear interpolation
   due_on: '2026-09-24'
   status: upcoming
-  provenance: assignment_notebook
+  provenance: course_material
   mode: individual
   note: >-
     Nearest assessed deadline. Scaffold pairwise row-dot products, broadcasting,
