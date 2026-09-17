@@ -1,0 +1,63 @@
+name: One-shot reconciliation CI repair
+
+on:
+  push:
+    branches:
+      - reconcile-learning-atlas-2026-09-17
+    paths:
+      - .github/workflows/fix-reconciliation-ci.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: reconcile-learning-atlas-2026-09-17
+
+      - name: Patch stale assertions and evidence date
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          atlas = Path('learning_progress.yaml')
+          text = atlas.read_text(encoding='utf-8')
+          old = """  bfs:\n    name: BFS\n    area: Classical AI\n    concept: demonstrated\n    performance: independent\n    review: recorded\n    action: maintain\n    evidence: The 6 September session log records a complete independent BFS reconstruction after debugging two state-role mistakes. Lesson 33 later refreshed the search comparison without displacing this as the strongest BFS evidence.\n    boundary: Independent reconstruction still showed a recurring fixed-search-node vs moving-reconstruction-cursor fragility. It does not prove all search guarantees or permanent retention.\n    next: Maintain with occasional changed-graph retrieval while prioritising search guarantees/complexity rather than another immediate full rewrite.\n    sources: [search, search_lesson33, state]\n    evidence_on: '2026-09-10'\n"""
+          new = old.replace("evidence_on: '2026-09-10'", "evidence_on: '2026-09-06'")
+          if old not in text:
+              raise SystemExit('Expected BFS block was not found; refusing a broad replacement')
+          atlas.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          tests = Path('dashboard/test_build.py')
+          test_text = tests.read_text(encoding='utf-8')
+          replacements = {
+              "assert 'Continue next · Fundamentals' in html": "assert 'Continue next · AIMS5702' in html",
+              "assert data['topics']['prompt_chaining']['evidence_on'] == '2026-09-08'": "assert data['topics']['prompt_chaining']['evidence_on'] == '2026-09-17'",
+              "assert data['topics']['ucs']['performance'] == 'pending'": "assert data['topics']['ucs']['performance'] == 'guided'",
+          }
+          for before, after in replacements.items():
+              if before not in test_text:
+                  raise SystemExit(f'Expected stale assertion missing: {before}')
+              test_text = test_text.replace(before, after, 1)
+          tests.write_text(test_text, encoding='utf-8')
+          PY
+
+      - name: Validate focused dashboard suite
+        shell: bash
+        run: |
+          python -m pip install 'PyYAML>=6,<7' pytest
+          python -m pytest dashboard/test_build.py dashboard/test_projection_sync.py -q
+
+      - name: Commit repair to PR branch
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add learning_progress.yaml dashboard/test_build.py
+          git commit -m 'Align reconciliation data and dashboard assertions'
+          git push origin HEAD:reconcile-learning-atlas-2026-09-17
