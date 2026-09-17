@@ -176,7 +176,7 @@ topics:
     review: recorded
     action: practice
     evidence: Lecture 2 and Tutorial 2 Part 1 introduced routing. On 17 Sep the learner cold-retrieved fixed-chain vs branch selection, deterministic-vs-LLM router trade-offs, route-label separation from side effects, policy precedence and routing composed with downstream chains on changed property/receipt examples.
-    boundary: `RunnableBranch` implementation syntax has not yet been cold-retrieved. Tutorial 2 Part 2 parallelisation and Part 3 reflection remain outside the taught/retrieval boundary.
+    boundary: '`RunnableBranch` implementation syntax has not yet been cold-retrieved. Tutorial 2 Part 2 parallelisation and Part 3 reflection remain outside the taught/retrieval boundary.'
     next: Reconstruct one changed structured-route -> RunnableBranch workflow, then stop at the end of Tutorial 2 Part 1 until later teaching advances.
     sources: [routing_review, state]
     evidence_on: '2026-09-17'
