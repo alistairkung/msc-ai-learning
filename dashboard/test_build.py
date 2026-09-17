@@ -28,8 +28,9 @@ def test_real_schema(data):
 def test_deadline_schema(data, deadlines):
     validate_deadlines(deadlines, set(data['courses']))
     assert [item['due_on'] for item in deadlines['deadlines']] == [
-        '2026-09-29', '2026-10-19']
-    assert deadlines['deadlines'][1]['mode'] == 'solo'
+        '2026-09-24', '2026-09-29', '2026-10-19']
+    assert deadlines['deadlines'][0]['provenance'] == 'course_material'
+    assert deadlines['deadlines'][2]['mode'] == 'solo'
 
 
 def test_bad_deadline_date_rejected(data, deadlines):
@@ -53,6 +54,9 @@ def test_unknown_deadline_course_rejected(data, deadlines):
 def test_deadline_lane_renders_separately_from_learning_lanes(data, deadlines):
     html = render(data, [], data['meta']['source_ref'], deadlines)
     assert 'Delivery lane · external constraints' in html
+    assert 'Assignment 1 — tensor vectorisation and bilinear interpolation' in html
+    assert '2026-09-24' in html
+    assert 'Course material' in html
     assert 'Receipts agentic AI homework' in html
     assert '2026-09-29' in html
     assert 'Hackathon' in html
@@ -219,6 +223,8 @@ def test_build_has_hashed_assets_and_fallback(tmp_path):
     assert '<h1>What you know. What needs work.</h1>' in html
     assert '{{' not in html
     assert 'filesystem source verification was not run' in html
+    assert 'Assignment 1 — tensor vectorisation and bilinear interpolation' in html
+    assert '2026-09-24' in html
     assert 'Receipts agentic AI homework' in html
     assert '2026-10-19' in html
     for name in re.findall(r'(?:href|src)="((?:styles|app)\.[a-f0-9]{12}\.(?:css|js))"', html):
