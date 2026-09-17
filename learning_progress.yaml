@@ -101,7 +101,7 @@ topics:
     boundary: Independent reconstruction still showed a recurring fixed-search-node vs moving-reconstruction-cursor fragility. It does not prove all search guarantees or permanent retention.
     next: Maintain with occasional changed-graph retrieval while prioritising search guarantees/complexity rather than another immediate full rewrite.
     sources: [search, search_lesson33, state]
-    evidence_on: '2026-09-10'
+    evidence_on: '2026-09-06'
     depends_on: []
   dfs:
     name: DFS

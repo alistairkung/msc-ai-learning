@@ -62,7 +62,7 @@ def test_deadline_lane_renders_separately_from_learning_lanes(data, deadlines):
     assert 'Hackathon' in html
     assert '2026-10-19' in html
     assert 'Learner-reported' in html
-    assert 'Continue next · Fundamentals' in html
+    assert 'Continue next · AIMS5702' in html
 
 
 def test_repository_source_files_exist(data):
@@ -152,7 +152,7 @@ def test_original_topic_ids_preserved(data):
 
 def test_actual_event_dates_preserved(data):
     assert data['topics']['bfs']['evidence_on'] == '2026-09-06'
-    assert data['topics']['prompt_chaining']['evidence_on'] == '2026-09-08'
+    assert data['topics']['prompt_chaining']['evidence_on'] == '2026-09-17'
     assert data['topics']['bayes']['evidence_on'] is None
     assert data['topics']['real_data_classification']['performance'] != 'independent'
 
@@ -247,4 +247,4 @@ def test_code_does_not_average_or_minimise_readiness():
 def test_review_metadata_is_not_future_evidence(data):
     assert data['meta']['reviewed_on'] >= data['meta']['evidence_through']
     assert data['topics']['bfs']['performance'] == 'independent'
-    assert data['topics']['ucs']['performance'] == 'pending'
+    assert data['topics']['ucs']['performance'] == 'guided'
