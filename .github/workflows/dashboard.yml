@@ -45,8 +45,8 @@ jobs:
           python-version: "3.14"
       - name: Install dashboard test dependencies
         run: python -m pip install "PyYAML>=6,<7" pytest "playwright==1.57.0"
-      - name: Validate evidence, source references and syllabus coverage
-        run: python -m pytest dashboard/test_build.py -q
+      - name: Validate evidence, projection sync, source references and syllabus coverage
+        run: python -m pytest dashboard/test_build.py dashboard/test_projection_sync.py -q
       - name: Build dashboard
         run: python dashboard/build.py
       - name: Install browser
