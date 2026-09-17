@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-09-16. Learning evidence through 2026-09-14._
+_Last maintained: 2026-09-17. Learning evidence through 2026-09-17._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -8,342 +8,185 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **FTEC5660 receipts homework + routing / conditional-workflow bridge** | The assessed homework is due 29 Sep. Use coursework as the main implementation vehicle where possible rather than maintaining a duplicate toy-project lane. Lesson 34 remains guided evidence; routing is the next conceptual mechanism. |
-| Parallel | **AIMS5701 search JIT, then regression / trees** | Week 2 is search; Week 3 is regression + decision trees/random forests. Search guarantees/complexity remain due, then shift the lead to trees rather than opening a broad new fundamentals project. |
-| Protect | **Small probability retrieval + AIMS5702 continuity** | Bayesian networks/HMMs arrive after regression/trees, but assessed FTEC work is nearer. Keep probability as a small maintenance/diagnostic block for now rather than a competing major lane. |
+| Continue | **AIMS5702 Assignment 1 scaffold, then independent attempt** | Assignment 1 is due 24 Sep and is now the nearest assessed deadline. Pairwise dot-product representations have been implemented in changed-example practice; next gap is vectorised indexing / bilinear interpolation. |
+| Parallel | **FTEC5660 receipts homework + routing / conditional-workflow bridge** | Receipts homework is due 29 Sep. Resume as the dominant delivery lane after the AIMS5702 submission; use coursework as the main implementation vehicle where possible. |
+| Protect | **AIMS5701 search JIT → regression/trees + small probability maintenance** | Search theory remains due, then decision trees/random forests for Week 3. Keep probability small until Bayesian/HMM pressure increases. |
 
-These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is **not** a fourth learning-evidence lane and does not alter mastery state.
+These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
 
 ## Delivery constraints — separate from learning evidence
 
-Source of dates: learner report on 16 Sep 2026. Treat these as explicit planning constraints; official weighting/scope can remain separately unverified.
+Canonical structured copy: `deadlines.yaml`. Current order is AIMS5702 Assignment 1 (24 Sep), FTEC5660 receipts homework (29 Sep), then FTEC5660 solo hackathon (19 Oct). Keep delivery planning distinct from `learning_progress.yaml`.
 
-| Due | Course | Deliverable | Planning consequence |
-|---|---|---|---|
-| **2026-09-29** | FTEC5660 | Receipts agentic AI homework | Dominant assessed-work priority through submission; fold relevant routing/state/validation learning into the coursework where useful. |
-| **2026-10-19** | FTEC5660 | Hackathon | Learner has chosen to work **solo**. Keep it in incubation before 29 Sep, then ramp after the homework submission rather than letting it consume September. |
+## AIMS5702 — Assignment 1 preparation, 17 Sep
 
-Canonical structured copy: `deadlines.yaml`. Keep delivery planning distinct from `learning_progress.yaml`: the latter is an evidence projection, while deadlines are external workload constraints.
+Sources: `lesson_logs/aims5702/lecture01_02_prelecture_bridge.md`, `lesson_logs/aims5702/tensor_cold_review_2026_09_11.md`, `lesson_logs/aims5702/assignment01_tensor_vectorisation_plan_2026_09_17.md`, and `practice/aims5702_assignment01/`.
 
-## FTEC5660 / LangChain — Lessons 34–35 on 14 Sep
+### Pre-lecture retrieval / refresh
 
-Sources: `lesson_logs/lesson32_lcel_basics.md`, `lesson_logs/ftec5660/tutorial01_study_plan.md`, `lesson_logs/ftec5660/lesson34_stateful_lcel_2026_09_14.md`, and `lesson_logs/ftec5660/lesson35_tutorial01_architecture_2026_09_14.md`.
+The learner began with changed tensor examples before the 17 Sep maths lecture.
 
-### Lesson 32 cold retrieval
+Evidence observed:
 
-The short resume check worked as intended rather than replaying the whole lesson.
+- reduction output shapes were retrieved correctly immediately, though the first semantic description mixed up the reduced time axis with the feature axis;
+- integer indexing vs one-element slicing was rusty on first retrieval (`x[:, 1]` was initially predicted to retain a singleton dimension), then corrected and immediately transferred to `1:2` slice examples;
+- broadcasting output shapes were generally retrieved correctly; semantic descriptions became reliable once values were attached to axes;
+- singleton-axis meaning was understood as “reuse/broadcast along this axis”; sample/time/feature roles were successfully traced on changed examples;
+- `unsqueeze` was not initially retrieved by name (`reshape` was proposed), but after introduction the learner correctly chose `unsqueeze(0)` / `unsqueeze(1)` on changed examples.
 
-**Retrieved cold:**
+Do not promote slicing/`unsqueeze` API syntax to cold-independent based on immediate corrected retrieval.
 
-- conceptual `prompt template -> model -> output parser` pipeline;
-- `JsonOutputParser()` produces Python structured data / dict for object JSON;
-- `.invoke({...})` runtime input mapping;
-- two-stage mapping with `{"risk_summary": extract_chain}`. This is stronger evidence than on 9 Sep, when the mapping required conceptual support.
+### Pairwise dot products — concept and implementations
 
-**Still fragile:**
-
-- builder call vs function object (`from_template` vs `from_template(...)`);
-- parser class vs instance (`StrOutputParser` vs `StrOutputParser()`);
-- `Task -> Input -> Constraints -> Output structure` was not cold-recalled and needed reactivation.
-
-Do not replay Lesson 32 again; sample these fragilities later with changed examples.
-
-### Lesson 34 — stateful LCEL implementation complete
-
-The learner worked sequentially through the new practice suite and reported **all tests green**.
-
-Implemented:
+The learner built the operation from first principles:
 
 ```text
-determine_review_route
-validate_extraction
-build_extraction_chain
-build_payment_pipeline
+x: (m, k)
+y: (n, k)
+
+for each x row and y row:
+    multiply matching k features
+    sum over k
+
+result: (m, n)
 ```
 
-Final architecture:
+Durable mathematical model:
 
 ```text
-initial {payment_note}
-    ↓
-RunnablePassthrough.assign(extracted = LLM extraction)
-    ↓
-{payment_note, extracted}
-    ↓
-RunnableLambda(validate_extraction)
-    ↓
-{payment_note, extracted}       # unchanged but validated
-    ↓
-RunnablePassthrough.assign(review_route = deterministic Python)
-    ↓
-{payment_note, extracted, review_route}
+z[m,n] = sum_k x[m,k] * y[n,k]
 ```
 
-#### `RunnablePassthrough.assign`
+Equivalent linear-algebra description: the pairwise dot-product matrix is `X Y^T`, though the practice deliberately avoids matrix-multiplication shortcuts.
 
-Current mental model:
+#### Single dot product
 
-> Preserve the current state dictionary and add a runnable's result under a named key.
+The learner implemented independently after the test contract was isolated:
 
-The learner understands independent enrichments can share an incoming state in one assign, while dependent enrichments need sequential stages so the later runnable sees earlier enriched state.
+```python
+return (x * y).sum()
+```
 
-#### `RunnableLambda`
+Key understanding: dot product = elementwise multiplication followed by reduction over the feature dimension.
 
-Current mental model:
+#### Two-loop representation
 
-> Adapt ordinary Python into a runnable that LCEL can invoke with runtime state.
-
-The learner correctly chose deterministic Python for exact threshold policy rather than spending another LLM call on exact computation.
-
-#### Validation gates
-
-Current model:
+The learner independently proposed the core construction:
 
 ```text
-valid state   -> return same state unchanged
-invalid state -> fail loudly
+for each row m of x:
+    for each row n of y:
+        result[m,n] = dot_product(x[m], y[n])
 ```
 
-The learner implemented required-key/type/value checks, repaired missing-key handling after a test exposed `KeyError`, and correctly rejected a string `"15000"` where numeric amount was required.
+Python/API support was needed for:
 
-They also articulated why validation should not silently repair/coerce malformed model output: it violates single responsibility and assumes producer intent. An explicit repair path should be separate if desired.
+- `range(len(x))` rather than iterating over `len(x)` directly;
+- allocating the result buffer with `torch.zeros((len(x), len(y)))` rather than the initially recalled `arange`-like idea.
 
-### Support / fragilities during implementation
+Final implementation uses exactly two Python loops; the feature axis is handled inside `dot_product`, not by a third Python loop.
 
-The overall three-stage architecture was chosen correctly by the learner, but implementation still needed targeted support for:
+#### Broadcasting representation
 
-- `build_extraction_chain(llm)` builder invocation;
-- `RunnableLambda(determine_review_route)` callable vs `determine_review_route()` immediate invocation;
-- prompt output fields/types matching downstream validator/Python contracts;
-- required-key checks before dictionary value access.
-
-Callable timing (`fn` vs `fn()`) remains the clearest recurring Python/LCEL fragility. Keep this as a short future changed-example probe.
-
-### Post-green conceptual synthesis
-
-Immediate state tracing was correct:
+The learner first derived the shape plan interactively, including one correction for the `y` singleton placement, then transferred it correctly to changed dimensions:
 
 ```text
-{payment_note}
--> {payment_note, extracted}
--> {payment_note, extracted}       # gate
--> {payment_note, extracted, review_route}
+(m, k) -> (m, 1, k)
+(n, k) -> (1, n, k)
+
+multiply -> (m, n, k)
+sum k   -> (m, n)
 ```
 
-The learner then articulated an important interface model:
+During initial expression writing, the learner needed reminders that `unsqueeze` returns a tensor rather than mutating the original and that `.sum()` without a dimension would reduce everything. After that correction, the learner wrote the complete changed-example expression independently:
 
-- `{placeholder}` variables in a `ChatPromptTemplate` describe structural inputs expected from upstream;
-- `.invoke({...})` supplies the initial runtime inputs at the outer boundary;
-- inside a composed chain, mappings and `assign` stages can construct/enrich the state required by downstream prompts;
-- prompt placeholders alone are a weak structural contract; semantic/type guarantees require validation;
-- prompt output requirements, parser output, validation contract and deterministic Python input contract need to agree.
-
-This is a meaningful shift from memorising LangChain syntax toward reading LCEL as **state evolving through stages and contracts**.
-
-### Lesson 35 — Tutorial 1 architecture understood
-
-A readable TaxCalcBench walkthrough was used to separate the tutorial's architecture from distracting US tax-domain details.
-
-The learner now understands the benchmark setup as:
-
-```text
-input.json   = unseen taxpayer case / exam question
-output.xml   = hidden benchmark answer key
-agent        = system attempting to reconstruct the completed return
+```python
+(x.unsqueeze(1) * y.unsqueeze(0)).sum(axis=2)
 ```
 
-The raw `input.json` is a large nested, machine-readable filled questionnaire containing taxpayer facts and source-form fields. The LLM first reduces this into a smaller inventory, then makes domain placement decisions, while deterministic code handles derived arithmetic.
+and later implemented the practice function directly from recall.
 
-Durable decomposition:
+Current conceptual heuristic:
 
-```text
-messy / variable representation
-        ↓
-LLM: interpret / extract
-        ↓
-structured artifact
-        ↓
-Python: validate
-        ↓
-LLM: map / supply changing domain knowledge
-        ↓
-Python: validate
-        ↓
-deterministic execution
-        ↓
-optional LLM explanation / formatting
+> Broadcasting replaces the two outer Python loops by representing the x-row and y-row pairings as tensor axes; reduction consumes the feature axis.
+
+#### Einsum representation
+
+`einsum` moved from guided pre-read into guided implementation with successful immediate transfer.
+
+The learner correctly reasoned that:
+
+- output indices survive;
+- an input index omitted from the output is reduced/summed;
+- `ij->i` reduces `j`, `ij->j` reduces `i`, and `ij->ji` transposes;
+- pairwise row dot products can be described as `mk,nk->mn` (or equivalent letters).
+
+The learner transferred this to a changed customer/product example (`ik,jk->ij`) and then implemented:
+
+```python
+return torch.einsum("mk,nk -> mn", x, y)
 ```
 
-#### Parse → compute → explain
+### Evidence boundary for 17 Sep practice
 
-The learner explicitly understood why exact filtering/arithmetic should move out of the LLM once the problem is structured: ordinary Python is cheaper, faster, deterministic and easier to test.
+The implementations are present on the practice branch and the learner reported pushing them after working through the red-test sequence. This is strong **same-session guided-to-independent implementation evidence**, not delayed cold mastery.
 
-Current heuristic:
+Strong current evidence:
 
-> Use the LLM where variability or ambiguity requires interpretation; use deterministic software once the problem has become deterministic.
+- understands a single dot product as elementwise multiply + sum;
+- understands pairwise dot products as every x-row paired with every y-row;
+- can explain why output shape is `(m,n)` and why `k` disappears;
+- can relate the two-loop, broadcasting and einsum versions as three representations of the same computation;
+- successfully transferred broadcasting shapes and einsum index notation to changed dimensions/examples during the session;
+- wrote the final broadcasting and einsum practice implementations without the solution being supplied as assignment code.
 
-#### Inventory vs placement
+Still fragile / needs delayed retrieval:
 
-Useful generic translation:
+- Python allocation/iteration syntax (`range(len(...))`, tensor allocation) was not cold;
+- slicing integer-index vs slice dimension preservation recovered quickly but was initially rusty;
+- `unsqueeze` API name/axis manipulation was initially guided;
+- broadcasting expression construction initially needed reminders about returned tensors and specifying the reduction dimension;
+- einsum is newly learned and only has same-session transfer evidence;
+- no evidence yet for vectorised advanced indexing or bilinear interpolation;
+- the actual Assignment 1 functions have not been independently attempted and must not be marked complete from the practice code.
 
-```text
-inventory  = what source facts exist?
-placement  = where should each fact go under domain rules?
-compute    = derive totals/decisions from validated placements/rules
-```
+### AIMS5702 next step
 
-Tax-specific terminology is intentionally not a learning target. Source "boxes" are pre-labelled source-document fields; destination "lines" are return fields chosen by the model's placement stage.
+Do not over-drill pairwise dot products immediately.
 
-#### Structural vs semantic validation
+Next useful sequence:
 
-The learner identified a major limitation in the lecturer's lightweight checks.
+1. attend/reconcile the 17 Sep maths lecture against this pre-lecture scaffold;
+2. on a later block, briefly cold-retrieve one changed pairwise example rather than replaying the full lesson;
+3. move to vectorised indexing: floor/integer coordinate indices, gathering many grid values with tensor indices, and shape prediction;
+4. build 1D interpolation intuition, then one 2D bilinear interpolation example;
+5. trace the supplied loop reference and ask what shape each scalar-per-point variable would have if all points were represented simultaneously;
+6. only then attempt the actual Assignment 1 notebook independently, using hints/debugging rather than copied solutions.
 
-The checks can prove things such as:
+## FTEC5660 / LangChain — current boundary
 
-- a numeric amount existed somewhere upstream;
-- values were not silently dropped/duplicated;
-- a destination field is from an allowed set;
-- derived subtotal fields were not directly populated by the model.
+Lesson 34 has successful guided implementation + passing tests + immediate state tracing + architectural synthesis, but not delayed cold-independent implementation. Tutorial 1 is conceptually learned with implementation only partially learned. On 17 Sep, a changed-domain cold session retrieved the core decomposition and structural-vs-semantic validation distinction well; callable timing recovered after probing, while `.assign()` syntax and nested-state access still required correction. Routing was retrieved conceptually as execution-path selection rather than mere state enrichment; actual `RunnableBranch` syntax remains to be cold-retrieved. Tutorial 2 progress is through the end of **Part 1: Routing** only; parallelisation/reflection have not yet been covered.
 
-But they do **not** prove that a real amount was attributed to the correct source field or mapped to the correct valid destination field.
+Near-term delivery: receipts homework due 29 Sep; detailed project plan is in `lesson_logs/ftec5660/hw1_receipt_chain_project_plan_2026_09_15.md`. Hackathon due 19 Oct, solo by learner choice.
 
-Durable hierarchy:
-
-```text
-value exists upstream
-    < source attribution is correct
-    < semantic/domain placement is correct
-```
-
-Current principle:
-
-> Structurally valid does not imply semantically correct.
-
-#### Generated-code pattern — understood, not production default
-
-The lecturer's pattern was understood as:
-
-```text
-LLM recalls/interprets rule
-    ↓
-LLM emits Python source as text
-    ↓
-source is dynamically loaded into a callable
-    ↓
-known sample/test validates behaviour
-    ↓
-validated callable participates in deterministic computation
-    ↓
-final benchmark result is evaluated against ground truth
-```
-
-The learner understands why this externalises model knowledge into an inspectable/testable artifact, but should **not** internalise `exec(llm_output)` inside a production process as the default architecture.
-
-Preferred production instinct:
-
-```text
-LLM
-    ↓
-constrained JSON / rule configuration
-    ↓
-schema + semantic validation
-    ↓
-trusted API / application code interprets it
-    ↓
-deterministic execution
-```
-
-Example mental model: the LLM supplies bracket thresholds/rates as JSON; a narrow trusted API knows how to validate and apply those brackets.
-
-If genuinely dynamic code is useful, the learner now distinguishes a more defensible architecture:
-
-```text
-JSON input
-    ↓
-disposable isolated sandbox
-    ↓
-LLM-generated program
-    ↓
-restricted filesystem/network/secrets/resources
-    ↓
-validated JSON output
-    ↓
-main workflow continues
-```
-
-Security framing:
-
-> The key question is not only whether generated code is trusted, but what capabilities untrusted code can exercise if it behaves unexpectedly.
-
-### Evidence boundary
-
-Lesson 34 has successful **guided implementation + passing tests + immediate state tracing + architectural synthesis**. It is not yet delayed cold-independent implementation.
-
-Tutorial 1 is now **conceptually learned, implementation partially learned**.
-
-Strong evidence:
-
-- can explain one-shot baseline vs decomposed chain;
-- can explain parse → deterministic compute → explain;
-- understands inventory vs placement vs derived computation;
-- understands failure localisation and validation boundaries;
-- understands structural validity vs semantic correctness;
-- understands model-generated code as an artifact that can be tested;
-- distinguishes unsafe in-process execution from capability-constrained sandbox execution;
-- prefers structured contracts + trusted executors as the production default;
-- can translate the tax example into a generic enterprise/fintech architecture.
-
-Not established:
-
-- line-by-line recall of the lecturer's compact TaxCalcBench implementation;
-- independent reconstruction of the full TaxCalcBench LCEL chain;
-- US tax-domain knowledge (intentionally out of scope).
-
-### FTEC5660 next step
-
-Do not immediately rebuild the same pipeline or continue learning US tax mechanics.
-
-Next useful work:
-
-1. cold-recall Tutorial 1 architecture using a changed non-tax domain;
-2. probe Lesson 34 callable timing / assign / validation with a changed example;
-3. bridge from fixed sequential prompt chains to routing/conditional paths: when should input determine which branch runs next?;
-4. revisit generated artifacts later only if a new mechanism such as sandbox execution, repair loops or tool routing is required.
-
-## AIMS5702 — current state
-
-Sources: `lesson_logs/aims5702/lecture01_02_prelecture_bridge.md` and `lesson_logs/aims5702/tensor_cold_review_2026_09_11.md`.
-
-- Shape reasoning remains the primary anchor; index/diagram fluency should be trained as translation, not replacement.
-- 11 Sep tensor review found strong broadcasting/reduction/semantic-shape reasoning with slicing/API rust that recovered quickly.
-- `keepdim=True` and tuple-dimension reductions were newly introduced on 11 Sep.
-- dtype memory, flat storage, stride/view/contiguity and basic einsum remain guided pre-read material rather than Lecture 1-covered material.
-- Next substantive course review should train actual Lecture 1 diagram -> shape -> parameter-count -> index/PyTorch translation.
-
-## Search — implementation complete through Lesson 33, theory due
+## AIMS5701 / search and trees
 
 - BFS has strongest current independent evidence.
 - DFS was reconstructed with refreshed/guided evidence.
 - UCS/A* are implemented with passing practice tests but remain guided rather than cold-independent.
 - Next search block: completeness/optimality, UCS non-negative-cost assumptions, A* admissibility vs consistency, goal popped vs discovered, and qualitative/formal complexity.
+- After the Week-2 search pressure, shift JIT preparation toward Week-3 regression + decision trees/random forests; trees remain new material.
 
 ## Established foundations / remaining uncertainty
 
-- **Python / NumPy / pandas:** substantial practice; syntax/API fluency can be less automatic than the learner's long-used backend languages. Callable timing remains a recurring implementation fragility.
+- **Python / NumPy / PyTorch:** conceptual shape reasoning often leads syntax/API fluency. Slicing, allocation and axis-manipulation APIs should continue to be recovered through implementation rather than memorised in isolation.
 - **Linear algebra:** historical JHU foundation established; retrieve selectively.
 - **Probability/statistics:** strong historical evidence across major foundations; Markov chains/Poisson remain diagnostic-needed.
 - **Calculus:** historical derivative/gradient/chain-rule/backprop foundation established.
 - **Practical ML:** linear/logistic regression and train/validation/test workflow implemented; changed-task transfer still useful.
-- **Agentic/LCEL:** Lesson 32 basics are partly cold-retrievable; Lesson 34 stateful composition/gates have guided passing implementation evidence; Tutorial 1 architecture is conceptually understood but full implementation is not independently reconstructable yet.
+- **Agentic/LCEL:** stateful composition/gates have guided implementation evidence; routing conceptually retrieved; `RunnableBranch` implementation and later Tutorial 2 parts remain open.
 - **January extensions:** likelihood/MLE, exponential families, formal generalisation/concentration, convergence assumptions and proof-style derivations remain new work.
-
-## Parked / must return
-
-- **FTEC5660:** active now, but receipts homework delivery is the near-term constraint. Use routing/conditional-workflow learning in service of the coursework where appropriate; hackathon ramps after 29 Sep.
-- **AIMS5701/search:** guarantees/complexity are the JIT target before Week 2; after that, shift toward regression/decision trees for Week 3.
-- **AIMS5702:** representation translation remains the next substantive course-specific review target.
-- **Maths:** probability should stay a small maintenance/diagnostic block until W4 pressure increases; selective LA/calculus maintenance and later MLE/formal-theory extensions remain protected.
 
 ## Handover discipline
 
-After the next substantive FTEC5660 block, update the focused course log and this handover. Update `learning_progress.yaml` only when the structured **learning-evidence** state materially changes. Update `deadlines.yaml` whenever an assessed-work date/status changes; deadline urgency must not be used as a mastery signal. Do not label Lesson 34 cold-independent until delayed changed-domain reconstruction supports that claim, and do not label the TaxCalcBench implementation mastered merely because the readable reference implementation exists in the repo.
+After substantive AIMS5702 Assignment 1 work, update the focused assignment plan and this handover. Update `learning_progress.yaml` only when the structured learning-evidence state materially changes. Update `deadlines.yaml` whenever assessed-work dates/statuses change. Do not promote same-session corrected/guided tensor work to delayed cold mastery, and do not treat practice implementations as evidence that the actual assignment has been independently completed.
