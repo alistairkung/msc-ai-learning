@@ -72,7 +72,7 @@ def check(site: Path, screenshots: Path | None = None) -> None:
         page.locator('#tab-knowledge').click()
         page.locator('#reset').click()
         page.locator('#domain').select_option('Agentic systems')
-        assert page.locator('#topic-rows tr:visible').count() == 2
+        assert page.locator('#topic-rows tr:visible').count() == 3
         page.locator('#reset').click()
         page.locator('#kind').select_option('focus')
         if screenshots:
