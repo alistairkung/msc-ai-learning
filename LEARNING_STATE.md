@@ -8,8 +8,8 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **AIMS5702 Assignment 1 scaffold, then independent attempt** | Assignment 1 is due 24 Sep and is now the nearest assessed deadline. Pairwise dot-product representations have been implemented in changed-example practice; next gap is vectorised indexing / bilinear interpolation. |
-| Parallel | **FTEC5660 receipts homework + routing / conditional-workflow bridge** | Receipts homework is due 29 Sep. Resume as the dominant delivery lane after the AIMS5702 submission; use coursework as the main implementation vehicle where possible. |
+| Continue | **AIMS5702 Assignment 1 + representation cold review** | Assignment 1 is due 24 Sep and is now the nearest assessed deadline. Tomorrow's substantive block is reserved for this assignment. Before interpolation, deepen dtype representation, strides/contiguity, slicing/indexing and singleton-axis insertion. |
+| Parallel | **FTEC5660 receipts homework + routing / conditional-workflow bridge** | Receipts homework is due 29 Sep. Next substantial FTEC homework block is planned for Monday; use coursework as the main implementation vehicle where possible. |
 | Protect | **AIMS5701 search JIT → regression/trees + small probability maintenance** | Search theory remains due, then decision trees/random forests for Week 3. Keep probability small until Bayesian/HMM pressure increases. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
@@ -18,9 +18,9 @@ These lanes coexist; they are not one sequential queue. Delivery dates can tempo
 
 Canonical structured copy: `deadlines.yaml`. Current order is AIMS5702 Assignment 1 (24 Sep), FTEC5660 receipts homework (29 Sep), then FTEC5660 solo hackathon (19 Oct). Keep delivery planning distinct from `learning_progress.yaml`.
 
-## AIMS5702 — Assignment 1 preparation, 17 Sep
+## AIMS5702 — Assignment 1 preparation and lecture calibration, 17 Sep
 
-Sources: `lesson_logs/aims5702/lecture01_02_prelecture_bridge.md`, `lesson_logs/aims5702/tensor_cold_review_2026_09_11.md`, `lesson_logs/aims5702/assignment01_tensor_vectorisation_plan_2026_09_17.md`, and `practice/aims5702_assignment01/`.
+Sources: `lesson_logs/aims5702/lecture01_02_prelecture_bridge.md`, `lesson_logs/aims5702/tensor_cold_review_2026_09_11.md`, `lesson_logs/aims5702/assignment01_tensor_vectorisation_plan_2026_09_17.md`, `lesson_logs/aims5702/lecture_reflection_2026_09_17.md`, and `practice/aims5702_assignment01/`.
 
 ### Pre-lecture retrieval / refresh
 
@@ -127,9 +127,64 @@ The learner transferred this to a changed customer/product example (`ik,jk->ij`)
 return torch.einsum("mk,nk -> mn", x, y)
 ```
 
-### Evidence boundary for 17 Sep practice
+### Post-lecture calibration
 
-The implementations are present on the practice branch and the learner reported pushing them after working through the red-test sequence. This is strong **same-session guided-to-independent implementation evidence**, not delayed cold mastery.
+The lecture changed the priority of several low-level representation topics. The lecturer appears willing to probe dtype/storage/indexing mechanics explicitly, so these should no longer be treated as incidental API details.
+
+#### Dtype representation
+
+The lecturer asked how `int8` handles negative values; the learner did not follow the explanation confidently. Floating-point terminology around mantissa/significand and exponent also moved too quickly to feel understood or retrievable.
+
+Keep two evidence categories separate:
+
+```text
+storage-size reasoning
+    vs
+bit-level value representation
+```
+
+Positive live evidence: the learner correctly calculated VRAM/storage for a `float32` example during the lecture.
+
+Not established: signed `int8` representation and floating-point sign/exponent/mantissa intuition.
+
+#### Strides, contiguity and slicing
+
+Strides/contiguity remain active weaknesses and should receive more deliberate drilling. Future review should connect:
+
+```text
+shape
+→ flat storage
+→ stride
+→ indexing/slicing
+→ view
+→ contiguity
+```
+
+The lecturer also used a specific slicing/indexing "trick" or formula that the learner expects may be quiz-relevant. The exact formula was not retained confidently, so recover the lecturer's exact notation from course material before drilling it rather than inventing a substitute.
+
+#### Singleton-axis insertion
+
+The lecturer demonstrated a manual indexing-based way to insert a singleton dimension rather than teaching `unsqueeze()` directly. The learner remembers syntax approximately like `[:, new_dim, :]`, but this is not exact evidence. Recover the actual lecture example first, then connect its semantics to singleton-axis insertion and, only secondarily, to convenience APIs such as `unsqueeze()`.
+
+#### Interpolation sequencing
+
+Do not move directly into interpolation yet. The learner wants a deeper cold review first:
+
+```text
+cold tensor/dtype review
+    ↓
+dtype representation
+    ↓
+stride / contiguity / slicing
+    ↓
+singleton-axis insertion / indexing
+    ↓
+then interpolation
+```
+
+### Evidence boundary for 17 Sep
+
+The pairwise implementations are strong **same-session guided-to-independent implementation evidence**, not delayed cold mastery.
 
 Strong current evidence:
 
@@ -138,7 +193,7 @@ Strong current evidence:
 - can explain why output shape is `(m,n)` and why `k` disappears;
 - can relate the two-loop, broadcasting and einsum versions as three representations of the same computation;
 - successfully transferred broadcasting shapes and einsum index notation to changed dimensions/examples during the session;
-- wrote the final broadcasting and einsum practice implementations without the solution being supplied as assignment code.
+- correctly performed a `float32` VRAM/storage calculation in live lecture context.
 
 Still fragile / needs delayed retrieval:
 
@@ -147,21 +202,18 @@ Still fragile / needs delayed retrieval:
 - `unsqueeze` API name/axis manipulation was initially guided;
 - broadcasting expression construction initially needed reminders about returned tensors and specifying the reduction dimension;
 - einsum is newly learned and only has same-session transfer evidence;
+- signed integer representation and floating-point sign/exponent/mantissa intuition are not established;
+- strides/contiguity and lecturer-specific slicing/indexing mechanics need deeper drilling;
 - no evidence yet for vectorised advanced indexing or bilinear interpolation;
 - the actual Assignment 1 functions have not been independently attempted and must not be marked complete from the practice code.
 
-### AIMS5702 next step
+### AIMS5702 next step / 18 Sep plan
 
-Do not over-drill pairwise dot products immediately.
+Tomorrow's substantive study session should focus on **AIMS5702 Assignment 1** rather than splitting the block across courses.
 
-Next useful sequence:
+Before breaking down interpolation, begin with a bounded cold review/drill of dtype representation, strides/contiguity, slicing/indexing and singleton-axis insertion, using the lecturer's exact notation where course material is available. Then continue into the assignment scaffold and independent attempt.
 
-1. attend/reconcile the 17 Sep maths lecture against this pre-lecture scaffold;
-2. on a later block, briefly cold-retrieve one changed pairwise example rather than replaying the full lesson;
-3. move to vectorised indexing: floor/integer coordinate indices, gathering many grid values with tensor indices, and shape prediction;
-4. build 1D interpolation intuition, then one 2D bilinear interpolation example;
-5. trace the supplied loop reference and ask what shape each scalar-per-point variable would have if all points were represented simultaneously;
-6. only then attempt the actual Assignment 1 notebook independently, using hints/debugging rather than copied solutions.
+FTEC5660 receipts homework is intentionally deferred to the next substantial block planned for Monday; this is workload sequencing, not a change in its evidence state or importance.
 
 ## FTEC5660 / LangChain — current boundary
 
@@ -179,7 +231,7 @@ Near-term delivery: receipts homework due 29 Sep; detailed project plan is in `l
 
 ## Established foundations / remaining uncertainty
 
-- **Python / NumPy / PyTorch:** conceptual shape reasoning often leads syntax/API fluency. Slicing, allocation and axis-manipulation APIs should continue to be recovered through implementation rather than memorised in isolation.
+- **Python / NumPy / PyTorch:** conceptual shape reasoning often leads syntax/API fluency. Dtype storage calculations have live evidence, while signed/floating representation, slicing, stride/contiguity and axis-manipulation APIs remain active retrieval targets.
 - **Linear algebra:** historical JHU foundation established; retrieve selectively.
 - **Probability/statistics:** strong historical evidence across major foundations; Markov chains/Poisson remain diagnostic-needed.
 - **Calculus:** historical derivative/gradient/chain-rule/backprop foundation established.
