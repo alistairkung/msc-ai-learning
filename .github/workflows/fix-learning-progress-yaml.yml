@@ -1,0 +1,75 @@
+name: One-shot learning_progress YAML repair
+
+on:
+  push:
+    branches:
+      - reconcile-learning-atlas-2026-09-17
+    paths:
+      - .github/workflows/fix-learning-progress-yaml.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: reconcile-learning-atlas-2026-09-17
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+
+      - name: Repair ambiguous plain YAML scalars and validate
+        shell: bash
+        run: |
+          python -m pip install 'PyYAML>=6,<7'
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          import yaml
+
+          path = Path('learning_progress.yaml')
+          lines = path.read_text(encoding='utf-8').splitlines()
+          repaired = []
+          changed = []
+
+          mapping = re.compile(r'^(\s+[A-Za-z0-9_-]+): (.+)$')
+          protected_starts = ("'", '"', '[', '{', '|', '>', '&', '*')
+
+          for number, line in enumerate(lines, start=1):
+              match = mapping.match(line)
+              if match:
+                  prefix, value = match.groups()
+                  if ': ' in value and not value.startswith(protected_starts):
+                      quoted = value.replace("'", "''")
+                      new_line = f"{prefix}: '{quoted}'"
+                      changed.append((number, line, new_line))
+                      line = new_line
+              repaired.append(line)
+
+          text = '\n'.join(repaired) + '\n'
+          yaml.safe_load(text)
+          path.write_text(text, encoding='utf-8')
+
+          print(f'Repaired {len(changed)} ambiguous YAML scalar(s).')
+          for number, before, after in changed:
+              print(f'line {number}: {before.strip()} -> {after.strip()}')
+          PY
+
+      - name: Commit repair to PR branch
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add learning_progress.yaml
+          if git diff --cached --quiet; then
+            echo 'No repair needed.'
+            exit 0
+          fi
+          git commit -m 'Fix Learning Atlas YAML scalar quoting'
+          git push origin HEAD:reconcile-learning-atlas-2026-09-17
