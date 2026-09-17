@@ -244,7 +244,7 @@ topics:
     performance: guided
     review: recorded
     action: maintain
-    evidence: Historical NumPy work is reinforced by the 11 Sep tensor review: broadcasting and reductions were strong, while slicing/API naming showed rust that recovered quickly on changed examples.
+    evidence: 'Historical NumPy work is reinforced by the 11 Sep tensor review: broadcasting and reductions were strong, while slicing/API naming showed rust that recovered quickly on changed examples.'
     boundary: Strong semantic shape reasoning does not imply automatic slicing syntax or every NumPy/PyTorch API name.
     next: Keep maintenance short and shape-first; use changed course examples rather than replaying the NumPy curriculum.
     sources: [tensor_review, state, roadmap]
@@ -419,7 +419,7 @@ topics:
     name: Decision trees
     area: Model building
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
-    next: Begin a compact just-in-time tree lane after the Week-2 search lecture: split intuition -> Gini/entropy/information gain -> recursive construction -> stopping/overfitting -> small implementation.
+    next: 'Begin a compact just-in-time tree lane after the Week-2 search lecture: split intuition -> Gini/entropy/information gain -> recursive construction -> stopping/overfitting -> small implementation.'
   random_forests:
     <<: *new
     name: Random forests
