@@ -3,16 +3,16 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-09-10'
-  evidence_through: '2026-09-09'
+  reviewed_on: '2026-09-17'
+  evidence_through: '2026-09-17'
   repository: alistairkung/msc-ai-learning
-  source_ref: 16c4210d84bd2fbe4feeadeb8470619cedfc570e
-  review_note: Structural source-path sync after grouping live-course logs by course. No learning-status or mastery upgrade is implied by this maintenance change.
+  source_ref: f11410d88b51d3298d8097ba4417cc47bcbbdce4
+  review_note: Reconciled post-9-Sep evidence across Lesson 33 search, AIMS5702 tensor review and Assignment 1 practice, FTEC5660 stateful LCEL/Tutorial 1, and Routing retrieval. Guided/same-session work remains distinct from delayed cold-independent evidence.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 0262d26e2018cd9ce487089886d6428680052a27
+    sha: efee2d22081badb867df4a251927b0623286e1d3
   syllabus:
     path: MSC_SYLLABUS_MAP.md
     sha: 141601bafa07cff189eadf5dd7c1bb9f03ee9c57
@@ -22,6 +22,9 @@ sources:
   search:
     path: lesson_logs/search_reactivation_2026_09_06.md
     sha: a64c14471791948bcfae578e85716c1961c012d7
+  search_lesson33:
+    path: lesson_logs/lesson33_search_reconstruction.md
+    sha: 64fe714ce0c8bfeb0d0cae728e3dc2aa900577b8
   prompt:
     path: lesson_logs/ftec5660/pattern01_prompt_chaining.md
     sha: 3ffbf91b66bd24dc260c1aeb0c1d73d431a1b157
@@ -31,6 +34,27 @@ sources:
   lcel_plan:
     path: lesson_logs/ftec5660/tutorial01_study_plan.md
     sha: 31f0c46c625ef062b47154bab47e75d61240af2e
+  lcel_stateful:
+    path: lesson_logs/ftec5660/lesson34_stateful_lcel_2026_09_14.md
+    sha: 0f6abf0bd6e650f61a9ee54748b87c70ad2f8e2a
+  tutorial1_arch:
+    path: lesson_logs/ftec5660/lesson35_tutorial01_architecture_2026_09_14.md
+    sha: 012b02ca72d09af5a760fef36fd86decc69ce256
+  routing_review:
+    path: lesson_logs/ftec5660/lesson36_routing_retrieval_2026_09_17.md
+    sha: 3915ddd1eaee4ef7755bb5d215a76ac0d191b7a2
+  tensor_review:
+    path: lesson_logs/aims5702/tensor_cold_review_2026_09_11.md
+    sha: fff83932e8f8bc377c2476a362c6676de56c74d3
+  assignment1_plan:
+    path: lesson_logs/aims5702/assignment01_tensor_vectorisation_plan_2026_09_17.md
+    sha: 03d451f6529bf1d59f8cafb9bd8d9458acde6870
+  assignment1_pairwise:
+    path: lesson_logs/aims5702/assignment01_pairwise_vectorisation_2026_09_17.md
+    sha: af77abe81aeaad7d024a0830218823389ab33f95
+  tensor_practice:
+    path: practice/aims5702_assignment01/tensor_ops.py
+    sha: bccf003b82636109fc25a26b14b8fefe68f9acd2
   pipeline:
     path: deep_learning/mlp/lesson31_real_data.py
     sha: bbe9b6cecbc70fa6cbc3bcb8cd6e89dc50dead23
@@ -73,77 +97,90 @@ topics:
     performance: independent
     review: recorded
     action: maintain
-    evidence: The 6 September session log records a complete independent BFS reconstruction after debugging two state-role mistakes. The practice solution was intentionally not committed.
-    boundary: This is a logged session result, not an independently rerun test in this migration. It does not prove fluency in every search guarantee or permanent retention.
-    next: Move forward to UCS. Keep the solution-free BFS practice test for occasional maintenance, not another compulsory repeat.
-    sources: [search, state]
-    evidence_on: '2026-09-06'
+    evidence: The 6 September session log records a complete independent BFS reconstruction after debugging two state-role mistakes. Lesson 33 later refreshed the search comparison without displacing this as the strongest BFS evidence.
+    boundary: Independent reconstruction still showed a recurring fixed-search-node vs moving-reconstruction-cursor fragility. It does not prove all search guarantees or permanent retention.
+    next: Maintain with occasional changed-graph retrieval while prioritising search guarantees/complexity rather than another immediate full rewrite.
+    sources: [search, search_lesson33, state]
+    evidence_on: '2026-09-10'
     depends_on: []
   dfs:
     name: DFS
     area: Classical AI
     concept: demonstrated
-    performance: guided
+    performance: implemented
     review: recorded
     action: maintain
-    evidence: The session log records a successful BFS-to-DFS derivation and reasoning about neighbour insertion order.
-    boundary: A guided transformation is distinct from a separate, independently reconstructed DFS implementation.
-    next: Reuse this understanding during the search comparison. Do not restart a full DFS lesson unless a specific gap appears.
-    sources: [search, state]
-    evidence_on: '2026-09-06'
+    evidence: Lesson 33 records a successful DFS reconstruction and passing tests after brief BFS/DFS recall; the main correction was an early return caused by indentation.
+    boundary: This was performed immediately after BFS recall and with targeted debugging support, so it is refreshed/implemented evidence rather than pristine unaided cold reconstruction.
+    next: Reuse DFS in the integrated search comparison; do not restart a full DFS implementation lesson unless a specific gap appears.
+    sources: [search_lesson33, state]
+    evidence_on: '2026-09-10'
     depends_on: []
   ucs:
     name: Uniform-cost search
     area: Classical AI
-    concept: taught
-    performance: pending
+    concept: demonstrated
+    performance: guided
     review: recorded
-    action: build
-    evidence: The learner traced accumulated-cost frontier choices correctly. Both the current state and the latest search log identify UCS implementation as the next step.
-    boundary: No new standalone UCS implementation is recorded. Correct conceptual answers are not evidence of independent code reconstruction.
-    next: Write UCS incrementally from a blank file, then compare paths and costs on a small weighted graph. The learner writes the implementation.
-    sources: [search, state]
-    evidence_on: '2026-09-06'
+    action: retrieve
+    evidence: Lesson 33 records a passing UCS implementation covering cheapest-path selection, cheaper-route replacement, unreachable/start=goal cases and lower-cost paths with more edges. The learner articulated the unseen-or-cheaper update rule.
+    boundary: Heap syntax, tuple roles, accumulated-vs-edge cost and update-condition logic needed targeted support. UCS is implemented with guided derivation, not delayed cold-independent reconstruction.
+    next: Do not rewrite immediately. Consolidate non-negative-cost assumptions and goal-popped reasoning, then later test one changed weighted graph from a blank start.
+    sources: [search_lesson33, state]
+    evidence_on: '2026-09-10'
     depends_on: [bfs]
   astar:
     name: A* search
     area: Classical AI
     concept: demonstrated
-    performance: implemented
+    performance: guided
     review: recorded
-    action: build
-    evidence: Lesson 26 records an earlier implementation. The 6 September session recovered g, h and f; admissibility and consistency were introduced, with consistency still fragile.
-    boundary: An existing function is not proof of present independent recall. Graph-search guarantees and complexity are not recorded as fully consolidated.
-    next: Reconstruct A* from the new UCS implementation. Then use a brief check of heuristic meaning and the assumptions behind guarantees.
-    sources: [search, state]
-    evidence_on: '2026-09-06'
+    action: retrieve
+    evidence: Lesson 33 derives A* from UCS using frontier entries carrying f, g and node; tests pass including zero heuristic reducing A* to UCS and heuristic-based prioritisation.
+    boundary: Initial heap shape, tuple unpacking and correct heuristic lookup required support. Current implementation is guided/current, not delayed cold-independent A* reconstruction; guarantees remain separate work.
+    next: Consolidate admissibility vs consistency and search assumptions, then later use one changed reconstruction to test independent retention.
+    sources: [search_lesson33, state]
+    evidence_on: '2026-09-10'
     depends_on: [ucs]
   prompt_chaining:
     name: Prompt chaining
     area: Agentic systems
-    concept: taught
+    concept: demonstrated
     performance: guided
     review: recorded
-    action: retrieve
-    evidence: The log distinguishes the taught concept from the tutorial. Class reached successful expense-ledger parsing into JSON; the intended parse → compute → explain pipeline was introduced.
-    boundary: The later notebook cells are not completed learning. The other 20 patterns in the overview are not automatic recall targets.
-    next: On the planned FTEC return, briefly retrieve why checkable stages help, when not to chain, and the role of deterministic processing before moving into the next Tutorial 1 mechanisms.
-    sources: [prompt, state, lcel_plan]
-    evidence_on: '2026-09-08'
+    action: transfer
+    evidence: Tutorial 1 was worked through conceptually beyond the original class stopping point. The learner can explain one-shot baseline vs decomposition, parse -> deterministic compute -> explain, failure localisation, and LLM-vs-code responsibility on changed domains.
+    boundary: Conceptual transfer is strong, but the full compact TaxCalcBench/LCEL implementation is not independently reconstructable and US tax mechanics are intentionally out of scope.
+    next: Use chaining inside real coursework where it fits rather than rebuilding the tax notebook; preserve explicit contracts and deterministic stages.
+    sources: [prompt, tutorial1_arch, state]
+    evidence_on: '2026-09-17'
     depends_on: []
   lcel:
     name: LangChain / LCEL basics
     area: Agentic systems
-    concept: taught
+    concept: demonstrated
     performance: guided
     review: recorded
     action: practice
-    evidence: Lesson 32 records passing changed-example pytest exercises for prompt templates, string/JSON parsers, invocation dictionaries and a two-stage sub-chain mapping. Two-stage composition required conceptual support.
-    boundary: The implementation is guided evidence, not independent cold reconstruction. RunnablePassthrough.assign, RunnableLambda, gates and generated-code workflows remain new teaching rather than failed recall.
-    next: 'Parked until one day before the next FTEC5660 lecture: do a 5–10 minute changed-example cold check, then study RunnablePassthrough.assign → RunnableLambda → deterministic gates using the Tutorial 1 plan.'
-    sources: [prompt, state, lcel_lesson, lcel_plan]
-    evidence_on: '2026-09-09'
+    evidence: Lesson 34 records a green learner implementation of state enrichment, RunnableLambda validation and deterministic routing after earlier LCEL basics. A changed-domain 17 Sep probe retrieved callable timing and contract reasoning while exposing remaining `.assign()` and nested-state syntax fragility.
+    boundary: Successful guided implementation and same-session state tracing are not delayed cold-independent reconstruction. `.assign()` syntax and some nested Python state access still needed correction on the later probe.
+    next: Keep syntax retrieval brief and changed-domain. Use coursework to reinforce state/contracts, and cold-retrieve `RunnableBranch` only within the taught Routing boundary.
+    sources: [lcel_lesson, lcel_plan, lcel_stateful, routing_review, state]
+    evidence_on: '2026-09-17'
     depends_on: [prompt_chaining]
+  routing:
+    name: Routing / conditional workflows
+    area: Agentic systems
+    concept: demonstrated
+    performance: guided
+    review: recorded
+    action: practice
+    evidence: Lecture 2 and Tutorial 2 Part 1 introduced routing. On 17 Sep the learner cold-retrieved fixed-chain vs branch selection, deterministic-vs-LLM router trade-offs, route-label separation from side effects, policy precedence and routing composed with downstream chains on changed property/receipt examples.
+    boundary: `RunnableBranch` implementation syntax has not yet been cold-retrieved. Tutorial 2 Part 2 parallelisation and Part 3 reflection remain outside the taught/retrieval boundary.
+    next: Reconstruct one changed structured-route -> RunnableBranch workflow, then stop at the end of Tutorial 2 Part 1 until later teaching advances.
+    sources: [routing_review, state]
+    evidence_on: '2026-09-17'
+    depends_on: [lcel]
   bayes:
     <<: *history
     name: Bayes & conditioning
@@ -152,7 +189,7 @@ topics:
     boundary: This does not establish mastery of graphical-model inference or current unaided Bayes performance.
     next: Use a changed finite-counts/Bayes example without a refresher. Record the support needed, then repair only the observed gap.
   calculus:
-    name: Derivatives → gradients
+    name: Derivatives -> gradients
     area: Math foundations
     concept: historical
     performance: implemented
@@ -194,22 +231,30 @@ topics:
     <<: *built
     name: Python fluency
     area: Foundations
-    evidence: Lessons 01–07 record containers, comprehensions, key functions and function arguments.
+    evidence: Lessons 01-07 record containers, comprehensions, key functions and function arguments.
   dsa_patterns:
     <<: *built
     name: DSA patterns
     area: Foundations
-    evidence: Lessons 08–09 record hash lookup, two pointers and sliding windows; broader algorithmic fluency is still developing.
+    evidence: Lessons 08-09 record hash lookup, two pointers and sliding windows; broader algorithmic fluency is still developing.
   numpy:
-    <<: *built
     name: NumPy & shape reasoning
     area: Foundations
-    evidence: Lessons 10–17, 20 and 27 record numerical operations, broadcasting, axes and shape reasoning.
+    concept: demonstrated
+    performance: guided
+    review: recorded
+    action: maintain
+    evidence: Historical NumPy work is reinforced by the 11 Sep tensor review: broadcasting and reductions were strong, while slicing/API naming showed rust that recovered quickly on changed examples.
+    boundary: Strong semantic shape reasoning does not imply automatic slicing syntax or every NumPy/PyTorch API name.
+    next: Keep maintenance short and shape-first; use changed course examples rather than replaying the NumPy curriculum.
+    sources: [tensor_review, state, roadmap]
+    evidence_on: '2026-09-11'
+    depends_on: []
   pandas:
     <<: *built
     name: pandas / data preparation
     area: Foundations
-    evidence: Lessons 18–20 record selection, aggregation, missing values, joins and mixed retrieval.
+    evidence: Lessons 18-20 record selection, aggregation, missing values, joins and mixed retrieval.
   linear_regression:
     <<: *built
     name: Linear regression
@@ -219,17 +264,38 @@ topics:
     <<: *built
     name: Logistic regression
     area: Model building
-    evidence: Lessons 21–22 record binary classification, probabilities, thresholds and confusion-matrix metrics.
+    evidence: Lessons 21-22 record binary classification, probabilities, thresholds and confusion-matrix metrics.
   evaluation:
     <<: *built
     name: Evaluation & generalisation workflow
     area: Model building
     evidence: Lesson 31 connects train-only preprocessing, per-epoch validation and final held-out evaluation.
   tensor_operations:
-    <<: *built
-    name: Tensor operations
+    name: Tensor operations & pairwise vectorisation
     area: Model building
-    evidence: Lesson 27 records batch means, centring, flattening, transpose and linear-layer shapes.
+    concept: demonstrated
+    performance: guided
+    review: recorded
+    action: practice
+    evidence: The 11 Sep cold review found strong broadcasting/reduction/semantic-shape reasoning with slicing/API rust. On 17 Sep the learner implemented changed-example single/pairwise dot products using two loops, broadcasting/reduction and einsum, with successful same-session transfer across changed dimensions.
+    boundary: This is strong same-session guided-to-independent implementation evidence, not delayed cold mastery. `unsqueeze`, result allocation and the first vectorised expression needed support; einsum is newly learned. Advanced indexing and bilinear interpolation are not yet established.
+    next: Do one short delayed changed-example pairwise check, then move to vectorised indexing and bilinear interpolation for Assignment 1 rather than over-drilling pairwise dot products.
+    sources: [tensor_review, assignment1_plan, assignment1_pairwise, tensor_practice, state]
+    evidence_on: '2026-09-17'
+    depends_on: []
+  tensor_interpolation:
+    name: Vectorised indexing & bilinear interpolation
+    area: Model building
+    concept: planned
+    performance: pending
+    review: not_due
+    action: learn
+    evidence: AIMS5702 Assignment 1 requires vectorising a supplied loop-based bilinear interpolation calculation. The preparation plan identifies advanced tensor indexing/gathering and interpolation as the next genuine gap.
+    boundary: No implementation or independent reasoning evidence exists yet; pairwise broadcasting success must not be treated as interpolation mastery.
+    next: Build vectorised index gathering, 1D interpolation and one 2D bilinear example before attempting the assignment notebook independently.
+    sources: [assignment1_plan, state]
+    evidence_on: null
+    depends_on: [tensor_operations]
   autograd:
     <<: *built
     name: Autograd & manual gradient descent
@@ -264,7 +330,7 @@ topics:
     <<: *history
     name: Orthogonality & least squares
     area: Math foundations
-    evidence: Historical JHU study covers Gram–Schmidt, projections, exact residuals and normal equations.
+    evidence: Historical JHU study covers Gram-Schmidt, projections, exact residuals and normal equations.
     depends_on: [la_systems]
   la_quadratic:
     <<: *history
@@ -337,11 +403,11 @@ topics:
     performance: pending
     review: recorded
     action: learn
-    evidence: Introductory completeness, optimality, admissibility and consistency were introduced; complexity and graph-search assumptions are not consolidated.
-    boundary: Introductory vocabulary is not a complete guarantee analysis. Complexity is new work; do not treat it as failed recall.
-    next: Consolidate after UCS/A* implementation, distinguishing new complexity material from introductory theory retrieval.
-    sources: [search, state]
-    evidence_on: '2026-09-06'
+    evidence: Introductory completeness, optimality, admissibility and consistency were introduced; Lesson 33 explicitly leaves guarantees/complexity as the next search block after implementation.
+    boundary: Implementation success in BFS/DFS/UCS/A* does not establish guarantee analysis. Complexity and assumptions remain genuine work, not failed recall.
+    next: Consolidate completeness/optimality, UCS non-negative-cost assumptions, A* admissibility vs consistency, goal popped vs discovered, then qualitative/formal time and memory complexity.
+    sources: [search, search_lesson33, state]
+    evidence_on: '2026-09-10'
     depends_on: []
   scientific_python:
     <<: *new
@@ -353,6 +419,7 @@ topics:
     name: Decision trees
     area: Model building
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    next: Begin a compact just-in-time tree lane after the Week-2 search lecture: split intuition -> Gini/entropy/information gain -> recursive construction -> stopping/overfitting -> small implementation.
   random_forests:
     <<: *new
     name: Random forests
@@ -435,51 +502,51 @@ topics:
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
 lanes:
 - id: continue
-  label: Continue next · Fundamentals
-  title: Build UCS → reconstruct A*
-  summary: BFS reconstruction is logged. Move forward, rather than restarting search.
-  target: ucs
+  label: Continue next · AIMS5702
+  title: Assignment 1 — vectorised indexing -> interpolation
+  summary: Pairwise dot-product representations are implemented in changed-example practice. The next genuine gap is advanced indexing and bilinear interpolation before the independent assignment attempt.
+  target: tensor_interpolation
   tasks:
-  - title: UCS, then A*
-    when: Next study session
-    topics: [ucs, astar]
-    detail: Learner writes the important code. Keep conceptual help separate from API reminders.
-  - title: Finish the Week-2 search coverage
-    when: Before AIMS5701 Week 2
-    topics: [bfs, dfs, search_complexity, other_agents]
-    detail: Consolidate guarantees/complexity, confirm other-agent scope, then do one integrated review.
+  - title: Finish the interpolation scaffold
+    when: Next AIMS5702 study block
+    topics: [tensor_operations, tensor_interpolation]
+    detail: Briefly cold-retrieve one changed pairwise example, then move to indexed grid gathering, 1D interpolation and one 2D example. Do not replay the whole pairwise lesson.
+  - title: Attempt Assignment 1 independently
+    when: Before 24 Sep submission
+    topics: [tensor_operations, tensor_interpolation]
+    detail: Learner writes the assignment functions. Use progressive hints/debugging; do not copy the practice implementations into the notebook mechanically.
 - id: parallel
-  label: Parallel block · Fundamentals
-  title: Preview logic; FTEC parked
-  summary: Keep a small Week-1 logic preview alongside search. Agentic AI resumes one day before the next FTEC5660 lecture.
-  target: logic
+  label: Parallel block · FTEC5660
+  title: Receipts homework + Routing
+  summary: Receipts homework is due 29 Sep. Use the coursework as the main implementation vehicle; routing remains within Tutorial 2 Part 1 only.
+  target: routing
   tasks:
-  - title: Logic preview
-    when: Before AIMS5701 Week 1
-    topics: [logic]
-    detail: Reserve a short preview alongside search; do not wait until all Week-2 work is complete.
-  - title: Resume Tutorial 1
-    when: One day before the next FTEC5660 lecture
-    topics: [lcel, prompt_chaining]
-    detail: Do a 5–10 minute Lesson 32 cold check, then follow the stored plan through state enrichment, Python runnables and deterministic gates. Use payments/KYC examples rather than the tax pipeline.
-  - title: Confirm FTEC5660 assessments
-    when: When official details arrive
-    topics: []
-    detail: Hackathon/final-project dates, scope and weighting remain unconfirmed. Unknown workload is not zero workload.
+  - title: Resume receipt-chain project
+    when: After the nearest AIMS5702 block / submission pressure
+    topics: [prompt_chaining, lcel, routing]
+    detail: Start from the stored multimodal receipt project plan, design the extraction contract, establish test/eval loops and introduce routing only if the workflow/evidence warrants it.
+  - title: Maintain the Routing boundary
+    when: Short changed-example retrieval
+    topics: [routing, lcel]
+    detail: Recover structured route decision -> RunnableBranch on one changed example. Parallelisation/reflection are not yet fair recall targets.
 - id: protect
-  label: Protected continuity · January theory
-  title: Retrieve maths selectively
-  summary: Historical foundations exist. Check retention; distinguish refresh from new theory.
-  target: bayes
+  label: Protected continuity · AIMS5701 + probability
+  title: Search JIT -> trees; keep probability warm
+  summary: Search theory is the immediate Fundamentals JIT target. Then shift the lead to regression/decision trees while keeping probability as a small diagnostic lane ahead of Bayesian networks/HMMs.
+  target: search_complexity
   tasks:
-  - title: One relevant maths target
-    when: Recurring small block
-    topics: [la_systems, bayes]
-    detail: Choose the smallest useful diagnostic for upcoming matrix or inference work. No calendar booking implied.
-  - title: Explicit new theory later
-    when: Before the relevant January demand
-    topics: [mle, convergence, kernels]
-    detail: Protect continuity through project spikes. New topics are not an overdue recall pile.
+  - title: Finish Week-2 search theory
+    when: Before / around AIMS5701 Week 2
+    topics: [ucs, astar, search_complexity, other_agents]
+    detail: Consolidate guarantees/complexity and confirm other-agent scope; do not repeatedly rewrite algorithms that already have implementation evidence.
+  - title: Build toward Week-3 trees
+    when: After search pressure eases
+    topics: [linear_regression, logistic_regression, decision_trees, random_forests]
+    detail: Retrieve regression, then learn split/impurity/information-gain intuition and implement a tiny decision tree before relying on sklearn.
+  - title: Small probability diagnostic
+    when: Short recurring maintenance block
+    topics: [bayes, probability, joint_moments]
+    detail: Keep this small while assessed FTEC/AIMS work is nearer; increase it as Bayesian-network/HMM weeks approach.
 courses:
   AIMS5701:
     name: Fundamentals in AI
@@ -495,30 +562,30 @@ courses:
       due_on: null
     - week: '2'
       title: Uninformed search, informed search, searching with other agents
-      anchors: [bfs, dfs]
-      remaining: [ucs, astar, search_complexity, other_agents]
-      note: Confirm what “searching with other agents” includes.
+      anchors: [bfs, dfs, ucs, astar]
+      remaining: [search_complexity, other_agents]
+      note: BFS has strongest independent evidence; DFS is refreshed/implemented and UCS/A* are guided implementations. Guarantees/complexity and other-agent search remain the real gaps.
       scope: scope_unconfirmed
       due_on: null
     - week: '3'
       title: Linear regression, logistic regression, decision trees, random forests
       anchors: [linear_regression, logistic_regression, la_projection]
       remaining: [decision_trees, random_forests]
-      note: ''
+      note: Regression is retrieval/transfer; trees/random forests are genuinely new and should become the next JIT lane after search.
       scope: mapped
       due_on: null
     - week: '4'
       title: Bayesian networks, inference, sampling
       anchors: [bayes, distributions, joint_moments]
       remaining: [bayesian_networks]
-      note: ''
+      note: Historical probability is a foundation, not current graphical-model mastery. Keep retrieval small until this week approaches.
       scope: mapped
       due_on: null
     - week: '5'
       title: Hidden Markov Models, particle filtering
       anchors: [bayes, distributions]
       remaining: [markov, hmm, particle_filtering]
-      note: ''
+      note: Run a Markov diagnostic before rebuilding anything broadly.
       scope: mapped
       due_on: null
     - week: '6'
@@ -572,8 +639,8 @@ courses:
       due_on: null
   FTEC5660:
     name: Agentic AI in Finance / FinTech
-    timing: Live teaching recorded through 8 September 2026. Pattern order is not a weekly timetable; course-specific study is parked until one day before the next lecture.
-    expected_weeks: [Lecture 1, Pattern 1, Later, Projects]
+    timing: Live teaching recorded through Routing / Tutorial 2 Part 1 in mid-September 2026. Pattern order is not treated as a weekly timetable.
+    expected_weeks: [Lecture 1, Pattern 1, Pattern 2, Later, Projects]
     weeks:
     - week: Lecture 1
       title: Agentic-system introduction
@@ -584,28 +651,35 @@ courses:
       due_on: null
     - week: Pattern 1
       title: Prompt Chaining
-      anchors: [prompt_chaining]
-      remaining: [lcel]
-      note: Class stopped at JSON parsing. Lesson 32 adds guided LCEL practice; the remainder of Tutorial 1 is preserved as a planned follow-up, not demonstrated performance.
+      anchors: [prompt_chaining, lcel]
+      remaining: []
+      note: Tutorial 1 architecture is conceptually learned; stateful LCEL/gates have guided implementation evidence, while full TaxCalcBench reconstruction is intentionally not a mastery target.
+      scope: mapped
+      due_on: null
+    - week: Pattern 2
+      title: Routing
+      anchors: [routing]
+      remaining: []
+      note: Tutorial 2 is covered only through Part 1 Routing. Conceptual next-day retrieval is good; RunnableBranch syntax is not yet cold-independent.
       scope: partial_tutorial
       due_on: null
     - week: Later
       title: Remaining pattern catalogue
       anchors: []
       remaining: []
-      note: Activate individual patterns only after substantive teaching.
+      note: Parallelisation/reflection and later patterns activate only after substantive teaching; overview exposure alone is not evidence.
       scope: overview
       due_on: null
     - week: Projects
-      title: Hackathon + final project
-      anchors: []
+      title: Receipts homework + hackathon + later project work
+      anchors: [prompt_chaining, lcel]
       remaining: []
-      note: Learner recalls about 80% combined; dates, scope and exact weighting need official verification.
+      note: Receipts homework is due 29 Sep. Hackathon is due 19 Oct and the learner has chosen to work solo. Exact final-project weighting/scope remains separately unverified.
       scope: scope_unconfirmed
       due_on: null
   AIMS5702:
     name: AI in Practice
-    timing: Original Sep–Dec sequence retained. The Fundamentals delay is not applied to this course.
+    timing: Original Sep-Dec sequence retained. Assignment 1 is an explicit delivery constraint in deadlines.yaml rather than a fake syllabus week.
     expected_weeks: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
     weeks:
     - week: '1'
@@ -618,8 +692,8 @@ courses:
     - week: '2'
       title: Vector, matrix, tensor ops; NumPy
       anchors: [linear_algebra, numpy, tensor_operations]
-      remaining: []
-      note: Select a targeted matrix/shape check.
+      remaining: [tensor_interpolation]
+      note: Pairwise dot products/broadcasting/einsum now have current changed-example practice evidence. Advanced indexing and bilinear interpolation remain the Assignment 1 gap.
       scope: mapped
       due_on: null
     - week: '3'
@@ -640,7 +714,7 @@ courses:
       title: Housing-price prediction
       anchors: [linear_regression, evaluation, real_data_classification]
       remaining: [neural_regression]
-      note: The historical syllabus names the Boston House Dataset; dataset choice is not changed by this migration.
+      note: The historical syllabus names the Boston House Dataset; dataset choice is not changed by this reconciliation.
       scope: mapped
       due_on: null
     - week: '6'
@@ -798,20 +872,31 @@ paths:
 - title: Optimisation theory
   topics: [calculus, autograd, la_quadratic, convergence]
   note: The last step is explicit new teaching, not implied by implemented GD.
+- title: Tensor vectorisation into interpolation
+  topics: [numpy, tensor_operations, tensor_interpolation]
+  note: Move from shape/broadcasting fluency into advanced indexed gathering and interpolation for the current AIMS5702 assignment; assignment completion is not automatically durable mastery.
 timeline:
 - label: Historical maths
   detail: JHU linear algebra and probability, plus chat-based calculus; evidence strength varies by topic.
-- label: Lessons 01–09
+- label: Lessons 01-09
   detail: Python fluency and DSA patterns.
-- label: Lessons 10–20
+- label: Lessons 10-20
   detail: NumPy/manual ML and pandas/data workflow.
-- label: Lessons 21–26
+- label: Lessons 21-26
   detail: Classical regression/classification and search.
-- label: Lessons 27–31
+- label: Lessons 27-31
   detail: Tensors, autograd, PyTorch and an end-to-end real-data workflow.
 - label: 6 September
   detail: BFS independent reconstruction, DFS derivation and introductory search theory recorded.
-- label: 8 September
-  detail: FTEC5660 Prompt Chaining taught; tutorial partial.
-- label: 9 September
-  detail: Lesson 32 LCEL basics completed with guided changed-example tests; Tutorial 1 follow-up plan stored and FTEC work deliberately parked until one day before the next lecture.
+- label: 8-9 September
+  detail: Prompt Chaining taught, followed by guided Lesson 32 LCEL basics and a stored Tutorial 1 follow-up plan.
+- label: 10 September
+  detail: Lesson 33 completed the integrated BFS/DFS/UCS/A* practice suite; UCS and A* remain guided implementations and search guarantees/complexity remain due.
+- label: 11 September
+  detail: AIMS5702 tensor maintenance found strong broadcasting/reduction/semantic-shape reasoning with slicing/API rust that recovered quickly.
+- label: 14 September
+  detail: Stateful LCEL/validation practice went green with guided implementation; Tutorial 1 architecture was consolidated conceptually without promoting compact TaxCalcBench code to mastery.
+- label: 16-17 September
+  detail: Routing was taught through Tutorial 2 Part 1 and retrieved conceptually on changed domains; RunnableBranch syntax remains to be cold-retrieved.
+- label: 17 September
+  detail: AIMS5702 Assignment 1 pairwise dot-product practice implemented loop, broadcasting and einsum representations on changed examples; vectorised indexing/interpolation remains next.
