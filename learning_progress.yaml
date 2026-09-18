@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-09-18'
   evidence_through: '2026-09-18'
   repository: alistairkung/msc-ai-learning
-  source_ref: 83ae695ed32c14c16720551d5a8b5f67bb35191f
+  source_ref: d275e33a7ecb2d452e257f97783ac0228f9a600d
   review_note: Reconciled through the 18 Sep AIMS5702 representation checkpoint and interpolation bridge. Bilinear interpolation is now conceptually demonstrated through guided/manual changed examples, while assignment implementation, edge handling and delayed retrieval remain open. Dtype/stride/slicing gains remain same-session evidence.
   stale_after_days: 21
 sources:
@@ -15,7 +15,7 @@ sources:
     sha: 86502040cabb6712cee053e5bbe2adbdbfa1c92c
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: f41a8721fc950afe59419bec0ae16f11552bcb2e
+    sha: b51858e155252ea5c654ccc46e0e71ab5264b6a0
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
