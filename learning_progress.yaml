@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-09-17'
   evidence_through: '2026-09-17'
   repository: alistairkung/msc-ai-learning
-  source_ref: b44803ac4103e8b87c618f3dd36722e715b857be
+  source_ref: 348cc20e050f4c4e9f37c2509a5eba99e9b86877
   review_note: Reconciled through the 17 Sep AIMS5702 lecture reflection as well as Lesson 33 search, Assignment 1 pairwise practice, FTEC5660 stateful LCEL/Tutorial 1, and Routing retrieval. Float32 storage calculation has live evidence; signed/floating representation and stride/contiguity remain retrieval targets. Guided/same-session work remains distinct from delayed cold-independent evidence.
   stale_after_days: 21
 sources:
@@ -15,7 +15,7 @@ sources:
     sha: d4469c1c82b0e1bae386d22ca51977036580a209
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 141601bafa07cff189eadf5dd7c1bb9f03ee9c57
+    sha: f41a8721fc950afe59419bec0ae16f11552bcb2e
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
@@ -906,4 +906,4 @@ timeline:
 - label: 16-17 September
   detail: Routing was taught through Tutorial 2 Part 1 and retrieved conceptually on changed domains; RunnableBranch syntax remains to be cold-retrieved.
 - label: 17 September
-  detail: AIMS5702 Assignment 1 pairwise dot-product practice implemented loop, broadcasting and einsum representations on changed examples; vectorised indexing/interpolation remains next.
+  detail: AIMS5702 Assignment 1 pairwise dot-product practice implemented loop, broadcasting and einsum representations on changed examples. The subsequent lecture confirmed float32 VRAM/storage calculation but exposed dtype encoding, stride/contiguity, slicing/indexing and singleton-axis insertion as active retrieval gaps; these now precede interpolation.
