@@ -6,13 +6,13 @@ meta:
   reviewed_on: '2026-09-17'
   evidence_through: '2026-09-17'
   repository: alistairkung/msc-ai-learning
-  source_ref: f11410d88b51d3298d8097ba4417cc47bcbbdce4
-  review_note: Reconciled post-9-Sep evidence across Lesson 33 search, AIMS5702 tensor review and Assignment 1 practice, FTEC5660 stateful LCEL/Tutorial 1, and Routing retrieval. Guided/same-session work remains distinct from delayed cold-independent evidence.
+  source_ref: b44803ac4103e8b87c618f3dd36722e715b857be
+  review_note: Reconciled through the 17 Sep AIMS5702 lecture reflection as well as Lesson 33 search, Assignment 1 pairwise practice, FTEC5660 stateful LCEL/Tutorial 1, and Routing retrieval. Float32 storage calculation has live evidence; signed/floating representation and stride/contiguity remain retrieval targets. Guided/same-session work remains distinct from delayed cold-independent evidence.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: efee2d22081badb867df4a251927b0623286e1d3
+    sha: d4469c1c82b0e1bae386d22ca51977036580a209
   syllabus:
     path: MSC_SYLLABUS_MAP.md
     sha: 141601bafa07cff189eadf5dd7c1bb9f03ee9c57
@@ -52,6 +52,9 @@ sources:
   assignment1_pairwise:
     path: lesson_logs/aims5702/assignment01_pairwise_vectorisation_2026_09_17.md
     sha: af77abe81aeaad7d024a0830218823389ab33f95
+  aims5702_lecture_reflection:
+    path: lesson_logs/aims5702/lecture_reflection_2026_09_17.md
+    sha: e428545ef77691dfd4c97c0b8d71959586535691
   tensor_practice:
     path: practice/aims5702_assignment01/tensor_ops.py
     sha: bccf003b82636109fc25a26b14b8fefe68f9acd2
@@ -277,10 +280,10 @@ topics:
     performance: guided
     review: recorded
     action: practice
-    evidence: The 11 Sep cold review found strong broadcasting/reduction/semantic-shape reasoning with slicing/API rust. On 17 Sep the learner implemented changed-example single/pairwise dot products using two loops, broadcasting/reduction and einsum, with successful same-session transfer across changed dimensions.
-    boundary: This is strong same-session guided-to-independent implementation evidence, not delayed cold mastery. `unsqueeze`, result allocation and the first vectorised expression needed support; einsum is newly learned. Advanced indexing and bilinear interpolation are not yet established.
-    next: Do one short delayed changed-example pairwise check, then move to vectorised indexing and bilinear interpolation for Assignment 1 rather than over-drilling pairwise dot products.
-    sources: [tensor_review, assignment1_plan, assignment1_pairwise, tensor_practice, state]
+    evidence: The 11 Sep cold review found strong broadcasting/reduction/semantic-shape reasoning with slicing/API rust. On 17 Sep the learner implemented changed-example single/pairwise dot products using two loops, broadcasting/reduction and einsum, with successful same-session transfer across changed dimensions. In the subsequent lecture the learner correctly calculated float32 VRAM/storage, while int8 negative representation, floating-point mantissa/exponent, strides/contiguity and lecturer-specific slicing/indexing did not yet feel understood.
+    boundary: This is strong same-session guided-to-independent implementation evidence, not delayed cold mastery. `unsqueeze`, result allocation and the first vectorised expression needed support; einsum is newly learned. Float32 storage-size calculation does not establish signed-integer or floating-point bit representation. Stride/contiguity and exact lecturer slicing/indexing mechanics remain active gaps; advanced indexing and bilinear interpolation are not yet established.
+    next: Before interpolation, run a bounded cold drill on dtype representation, flat storage/strides/contiguity, exact lecturer slicing/indexing notation and singleton-axis insertion. Then move to vectorised indexing and bilinear interpolation for Assignment 1.
+    sources: [tensor_review, assignment1_plan, assignment1_pairwise, aims5702_lecture_reflection, tensor_practice, state]
     evidence_on: '2026-09-17'
     depends_on: []
   tensor_interpolation:
@@ -292,8 +295,8 @@ topics:
     action: learn
     evidence: AIMS5702 Assignment 1 requires vectorising a supplied loop-based bilinear interpolation calculation. The preparation plan identifies advanced tensor indexing/gathering and interpolation as the next genuine gap.
     boundary: No implementation or independent reasoning evidence exists yet; pairwise broadcasting success must not be treated as interpolation mastery.
-    next: Build vectorised index gathering, 1D interpolation and one 2D bilinear example before attempting the assignment notebook independently.
-    sources: [assignment1_plan, state]
+    next: After the representation checkpoint (dtype encoding, strides/contiguity, slicing and singleton-axis insertion), build vectorised index gathering, 1D interpolation and one 2D bilinear example before attempting the assignment notebook independently.
+    sources: [assignment1_plan, aims5702_lecture_reflection, state]
     evidence_on: null
     depends_on: [tensor_operations]
   autograd:
@@ -503,14 +506,18 @@ topics:
 lanes:
 - id: continue
   label: Continue next · AIMS5702
-  title: Assignment 1 — vectorised indexing -> interpolation
-  summary: Pairwise dot-product representations are implemented in changed-example practice. The next genuine gap is advanced indexing and bilinear interpolation before the independent assignment attempt.
+  title: Assignment 1 — representation drill -> indexing -> interpolation
+  summary: The 18 Sep block is reserved for AIMS5702. Pairwise representations have same-session implementation evidence, but lecture calibration moved dtype encoding, strides/contiguity, slicing/indexing and singleton-axis insertion ahead of interpolation.
   target: tensor_interpolation
   tasks:
+  - title: Run the representation checkpoint
+    when: Start of 18 Sep AIMS5702 block
+    topics: [tensor_operations]
+    detail: Cold-drill signed/floating dtype representation, flat storage/strides/contiguity, the lecturer's exact slicing/indexing trick and singleton-axis insertion. Preserve the distinction between storage-size success and bit-representation understanding.
   - title: Finish the interpolation scaffold
-    when: Next AIMS5702 study block
+    when: After the representation checkpoint
     topics: [tensor_operations, tensor_interpolation]
-    detail: Briefly cold-retrieve one changed pairwise example, then move to indexed grid gathering, 1D interpolation and one 2D example. Do not replay the whole pairwise lesson.
+    detail: Then move to indexed grid gathering, 1D interpolation and one 2D example. Do not replay the whole pairwise lesson.
   - title: Attempt Assignment 1 independently
     when: Before 24 Sep submission
     topics: [tensor_operations, tensor_interpolation]
@@ -693,7 +700,7 @@ courses:
       title: Vector, matrix, tensor ops; NumPy
       anchors: [linear_algebra, numpy, tensor_operations]
       remaining: [tensor_interpolation]
-      note: Pairwise dot products/broadcasting/einsum now have current changed-example practice evidence. Advanced indexing and bilinear interpolation remain the Assignment 1 gap.
+      note: Pairwise dot products/broadcasting/einsum have current same-session practice evidence and float32 storage calculation succeeded in lecture. Dtype encoding, strides/contiguity and lecturer-specific slicing/indexing need deeper retrieval before advanced indexing/bilinear interpolation.
       scope: mapped
       due_on: null
     - week: '3'
