@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-09-17. Learning evidence through 2026-09-17._
+_Last maintained: 2026-09-18. Learning evidence through 2026-09-18._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -8,8 +8,8 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **AIMS5702 Assignment 1 + representation cold review** | Assignment 1 is due 24 Sep and is now the nearest assessed deadline. Tomorrow's substantive block is reserved for this assignment. Before interpolation, deepen dtype representation, strides/contiguity, slicing/indexing and singleton-axis insertion. |
-| Parallel | **FTEC5660 receipts homework + routing / conditional-workflow bridge** | Receipts homework is due 29 Sep. Next substantial FTEC homework block is planned for Monday; use coursework as the main implementation vehicle where possible. |
+| Continue | **AIMS5702 Assignment 1 interpolation implementation** | Assignment 1 is due 24 Sep. The 18 Sep representation checkpoint and conceptual bilinear-interpolation bridge are complete; next map the loop implementation, then independently implement loop/no-loop versions and run tests. |
+| Parallel | **FTEC5660 receipts homework + routing / conditional-workflow bridge** | Receipts homework is due 29 Sep. Next substantial FTEC homework block remains planned for Monday; use coursework as the main implementation vehicle where possible. |
 | Protect | **AIMS5701 search JIT → regression/trees + small probability maintenance** | Search theory remains due, then decision trees/random forests for Week 3. Keep probability small until Bayesian/HMM pressure increases. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
@@ -215,6 +215,84 @@ Before breaking down interpolation, begin with a bounded cold review/drill of dt
 
 FTEC5660 receipts homework is intentionally deferred to the next substantial block planned for Monday; this is workload sequencing, not a change in its evidence state or importance.
 
+## AIMS5702 — 18 Sep representation checkpoint + interpolation bridge
+
+Detailed source: `lesson_logs/aims5702/assignment01_interpolation_bridge_2026_09_18.md`.
+
+The planned prerequisite checkpoint was completed before attempting interpolation implementation.
+
+### Representation evidence
+
+- Storage-size reasoning was retrieved with an initial bits/bytes unit slip; a changed float16 example was then correct.
+- Signed `int8` / two's-complement representation was genuinely new at the start of the session. The learner derived the `-128..127` range after teaching and decoded a changed signed bit pattern successfully. This is immediate-transfer evidence only.
+- Floating-point sign/exponent/significand roles were clarified. Exponent-range vs significand-precision was initially reversed, then transferred correctly to a changed hypothetical format.
+- Stride/contiguity received substantial changed-example drilling. The learner now explains contiguity through logical traversal vs compact underlying storage rather than merely memorising API outcomes.
+- The lecturer's storage-index and base-offset formulas were supplied from memory and applied to changed examples.
+- A useful fragility was exposed: slice start affects base offset, while slice step affects the view stride. This distinction recovered after correction.
+- `start:stop:step` syntax was not initially retrievable when all three fields appeared, then recovered on immediate changed examples.
+- `np.newaxis` / `None` singleton insertion was connected to PyTorch `unsqueeze`; changed shape examples were correct.
+
+Do not promote any of this same-session corrected/guided representation work to delayed cold mastery yet.
+
+### Bilinear interpolation
+
+Bilinear interpolation moved from **planned/no evidence** to **conceptually demonstrated with guided derivation and successful manual changed-example execution**.
+
+Current mental model:
+
+```text
+normalised query coordinate
+    ↓
+scale to grid coordinate
+    ↓
+lower/upper row + column indices
+    ↓
+row/column fractions
+    ↓
+gather four neighbouring grid values
+    ↓
+linear interpolation across top and bottom
+    ↓
+linear interpolation between those results
+```
+
+The learner manually completed a changed bilinear example to the correct final value and understood that the same scalar interpolation expression can operate elementwise over `(N,)` tensors.
+
+Advanced paired indexing `grid[rows, cols]` was introduced as the mechanism for gathering one value per query point without a Python loop. Pairing semantics were understood, although reading values from the toy grid produced a couple of lookup slips.
+
+The supplied Assignment 1 Test 1 harness was also understood: SciPy `RegularGridInterpolator` is the trusted oracle; `x_ref/y_ref` are normalised `[0,1)` query coordinates; `h-1/w-1` scale them into grid space; the student loop/no-loop implementations are compared with the reference within tolerance.
+
+### Current Assignment 1 boundary
+
+Established today:
+
+- conceptual 1D interpolation;
+- conceptual bilinear interpolation;
+- lower/upper neighbour selection and fractional position;
+- conceptual vectorisation path through paired indexing + elementwise arithmetic;
+- understanding of the first interpolation test harness.
+
+Not established:
+
+- independent `interp2d_forloop` implementation;
+- independent `interp2d_nofor` implementation;
+- boundary/edge handling;
+- passing interpolation tests;
+- delayed cold retrieval of today's new representation/interpolation material.
+
+### AIMS5702 next step
+
+Do not replay today's full lesson.
+
+Next focused block (~2–3 hours expected):
+
+1. brief changed-example retrieval of the fragile pieces;
+2. map the supplied loop implementation/context onto lower/upper indices, four neighbours and fractions;
+3. learner implements/reconstructs the loop version;
+4. lift scalar-per-point variables into `(N,)` tensors;
+5. learner implements the no-loop version with advanced indexing and elementwise interpolation;
+6. run supplied tests and diagnose boundary/indexing failures.
+
 ## FTEC5660 / LangChain — current boundary
 
 Lesson 34 has successful guided implementation + passing tests + immediate state tracing + architectural synthesis, but not delayed cold-independent implementation. Tutorial 1 is conceptually learned with implementation only partially learned. On 17 Sep, a changed-domain cold session retrieved the core decomposition and structural-vs-semantic validation distinction well; callable timing recovered after probing, while `.assign()` syntax and nested-state access still required correction. Routing was retrieved conceptually as execution-path selection rather than mere state enrichment; actual `RunnableBranch` syntax remains to be cold-retrieved. Tutorial 2 progress is through the end of **Part 1: Routing** only; parallelisation/reflection have not yet been covered.
@@ -231,7 +309,7 @@ Near-term delivery: receipts homework due 29 Sep; detailed project plan is in `l
 
 ## Established foundations / remaining uncertainty
 
-- **Python / NumPy / PyTorch:** conceptual shape reasoning often leads syntax/API fluency. Dtype storage calculations have live evidence, while signed/floating representation, slicing, stride/contiguity and axis-manipulation APIs remain active retrieval targets.
+- **Python / NumPy / PyTorch:** conceptual shape reasoning often leads syntax/API fluency. On 18 Sep, signed-int and floating representation were newly taught/clarified; stride/contiguity and slicing received deeper guided changed-example practice; bilinear interpolation was manually derived. These remain same-session evidence until delayed retrieval/implementation.
 - **Linear algebra:** historical JHU foundation established; retrieve selectively.
 - **Probability/statistics:** strong historical evidence across major foundations; Markov chains/Poisson remain diagnostic-needed.
 - **Calculus:** historical derivative/gradient/chain-rule/backprop foundation established.
@@ -241,4 +319,4 @@ Near-term delivery: receipts homework due 29 Sep; detailed project plan is in `l
 
 ## Handover discipline
 
-After substantive AIMS5702 Assignment 1 work, update the focused assignment plan and this handover. Update `learning_progress.yaml` only when the structured learning-evidence state materially changes. Update `deadlines.yaml` whenever assessed-work dates/statuses change. Do not promote same-session corrected/guided tensor work to delayed cold mastery, and do not treat practice implementations as evidence that the actual assignment has been independently completed.
+After the next substantive AIMS5702 Assignment 1 implementation block, update the focused assignment log and this handover. Update `learning_progress.yaml` only when the structured learning-evidence state materially changes. Update `deadlines.yaml` whenever assessed-work dates/statuses change. Do not promote same-session corrected/guided tensor work to delayed cold mastery, and do not treat practice implementations as evidence that the actual assignment has been independently completed.
