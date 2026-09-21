@@ -670,7 +670,10 @@ courses:
       title: Vector, matrix, tensor ops; NumPy
       anchors: [linear_algebra, numpy, tensor_operations]
       remaining: []
-      note: Assignment 1 pairwise and no-loop interpolation implementations are complete with supplied tests green. Preserve guided-vs-cold boundaries: paired indexing and dtype/device handling are not yet delayed-independent.
+      note: >-
+        Assignment 1 pairwise and no-loop interpolation implementations are complete
+        with supplied tests green. Preserve guided-vs-cold boundaries: paired indexing
+        and dtype/device handling are not yet delayed-independent.
       scope: mapped
       due_on: null
     - week: '3'
