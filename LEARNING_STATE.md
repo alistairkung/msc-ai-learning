@@ -16,7 +16,7 @@ These lanes coexist; they are not one sequential queue. Delivery dates can tempo
 
 ## Delivery constraints — separate from learning evidence
 
-Canonical structured copy: `deadlines.yaml`. Current order is AIMS5702 Assignment 1 (24 Sep), FTEC5660 receipts homework (29 Sep), then FTEC5660 solo hackathon (19 Oct). Keep delivery planning distinct from `learning_progress.yaml`.
+Canonical structured copy: `deadlines.yaml`. AIMS5702 Assignment 1 was submitted on 21 Sep. Remaining upcoming assessed work is FTEC5660 receipts homework (29 Sep), then the FTEC5660 solo hackathon (19 Oct). Keep delivery planning distinct from `learning_progress.yaml`.
 
 ## AIMS5702 — Assignment 1 preparation and lecture calibration, 17 Sep
 
@@ -325,7 +325,7 @@ Targeted support/debugging was needed for `.long()` after `floor`, `torch.clamp(
 
 ### Evidence boundary
 
-Assignment 1 is **implemented and supplied tests are green**, but do not mark the interpolation/vectorisation skill as delayed cold-independent mastery. The implementation was guided/debugged and no later blank-file reconstruction has occurred.
+Assignment 1 is **implemented, submitted, and supplied tests are green**, but do not mark the interpolation/vectorisation skill as delayed cold-independent mastery. The implementation was guided/debugged and no later blank-file reconstruction has occurred.
 
 The transferable target to maintain is notation/scalar algorithm → tensor shapes → vectorised indexing/arithmetic, not memorisation of the bilinear formula.
 
@@ -357,4 +357,4 @@ Near-term delivery: receipts homework due 29 Sep; detailed project plan is in `l
 
 ## Handover discipline
 
-After the next substantive assessed-work block, update the relevant focused log and this handover. Assignment 1 implementation is complete; do not reopen it merely to manufacture mastery evidence. Update `learning_progress.yaml` only when the structured learning-evidence state materially changes. Update `deadlines.yaml` whenever assessed-work dates/statuses change. Do not promote same-session corrected/guided tensor work to delayed cold mastery, and do not treat practice implementations as evidence that the actual assignment has been independently completed.
+After the next substantive assessed-work block, update the relevant focused log and this handover. Assignment 1 is submitted; do not reopen it merely to manufacture mastery evidence. Update `learning_progress.yaml` only when the structured learning-evidence state materially changes. Update `deadlines.yaml` whenever assessed-work dates/statuses change. Do not promote same-session corrected/guided tensor work to delayed cold mastery, and do not treat practice implementations as evidence that the actual assignment has been independently completed.
