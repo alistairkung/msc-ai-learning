@@ -6,8 +6,12 @@ meta:
   reviewed_on: '2026-09-21'
   evidence_through: '2026-09-21'
   repository: alistairkung/msc-ai-learning
-  source_ref: bb4abdd19760663a3cc988bb3e80df45f98a9a53
-  review_note: Reconciled through the 21 Sep completed and submitted AIMS5702 Assignment 1. Submission changes delivery state only: pairwise and no-loop interpolation remain implemented with targeted support, not delayed cold mastery. Receipts remains the active assessed-work lane.
+  source_ref: 7a73bef7bb0278dfbd8396500c7f702c816bc36c
+  review_note: >-
+    Reconciled through the 21 Sep completed and submitted AIMS5702 Assignment 1.
+    Submission changes delivery state only: pairwise and no-loop interpolation remain
+    implemented with targeted support, not delayed cold mastery. Receipts remains the
+    active assessed-work lane.
   stale_after_days: 21
 sources:
   state:
