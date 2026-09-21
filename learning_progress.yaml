@@ -176,7 +176,7 @@ topics:
     boundary: Conceptual transfer is strong and now has same-session coursework implementation evidence, but the full compact TaxCalcBench/LCEL implementation is not independently reconstructable. The receipt session did not yet implement multimodal LangChain extraction, parsing, validation or batching.
     next: Begin the next receipts block with brief changed-example LCEL syntax recall, then build one JPEG -> DeepSeek -> structured extraction path and connect it to the already-green deterministic calculator.
     sources: [prompt, tutorial1_arch, receipt_session, state]
-    evidence_on: '2026-09-21'
+    evidence_on: '2026-09-17'
     depends_on: []
   lcel:
     name: LangChain / LCEL basics
