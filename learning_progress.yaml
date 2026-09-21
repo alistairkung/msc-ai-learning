@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-09-21'
   evidence_through: '2026-09-21'
   repository: alistairkung/msc-ai-learning
-  source_ref: 8de7c7180fd316dc3578297882cc3da5fc0608ec
+  source_ref: cc697919352cab3111dc146358ae3b0880b3eb9f
   review_note: >-
     Reconciled through the 21 Sep completed and submitted AIMS5702 Assignment 1.
     Submission changes delivery state only: pairwise and no-loop interpolation remain
