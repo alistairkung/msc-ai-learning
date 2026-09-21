@@ -166,7 +166,13 @@ topics:
     performance: guided
     review: recorded
     action: transfer
-    evidence: Tutorial 1 was worked through conceptually beyond the original class stopping point. On 21 Sep the learner transferred the decomposition to the receipts homework: they separated probabilistic image interpretation from deterministic arithmetic, designed an extraction contract from real receipt evidence, distinguished authoritative values from reconciliation fields, and implemented the deterministic multi-receipt calculator behind a guiding integration test.
+    evidence: >-
+      Tutorial 1 was worked through conceptually beyond the original class stopping
+      point. On 21 Sep the learner transferred the decomposition to the receipts
+      homework: they separated probabilistic image interpretation from deterministic
+      arithmetic, designed an extraction contract from real receipt evidence,
+      distinguished authoritative values from reconciliation fields, and implemented
+      the deterministic multi-receipt calculator behind a guiding integration test.
     boundary: Conceptual transfer is strong and now has same-session coursework implementation evidence, but the full compact TaxCalcBench/LCEL implementation is not independently reconstructable. The receipt session did not yet implement multimodal LangChain extraction, parsing, validation or batching.
     next: Begin the next receipts block with brief changed-example LCEL syntax recall, then build one JPEG -> DeepSeek -> structured extraction path and connect it to the already-green deterministic calculator.
     sources: [prompt, tutorial1_arch, receipt_session, state]
