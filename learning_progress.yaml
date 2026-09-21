@@ -6,13 +6,13 @@ meta:
   reviewed_on: '2026-09-21'
   evidence_through: '2026-09-21'
   repository: alistairkung/msc-ai-learning
-  source_ref: bde62bbe381cdcceee33b0ed81bd94c917df11e8
-  review_note: Reconciled through the 21 Sep completed AIMS5702 Assignment 1 notebook and implementation session. Pairwise and no-loop interpolation supplied tests are green; interpolation/vectorisation is implemented with targeted support, not delayed cold mastery. Receipts is now the active assessed-work lane.
+  source_ref: bb4abdd19760663a3cc988bb3e80df45f98a9a53
+  review_note: Reconciled through the 21 Sep completed and submitted AIMS5702 Assignment 1. Submission changes delivery state only: pairwise and no-loop interpolation remain implemented with targeted support, not delayed cold mastery. Receipts remains the active assessed-work lane.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 54a07e5e9b54be7215ca07f7a4f7f50685bc38db
+    sha: 2f443463c34fd98f0dad56ae6410336e735bffb9
   syllabus:
     path: MSC_SYLLABUS_MAP.md
     sha: dded205a9fd7a771bdb8f230205f9765b787c8a9
