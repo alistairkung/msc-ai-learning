@@ -93,7 +93,7 @@ def check(site: Path, screenshots: Path | None = None) -> None:
         plain.goto(url)
         expect(plain.locator('#record-bfs')).to_be_visible()
         expect(plain.locator('#runway')).to_be_visible()
-        expect(plain.get_by_text('Assignment 1 — tensor vectorisation and bilinear interpolation', exact=True)).to_be_visible()
+        assert plain.get_by_text('Assignment 1 — tensor vectorisation and bilinear interpolation', exact=True).count() == 0
         expect(plain.get_by_text('Receipts agentic AI homework', exact=True)).to_be_visible()
         assert plain.locator('#topic-rows tr').count() == count
         assert not remote, remote
