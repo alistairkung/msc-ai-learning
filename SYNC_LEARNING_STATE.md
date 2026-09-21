@@ -28,6 +28,7 @@ Before editing `learning_progress.yaml`, `deadlines.yaml`, or dashboard-visible 
 - read the current target-branch version first;
 - inspect the relevant schema/validator and regression tests in `dashboard/build.py` and `dashboard/test_build.py` when changing enums, lanes, deadline state, or dashboard-visible labels;
 - never invent enum/status values; use only values accepted by the validator;
+- when writing free-text YAML scalars that contain `:` or other ambiguous syntax, quote them or use a folded block (`>-`) rather than relying on a plain scalar;
 - preserve unrelated structured records and prefer field-level edits over broad range/string replacements;
 - if a dashboard-visible label or structural state changes, search the regression tests for expectations tied to the old value.
 
