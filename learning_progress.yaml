@@ -3,19 +3,19 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-09-18'
-  evidence_through: '2026-09-18'
+  reviewed_on: '2026-09-21'
+  evidence_through: '2026-09-21'
   repository: alistairkung/msc-ai-learning
-  source_ref: d275e33a7ecb2d452e257f97783ac0228f9a600d
-  review_note: Reconciled through the 18 Sep AIMS5702 representation checkpoint and interpolation bridge. Bilinear interpolation is now conceptually demonstrated through guided/manual changed examples, while assignment implementation, edge handling and delayed retrieval remain open. Dtype/stride/slicing gains remain same-session evidence.
+  source_ref: de7afe24523a062f3b4a9949926204526eadb894
+  review_note: Reconciled through the 21 Sep completed AIMS5702 Assignment 1 notebook and implementation session. Pairwise and no-loop interpolation supplied tests are green; interpolation/vectorisation is implemented with targeted support, not delayed cold mastery. Receipts is now the active assessed-work lane.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 86502040cabb6712cee053e5bbe2adbdbfa1c92c
+    sha: 54a07e5e9b54be7215ca07f7a4f7f50685bc38db
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: b51858e155252ea5c654ccc46e0e71ab5264b6a0
+    sha: dded205a9fd7a771bdb8f230205f9765b787c8a9
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
@@ -58,6 +58,9 @@ sources:
   assignment1_interpolation_bridge:
     path: lesson_logs/aims5702/assignment01_interpolation_bridge_2026_09_18.md
     sha: 78e04646d40b4a8e41a91fbbf7c6e0d09fc44f31
+  assignment1_completion:
+    path: lesson_logs/aims5702/assignment01_completion_2026_09_21.md
+    sha: 5d6ca894c555f74f637a1cad09ba2192bcb773f7
   tensor_practice:
     path: practice/aims5702_assignment01/tensor_ops.py
     sha: bccf003b82636109fc25a26b14b8fefe68f9acd2
@@ -293,14 +296,14 @@ topics:
     name: Vectorised indexing & bilinear interpolation
     area: Model building
     concept: demonstrated
-    performance: guided
+    performance: implemented
     review: recorded
-    action: practice
-    evidence: On 18 Sep the learner derived 1D interpolation from start + fraction*(end-start), identified lower/upper neighbours and row/column fractions, and manually completed a changed bilinear example correctly. Paired advanced indexing was introduced, the elementwise vectorisation path was understood, and the supplied SciPy Test 1 oracle/data flow was explained successfully.
-    boundary: This is conceptual/manual guided evidence only. Neighbour selection needed one correction, paired-index toy-grid value lookups had slips, the final vertical interpolation direction needed correction, and neither assignment interpolation function has been independently implemented or tested.
-    next: Briefly retrieve the fragile pieces, map the supplied loop code onto the four-neighbour model, then have the learner implement the loop and no-loop versions and run the provided tests including edge cases.
-    sources: [assignment1_plan, assignment1_interpolation_bridge, state]
-    evidence_on: '2026-09-18'
+    action: maintain
+    evidence: On 21 Sep the learner translated the supplied loop/reference implementation and lecturer matrix notation into the four-neighbour model, derived the no-loop architecture by promoting per-query scalars to (N,) tensors, completed interp2d_nofor, and supplied a completed notebook whose interpolation tests are green against SciPy plus exact corner/centre and invalid-input checks.
+    boundary: Implementation was guided/debugged rather than delayed cold-independent. The scalar interpolation formula and paired advanced indexing were not initially cold after the weekend; .long(), clamp max syntax and dtype/device handling needed support, with dtype/device/.to newly taught.
+    next: Do not repeat the completed assignment immediately. Later test transfer with one changed notation-to-vectorisation problem and record support needed.
+    sources: [assignment1_plan, assignment1_interpolation_bridge, assignment1_completion, state]
+    evidence_on: '2026-09-21'
     depends_on: [tensor_operations]
   autograd:
     <<: *built
@@ -509,50 +512,18 @@ topics:
 lanes:
 - id: continue
   label: Continue next · AIMS5702
-  title: Assignment 1 — implement interpolation
-  summary: The representation checkpoint and conceptual bilinear-interpolation bridge are complete. The remaining gap is translating the scalar model into the assignment's loop/no-loop implementations and passing the supplied tests.
-  target: tensor_interpolation
+  title: FTEC5660 receipts — constrained vertical slice
+  summary: AIMS5702 Assignment 1 implementation is complete with supplied tests green. The active assessed-work focus moves to the receipts homework due 29 Sep.
+  target: prompt_chaining
   tasks:
-  - title: Map and implement the loop version
-    when: Next AIMS5702 block
-    topics: [tensor_operations, tensor_interpolation]
-    detail: Start with a brief changed-example retrieval, map the supplied scalar-per-point variables to lower/upper indices, four neighbours and fractions, then let the learner implement/reconstruct interp2d_forloop with hints/debugging.
-  - title: Vectorise and test the no-loop version
-    when: Same or following focused block
-    topics: [tensor_operations, tensor_interpolation]
-    detail: Lift scalar-per-point values into (N,) tensors, use paired advanced indexing plus elementwise interpolation, then run the supplied SciPy-oracle tests and diagnose boundary/indexing failures. Do not hand over a complete solution before an independent attempt.
-- id: parallel
-  label: Parallel block · FTEC5660
-  title: Receipts homework + Routing
-  summary: Receipts homework is due 29 Sep. Use the coursework as the main implementation vehicle; routing remains within Tutorial 2 Part 1 only.
-  target: routing
-  tasks:
-  - title: Resume receipt-chain project
-    when: After the nearest AIMS5702 block / submission pressure
-    topics: [prompt_chaining, lcel, routing]
-    detail: Start from the stored multimodal receipt project plan, design the extraction contract, establish test/eval loops and introduce routing only if the workflow/evidence warrants it.
-  - title: Maintain the Routing boundary
-    when: Short changed-example retrieval
-    topics: [routing, lcel]
-    detail: Recover structured route decision -> RunnableBranch on one changed example. Parallelisation/reflection are not yet fair recall targets.
-- id: protect
-  label: Protected continuity · AIMS5701 + probability
-  title: Search JIT -> trees; keep probability warm
-  summary: Search theory is the immediate Fundamentals JIT target. Then shift the lead to regression/decision trees while keeping probability as a small diagnostic lane ahead of Bayesian networks/HMMs.
-  target: search_complexity
-  tasks:
-  - title: Finish Week-2 search theory
-    when: Before / around AIMS5701 Week 2
-    topics: [ucs, astar, search_complexity, other_agents]
-    detail: Consolidate guarantees/complexity and confirm other-agent scope; do not repeatedly rewrite algorithms that already have implementation evidence.
-  - title: Build toward Week-3 trees
-    when: After search pressure eases
-    topics: [linear_regression, logistic_regression, decision_trees, random_forests]
-    detail: Retrieve regression, then learn split/impurity/information-gain intuition and implement a tiny decision tree before relying on sklearn.
-  - title: Small probability diagnostic
-    when: Short recurring maintenance block
-    topics: [bayes, probability, joint_moments]
-    detail: Keep this small while assessed FTEC/AIMS work is nearer; increase it as Bayesian-network/HMM weeks approach.
+  - title: Build the receipt vertical slice
+    when: Next substantive block
+    topics: [prompt_chaining]
+    detail: Constrain scope to image -> structured extraction -> validation -> deterministic calculation -> aggregation. Use the existing homework plan; do not add routing/reflection/repair unless evaluation shows a concrete need.
+  - title: Evaluate and localise failures
+    when: After the first end-to-end path runs
+    topics: [prompt_chaining]
+    detail: Use public receipts/live-model eval plus selective deterministic tests and one mocked integration path. Aim for one evidence-driven iteration.
 courses:
   AIMS5701:
     name: Fundamentals in AI
@@ -698,8 +669,8 @@ courses:
     - week: '2'
       title: Vector, matrix, tensor ops; NumPy
       anchors: [linear_algebra, numpy, tensor_operations]
-      remaining: [tensor_interpolation]
-      note: Pairwise vectorisation has same-session implementation evidence. On 18 Sep dtype/stride/slicing received guided changed-example drilling and bilinear interpolation became conceptually demonstrated; independent loop/no-loop assignment implementation and tests remain the Week-2 gap.
+      remaining: []
+      note: Assignment 1 pairwise and no-loop interpolation implementations are complete with supplied tests green. Preserve guided-vs-cold boundaries: paired indexing and dtype/device handling are not yet delayed-independent.
       scope: mapped
       due_on: null
     - week: '3'
@@ -907,4 +878,6 @@ timeline:
 - label: 17 September
   detail: AIMS5702 Assignment 1 pairwise dot-product practice implemented loop, broadcasting and einsum representations on changed examples. The subsequent lecture confirmed float32 VRAM/storage calculation but exposed dtype encoding, stride/contiguity, slicing/indexing and singleton-axis insertion as active retrieval gaps.
 - label: 18 September
-  detail: A targeted representation checkpoint taught/clarified signed int8, float exponent/significand, strides/contiguity, slicing/offsets and newaxis. Bilinear interpolation then moved from planned to conceptually demonstrated through manual changed examples and an understood SciPy test harness; assignment implementation remains open.
+  detail: A targeted representation checkpoint taught/clarified signed int8, float exponent/significand, strides/contiguity, slicing/offsets and newaxis. Bilinear interpolation then moved from planned to conceptually demonstrated through manual changed examples and an understood SciPy test harness.
+- label: 21 September
+  detail: AIMS5702 Assignment 1 implementation completed. The learner mapped lecturer notation and loop semantics to the four-neighbour model, derived the no-loop (N,) tensor architecture, implemented paired advanced indexing and weighted interpolation with targeted debugging, and all supplied notebook tests are green.
