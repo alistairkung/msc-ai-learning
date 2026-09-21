@@ -1,6 +1,6 @@
 # Delivery planning is separate from learning evidence.
 schema_version: 1
-reviewed_on: '2026-09-17'
+reviewed_on: '2026-09-21'
 provenance_note: >-
   Dates below are learner-reported planning constraints unless a stronger source is
   named. They affect workload prioritisation, not learning/mastery evidence.
@@ -9,13 +9,13 @@ deadlines:
   course: AIMS5702
   title: Assignment 1 — tensor vectorisation and bilinear interpolation
   due_on: '2026-09-24'
-  status: upcoming
+  status: ready_to_submit
   provenance: course_material
   mode: individual
   note: >-
-    Nearest assessed deadline. Scaffold pairwise row-dot products, broadcasting,
-    einsum, vectorised indexing and bilinear interpolation before an independent
-    notebook attempt; submit both ipynb and PDF.
+    Implementation complete as of 21 Sep and all supplied notebook tests are green,
+    including pairwise/vectorised/einsum and interpolation oracle/edge/invalid-input
+    checks. Remaining work is submission/admin only; submit both ipynb and PDF.
 - id: ftec5660_receipts_homework
   course: FTEC5660
   title: Receipts agentic AI homework
@@ -23,7 +23,7 @@ deadlines:
   status: upcoming
   provenance: learner_report
   mode: individual
-  note: Primary assessed-work focus after the AIMS5702 Assignment 1 submission.
+  note: Primary assessed-work focus now that AIMS5702 Assignment 1 implementation is complete. Constrain scope to the planned image -> structured extraction -> validation -> deterministic calculation -> aggregation vertical slice, then evaluate.
 - id: ftec5660_hackathon
   course: FTEC5660
   title: Hackathon
