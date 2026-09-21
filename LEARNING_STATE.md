@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-09-18. Learning evidence through 2026-09-18._
+_Last maintained: 2026-09-21. Learning evidence through 2026-09-21._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -8,9 +8,9 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **AIMS5702 Assignment 1 interpolation implementation** | Assignment 1 is due 24 Sep. The 18 Sep representation checkpoint and conceptual bilinear-interpolation bridge are complete; next map the loop implementation, then independently implement loop/no-loop versions and run tests. |
-| Parallel | **FTEC5660 receipts homework + routing / conditional-workflow bridge** | Receipts homework is due 29 Sep. Next substantial FTEC homework block remains planned for Monday; use coursework as the main implementation vehicle where possible. |
-| Protect | **AIMS5701 search JIT → regression/trees + small probability maintenance** | Search theory remains due, then decision trees/random forests for Week 3. Keep probability small until Bayesian/HMM pressure increases. |
+| Continue | **FTEC5660 receipts homework vertical slice** | AIMS5702 Assignment 1 implementation is complete and all supplied notebook tests are green. Receipts is due 29 Sep; next build the constrained image → structured extraction → validation → deterministic calculation → aggregation path. |
+| Parallel | **AIMS5701 search JIT → regression/trees + hackathon planning** | Tuesday includes the hackathon planning meeting. Keep AIMS5701 search/trees preparation alive without displacing the receipts deadline. |
+| Protect | **Small probability / ML-theory maintenance lane** | Keep this deliberately small while assessed implementation work is active; do not create a new standalone equation-vectorisation curriculum. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
 
@@ -293,6 +293,44 @@ Next focused block (~2–3 hours expected):
 5. learner implements the no-loop version with advanced indexing and elementwise interpolation;
 6. run supplied tests and diagnose boundary/indexing failures.
 
+## AIMS5702 — Assignment 1 implementation complete, 21 Sep
+
+Detailed source: `lesson_logs/aims5702/assignment01_completion_2026_09_21.md`. The learner also supplied the completed notebook as the authoritative Assignment 1 artifact for this session.
+
+Verified notebook evidence:
+
+- all three pairwise-dot-product implementations are present: two-loop, no-loop singleton-axis/vectorised, and einsum;
+- supplied pairwise tests are green across changed dimensions, a larger float32 case and invalid-shape cases;
+- `interp2d_nofor` is complete;
+- supplied interpolation tests are green against SciPy `RegularGridInterpolator`, exact corner/centre cases and invalid-input cases.
+
+### Interpolation implementation evidence
+
+After the weekend, lower/upper neighbour selection and fractions retrieved cold, while the scalar interpolation formula itself needed the cue `start + fraction * (end - start)` before transferring correctly.
+
+The lecturer's matrix bilinear notation was then translated into the geometric model:
+
+```text
+x1/x2 -> lower/upper x
+y1/y2 -> lower/upper y
+Qij   -> corner location
+f(Qij)-> value at that corner
+```
+
+The learner understood that the four-corner weighted sum is the algebraically expanded version of horizontal top/bottom interpolation followed by vertical interpolation.
+
+For the no-loop implementation, the learner derived the central vectorisation move: promote each per-query scalar into an `(N,)` tensor and process all query points together. Paired advanced indexing gathers the four `(N,)` corner-value tensors, followed by elementwise weighted arithmetic to produce the `(N,)` result.
+
+Targeted support/debugging was needed for `.long()` after `floor`, `torch.clamp(..., max=...)`, device/dtype conversion, corner-gather insertion and ordinary typos. Paired advanced indexing was not initially retrieved after the weekend. `dtype`, `device` and `.to(...)` were newly taught rather than assumed.
+
+### Evidence boundary
+
+Assignment 1 is **implemented and supplied tests are green**, but do not mark the interpolation/vectorisation skill as delayed cold-independent mastery. The implementation was guided/debugged and no later blank-file reconstruction has occurred.
+
+The transferable target to maintain is notation/scalar algorithm → tensor shapes → vectorised indexing/arithmetic, not memorisation of the bilinear formula.
+
+AIMS5702 Assignment 1 can leave the active implementation queue unless submission/admin work remains.
+
 ## FTEC5660 / LangChain — current boundary
 
 Lesson 34 has successful guided implementation + passing tests + immediate state tracing + architectural synthesis, but not delayed cold-independent implementation. Tutorial 1 is conceptually learned with implementation only partially learned. On 17 Sep, a changed-domain cold session retrieved the core decomposition and structural-vs-semantic validation distinction well; callable timing recovered after probing, while `.assign()` syntax and nested-state access still required correction. Routing was retrieved conceptually as execution-path selection rather than mere state enrichment; actual `RunnableBranch` syntax remains to be cold-retrieved. Tutorial 2 progress is through the end of **Part 1: Routing** only; parallelisation/reflection have not yet been covered.
@@ -309,7 +347,7 @@ Near-term delivery: receipts homework due 29 Sep; detailed project plan is in `l
 
 ## Established foundations / remaining uncertainty
 
-- **Python / NumPy / PyTorch:** conceptual shape reasoning often leads syntax/API fluency. On 18 Sep, signed-int and floating representation were newly taught/clarified; stride/contiguity and slicing received deeper guided changed-example practice; bilinear interpolation was manually derived. These remain same-session evidence until delayed retrieval/implementation.
+- **Python / NumPy / PyTorch:** Assignment 1 now has verified green implementations for pairwise vectorisation and no-loop bilinear interpolation. This is guided implementation evidence rather than delayed cold mastery; paired advanced indexing was reactivated on 21 Sep, while dtype/device/.to handling was newly taught.
 - **Linear algebra:** historical JHU foundation established; retrieve selectively.
 - **Probability/statistics:** strong historical evidence across major foundations; Markov chains/Poisson remain diagnostic-needed.
 - **Calculus:** historical derivative/gradient/chain-rule/backprop foundation established.
@@ -319,4 +357,4 @@ Near-term delivery: receipts homework due 29 Sep; detailed project plan is in `l
 
 ## Handover discipline
 
-After the next substantive AIMS5702 Assignment 1 implementation block, update the focused assignment log and this handover. Update `learning_progress.yaml` only when the structured learning-evidence state materially changes. Update `deadlines.yaml` whenever assessed-work dates/statuses change. Do not promote same-session corrected/guided tensor work to delayed cold mastery, and do not treat practice implementations as evidence that the actual assignment has been independently completed.
+After the next substantive assessed-work block, update the relevant focused log and this handover. Assignment 1 implementation is complete; do not reopen it merely to manufacture mastery evidence. Update `learning_progress.yaml` only when the structured learning-evidence state materially changes. Update `deadlines.yaml` whenever assessed-work dates/statuses change. Do not promote same-session corrected/guided tensor work to delayed cold mastery, and do not treat practice implementations as evidence that the actual assignment has been independently completed.
