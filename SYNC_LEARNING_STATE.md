@@ -21,6 +21,27 @@ When one of these is requested after substantive learning, do **not** interpret 
 
 ## Full sync workflow
 
+## Hard safety rules for structured syncs
+
+Before editing `learning_progress.yaml`, `deadlines.yaml`, or dashboard-visible state:
+
+- read the current target-branch version first;
+- inspect the relevant schema/validator and regression tests in `dashboard/build.py` and `dashboard/test_build.py` when changing enums, lanes, deadline state, or dashboard-visible labels;
+- never invent enum/status values; use only values accepted by the validator;
+- preserve unrelated structured records and prefer field-level edits over broad range/string replacements;
+- if a dashboard-visible label or structural state changes, search the regression tests for expectations tied to the old value.
+
+Required Atlas invariants include:
+
+```text
+lanes == continue -> parallel -> protect
+all lane targets/topics exist
+all deadline statuses are schema-valid
+delivery state remains separate from learning/mastery evidence
+```
+
+Treat a sync like a transaction: substantive content edits first, source hashes after source content is final, and `meta.source_ref` last.
+
 ### 0. Start from current repository state
 
 - read the latest `main` / target branch rather than relying on an earlier snapshot;
@@ -99,7 +120,26 @@ python dashboard/build.py
 
 Run relevant learning/practice tests when implementation changed. Run browser smoke when dashboard rendering/interaction changed.
 
-Review the diff for accidental deletion, stale source hashes and unrelated status promotions.
+Review the **complete resulting diff** for accidental deletion, stale source hashes, unrelated status promotions, missing lanes, and broad structured-file churn.
+
+After opening/updating the PR, wait for the required GitHub Actions workflows:
+
+```text
+Tests
+Learning dashboard
+```
+
+A sync is **in progress** while either required workflow is queued or running. A sync has **failed** if either required workflow fails.
+
+On CI failure:
+
+1. inspect the actual failed job and logs;
+2. identify the root cause rather than retrying or patching blindly;
+3. fix the root cause;
+4. refresh any source hashes / `source_ref` invalidated by the fix;
+5. wait for the new CI run.
+
+Do not report the sync as complete or green until both required workflows have completed successfully.
 
 ### 7. Use a branch / PR
 
@@ -113,6 +153,11 @@ After merge to `main`, GitHub Actions should rebuild/deploy the Learning Atlas.
 
 ## Invariant
 
-A learning-state sync is **not complete** while the operational handover says learning evidence is newer than the Atlas projection, or while the Atlas still points at an older reviewed `LEARNING_STATE.md` blob.
+A learning-state sync is **not complete** while any of the following is true:
 
-The dashboard sync test exists to catch exactly that drift.
+- the operational handover says learning evidence is newer than the Atlas projection;
+- the Atlas points at an older reviewed `LEARNING_STATE.md` blob;
+- required structured invariants are broken;
+- the PR's **Tests** or **Learning dashboard** workflow is queued, running, or failed.
+
+The dashboard sync test exists to catch projection drift; the broader schema/regression tests catch structural mistakes. CI success is the final completion gate.
