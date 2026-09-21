@@ -9,13 +9,13 @@ deadlines:
   course: AIMS5702
   title: Assignment 1 — tensor vectorisation and bilinear interpolation
   due_on: '2026-09-24'
-  status: upcoming
+  status: submitted
   provenance: course_material
   mode: individual
   note: >-
-    Implementation complete as of 21 Sep and all supplied notebook tests are green,
-    including pairwise/vectorised/einsum and interpolation oracle/edge/invalid-input
-    checks. Remaining work is submission/admin only; submit both ipynb and PDF.
+    Submitted on 21 Sep. Implementation was complete before submission and all supplied
+    notebook tests were green, including pairwise/vectorised/einsum and interpolation
+    oracle/edge/invalid-input checks.
 - id: ftec5660_receipts_homework
   course: FTEC5660
   title: Receipts agentic AI homework
