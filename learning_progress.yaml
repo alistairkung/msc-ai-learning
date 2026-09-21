@@ -6,17 +6,21 @@ meta:
   reviewed_on: '2026-09-21'
   evidence_through: '2026-09-21'
   repository: alistairkung/msc-ai-learning
-  source_ref: cc697919352cab3111dc146358ae3b0880b3eb9f
+  source_ref: 4c1523524d207083cef1d633814cf9b5568c9d91
   review_note: >-
-    Reconciled through the 21 Sep completed and submitted AIMS5702 Assignment 1.
-    Submission changes delivery state only: pairwise and no-loop interpolation remain
-    implemented with targeted support, not delayed cold mastery. Receipts remains the
-    active assessed-work lane.
+    Reconciled through the 21 Sep first FTEC5660 receipts implementation session.
+    The learner transferred Tutorial 1 decomposition into the receipt domain and
+    implemented the deterministic calculator with a green integration test. This is
+    same-session transfer/implementation evidence; multimodal LangChain extraction
+    and delayed cold LCEL evidence remain open.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 2f443463c34fd98f0dad56ae6410336e735bffb9
+    sha: 362317fcf81cd34b169a022a0a932661895b2368
+  receipt_session:
+    path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
+    sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
   syllabus:
     path: MSC_SYLLABUS_MAP.md
     sha: dded205a9fd7a771bdb8f230205f9765b787c8a9
@@ -162,11 +166,11 @@ topics:
     performance: guided
     review: recorded
     action: transfer
-    evidence: Tutorial 1 was worked through conceptually beyond the original class stopping point. The learner can explain one-shot baseline vs decomposition, parse -> deterministic compute -> explain, failure localisation, and LLM-vs-code responsibility on changed domains.
-    boundary: Conceptual transfer is strong, but the full compact TaxCalcBench/LCEL implementation is not independently reconstructable and US tax mechanics are intentionally out of scope.
-    next: Use chaining inside real coursework where it fits rather than rebuilding the tax notebook; preserve explicit contracts and deterministic stages.
-    sources: [prompt, tutorial1_arch, state]
-    evidence_on: '2026-09-17'
+    evidence: Tutorial 1 was worked through conceptually beyond the original class stopping point. On 21 Sep the learner transferred the decomposition to the receipts homework: they separated probabilistic image interpretation from deterministic arithmetic, designed an extraction contract from real receipt evidence, distinguished authoritative values from reconciliation fields, and implemented the deterministic multi-receipt calculator behind a guiding integration test.
+    boundary: Conceptual transfer is strong and now has same-session coursework implementation evidence, but the full compact TaxCalcBench/LCEL implementation is not independently reconstructable. The receipt session did not yet implement multimodal LangChain extraction, parsing, validation or batching.
+    next: Begin the next receipts block with brief changed-example LCEL syntax recall, then build one JPEG -> DeepSeek -> structured extraction path and connect it to the already-green deterministic calculator.
+    sources: [prompt, tutorial1_arch, receipt_session, state]
+    evidence_on: '2026-09-21'
     depends_on: []
   lcel:
     name: LangChain / LCEL basics
@@ -520,10 +524,10 @@ lanes:
   summary: AIMS5702 Assignment 1 implementation is complete with supplied tests green. The active assessed-work focus is the receipts homework due 29 Sep.
   target: prompt_chaining
   tasks:
-  - title: Build the receipt vertical slice
+  - title: Complete the receipt vertical slice
     when: Next substantive block
-    topics: [prompt_chaining]
-    detail: Constrain scope to image -> structured extraction -> validation -> deterministic calculation -> aggregation. Use the stored homework plan and do not add routing, reflection or repair unless evaluation shows a concrete need.
+    topics: [prompt_chaining, lcel]
+    detail: Deterministic receipt calculation is green. Start with a short LCEL cold recall, then build image -> DeepSeek -> structured extraction -> validation/Decimal normalisation -> batch -> calculator. Do not add routing, reflection or repair unless evaluation shows a concrete need.
   - title: Evaluate and localise failures
     when: After the first end-to-end path runs
     topics: [prompt_chaining]
@@ -916,3 +920,5 @@ timeline:
   detail: A targeted representation checkpoint taught/clarified signed int8, float exponent/significand, strides/contiguity, slicing/offsets and newaxis. Bilinear interpolation then moved from planned to conceptually demonstrated through manual changed examples and an understood SciPy test harness.
 - label: 21 September
   detail: AIMS5702 Assignment 1 implementation completed. The learner mapped lecturer notation and loop semantics to the four-neighbour model, derived the no-loop (N,) tensor architecture, implemented paired advanced indexing and weighted interpolation with targeted debugging, and all supplied notebook tests are green.
+- label: 21 September · FTEC5660
+  detail: Receipt-chain contract v0 was designed from real receipts, a deterministic receipts 1+2 integration test was established, and the learner implemented the calculator green with exact Decimal arithmetic. Multimodal extraction remains next.
