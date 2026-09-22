@@ -331,11 +331,44 @@ The transferable target to maintain is notation/scalar algorithm → tensor shap
 
 AIMS5702 Assignment 1 can leave the active implementation queue unless submission/admin work remains.
 
-## FTEC5660 / LangChain — current boundary
+## FTEC5660 / LangChain — receipts HW1 active
 
-Lesson 34 has successful guided implementation + passing tests + immediate state tracing + architectural synthesis, but not delayed cold-independent implementation. Tutorial 1 is conceptually learned with implementation only partially learned. On 17 Sep, a changed-domain cold session retrieved the core decomposition and structural-vs-semantic validation distinction well; callable timing recovered after probing, while `.assign()` syntax and nested-state access still required correction. Routing was retrieved conceptually as execution-path selection rather than mere state enrichment; actual `RunnableBranch` syntax remains to be cold-retrieved. Tutorial 2 progress is through the end of **Part 1: Routing** only; parallelisation/reflection have not yet been covered.
+Detailed receipt-session evidence: `lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md`.
 
-Near-term delivery: receipts homework due 29 Sep; detailed project plan is in `lesson_logs/ftec5660/hw1_receipt_chain_project_plan_2026_09_15.md`. Hackathon due 19 Oct, solo by learner choice.
+Lesson 34 remains guided/green rather than delayed cold-independent. Tutorial 1 remains conceptually learned with implementation only partially learned. The 17 Sep changed-domain retrieval still defines the LCEL syntax boundary: callable timing recovered after probing, while `.assign()` / nested-state syntax remained fragile; routing is conceptually retrieved but `RunnableBranch` syntax is not cold-independent. Tutorial 2 coverage still stops at Part 1 Routing.
+
+### 21 Sep receipt-chain architecture + deterministic slice
+
+The learner transferred Tutorial 1's decomposition into the assessed multimodal receipts problem and designed contract v0 from real receipt evidence:
+
+```text
+JPEG -> LLM interpretation -> ReceiptExtraction
+                         -> validation / normalisation
+                         -> deterministic calculation
+                         -> aggregation
+```
+
+Current `ReceiptExtraction` concepts are item description + positive `original_line_amount`; first-class discount description + positive `discount_amount`; subtotal after discounts; rounding; and authoritative `amount_paid_after_rounding`.
+
+Important design decisions demonstrated by the learner:
+
+- Q1 should sum the printed final post-rounding amounts rather than reconstruct them from item/discount arithmetic;
+- Q2 should sum original positive line amounts;
+- receipt-level discounts mean discounts must not be forced into item ownership;
+- quantity does not need to be reconstructed where the receipt already prints the aggregate line amount;
+- discounts/subtotal/rounding are useful reconciliation evidence even though they are not required inputs to the two authoritative calculations.
+
+The learner designed the deterministic integration boundary: known extracted receipts -> calculator -> both aggregate query answers. The assistant scaffolded pytest/files and transcribed receipt 1+2 fixtures after the learner demonstrated the fixture idea. The learner implemented the calculator on the homework branch and pushed it green.
+
+The integration test exposed float accumulation (`872.3999999999996` vs `872.40`). The learner chose exact `Decimal` arithmetic rather than approximate assertions. `Decimal(str(...))` construction was taught during debugging. A later extraction/validation boundary should ideally normalise money before the calculator; do not over-refactor before that boundary exists.
+
+### Evidence boundary / next step
+
+This is strong **same-session changed-domain architecture transfer + learner deterministic implementation**, not delayed cold LangChain mastery. No multimodal LangChain call, DeepSeek extraction, structured parser, validation/normalisation stage, batching or end-to-end homework run exists yet.
+
+Next session should begin with a **15–20 minute changed-example cold recall of existing LangChain syntax** (`ChatPromptTemplate`, placeholders/input contracts, model -> `JsonOutputParser`, `.invoke`, brief `assign` / `RunnableLambda`, `fn` vs `fn()`). Then add one new mechanism at a time: one JPEG -> raw DeepSeek response -> structured one-receipt extraction -> validation/Decimal normalisation -> batch receipts -> already-green calculator -> public E2E eval. Add routing/reflection/repair only if evaluation gives a concrete reason.
+
+Near-term delivery remains receipts homework due 29 Sep; estimated focused work remaining after this session is ~3.5–4.5 hours. Hackathon due 19 Oct, solo by learner choice.
 
 ## AIMS5701 / search and trees
 
