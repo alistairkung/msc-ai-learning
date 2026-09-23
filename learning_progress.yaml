@@ -6,17 +6,18 @@ meta:
   reviewed_on: '2026-09-23'
   evidence_through: '2026-09-23'
   repository: alistairkung/msc-ai-learning
-  source_ref: e6bf7fb58b507627e0bd8b79eaf30b727686c70d
+  source_ref: 7b163e042b1bbe2a1a273bf1c3e581b21236a512
   review_note: >-
     Reconciled through both 23 Sep AIMS5701 search blocks. Search guarantees and
     complexity now have guided same-session evidence; adversarial search/minimax/
     alpha-beta were introduced pre-lecture and remain fragile pending lecture confirmation
-    and delayed retrieval.
+    and delayed retrieval. Follow-up strategy now favours targeted implementation spot
+    checks over immediate rewrites, with minimax the stronger first implementation candidate.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 6a4ef25d556530e8d81f14111822cd5d72ceb584
+    sha: f60c269efdf5c0c767649c43f3d5e92ecf8f7a8c
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
@@ -37,7 +38,7 @@ sources:
     sha: 64fe714ce0c8bfeb0d0cae728e3dc2aa900577b8
   search_guarantees_20260923:
     path: lesson_logs/aims5701/search_guarantees_reactivation_2026_09_23.md
-    sha: a93f866da1900f4cd250464f257aff4d4b29078a
+    sha: 5360920e1f3efb239fee8e8b41987b2d7896d0a2
   prompt:
     path: lesson_logs/ftec5660/pattern01_prompt_chaining.md
     sha: 3ffbf91b66bd24dc260c1aeb0c1d73d431a1b157
