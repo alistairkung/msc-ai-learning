@@ -384,3 +384,49 @@ MIN turn       -> min(recursive child values)
 Only after plain minimax is semantically stable should alpha-beta be added to the same implementation. Treat this as a short consolidation/diagnostic exercise, not a new multi-hour project.
 
 Lecture-gap reconciliation should come first: record what the lecturer actually covers beyond or differently from the pre-lecture bridge, then decide whether the implementation exercise fills a real course-facing gap.
+
+
+## Post-lecture reconciliation — actual Lecture 2 scope
+
+**Source boundary:** learner report from the live 23 Sep AIMS5701 lecture plus the user-supplied Lecture 2 slide deck inspected after class. This is lecture calibration, not new independent mastery evidence.
+
+The live lecture was largely familiar after the day's preparation. The actual deck covered planning/search formulation, state-space graphs vs search trees, DFS/BFS/UCS, iterative deepening, heuristics, greedy best-first, A*, admissibility, heuristic construction/dominance, graph search, consistency and safe closing. It did **not** cover minimax or alpha-beta.
+
+This changes the immediate interpretation of the pre-lecture adversarial-search work:
+
+- keep minimax/alpha-beta as useful extra classical-AI exposure;
+- do not schedule a minimax implementation merely because it was pre-studied;
+- treat adversarial search as parked until the live course or another explicit requirement calls for it.
+
+The learner reported that most of the lecture felt familiar, but identified three mathematical gaps that still deserve deliberate work:
+
+1. consistency still does not feel fully intuitive;
+2. the proof that consistency implies admissibility needs to be broken down and reconstructed;
+3. the inequality-based proof that admissible A* tree search returns an optimal goal needs reinforcement.
+
+A systematic reconciliation pass should also briefly verify smaller lecture topics that were not pre-studied in depth, because live familiarity can hide gaps:
+
+- search-problem formulation and state abstraction;
+- state-space graph vs search-tree distinction;
+- iterative deepening;
+- greedy best-first as priority by `h(n)`;
+- relaxed-problem heuristics;
+- heuristic dominance / max-combination;
+- graph search / closed sets;
+- admissible-but-inconsistent A* and reopening/safe-closing intuition.
+
+### Next AIMS5701 block
+
+Hard-cap the reconciliation at **90 minutes**.
+
+Suggested order:
+
+```text
+small-gap diagnostic sweep
+    -> consistency intuition
+    -> consistency => admissibility
+    -> A* optimality contradiction / inequality proof
+    -> consistency => nondecreasing f => safe closing
+```
+
+Do not replay full BFS/DFS/UCS/A* implementations. After this reconciliation, move search into spaced maintenance and shift the AIMS5701 JIT lead to linear/logistic retrieval -> decision trees -> random forests for the following week's lecture.

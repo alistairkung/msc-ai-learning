@@ -80,7 +80,7 @@ def check(site: Path, screenshots: Path | None = None) -> None:
             page.screenshot(path=str(screenshots/'atlas-desktop.png'), full_page=True)
         page.set_viewport_size({'width': 390, 'height': 844})
         assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
-        page.locator('#topic-rows [data-open="ucs"]').first.click()
+        page.locator('#topic-rows [data-open="astar"]').first.click()
         expect(page.locator('#detail')).to_be_visible()
         assert page.locator('#detail').bounding_box()['width'] <= 390
         page.keyboard.press('Escape')

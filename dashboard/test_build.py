@@ -62,7 +62,7 @@ def test_deadline_lane_renders_separately_from_learning_lanes(data, deadlines):
     assert 'Hackathon' in html
     assert '2026-10-19' in html
     assert 'Learner-reported' in html
-    assert 'Continue next · FTEC5660' in html
+    assert 'Continue next · AIMS5701 → AIMS5702' in html
 
 
 def test_repository_source_files_exist(data):
@@ -137,7 +137,8 @@ def test_unknown_is_not_failed_and_overview_is_not_a_backlog(data):
         assert data['topics'][key]['review'] == 'diagnostic'
     entries = data['courses']['FTEC5660']['weeks']
     assert next(w for w in entries if w['week'] == 'Later')['scope'] == 'overview'
-    assert 'other_agents' in data['courses']['AIMS5701']['weeks'][1]['remaining']
+    assert 'search_complexity' in data['courses']['AIMS5701']['weeks'][1]['remaining']
+    assert 'other_agents' not in data['courses']['AIMS5701']['weeks'][1]['remaining']
 
 
 def test_original_topic_ids_preserved(data):

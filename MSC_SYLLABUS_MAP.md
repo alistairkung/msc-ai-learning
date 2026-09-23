@@ -22,7 +22,7 @@ Readiness key:
 | Week | MSc topic | Current readiness | Evidence / existing hook | Main gap before lecture |
 |---|---|---|---|---|
 | W1 | Introduction, Logic, Reasoning and Learning | **Amber/Red** | General AI/ML vocabulary strong enough | Formal logic/reasoning vocabulary is new; preview propositions/rules/inference at a light level |
-| W2 | Uninformed search, informed search, searching with other agents | **Amber/Green overall; multi-agent Amber/Red** | BFS/DFS reactivated; UCS/A* guided implementations exist; 23 Sep work covered A* guarantee intuition, completeness/optimality, introductory complexity and a pre-lecture minimax/alpha-beta bridge | Use the live lecture to confirm the exact multi-agent framing; later cold-check fragile guarantees/complexity and adversarial turn ownership rather than repeating full search implementations |
+| W2 | Uninformed + informed search; graph search | **Green/Amber** | BFS/DFS reactivated; UCS/A* guided implementations exist; 23 Sep preparation covered guarantees/complexity. The actual Lecture 2 deck confirmed DFS/BFS/UCS, iterative deepening, greedy, A*, heuristic construction/dominance and graph search; it did not cover minimax/alpha-beta | Run one <=90 min reconciliation: small-gap sweep, then consistency intuition -> consistency=>admissibility -> A* optimality proof -> consistency=>nondecreasing f=>safe closing. Park adversarial-search implementation unless later course material calls for it |
 | W3 | Linear regression, logistic regression, decision trees, random forests | **Linear/logistic Green/Amber; trees Red** | Repo 21–23 + Lessons 30–31 classification/evaluation work + historical least-squares/normal-equation foundation | Consolidate model maths; learn decision trees + random forests before W3 |
 | W4 | Bayesian networks, inference, sampling | **Amber** | Historical JHU probability strongly covers conditional probability, independence, total probability, Bayes, random variables and joint/marginal distributions | Cold-retrieve Bayes/conditioning; then learn graphical-model semantics, conditional independence in graphs and inference/sampling algorithms |
 | W5 | Hidden Markov Models, particle filtering | **Amber/Red** | Historical probability foundation established; learner remembers Markov chains but recoverable worked evidence is weak | Diagnose Markov-chain recall first; then Markov property, transition/state reasoning, filtering and particle sampling |
@@ -36,13 +36,11 @@ Readiness key:
 
 ### Fundamentals next priorities
 
-1. **Exploit the extra pre-course week without over-drilling BFS.** Independent BFS reconstruction is already evidenced; move forward.
-2. **Close single-agent search:** UCS implementation → A* reconstruction → short guarantees/complexity consolidation.
-3. **Cover the missing Week-2 branch:** “searching with other agents” is genuinely new. If course materials confirm standard adversarial search, prepare game trees/minimax/alpha-beta at introductory depth; do not assume beyond the available syllabus/materials.
-4. Run one integrated search review shortly before the W2 lecture rather than repeatedly reconstructing the same algorithms.
-5. Use remaining buffer for W1 logic/reasoning and then **decision trees/random forests** for W3.
-6. Before W4, cold-retrieve the historical Bayes/random-variable foundation rather than relearning probability from zero.
-7. Before W5, run a diagnostic on remembered Markov-chain material and rebuild only what does not return.
+1. **Reconcile Lecture 2 once, then stop expanding the search lane.** Hard-cap the post-lecture gap pass at 90 minutes: formulation/state abstraction, iterative deepening, greedy, relaxed heuristics/dominance and graph search briefly; consistency/admissibility/A* proof/safe closing in depth.
+2. **Park minimax/alpha-beta implementation.** It was useful pre-reading but was not in the actual Lecture 2 deck. Revisit only when live course material requires adversarial search.
+3. **After receipts is complete, bridge directly to W3:** brief linear/logistic retrieval -> decision-tree split intuition -> Gini/entropy/information gain -> recursive construction/stopping/overfitting -> random forests.
+4. Before W4, cold-retrieve the historical Bayes/random-variable foundation rather than relearning probability from zero.
+5. Before W5, run a diagnostic on remembered Markov-chain material and rebuild only what does not return.
 
 ---
 
@@ -54,7 +52,7 @@ Readiness key:
 |---|---|---|---|---|
 | W1 | Intro + simple ML example | **Green** | sklearn classification/regression plus completed Lesson 31 real-data train/validation/test pipeline | Retrieve and apply the workflow in a new context |
 | W2 | Vector, matrix, tensor ops; NumPy | **Green/Amber** | Completed 2025 JHU linear algebra foundation + Repo 10–17 + 27 + Lesson 31 scaling/axis/tensor conversion; 17 Sep pairwise vectorisation; 18 Sep representation/interpolation bridge; 21 Sep Assignment 1 no-loop interpolation complete with all supplied tests green | Maintain via later changed notation-to-vectorisation retrieval; paired advanced indexing and dtype/device handling are not yet delayed-cold. Do not re-drill the completed assignment immediately |
-| W3 | 1D/2D signals; image/audio/text/video/sequential representation; SciPy, matplotlib, PyTorch | **Amber** | PyTorch/tensor base strong | SciPy/matplotlib + modality representations not yet systematic |
+| W3 | Deep Learning Basics: image representation, linear classification, cross-entropy, gradient descent/SGD, MLPs, CNN motivation | **Green/Amber overall; CNN edge Red/Amber** | Existing evidence already covers linear layers, autograd/GD, PyTorch training loops, MLP classification, DataLoader mini-batches and train/validation/test workflow. Assignment 1 strengthened notation/shape translation | Before Lecture 3, target notation-to-shapes for linear layers, one-hot/cross-entropy + dataset objective, formal GD/SGD notation -> PyTorch loop, why nonlinearity is required, then locality/weight sharing as CNN motivation. Do not re-teach the existing validation/training pipeline from zero |
 | W4 | MLP, CNN, RNN | **MLP Green/Amber; CNN/RNN Red** | Repo 28–30 + Lesson 31 MLP workflow | CNN/RNN architecture intuition before W4; do not need mastery yet |
 | W5 | Housing-price prediction (Boston House Dataset) | **Amber/Green** | sklearn regression (23), MLP/MSE mechanics, completed Lesson 31 preprocessing/validation workflow | Transfer the same split/scaling/validation discipline to NN regression |
 | W6 | Data prep + data loading optimisation | **Amber/Green** | `TensorDataset`/`DataLoader`, mini-batches, shuffle retrieved again in Lesson 31 | Workers/pinning/loading efficiency are new |
@@ -67,9 +65,9 @@ Readiness key:
 
 ### AI in Practice next priorities
 
-1. **Search reactivation remains the cross-course primary next session**; Lesson 31 no longer blocks this course's introductory workflow readiness.
-2. **NN regression** before W5, transferring the same leakage-safe preprocessing and validation workflow.
-3. **CNN/RNN preview** before W4; deeper CNN before Fashion-MNIST.
+1. **24 Sep pre-lecture bridge:** after the <=90 min AIMS5701 reconciliation, use all remaining study time on Lecture 3 Deep Learning Basics. Prioritise linear-layer notation/shapes -> cross-entropy/objective notation -> gradient descent/SGD mapping -> nonlinearity/MLP -> CNN locality/weight-sharing motivation.
+2. Treat train/validation/test, overfitting, DataLoader basics and the generic PyTorch training loop as retrieval/application, not new teaching; existing Lesson 29–31 evidence is stronger there.
+3. After Lecture 3, use live gaps to decide whether CNN needs a dedicated bridge. Do not pre-master later architecture material merely because it appears at the end of the deck.
 
 ### Lesson 31 readiness gain
 

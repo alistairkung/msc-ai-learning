@@ -6,18 +6,17 @@ meta:
   reviewed_on: '2026-09-23'
   evidence_through: '2026-09-23'
   repository: alistairkung/msc-ai-learning
-  source_ref: 7b163e042b1bbe2a1a273bf1c3e581b21236a512
+  source_ref: c46c5fe2565a0e3727d7e8bf69ce1cc625fba1ae
   review_note: >-
-    Reconciled through both 23 Sep AIMS5701 search blocks. Search guarantees and
-    complexity now have guided same-session evidence; adversarial search/minimax/
-    alpha-beta were introduced pre-lecture and remain fragile pending lecture confirmation
-    and delayed retrieval. Follow-up strategy now favours targeted implementation spot
-    checks over immediate rewrites, with minimax the stronger first implementation candidate.
+    Reconciled after the live 23 Sep AIMS5701 lecture and against the supplied AIMS5702
+    Lecture 3 deck. Immediate sequence is: <=90 min 5701 proof/gap reconciliation ->
+    targeted 5702 Deep Learning Basics prep/lecture -> receipts-only Friday with Monday
+    contingency -> decision-tree/random-forest bridge only after receipts is complete.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: f60c269efdf5c0c767649c43f3d5e92ecf8f7a8c
+    sha: f3992465a549550ea48c85b1eb0ac8b2242e87b6
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
@@ -26,7 +25,7 @@ sources:
     sha: 2eb48978d1d21e1e94baaa8510c1ae279b8f5096
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: bf30dbd439190ebf5eb8796023aba90571c8cc24
+    sha: 89302db89be5457e1be070e48fbcb06398e08db2
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
@@ -38,7 +37,7 @@ sources:
     sha: 64fe714ce0c8bfeb0d0cae728e3dc2aa900577b8
   search_guarantees_20260923:
     path: lesson_logs/aims5701/search_guarantees_reactivation_2026_09_23.md
-    sha: 5360920e1f3efb239fee8e8b41987b2d7896d0a2
+    sha: 8eacce183faae0c4bc0fb5078139ee9e8b0f24e4
   prompt:
     path: lesson_logs/ftec5660/pattern01_prompt_chaining.md
     sha: 3ffbf91b66bd24dc260c1aeb0c1d73d431a1b157
@@ -75,6 +74,9 @@ sources:
   assignment1_completion:
     path: lesson_logs/aims5702/assignment01_completion_2026_09_21.md
     sha: 5d6ca894c555f74f637a1cad09ba2192bcb773f7
+  aims5702_lecture03_plan:
+    path: lesson_logs/aims5702/lecture03_deep_learning_basics_prelecture_bridge_2026_09_24.md
+    sha: dd8fe7842d66cdd90baa427687a9b7341a9e0569
   tensor_practice:
     path: practice/aims5702_assignment01/tensor_ops.py
     sha: bccf003b82636109fc25a26b14b8fefe68f9acd2
@@ -175,7 +177,7 @@ topics:
       Implementation remains guided. Admissibility was initially inverted before
       transfer; consistency was new/fragile and required repeated examples before the
       estimated-progress vs edge-cost model stabilised. Do not claim delayed guarantee mastery.
-    next: Cold-check admissibility/consistency, then consolidate A* optimality assumptions and the consistency-to-admissibility relationship before a later changed reconstruction.
+    next: Use the <=90 min post-lecture reconciliation to make consistency intuitive, reconstruct consistency=>admissibility, reinforce the inequality/contradiction proof of A* tree-search optimality, and connect consistency=>nondecreasing f=>safe graph-search closing.
     sources: [search_lesson33, search_guarantees_20260923, state]
     evidence_on: '2026-09-23'
     depends_on: [ucs]
@@ -467,10 +469,9 @@ topics:
       needed correction. No minimax/alpha-beta implementation has been attempted, and
       the exact live-course framing still needs confirmation in the lecture.
     next: >-
-      Use the live lecture to confirm scope and reconcile any gaps. After spacing,
-      cold-retrieve MAX/MIN turn ownership, solve one small minimax tree and explain one
-      alpha-beta cutoff. If minimax/alpha-beta is substantive course material, derive one
-      bounded recursive minimax implementation before optionally adding alpha-beta.
+      Park implementation for now. The actual 23 Sep Lecture 2 deck did not cover
+      minimax/alpha-beta. Retain this as useful guided pre-reading and cold-retrieve it
+      only when a later live-course requirement explicitly brings adversarial search back.
     sources: [search_guarantees_20260923, state]
     evidence_on: '2026-09-23'
     depends_on: []
@@ -492,8 +493,10 @@ topics:
       inversion, exact theorem assumptions are not cold memorised, branching growth was
       initially treated additively, and BFS d vs DFS m slipped on immediate recap.
     next: >-
-      After spacing, cold-check consistency-to-nondecreasing-f, completeness assumptions,
-      and BFS O(b^d) versus DFS O(b^m)/O(bm). Do not repeat the whole search block.
+      Run one <=90 min lecture reconciliation: briefly diagnose formulation/state
+      abstraction, iterative deepening, greedy, relaxed heuristics/dominance and graph
+      search, then focus on consistency/admissibility/A* proof/safe closing. After that,
+      move search to spaced maintenance rather than expanding this lane.
     sources: [search, search_lesson33, search_guarantees_20260923, state]
     evidence_on: '2026-09-23'
     depends_on: []
@@ -507,7 +510,7 @@ topics:
     name: Decision trees
     area: Model building
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
-    next: 'Begin a compact just-in-time tree lane after the Week-2 search lecture: split intuition -> Gini/entropy/information gain -> recursive construction -> stopping/overfitting -> small implementation.'
+    next: 'Begin only after the receipts homework is complete: brief regression/classification retrieval -> split intuition -> Gini/entropy/information gain -> recursive construction -> stopping/overfitting -> small implementation if live-course demand warrants it.'
   random_forests:
     <<: *new
     name: Random forests
@@ -543,6 +546,7 @@ topics:
     name: Convolutional neural networks
     area: Model building
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    next: Use the 24 Sep Lecture 3 bridge only to understand the motivation from large fully-connected parameter counts -> locality -> weight sharing -> convolution. Do not pre-master CNN implementation before the live lecture.
   rnn:
     <<: *new
     name: Recurrent neural networks
@@ -590,47 +594,47 @@ topics:
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
 lanes:
 - id: continue
-  label: Continue next · FTEC5660
-  title: Receipts homework — constrained vertical slice
-  summary: AIMS5702 Assignment 1 implementation is complete with supplied tests green. The active assessed-work focus is the receipts homework due 29 Sep.
+  label: Continue next · AIMS5701 → AIMS5702
+  title: 24 Sep — reconcile search, then target Deep Learning Basics
+  summary: Hard-cap the AIMS5701 post-lecture reconciliation at 90 minutes, then use all remaining pre-lecture study time on the actual AIMS5702 Lecture 3 deck.
+  target: astar
+  tasks:
+  - title: Reconcile AIMS5701 Lecture 2 gaps
+    when: First block on 24 Sep; <= 90 min
+    topics: [astar, search_complexity]
+    detail: Briefly verify formulation/state abstraction, iterative deepening, greedy, relaxed heuristics/dominance and graph search; spend most time on consistency intuition, consistency=>admissibility, A* optimality proof and safe closing.
+  - title: Target AIMS5702 Lecture 3
+    when: All remaining pre-lecture study time on 24 Sep
+    topics: [pytorch_training, mlp_classification, calculus, cnn]
+    detail: Work notation-to-shapes for linear layers, cross-entropy/dataset objective, formal GD/SGD -> PyTorch loop, why nonlinearity is required, then locality/weight sharing as CNN motivation. Do not re-teach the existing train/validation/test pipeline from zero.
+- id: parallel
+  label: Parallel block · FTEC5660 receipts
+  title: 25/28 Sep — finish receipts before opening another build context
+  summary: Friday is receipts-only. Monday is contingency if the homework is not yet complete; trees wait until the receipts context is closed.
   target: prompt_chaining
   tasks:
   - title: Complete validation and E2E receipt flow
-    when: Next substantive block
+    when: Friday 25 Sep; continue Monday 28 Sep if needed
     topics: [prompt_chaining, lcel]
-    detail: Receipt 1 now completes real multimodal structured extraction and the deterministic calculator is green. Implement validation/Decimal normalisation, batch receipts, wire the homework interface and run the public eval. Do not add routing, reflection or repair unless evaluation shows a concrete need.
+    detail: Implement validation/Decimal normalisation, batch receipts, wire the homework interface and run the public eval. Keep the constrained architecture; do not add routing/reflection/repair unless evaluation shows a concrete need.
   - title: Evaluate and localise failures
     when: After the first end-to-end path runs
     topics: [prompt_chaining]
-    detail: Use public receipts and live-model evaluation plus selective deterministic tests and one mocked integration path. Aim for one evidence-driven iteration.
-- id: parallel
-  label: Parallel block · AIMS5701
-  title: Search JIT -> regression and trees
-  summary: Search theory remains the immediate Fundamentals gap; then shift the lead to regression retrieval and decision trees/random forests for Week 3.
-  target: search_complexity
-  tasks:
-  - title: Finish Week-2 search theory
-    when: Before / around AIMS5701 Week 2
-    topics: [ucs, astar, search_complexity, other_agents]
-    detail: Consolidate completeness, optimality, complexity and A* assumptions without repeatedly rewriting already-implemented algorithms.
-  - title: Build toward Week-3 trees
-    when: After search pressure eases
-    topics: [linear_regression, logistic_regression, decision_trees, random_forests]
-    detail: Retrieve regression, then learn split, impurity and information-gain intuition and implement a tiny decision tree before relying on sklearn.
+    detail: Use public receipts and live-model evaluation plus selective deterministic tests and one mocked integration path. Aim for one evidence-driven iteration and protect the 29 Sep deadline.
 - id: protect
-  label: Protected continuity · probability + AIMS5702
-  title: Keep probability warm; maintain tensor transfer
-  summary: Keep probability as a small diagnostic lane ahead of Bayesian networks/HMMs, while preserving Assignment 1 gains through later changed notation-to-vectorisation retrieval rather than immediate repetition.
-  target: probability
+  label: Protected next JIT · AIMS5701 trees
+  title: Begin trees only after receipts is complete
+  summary: The next Fundamentals bridge is regression retrieval -> decision trees -> random forests for the following week's lecture. Do not interrupt unfinished receipts work to start it.
+  target: decision_trees
   tasks:
-  - title: Small probability diagnostic
-    when: Short recurring maintenance block
-    topics: [bayes, probability, joint_moments]
-    detail: Keep this small while assessed FTEC work is nearer; increase it as Bayesian-network/HMM weeks approach.
-  - title: Later tensor transfer check
-    when: After spacing, not immediately
-    topics: [tensor_operations, tensor_interpolation]
-    detail: Use one changed notation-to-vectorisation problem to test transfer. Do not replay the completed assignment merely to manufacture mastery evidence.
+  - title: Bridge into decision trees
+    when: After receipts completion, Monday 28 Sep if available
+    topics: [linear_regression, logistic_regression, decision_trees]
+    detail: Briefly retrieve regression/classification, then learn split intuition, Gini/entropy/information gain, recursive construction and stopping/overfitting.
+  - title: Extend to random forests
+    when: After the decision-tree model is coherent
+    topics: [decision_trees, random_forests]
+    detail: Build the ensemble intuition from multiple decorrelated trees; implementation depth can follow the live lecture demand.
 courses:
   AIMS5701:
     name: Fundamentals in AI
@@ -645,11 +649,16 @@ courses:
       scope: mapped
       due_on: null
     - week: '2'
-      title: Uninformed search, informed search, searching with other agents
+      title: Uninformed search, informed search, graph search
       anchors: [bfs, dfs, ucs, astar]
-      remaining: [search_complexity, other_agents]
-      note: BFS has strongest independent evidence; DFS is refreshed/implemented and UCS/A* are guided implementations. Guarantees/complexity and other-agent search remain the real gaps.
-      scope: scope_unconfirmed
+      remaining: [search_complexity]
+      note: >-
+        Actual Lecture 2 scope is now confirmed from the supplied deck: planning/search
+        formulation, DFS/BFS/UCS, iterative deepening, greedy/A*, heuristic
+        construction/dominance and graph search. Minimax/alpha-beta was pre-read but was
+        not part of this lecture. Remaining course-facing work is one bounded proof/gap
+        reconciliation, not another full implementation cycle.
+      scope: mapped
       due_on: null
     - week: '3'
       title: Linear regression, logistic regression, decision trees, random forests
@@ -763,7 +772,7 @@ courses:
       due_on: null
   AIMS5702:
     name: AI in Practice
-    timing: Original Sep-Dec sequence retained. Assignment 1 is an explicit delivery constraint in deadlines.yaml rather than a fake syllabus week.
+    timing: Live materials are calibrated through the supplied Lecture 3 deck. Later restored syllabus rows remain planning anchors and should be revalidated against live decks as they arrive. Assignment 1 remains a separate delivery record.
     expected_weeks: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
     weeks:
     - week: '1'
@@ -784,10 +793,15 @@ courses:
       scope: mapped
       due_on: null
     - week: '3'
-      title: Signals and modality representations; SciPy, matplotlib, PyTorch
-      anchors: [numpy, pytorch_training]
-      remaining: [scientific_python]
-      note: ''
+      title: Deep Learning Basics
+      anchors: [pytorch_training, mlp_classification, calculus, evaluation]
+      remaining: [cnn]
+      note: >-
+        Supplied Lecture 3 deck covers image representation, linear classification,
+        cross-entropy, dataset objectives, GD/SGD, train/validation/test, MLPs and CNN
+        motivation. Existing training-loop/generalisation evidence is strong; pre-lecture
+        work should target notation-to-shapes, cross-entropy/objective notation and
+        locality/weight sharing rather than replaying the whole pipeline.
       scope: mapped
       due_on: null
     - week: '4'
@@ -996,4 +1010,4 @@ timeline:
 - label: 22 September · FTEC5660
   detail: The learner cold-retrieved core LCEL composition, learned multimodal message construction, implemented a reusable vision extraction chain, diagnosed runaway reasoning-token use, disabled thinking for the extraction stage, and matched receipt 1's structured ground truth.
 - label: 23 September · AIMS5701
-  detail: Morning and afternoon search work kept BFS/DFS strong, reactivated UCS/A*, deepened A* guarantees, introduced completeness/optimality and BFS/DFS complexity, then built a pre-lecture minimax/alpha-beta bridge. Adversarial turn ownership and pruning remain same-session/fragile.
+  detail: Morning/afternoon preparation reactivated search and built a minimax/alpha-beta bridge; the live Lecture 2 deck then confirmed single-agent/tree/graph search rather than adversarial search. Post-lecture gaps are now consistency intuition, consistency=>admissibility, the A* optimality proof and safe closing, plus a brief sweep of smaller lecture-only topics.
