@@ -9,7 +9,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
 | Continue | **FTEC5660 receipts homework — validation → batch → E2E** | One real receipt now passes JPEG → multimodal DeepSeek → parsed structured extraction, and the deterministic calculator is already green. Next implement validation/Decimal normalisation, batch receipts, wire the homework interface and run the public eval. |
-| Parallel | **AIMS5701 search guarantees today → regression/trees next** | The 23 Sep morning block reactivated BFS/DFS/UCS/A* and began guarantee analysis. Afternoon priority is A* assumptions plus completeness/optimality/time/memory complexity; trees remain the next JIT topic after search. |
+| Parallel | **AIMS5701 lecture consolidation → regression/trees next** | The 23 Sep morning + afternoon blocks now cover search mechanics, A* guarantee intuition, completeness/optimality, introductory complexity, and pre-lecture minimax/alpha-beta. Use the live lecture to confirm adversarial-search scope; then trees are the next JIT topic. |
 | Protect | **Small probability / ML-theory maintenance lane** | Keep this deliberately small while assessed implementation work is active; do not create a new standalone equation-vectorisation curriculum. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
@@ -17,6 +17,18 @@ These lanes coexist; they are not one sequential queue. Delivery dates can tempo
 ## Delivery constraints — separate from learning evidence
 
 Canonical structured copy: `deadlines.yaml`. AIMS5702 Assignment 1 was submitted on 21 Sep. Remaining upcoming assessed work is FTEC5660 receipts homework (29 Sep), then the FTEC5660 solo hackathon (19 Oct). Keep delivery planning distinct from `learning_progress.yaml`.
+
+## AIMS5701 — Search guarantees + adversarial-search bridge, 23 Sep
+
+Detailed source: `lesson_logs/aims5701/search_guarantees_reactivation_2026_09_23.md`.
+
+The afternoon block completed the planned search-theory bridge without repeating BFS/DFS implementation. UCS goal-popped termination and admissibility returned cold. Consistency is improving and is now connected to nondecreasing `f=g+h`, but still had one changed-example label inversion. Completeness vs optimality is understood conceptually. Branching-factor complexity was introduced: BFS `O(b^d)` time/space and DFS `O(b^m)` time, `O(bm)` space are understood intuitively, although `d` vs `m` slipped on immediate recap.
+
+Adversarial search was introduced as pre-lecture preparation. The useful translation key is `MAX = one agent / MAX's turn`, `MIN = opposing agent / MIN's turn`, with terminal utility measured from MAX's perspective. Turn ownership initially caused repeated inversions; after a deliberate reset the learner correctly solved changed minimax trees. Alpha-beta was then derived from player-choice irrelevance before attaching alpha/beta notation. Changed pruning examples were handled with some correction, including one whole-subtree cutoff where MIN's control of the choice was initially forgotten.
+
+Do not promote minimax/alpha-beta to established or independent mastery yet: this is same-session introductory evidence and no implementation has been attempted. Confirm the exact live-course scope in the 23 Sep lecture before deciding whether implementation practice is warranted.
+
+Next AIMS5701 JIT after lecture consolidation: regression retrieval, then decision-tree split/impurity/information-gain intuition and random forests.
 
 ## AIMS5702 — Assignment 1 preparation and lecture calibration, 17 Sep
 

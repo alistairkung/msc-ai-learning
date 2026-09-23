@@ -162,3 +162,195 @@ Start the afternoon search block with a short cold check of:
 3. consistency: `h(A)-h(B) <= c(A,B)` and the estimated-progress intuition.
 
 Then continue with A* optimality/assumptions and completeness/time/memory complexity. Do not spend the block rewriting BFS/DFS.
+
+
+---
+
+## Afternoon continuation — guarantees, complexity and adversarial search
+
+**Session:** ~2-hour afternoon block before the AIMS5701 lecture  
+**Evidence type:** delayed cold check + same-session teaching/changed-example transfer  
+**Scope:** A* optimality intuition, completeness/optimality comparison, BFS/DFS complexity, minimax and introductory alpha-beta pruning
+
+### Fragile-point cold check
+
+The learner immediately retrieved the UCS termination distinction from the morning session:
+
+```text
+goal discovered != safe to return
+goal popped as lowest-g frontier item -> safe under the usual cost assumptions
+```
+
+Admissibility also returned correctly on the first changed check: with true remaining cost 7, heuristic values 4 and 7 were classified admissible while 9 was rejected because an admissible heuristic must not overestimate.
+
+Consistency was still fragile. The learner reasoned through the local route comparison but initially attached the wrong consistent/inconsistent label on a changed example. After correction, the useful learner-generated intuition became:
+
+> going via a known edge should not reveal an estimated shortcut that contradicts the estimate from where we are.
+
+The session then linked consistency to monotonic `f=g+h`. One arithmetic slip temporarily treated `g(B)` as the edge cost rather than accumulated start-to-B cost; after correction the learner correctly computed changed examples where `f` stayed equal or increased.
+
+### A* optimality connection
+
+The learner reasoned through:
+
+```text
+consistent h
+-> f cannot decrease along a path
+-> A* pops the smallest frontier f
+-> at the goal, h(goal)=0
+-> f(goal)=g(goal)
+-> a frontier path with larger f cannot later descend to a cheaper goal
+```
+
+This is same-session conceptual evidence, not delayed independent proof mastery. The distinction between "smallest f" and "already the optimal goal path" needed one refinement before the goal-state argument was clear.
+
+### Completeness and optimality
+
+The learner defined completeness approximately as a guaranteed answer, then refined it to:
+
+> if a solution exists, the algorithm is guaranteed to eventually find one.
+
+They reasoned correctly that:
+
+- BFS is complete under the usual finite-branching/repeated-state assumptions because it exhausts increasing depths;
+- DFS is not generally complete in infinite-depth spaces because it can disappear forever down one branch;
+- UCS completeness depends on a positive lower bound on step costs; the learner initially worried correctly about infinite distraction by cheap paths, then understood why `c >= epsilon > 0` prevents an infinite-depth path remaining permanently cheaper than a finite-cost goal;
+- A* remains complete under the usual finite-branching/positive-cost and suitable-heuristic assumptions;
+- BFS is optimal for equal step costs but not arbitrary unequal costs;
+- DFS is not generally optimal;
+- UCS is optimal under its usual non-negative/positive-cost assumptions when the goal is popped;
+- A* optimality was explained through admissibility, consistency and the goal's `h=0` condition.
+
+Do not treat the exact theorem assumptions as cold memorised yet; the learner can currently reason about them with the model in view.
+
+### Search complexity
+
+Branching-factor growth was newly/reactivated. The learner initially treated `b=3` as additive growth (`3,6,9,12`) before correcting to multiplicative/exponential level sizes:
+
+```text
+depth d -> approximately b^d nodes at that level
+```
+
+BFS time/space was then connected to the size of the shallowest-goal level:
+
+```text
+time  O(b^d)
+space O(b^d)
+```
+
+DFS was distinguished as:
+
+```text
+time  O(b^m)
+space O(bm)
+```
+
+where `d` is shallowest solution depth and `m` maximum depth. The learner correctly explained why DFS can perform exponential total work while storing only the current path plus unexplored siblings. On immediate recap, DFS complexity was retrieved correctly but BFS was temporarily given `O(b^m)`; keep the `d` vs `m` notation distinction fragile rather than established.
+
+### Adversarial / multi-agent search introduction
+
+The learner asked for the second hour to introduce adversarial search.
+
+The key conceptual bridge was eventually made explicit:
+
+```text
+MAX = one decision-making agent
+MIN = the opposing decision-making agent
+node label = whose turn it is to choose among that node's children
+terminal utility = represented from MAX's perspective
+```
+
+This framing was important. Initial examples showed repeated confusion between action labels, terminal scores and which player controlled a child choice. After stepping back and replacing algorithmic "MAX/MIN node" language with "your agent's turn / opponent agent's turn", the learner correctly tracked alternating levels:
+
+```text
+MAX -> MIN -> MAX
+you -> opponent -> you
+```
+
+### Minimax
+
+After the turn-taking reset, the learner successfully propagated several changed game trees bottom-up:
+
+- MAX chooses the highest child utility;
+- MIN chooses the lowest child utility;
+- values propagate upward because each value represents the outcome expected under optimal play from that state;
+- the root agent chooses based on the opponent's optimal response, not the branch's best-case terminal leaf.
+
+A three-level changed tree was solved correctly after the reset, including correctly identifying a MIN-root example.
+
+Current conceptual model:
+
+> minimax models two agents with opposed objectives; MAX chooses to maximise utility, MIN chooses to minimise the same MAX-perspective utility, and the tree is evaluated backward under optimal play.
+
+### Alpha-beta pruning
+
+Alpha-beta was initially introduced too early and deliberately reset until turn ownership was stable.
+
+After rebuilding from player choices, the learner understood the pruning intuition:
+
+- if MAX already has an alternative worth 5 and a newly explored MIN branch has already found a response worth 4, that MIN branch can never improve above 4 for MAX, so its remaining children cannot affect MAX's decision;
+- conversely, if MIN already has an alternative worth 6 and a MAX branch has already reached at least 8, MIN will never choose that branch, so its remaining children can be ignored.
+
+Terminology then attached to the established intuition:
+
+```text
+alpha = best lower bound / option MAX can already guarantee
+beta  = best upper bound / option MIN can already guarantee
+alpha >= beta -> remaining work under the current branch cannot affect the rational ancestor decision
+```
+
+The learner correctly retrieved `alpha=max(3,7,5)=7` and `beta=min(8,6,9)=6`, and correctly identified a no-prune case with alpha 6 / beta 7.
+
+On a full left-to-right tree, the learner correctly found the first MAX-side cutoff under a MIN parent. A later whole-subtree cutoff initially failed because the learner forgot that MIN, not MAX, controls the B1/B2 choice. After correction the learner articulated the key insight:
+
+> even if B2 were 1000, MIN would still return B1's lower value, so the branch cannot beat MAX's existing alternative.
+
+This is good immediate conceptual transfer, but turn ownership and pruning direction remain **same-session fragile**, not established mastery.
+
+### Big-picture synthesis
+
+The learner explicitly asked why minimax belongs in AI fundamentals. The session connected the classical-AI progression:
+
+```text
+BFS/DFS -> find reachable goal states
+UCS/A*  -> choose good paths efficiently using cost/knowledge
+minimax -> choose actions when another agent strategically responds
+alpha-beta -> avoid computation that cannot affect the decision
+```
+
+The learner then made the multi-agent connection explicitly: minimax is multi-agent because MAX and MIN represent two decision-making agents with opposed objectives in the standard two-player model.
+
+### Evidence boundary after afternoon block
+
+**Stronger than the morning handoff:**
+- UCS goal-popped termination returned cold;
+- admissibility returned cold on the first changed example;
+- A* optimality intuition can be reconstructed from consistency -> nondecreasing f -> goal h=0;
+- completeness vs optimality distinction is understood;
+- BFS/DFS time-vs-space intuition has been introduced and reasoned through;
+- minimax turn-taking and bottom-up propagation became correct after a deliberate reset;
+- alpha-beta pruning intuition was demonstrated on changed examples after turn ownership stabilised.
+
+**Still fragile / do not over-promote:**
+- consistency classification still had one immediate changed-example label inversion;
+- accumulated `g` had one arithmetic/semantic slip;
+- exact completeness theorem assumptions are not cold memorised;
+- BFS complexity `d` vs DFS `m` notation slipped on immediate recap;
+- adversarial turn ownership initially caused repeated inversions;
+- alpha-beta whole-subtree pruning needed correction before the learner articulated the correct MIN-choice reason;
+- no minimax/alpha-beta implementation has been attempted;
+- adversarial-search material is pre-lecture preparation unless/until the live course confirms the exact taught scope.
+
+## Next retrieval / continuation
+
+Do not repeat the whole search block immediately.
+
+After spacing, briefly retrieve:
+
+1. consistency from the local-edge intuition and why it makes `f` nondecreasing;
+2. BFS `O(b^d)` vs DFS `O(b^m)` time and `O(bm)` space;
+3. MAX/MIN as alternating agents/turns;
+4. one small minimax tree;
+5. one alpha-beta cutoff explained in player-choice language before using the inequality.
+
+Use the live AIMS5701 lecture to confirm the exact adversarial-search scope before adding implementation work.
