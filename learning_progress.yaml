@@ -449,29 +449,49 @@ topics:
     area: Classical AI
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
   other_agents:
-    <<: *new
     name: Searching with other agents
     area: Classical AI
-    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
-    boundary: The syllabus title is confirmed; the exact scope is not. Minimax/alpha-beta is a provisional interpretation, not verified course coverage.
-    next: Confirm lecture scope, then teach the relevant multi-agent search material before AIMS5701 Week 2.
+    concept: taught
+    performance: guided
+    review: recorded
+    action: retrieve
+    evidence: >-
+      On 23 Sep pre-lecture work introduced adversarial search as alternating MAX/MIN
+      agents, then minimax and alpha-beta pruning. After a deliberate turn-ownership
+      reset, the learner correctly propagated changed game trees and explained several
+      pruning decisions in player-choice language.
+    boundary: >-
+      This is same-session guided preparation, not delayed mastery. Turn ownership
+      initially caused repeated inversions and one whole-subtree alpha-beta cutoff
+      needed correction. No minimax/alpha-beta implementation has been attempted, and
+      the exact live-course framing still needs confirmation in the lecture.
+    next: >-
+      Use the live lecture to confirm scope. After spacing, cold-retrieve MAX/MIN turn
+      ownership, solve one small minimax tree and explain one alpha-beta cutoff before
+      considering implementation practice.
+    sources: [search_guarantees_20260923, state]
+    evidence_on: '2026-09-23'
+    depends_on: []
   search_complexity:
     name: Search guarantees & complexity
     area: Classical AI
-    concept: taught
-    performance: pending
+    concept: demonstrated
+    performance: guided
     review: recorded
-    action: learn
+    action: retrieve
     evidence: >-
-      On 23 Sep the learner reasoned through BFS shortest-by-edges, UCS goal-popped
-      optimality, A* admissibility and consistency. They eventually distinguished
-      admissibility from consistency on changed examples and linked consistency to
-      nondecreasing f values.
+      Across the 23 Sep morning and afternoon blocks the learner reasoned through UCS
+      goal-popped optimality, A* admissibility/consistency and nondecreasing f, then
+      completeness/optimality conditions for BFS/DFS/UCS/A*. Branching-factor growth
+      was introduced and used to derive BFS O(b^d) time/space and DFS O(b^m) time,
+      O(bm) space at an intuition level.
     boundary: >-
-      Guarantee work is not yet independent mastery: UCS termination needed correction,
-      admissibility was initially inverted and consistency required repeated teaching.
-      Completeness plus formal/qualitative time and memory complexity remain open.
-    next: Cold-check the fragile guarantee points, then finish A* assumptions/optimality and completeness/time/memory complexity.
+      This remains guided/same-session evidence. Consistency had one later label
+      inversion, exact theorem assumptions are not cold memorised, branching growth was
+      initially treated additively, and BFS d vs DFS m slipped on immediate recap.
+    next: >-
+      After spacing, cold-check consistency-to-nondecreasing-f, completeness assumptions,
+      and BFS O(b^d) versus DFS O(b^m)/O(bm). Do not repeat the whole search block.
     sources: [search, search_lesson33, search_guarantees_20260923, state]
     evidence_on: '2026-09-23'
     depends_on: []
