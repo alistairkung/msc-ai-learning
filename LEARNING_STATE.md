@@ -8,9 +8,9 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **FTEC5660 receipts homework — validation → batch → E2E** | One real receipt now passes JPEG → multimodal DeepSeek → parsed structured extraction, and the deterministic calculator is already green. Next implement validation/Decimal normalisation, batch receipts, wire the homework interface and run the public eval. |
-| Parallel | **AIMS5701 lecture consolidation → regression/trees next** | The 23 Sep morning + afternoon blocks now cover search mechanics, A* guarantee intuition, completeness/optimality, introductory complexity, and pre-lecture minimax/alpha-beta. Use the live lecture to confirm adversarial-search scope; then trees are the next JIT topic. |
-| Protect | **Small probability / ML-theory maintenance lane** | Keep this deliberately small while assessed implementation work is active; do not create a new standalone equation-vectorisation curriculum. |
+| Continue | **24 Sep: AIMS5701 reconcile → AIMS5702 Lecture 3 bridge** | Hard-cap the 5701 post-lecture reconciliation at 90 min, then use all remaining pre-lecture study time on 5702 Deep Learning Basics: linear-layer notation/shapes, cross-entropy/objective notation, gradient-descent/SGD mapping, then nonlinearity/MLP/CNN motivation. |
+| Parallel | **25/28 Sep: finish FTEC5660 receipts before opening a new build context** | Friday is receipts-only. Continue validation/Decimal normalisation → batching → homework interface → public E2E eval. Monday is contingency if needed; do not switch to trees until receipts is complete. |
+| Protect | **After receipts: AIMS5701 trees bridge for next week's lecture** | Once receipts is closed, retrieve linear/logistic classification briefly, then learn split intuition → Gini/entropy/information gain → recursive decision trees → stopping/overfitting → random forests. Probability maintenance is temporarily displaced by this short-horizon assessed-work/JIT sequence. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
 
@@ -26,11 +26,43 @@ The afternoon block completed the planned search-theory bridge without repeating
 
 Adversarial search was introduced as pre-lecture preparation. The useful translation key is `MAX = one agent / MAX's turn`, `MIN = opposing agent / MIN's turn`, with terminal utility measured from MAX's perspective. Turn ownership initially caused repeated inversions; after a deliberate reset the learner correctly solved changed minimax trees. Alpha-beta was then derived from player-choice irrelevance before attaching alpha/beta notation. Changed pruning examples were handled with some correction, including one whole-subtree cutoff where MIN's control of the choice was initially forgotten.
 
-Do not promote minimax/alpha-beta to established or independent mastery yet: this is same-session introductory evidence and no implementation has been attempted. Confirm the exact live-course scope in the 23 Sep lecture before deciding whether implementation practice is warranted.
+Do not promote minimax/alpha-beta to established or independent mastery yet: this is same-session introductory evidence and no implementation has been attempted. The actual Lecture 2 deck did **not** cover minimax/alpha-beta, so park implementation unless a later live-course requirement brings adversarial search back.
 
-Implementation-maintenance decision: do not immediately rebuild BFS/DFS/UCS/A* merely for completeness. Prior implementation evidence already exists; use later changed-problem blank-file reconstruction as an operational spot check when useful. Minimax is a stronger candidate for one bounded manual implementation if tonight's lecture confirms it as substantive, because no implementation evidence exists yet and recursive turn alternation was genuinely fragile today. Reconcile lecture gaps before scheduling that exercise.
+Implementation-maintenance decision: do not immediately rebuild BFS/DFS/UCS/A* merely for completeness. Prior implementation evidence already exists; use later changed-problem blank-file reconstruction as an operational spot check when useful.
 
-Next AIMS5701 JIT after lecture consolidation: regression retrieval, then decision-tree split/impurity/information-gain intuition and random forests.
+Post-lecture gap list is now narrower and course-facing: consistency intuition, consistency ⇒ admissibility, the inequality/contradiction proof of A* tree-search optimality, and consistency ⇒ nondecreasing `f` ⇒ safe closing. Also run a brief diagnostic sweep of search formulation/state abstraction, iterative deepening, greedy best-first, relaxed-problem heuristics/dominance and graph search/closed sets. Hard-cap this reconciliation at 90 minutes.
+
+Next AIMS5701 JIT after that reconciliation: brief linear/logistic retrieval, then decision-tree split/impurity/information-gain intuition and random forests — but only after the receipts homework is complete.
+
+## Immediate execution plan — 24 to 28 Sep
+
+This short-horizon sequence is intentionally serial to reduce context switching:
+
+```text
+24 Sep
+AIMS5701 reconciliation (<= 90 min)
+-> AIMS5702 targeted pre-lecture study
+-> AIMS5702 Lecture 3
+
+25 Sep
+FTEC5660 receipts only
+
+28 Sep
+receipts contingency until complete
+-> then AIMS5701 decision-tree bridge
+```
+
+Detailed AIMS5702 preparation source: `lesson_logs/aims5702/lecture03_deep_learning_basics_prelecture_bridge_2026_09_24.md`.
+
+The supplied Lecture 3 deck overlaps strongly with existing PyTorch/MLP training evidence. Do not re-teach train/validation/test, overfitting, DataLoader basics or generic training-loop mechanics from zero. Highest-value pre-lecture targets are:
+
+- translate `y_j = Σ_i w_ij x_i + b_j` into index meaning, shapes and code semantics;
+- unpack one-hot/cross-entropy and dataset-level objective notation;
+- map formal gradient-descent/SGD notation onto the already-known PyTorch loop;
+- explain why stacked linear maps need nonlinearity;
+- preview locality + weight sharing as the motivation for CNNs.
+
+Friday/Monday receipts work retains the existing constrained architecture and scope rule. Trees begin only once receipts is closed.
 
 ## AIMS5702 — Assignment 1 preparation and lecture calibration, 17 Sep
 
