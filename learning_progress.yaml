@@ -12,10 +12,6 @@ meta:
     complexity now have guided same-session evidence; adversarial search/minimax/
     alpha-beta were introduced pre-lecture and remain fragile pending lecture confirmation
     and delayed retrieval.
-    Reconciled through the 23 Sep AIMS5701 morning search review. BFS/DFS delayed
-    mechanics remain strong; UCS goal-popped optimality was corrected; A* admissibility
-    and consistency received changed-example guarantee work. Consistency remains
-    same-session/fragile and search complexity is still open.
   stale_after_days: 21
 sources:
   state:
@@ -998,4 +994,4 @@ timeline:
 - label: 22 September · FTEC5660
   detail: The learner cold-retrieved core LCEL composition, learned multimodal message construction, implemented a reusable vision extraction chain, diagnosed runaway reasoning-token use, disabled thinking for the extraction stage, and matched receipt 1's structured ground truth.
 - label: 23 September · AIMS5701
-  detail: Morning delayed search review kept BFS/DFS strong, reactivated UCS/A* mechanics, corrected UCS goal-popped optimality, and developed A* admissibility/consistency through changed examples. Consistency remains same-session/fragile; complexity remains open.
+  detail: Morning and afternoon search work kept BFS/DFS strong, reactivated UCS/A*, deepened A* guarantees, introduced completeness/optimality and BFS/DFS complexity, then built a pre-lecture minimax/alpha-beta bridge. Adversarial turn ownership and pruning remain same-session/fragile.
