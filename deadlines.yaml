@@ -1,6 +1,6 @@
 # Delivery planning is separate from learning evidence.
 schema_version: 1
-reviewed_on: '2026-09-21'
+reviewed_on: '2026-09-23'
 provenance_note: >-
   Dates below are learner-reported planning constraints unless a stronger source is
   named. They affect workload prioritisation, not learning/mastery evidence.
@@ -23,7 +23,12 @@ deadlines:
   status: upcoming
   provenance: learner_report
   mode: individual
-  note: Primary assessed-work focus now that AIMS5702 Assignment 1 implementation is complete. Constrain scope to the planned image -> structured extraction -> validation -> deterministic calculation -> aggregation vertical slice, then evaluate.
+  note: >-
+    Primary assessed-work build block is Friday 25 Sep, with Monday 28 Sep reserved as
+    contingency until the homework is complete. Keep the constrained image -> structured
+    extraction -> validation -> deterministic calculation -> aggregation architecture,
+    then run the public E2E eval. Do not interrupt an unfinished receipts block to start
+    the decision-tree bridge.
 - id: ftec5660_hackathon
   course: FTEC5660
   title: Hackathon
