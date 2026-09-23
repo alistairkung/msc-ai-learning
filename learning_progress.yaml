@@ -6,8 +6,12 @@ meta:
   reviewed_on: '2026-09-23'
   evidence_through: '2026-09-23'
   repository: alistairkung/msc-ai-learning
-  source_ref: f3c34ede84f1df8910acad7b6ac66cebf2b5f8b8
+  source_ref: fca4da714c63041ff67559baaccce41e72ac39e2
   review_note: >-
+    Reconciled through both 23 Sep AIMS5701 search blocks. Search guarantees and
+    complexity now have guided same-session evidence; adversarial search/minimax/
+    alpha-beta were introduced pre-lecture and remain fragile pending lecture confirmation
+    and delayed retrieval.
     Reconciled through the 23 Sep AIMS5701 morning search review. BFS/DFS delayed
     mechanics remain strong; UCS goal-popped optimality was corrected; A* admissibility
     and consistency received changed-example guarantee work. Consistency remains
@@ -16,7 +20,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 8bea9ccca0ee9f049f9db8b61a12b75f96359d5b
+    sha: 6a4ef25d556530e8d81f14111822cd5d72ceb584
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
@@ -25,7 +29,7 @@ sources:
     sha: 2eb48978d1d21e1e94baaa8510c1ae279b8f5096
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: dded205a9fd7a771bdb8f230205f9765b787c8a9
+    sha: bf30dbd439190ebf5eb8796023aba90571c8cc24
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
@@ -37,7 +41,7 @@ sources:
     sha: 64fe714ce0c8bfeb0d0cae728e3dc2aa900577b8
   search_guarantees_20260923:
     path: lesson_logs/aims5701/search_guarantees_reactivation_2026_09_23.md
-    sha: 155dc8c9dbf8ee17665bf7e96bce581b69a94f47
+    sha: a93f866da1900f4cd250464f257aff4d4b29078a
   prompt:
     path: lesson_logs/ftec5660/pattern01_prompt_chaining.md
     sha: 3ffbf91b66bd24dc260c1aeb0c1d73d431a1b157
