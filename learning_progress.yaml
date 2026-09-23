@@ -154,7 +154,7 @@ topics:
       Heap/API implementation remains guided rather than cold-independent. The learner
       initially thought UCS used a heuristic and initially thought first discovery of
       the goal was sufficient; non-negative-cost assumptions still need consolidation.
-    next: Briefly retrieve why goal-popped matters, consolidate cost assumptions, then later test one changed weighted graph from a blank start.
+    next: Briefly retrieve why goal-popped matters and cost assumptions; use a later changed weighted-graph blank-file implementation only as an operational spot check, not an immediate full search rewrite.
     sources: [search_lesson33, search_guarantees_20260923, state]
     evidence_on: '2026-09-23'
     depends_on: [bfs]
@@ -466,9 +466,10 @@ topics:
       needed correction. No minimax/alpha-beta implementation has been attempted, and
       the exact live-course framing still needs confirmation in the lecture.
     next: >-
-      Use the live lecture to confirm scope. After spacing, cold-retrieve MAX/MIN turn
-      ownership, solve one small minimax tree and explain one alpha-beta cutoff before
-      considering implementation practice.
+      Use the live lecture to confirm scope and reconcile any gaps. After spacing,
+      cold-retrieve MAX/MIN turn ownership, solve one small minimax tree and explain one
+      alpha-beta cutoff. If minimax/alpha-beta is substantive course material, derive one
+      bounded recursive minimax implementation before optionally adding alpha-beta.
     sources: [search_guarantees_20260923, state]
     evidence_on: '2026-09-23'
     depends_on: []
