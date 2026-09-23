@@ -3,20 +3,20 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-09-22'
-  evidence_through: '2026-09-22'
+  reviewed_on: '2026-09-23'
+  evidence_through: '2026-09-23'
   repository: alistairkung/msc-ai-learning
-  source_ref: f8bdf62f8376ea6767cbd835002b728b40ef2c8d
+  source_ref: f3c34ede84f1df8910acad7b6ac66cebf2b5f8b8
   review_note: >-
-    Reconciled through the 22 Sep FTEC5660 receipts session. One real receipt now
-    completes JPEG -> multimodal DeepSeek -> parsed structured extraction after
-    diagnosing and disabling misallocated model reasoning. Evidence remains
-    same-session/new for multimodal syntax; validation, batching and E2E remain open.
+    Reconciled through the 23 Sep AIMS5701 morning search review. BFS/DFS delayed
+    mechanics remain strong; UCS goal-popped optimality was corrected; A* admissibility
+    and consistency received changed-example guarantee work. Consistency remains
+    same-session/fragile and search complexity is still open.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: e53b645b081ccafadfe041de9a67b8cca6b107c0
+    sha: 8bea9ccca0ee9f049f9db8b61a12b75f96359d5b
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
@@ -35,6 +35,9 @@ sources:
   search_lesson33:
     path: lesson_logs/lesson33_search_reconstruction.md
     sha: 64fe714ce0c8bfeb0d0cae728e3dc2aa900577b8
+  search_guarantees_20260923:
+    path: lesson_logs/aims5701/search_guarantees_reactivation_2026_09_23.md
+    sha: 155dc8c9dbf8ee17665bf7e96bce581b69a94f47
   prompt:
     path: lesson_logs/ftec5660/pattern01_prompt_chaining.md
     sha: 3ffbf91b66bd24dc260c1aeb0c1d73d431a1b157
@@ -142,11 +145,18 @@ topics:
     performance: guided
     review: recorded
     action: retrieve
-    evidence: Lesson 33 records a passing UCS implementation covering cheapest-path selection, cheaper-route replacement, unreachable/start=goal cases and lower-cost paths with more edges. The learner articulated the unseen-or-cheaper update rule.
-    boundary: Heap syntax, tuple roles, accumulated-vs-edge cost and update-condition logic needed targeted support. UCS is implemented with guided derivation, not delayed cold-independent reconstruction.
-    next: Do not rewrite immediately. Consolidate non-negative-cost assumptions and goal-popped reasoning, then later test one changed weighted graph from a blank start.
-    sources: [search_lesson33, state]
-    evidence_on: '2026-09-10'
+    evidence: >-
+      Lesson 33 records a passing guided UCS implementation. On 23 Sep delayed
+      retrieval recovered lowest-g selection and cheaper-route replacement after one
+      initial UCS/A* heuristic mix-up; goal-popped optimality was then corrected and
+      immediately retrieved in recap.
+    boundary: >-
+      Heap/API implementation remains guided rather than cold-independent. The learner
+      initially thought UCS used a heuristic and initially thought first discovery of
+      the goal was sufficient; non-negative-cost assumptions still need consolidation.
+    next: Briefly retrieve why goal-popped matters, consolidate cost assumptions, then later test one changed weighted graph from a blank start.
+    sources: [search_lesson33, search_guarantees_20260923, state]
+    evidence_on: '2026-09-23'
     depends_on: [bfs]
   astar:
     name: A* search
@@ -155,11 +165,18 @@ topics:
     performance: guided
     review: recorded
     action: retrieve
-    evidence: Lesson 33 derives A* from UCS using frontier entries carrying f, g and node; tests pass including zero heuristic reducing A* to UCS and heuristic-based prioritisation.
-    boundary: Initial heap shape, tuple unpacking and correct heuristic lookup required support. Current implementation is guided/current, not delayed cold-independent A* reconstruction; guarantees remain separate work.
-    next: Consolidate admissibility vs consistency and search assumptions, then later use one changed reconstruction to test independent retention.
-    sources: [search_lesson33, state]
-    evidence_on: '2026-09-10'
+    evidence: >-
+      Lesson 33 records guided A* implementation. On 23 Sep delayed retrieval recovered
+      g as cost-so-far, h as estimated remaining cost, f=g+h, lowest-f selection and
+      h=0 reducing A* to UCS. Guarantee work then introduced/reinforced admissibility
+      and consistency on changed examples.
+    boundary: >-
+      Implementation remains guided. Admissibility was initially inverted before
+      transfer; consistency was new/fragile and required repeated examples before the
+      estimated-progress vs edge-cost model stabilised. Do not claim delayed guarantee mastery.
+    next: Cold-check admissibility/consistency, then consolidate A* optimality assumptions and the consistency-to-admissibility relationship before a later changed reconstruction.
+    sources: [search_lesson33, search_guarantees_20260923, state]
+    evidence_on: '2026-09-23'
     depends_on: [ucs]
   prompt_chaining:
     name: Prompt chaining
@@ -445,11 +462,18 @@ topics:
     performance: pending
     review: recorded
     action: learn
-    evidence: Introductory completeness, optimality, admissibility and consistency were introduced; Lesson 33 explicitly leaves guarantees/complexity as the next search block after implementation.
-    boundary: Implementation success in BFS/DFS/UCS/A* does not establish guarantee analysis. Complexity and assumptions remain genuine work, not failed recall.
-    next: Consolidate completeness/optimality, UCS non-negative-cost assumptions, A* admissibility vs consistency, goal popped vs discovered, then qualitative/formal time and memory complexity.
-    sources: [search, search_lesson33, state]
-    evidence_on: '2026-09-10'
+    evidence: >-
+      On 23 Sep the learner reasoned through BFS shortest-by-edges, UCS goal-popped
+      optimality, A* admissibility and consistency. They eventually distinguished
+      admissibility from consistency on changed examples and linked consistency to
+      nondecreasing f values.
+    boundary: >-
+      Guarantee work is not yet independent mastery: UCS termination needed correction,
+      admissibility was initially inverted and consistency required repeated teaching.
+      Completeness plus formal/qualitative time and memory complexity remain open.
+    next: Cold-check the fragile guarantee points, then finish A* assumptions/optimality and completeness/time/memory complexity.
+    sources: [search, search_lesson33, search_guarantees_20260923, state]
+    evidence_on: '2026-09-23'
     depends_on: []
   scientific_python:
     <<: *new
@@ -949,3 +973,5 @@ timeline:
   detail: Receipt-chain contract v0 was designed from real receipts, a deterministic receipts 1+2 integration test was established, and the learner implemented the calculator green with exact Decimal arithmetic. Multimodal extraction remains next.
 - label: 22 September · FTEC5660
   detail: The learner cold-retrieved core LCEL composition, learned multimodal message construction, implemented a reusable vision extraction chain, diagnosed runaway reasoning-token use, disabled thinking for the extraction stage, and matched receipt 1's structured ground truth.
+- label: 23 September · AIMS5701
+  detail: Morning delayed search review kept BFS/DFS strong, reactivated UCS/A* mechanics, corrected UCS goal-popped optimality, and developed A* admissibility/consistency through changed examples. Consistency remains same-session/fragile; complexity remains open.
