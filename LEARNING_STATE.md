@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-09-22. Learning evidence through 2026-09-22._
+_Last maintained: 2026-09-23. Learning evidence through 2026-09-23._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -9,7 +9,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
 | Continue | **FTEC5660 receipts homework — validation → batch → E2E** | One real receipt now passes JPEG → multimodal DeepSeek → parsed structured extraction, and the deterministic calculator is already green. Next implement validation/Decimal normalisation, batch receipts, wire the homework interface and run the public eval. |
-| Parallel | **AIMS5701 search JIT → regression/trees + hackathon planning** | Tuesday includes the hackathon planning meeting. Keep AIMS5701 search/trees preparation alive without displacing the receipts deadline. |
+| Parallel | **AIMS5701 search guarantees today → regression/trees next** | The 23 Sep morning block reactivated BFS/DFS/UCS/A* and began guarantee analysis. Afternoon priority is A* assumptions plus completeness/optimality/time/memory complexity; trees remain the next JIT topic after search. |
 | Protect | **Small probability / ML-theory maintenance lane** | Keep this deliberately small while assessed implementation work is active; do not create a new standalone equation-vectorisation curriculum. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
@@ -401,11 +401,32 @@ Lesson 34 remains guided/green rather than delayed cold-independent. Tutorial 1 
 
 ## AIMS5701 / search and trees
 
-- BFS has strongest current independent evidence.
-- DFS was reconstructed with refreshed/guided evidence.
-- UCS/A* are implemented with passing practice tests but remain guided rather than cold-independent.
-- Next search block: completeness/optimality, UCS non-negative-cost assumptions, A* admissibility vs consistency, goal popped vs discovered, and qualitative/formal complexity.
-- After the Week-2 search pressure, shift JIT preparation toward Week-3 regression + decision trees/random forests; trees remain new material.
+Detailed source: `lesson_logs/aims5701/search_guarantees_reactivation_2026_09_23.md`.
+
+The 23 Sep morning block provided delayed search evidence without replaying implementations:
+
+- BFS mechanics, parents-as-seen/predecessor, FIFO and shortest-by-edges reasoning retrieved strongly.
+- DFS LIFO/depth-first behaviour and lack of shortest-path guarantee retrieved strongly.
+- UCS initially picked up A*'s heuristic by mistake, then recovered lowest-`g(n)` selection and the cheaper-route update rule.
+- UCS termination needed a substantive correction: optimality is guaranteed when the goal is **popped as the minimum-cost frontier item**, not when it is first discovered.
+- A* core `g/h/f` definitions, lowest-`f` selection and `h=0 -> UCS` were retrieved correctly after the UCS/A* contamination was corrected.
+
+Guarantee analysis then moved forward. Admissibility was initially inverted, then transferred correctly on changed examples: `h(n) <= h*(n)`. Consistency was the main new/fragile concept and required repeated examples. The current useful model is:
+
+```text
+h(B)          = estimated cost still remaining
+h(A) - h(B)   = estimated progress
+c(A,B)        = actual cost paid
+
+consistent when:
+h(A) - h(B) <= c(A,B)
+```
+
+After this distinction landed, the learner correctly classified changed consistency examples, including equality, separated admissibility from consistency on an admissible-but-inconsistent example, and connected inconsistency with decreasing `f=g+h` along an edge.
+
+Do not promote guarantee analysis to independent mastery: admissibility was initially inverted and consistency stabilised only after several same-session examples. Completeness/time/space complexity and the stronger consistency→admissibility relationship remain open.
+
+Next search block: briefly cold-check UCS goal-popped, admissibility direction and consistency intuition, then continue with A* assumptions/optimality and completeness/time/memory complexity. Do not replay BFS/DFS. After Week-2 search pressure, shift JIT preparation toward Week-3 regression + decision trees/random forests; trees remain new material.
 
 ## Established foundations / remaining uncertainty
 
