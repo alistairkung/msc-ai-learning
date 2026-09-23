@@ -354,3 +354,33 @@ After spacing, briefly retrieve:
 5. one alpha-beta cutoff explained in player-choice language before using the inequality.
 
 Use the live AIMS5701 lecture to confirm the exact adversarial-search scope before adding implementation work.
+
+
+## Post-session implementation boundary
+
+After the formal session, the learner explicitly reflected on whether implementation reconstruction should be the next priority.
+
+For BFS/DFS/UCS/A*, the current strategy is **not** to immediately reconstruct all four implementations again. The conceptual/search-theory layer was the weaker target today, while prior repository evidence already includes:
+
+- independent BFS reconstruction;
+- implemented DFS with targeted debugging;
+- guided passing UCS implementation;
+- guided A* implementation.
+
+The useful standard is therefore:
+
+> Can the learner derive an implementation from the algorithmic model, using ordinary API lookup when needed, rather than reproduce exact Python from memory?
+
+Occasional blank-file changed-graph reconstruction remains valuable as an operational spot check, especially for UCS/A* priority and cheaper-route update mechanics, but repeated full rewrites would currently displace higher-value JIT work.
+
+Minimax is different. No implementation has yet been attempted, and turn alternation/ownership was a genuine same-session fragility. If the live lecture confirms minimax/alpha-beta as substantive course material, one bounded manual recursive implementation is likely valuable evidence:
+
+```text
+terminal state -> utility
+MAX turn       -> max(recursive child values)
+MIN turn       -> min(recursive child values)
+```
+
+Only after plain minimax is semantically stable should alpha-beta be added to the same implementation. Treat this as a short consolidation/diagnostic exercise, not a new multi-hour project.
+
+Lecture-gap reconciliation should come first: record what the lecturer actually covers beyond or differently from the pre-lecture bridge, then decide whether the implementation exercise fills a real course-facing gap.
