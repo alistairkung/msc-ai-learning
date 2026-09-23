@@ -16,7 +16,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: e53b645b081ccafadfe041de9a67b8cca6b107c0
+    sha: 8bea9ccca0ee9f049f9db8b61a12b75f96359d5b
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
@@ -37,7 +37,7 @@ sources:
     sha: 64fe714ce0c8bfeb0d0cae728e3dc2aa900577b8
   search_guarantees_20260923:
     path: lesson_logs/aims5701/search_guarantees_reactivation_2026_09_23.md
-    sha: 89bdf7b1b7f29d26467f91ca26fdfb23c18ca48c
+    sha: 155dc8c9dbf8ee17665bf7e96bce581b69a94f47
   prompt:
     path: lesson_logs/ftec5660/pattern01_prompt_chaining.md
     sha: 3ffbf91b66bd24dc260c1aeb0c1d73d431a1b157
