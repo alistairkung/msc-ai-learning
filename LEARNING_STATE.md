@@ -28,6 +28,8 @@ Adversarial search was introduced as pre-lecture preparation. The useful transla
 
 Do not promote minimax/alpha-beta to established or independent mastery yet: this is same-session introductory evidence and no implementation has been attempted. Confirm the exact live-course scope in the 23 Sep lecture before deciding whether implementation practice is warranted.
 
+Implementation-maintenance decision: do not immediately rebuild BFS/DFS/UCS/A* merely for completeness. Prior implementation evidence already exists; use later changed-problem blank-file reconstruction as an operational spot check when useful. Minimax is a stronger candidate for one bounded manual implementation if tonight's lecture confirms it as substantive, because no implementation evidence exists yet and recursive turn alternation was genuinely fragile today. Reconcile lecture gaps before scheduling that exercise.
+
 Next AIMS5701 JIT after lecture consolidation: regression retrieval, then decision-tree split/impurity/information-gain intuition and random forests.
 
 ## AIMS5702 — Assignment 1 preparation and lecture calibration, 17 Sep
