@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-09-23'
   evidence_through: '2026-09-23'
   repository: alistairkung/msc-ai-learning
-  source_ref: fca4da714c63041ff67559baaccce41e72ac39e2
+  source_ref: e6bf7fb58b507627e0bd8b79eaf30b727686c70d
   review_note: >-
     Reconciled through both 23 Sep AIMS5701 search blocks. Search guarantees and
     complexity now have guided same-session evidence; adversarial search/minimax/
