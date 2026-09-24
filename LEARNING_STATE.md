@@ -8,7 +8,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **24 Sep: AIMS5702 Lecture 3 bridge → lecture** | The planned AIMS5701 reconciliation is complete. Use the remaining pre-lecture study time on 5702 Deep Learning Basics: linear-layer notation/shapes, cross-entropy/objective notation, gradient-descent/SGD mapping, then nonlinearity/MLP/CNN motivation. |
+| Continue | **24 Sep: AIMS5702 Lecture 3 — attend and capture real gaps** | The planned pre-lecture bridge is complete. Do not add more prep today; use the live lecture to reinforce indexed notation, multiclass loss/objective framing, the formal-SGD-to-PyTorch bridge, and the MLP/CNN transition. |
 | Parallel | **25/28 Sep: finish FTEC5660 receipts before opening a new build context** | Friday is receipts-only. Continue validation/Decimal normalisation → batching → homework interface → public E2E eval. Monday is contingency if needed; do not switch to trees until receipts is complete. |
 | Protect | **After receipts: AIMS5701 trees bridge for next week's lecture** | Once receipts is closed, retrieve linear/logistic classification briefly, then learn split intuition → Gini/entropy/information gain → recursive decision trees → stopping/overfitting → random forests. Search now moves to spaced maintenance rather than consuming another JIT block. |
 
@@ -43,8 +43,8 @@ This short-horizon sequence is intentionally serial to reduce context switching:
 ```text
 24 Sep
 AIMS5701 reconciliation — COMPLETE
--> AIMS5702 targeted pre-lecture study — NEXT
--> AIMS5702 Lecture 3
+-> AIMS5702 targeted pre-lecture study — COMPLETE
+-> AIMS5702 Lecture 3 — NEXT
 
 25 Sep
 FTEC5660 receipts only
@@ -65,6 +65,36 @@ The supplied Lecture 3 deck overlaps strongly with existing PyTorch/MLP training
 - preview locality + weight sharing as the motivation for CNNs.
 
 Friday/Monday receipts work retains the existing constrained architecture and scope rule. Trees begin only once receipts is closed.
+
+## AIMS5702 — Lecture 3 pre-lecture evidence, 24 Sep
+
+Detailed source: `lesson_logs/aims5702/lecture03_prelecture_session_2026_09_24.md`.
+
+The session confirmed that the underlying ML concepts are stronger than the lecturer-style indexed notation.
+
+### Stronger / comfortable
+
+- gradient sign, learning-rate update and basic GD/SGD mechanics;
+- mapping `loss.backward()` to gradient computation and `optimizer.step()` to parameter update;
+- batch/epoch intuition;
+- train/validation/test roles and inference-vs-training distinction;
+- why multiple linear layers collapse to one linear transform without nonlinearity;
+- high-level MLP intuition;
+- CNN motivation through local connectivity + shared weights.
+
+### Fresh / fragile
+
+- `y_j = sum_i w_ij x_i + b_j` initially blocked cold; the learner can now interpret `i`, `j`, `w_ij` and derive `W:(N,M)`, but output-side `b/y` shapes slipped once later and recovered immediately after the cue "bias belongs to the output";
+- one-hot cross-entropy intuition is now usable, but true-class indexing slipped once before transferring correctly;
+- dataset-objective notation required explicit translation: example index vs feature index, prediction vs loss, and `min_theta` as choosing parameters that minimise loss rather than choosing small parameters;
+- `TensorDataset` was rusty and needed reteaching as an indexing/pairing wrapper over already-created tensors;
+- `y_batch` shape, `optimizer.zero_grad()` and validation `torch.no_grad()` were not cold and needed correction/prompting.
+
+Do not promote this to independent deep-learning mastery. Most evidence is same-session guided or delayed retrieval with correction.
+
+Softmax was mentioned only as contextual outside-deck ML knowledge after a sigmoid/softmax role confusion. Do not treat it as lecturer-taught Lecture 3 evidence unless the live lecture covers it.
+
+Immediate next step: attend the 3-hour Lecture 3 and record only genuine new gaps or changed course requirements. No more pre-lecture study today.
 
 ## AIMS5702 — Assignment 1 preparation and lecture calibration, 17 Sep
 
