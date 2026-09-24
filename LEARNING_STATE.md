@@ -8,7 +8,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **24 Sep: AIMS5702 Lecture 3 — attend and capture real gaps** | The planned pre-lecture bridge is complete. Do not add more prep today; use the live lecture to reinforce indexed notation, multiclass loss/objective framing, the formal-SGD-to-PyTorch bridge, and the MLP/CNN transition. |
+| Continue | **Lecture-break week: consolidate AIMS5702 for the graded lab, then bridge toward CNN** | Lecture 3 is complete. Use the break first for delayed retrieval and one changed PyTorch pipeline reconstruction; only then extend locality/weight-sharing intuition into CNN shapes/mechanics ahead of the 15 Oct CNN lecture. |
 | Parallel | **25/28 Sep: finish FTEC5660 receipts before opening a new build context** | Friday is receipts-only. Continue validation/Decimal normalisation → batching → homework interface → public E2E eval. Monday is contingency if needed; do not switch to trees until receipts is complete. |
 | Protect | **After receipts: AIMS5701 trees bridge for next week's lecture** | Once receipts is closed, retrieve linear/logistic classification briefly, then learn split intuition → Gini/entropy/information gain → recursive decision trees → stopping/overfitting → random forests. Search now moves to spaced maintenance rather than consuming another JIT block. |
 
@@ -44,7 +44,7 @@ This short-horizon sequence is intentionally serial to reduce context switching:
 24 Sep
 AIMS5701 reconciliation — COMPLETE
 -> AIMS5702 targeted pre-lecture study — COMPLETE
--> AIMS5702 Lecture 3 — NEXT
+-> AIMS5702 Lecture 3 — COMPLETE
 
 25 Sep
 FTEC5660 receipts only
