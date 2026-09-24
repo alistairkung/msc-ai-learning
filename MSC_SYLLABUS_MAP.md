@@ -22,7 +22,7 @@ Readiness key:
 | Week | MSc topic | Current readiness | Evidence / existing hook | Main gap before lecture |
 |---|---|---|---|---|
 | W1 | Introduction, Logic, Reasoning and Learning | **Amber/Red** | General AI/ML vocabulary strong enough | Formal logic/reasoning vocabulary is new; preview propositions/rules/inference at a light level |
-| W2 | Uninformed + informed search; graph search | **Green/Amber** | BFS/DFS reactivated; UCS/A* guided implementations exist; 23 Sep preparation covered guarantees/complexity. The actual Lecture 2 deck confirmed DFS/BFS/UCS, iterative deepening, greedy, A*, heuristic construction/dominance and graph search; it did not cover minimax/alpha-beta | Run one <=90 min reconciliation: small-gap sweep, then consistency intuition -> consistency=>admissibility -> A* optimality proof -> consistency=>nondecreasing f=>safe closing. Park adversarial-search implementation unless later course material calls for it |
+| W2 | Uninformed + informed search; graph search | **Green/Amber** | BFS/DFS reactivated; UCS/A* guided implementations exist; 24 Sep reconciliation swept the actual Lecture 2 gaps and reconstructed consistency=>admissibility, A* optimality blocking and safe-closing logic with support | Move to spaced maintenance. Later cold-check the proof chain and theorem assumptions; do not spend another JIT block repeating search implementations. Minimax/alpha-beta remains parked because it was not in the actual Lecture 2 deck |
 | W3 | Linear regression, logistic regression, decision trees, random forests | **Linear/logistic Green/Amber; trees Red** | Repo 21–23 + Lessons 30–31 classification/evaluation work + historical least-squares/normal-equation foundation | Consolidate model maths; learn decision trees + random forests before W3 |
 | W4 | Bayesian networks, inference, sampling | **Amber** | Historical JHU probability strongly covers conditional probability, independence, total probability, Bayes, random variables and joint/marginal distributions | Cold-retrieve Bayes/conditioning; then learn graphical-model semantics, conditional independence in graphs and inference/sampling algorithms |
 | W5 | Hidden Markov Models, particle filtering | **Amber/Red** | Historical probability foundation established; learner remembers Markov chains but recoverable worked evidence is weak | Diagnose Markov-chain recall first; then Markov property, transition/state reasoning, filtering and particle sampling |
@@ -36,8 +36,8 @@ Readiness key:
 
 ### Fundamentals next priorities
 
-1. **Reconcile Lecture 2 once, then stop expanding the search lane.** Hard-cap the post-lecture gap pass at 90 minutes: formulation/state abstraction, iterative deepening, greedy, relaxed heuristics/dominance and graph search briefly; consistency/admissibility/A* proof/safe closing in depth.
-2. **Park minimax/alpha-beta implementation.** It was useful pre-reading but was not in the actual Lecture 2 deck. Revisit only when live course material requires adversarial search.
+1. **Lecture 2 reconciliation is complete.** Search now moves to spaced maintenance; later cold-check consistency=>admissibility, the A* blocking proof and safe-closing logic rather than repeating the whole lecture or implementations.
+2. **Keep minimax/alpha-beta parked.** It was useful pre-reading but was not in the actual Lecture 2 deck. Revisit only when live course material requires adversarial search.
 3. **After receipts is complete, bridge directly to W3:** brief linear/logistic retrieval -> decision-tree split intuition -> Gini/entropy/information gain -> recursive construction/stopping/overfitting -> random forests.
 4. Before W4, cold-retrieve the historical Bayes/random-variable foundation rather than relearning probability from zero.
 5. Before W5, run a diagnostic on remembered Markov-chain material and rebuild only what does not return.
@@ -65,7 +65,7 @@ Readiness key:
 
 ### AI in Practice next priorities
 
-1. **24 Sep pre-lecture bridge:** after the <=90 min AIMS5701 reconciliation, use all remaining study time on Lecture 3 Deep Learning Basics. Prioritise linear-layer notation/shapes -> cross-entropy/objective notation -> gradient descent/SGD mapping -> nonlinearity/MLP -> CNN locality/weight-sharing motivation.
+1. **24 Sep pre-lecture bridge is now the immediate study target:** use the remaining time on Lecture 3 Deep Learning Basics. Prioritise linear-layer notation/shapes -> cross-entropy/objective notation -> gradient descent/SGD mapping -> nonlinearity/MLP -> CNN locality/weight-sharing motivation.
 2. Treat train/validation/test, overfitting, DataLoader basics and the generic PyTorch training loop as retrieval/application, not new teaching; existing Lesson 29–31 evidence is stronger there.
 3. After Lecture 3, use live gaps to decide whether CNN needs a dedicated bridge. Do not pre-master later architecture material merely because it appears at the end of the deck.
 

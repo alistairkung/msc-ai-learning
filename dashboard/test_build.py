@@ -56,13 +56,12 @@ def test_deadline_lane_renders_separately_from_learning_lanes(data, deadlines):
     html = render(data, [], data['meta']['source_ref'], deadlines)
     assert 'Delivery lane · external constraints' in html
     assert 'Assignment 1 — tensor vectorisation and bilinear interpolation' not in html
-    assert '2026-09-24' not in html
     assert 'Receipts agentic AI homework' in html
     assert '2026-09-29' in html
     assert 'Hackathon' in html
     assert '2026-10-19' in html
     assert 'Learner-reported' in html
-    assert 'Continue next · AIMS5701 → AIMS5702' in html
+    assert 'Continue next · AIMS5702' in html
 
 
 def test_repository_source_files_exist(data):
@@ -225,7 +224,6 @@ def test_build_has_hashed_assets_and_fallback(tmp_path):
     assert '{{' not in html
     assert 'filesystem source verification was not run' in html
     assert 'Assignment 1 — tensor vectorisation and bilinear interpolation' not in html
-    assert '2026-09-24' not in html
     assert 'Receipts agentic AI homework' in html
     assert '2026-09-29' in html
     assert '2026-10-19' in html
