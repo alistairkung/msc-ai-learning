@@ -415,6 +415,17 @@ A systematic reconciliation pass should also briefly verify smaller lecture topi
 - graph search / closed sets;
 - admissible-but-inconsistent A* and reopening/safe-closing intuition.
 
+### Canonical consistency intuition to revisit
+
+The learner explicitly identified the following formulation as especially useful and wants it preserved for future retrieval:
+
+> **Consistency is a local edge condition:** the heuristic cannot drop by more than the step cost.  
+> Therefore `f = g + h` is nondecreasing along a path.  
+> So when A* pops a state with the smallest current `f`, a later route cannot “come from behind” with a lower `f` and a better `g` for that same state.  
+> Hence the state can be closed permanently.
+
+Use this as the preferred intuition-first recall bridge before returning to the formal inequality `h(u) <= c(u,v) + h(v)`.
+
 ### Next AIMS5701 block
 
 Hard-cap the reconciliation at **90 minutes**.
