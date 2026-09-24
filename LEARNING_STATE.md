@@ -94,7 +94,7 @@ Do not promote this to independent deep-learning mastery. Most evidence is same-
 
 Softmax was mentioned only as contextual outside-deck ML knowledge after a sigmoid/softmax role confusion. Do not treat it as lecturer-taught Lecture 3 evidence unless the live lecture covers it.
 
-Immediate next step: attend the 3-hour Lecture 3 and record only genuine new gaps or changed course requirements. No more pre-lecture study today.
+Lecture 3 is now complete. Detailed live evidence is in `lesson_logs/aims5702/lecture03_live_2026_09_24.md`. Next AIMS5702 work is delayed consolidation during the lecture break, followed by a bounded CNN bridge.
 
 ## AIMS5702 — Assignment 1 preparation and lecture calibration, 17 Sep
 
