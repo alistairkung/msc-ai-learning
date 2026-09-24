@@ -260,13 +260,19 @@ topics:
     area: Math foundations
     concept: historical
     performance: implemented
-    review: diagnostic
-    action: retrieve
-    evidence: The historical calculus log records the conceptual progression into gradients and chain rule; Lesson 28 provides an executable continuation.
-    boundary: Backpropagation mechanics do not establish convergence proofs, Hessians, convexity or adaptive-optimizer theory.
-    next: Retrieve derivative meaning and a short chain-rule calculation. Introduce later optimisation theory explicitly as new material.
-    sources: [state, roadmap]
-    evidence_on: null
+    review: recorded
+    action: maintain
+    evidence: >-
+      Historical calculus work and Lesson 28 cover gradients/chain rule. On 24 Sep the
+      learner correctly used derivative sign to choose update direction, calculated a
+      changed scalar gradient-descent step and interpreted a three-parameter gradient
+      vector without reteaching the core mechanic.
+    boundary: >-
+      This is retrieval of gradient/update intuition, not evidence for convergence
+      proofs, Hessians, convexity or adaptive-optimizer theory.
+    next: Maintain through course use; introduce optimisation theory explicitly when required.
+    sources: [aims5702_lecture03_session, state, roadmap]
+    evidence_on: '2026-09-24'
     depends_on: []
   real_data_classification:
     name: Real-data ML workflow
@@ -274,12 +280,22 @@ topics:
     concept: demonstrated
     performance: implemented
     review: recorded
-    action: transfer
-    evidence: Lesson 31 contains data splitting, train-only scaling, tensor conversion, training/validation and final held-out evaluation.
-    boundary: Repository code is observable; the degree of independent authorship and current transfer ability cannot be inferred from code alone.
-    next: Transfer the pipeline to a changed problem when the course requires it. Ask the learner to choose and explain the pieces, not copy an orchestration method.
-    sources: [pipeline, state]
-    evidence_on: '2026-09-04'
+    action: retrieve
+    evidence: >-
+      Lesson 31 contains splitting, train-only scaling, tensor conversion,
+      TensorDataset/DataLoader, training/validation and held-out testing. On 24 Sep
+      delayed reconstruction recovered 60/20/20 roles, batching, partial final batches,
+      validation-vs-training behavior and shuffle intuition, while TensorDataset's role,
+      y_batch shape, zero_grad() and validation no_grad() needed correction/prompting.
+    boundary: >-
+      The pipeline is rusty but recoverable. Core workflow understanding is stronger
+      than cold API/orchestration recall; no full blank-file pipeline was implemented
+      in this session.
+    next: >-
+      Later reconstruct one changed pipeline from concepts, focusing on TensorDataset,
+      batch-axis shapes and validation orchestration rather than relearning splitting.
+    sources: [pipeline, aims5702_lecture03_session, state]
+    evidence_on: '2026-09-24'
     depends_on: []
   mle:
     name: Likelihood / MLE
@@ -372,12 +388,42 @@ topics:
     <<: *built
     name: PyTorch training loop
     area: Model building
-    evidence: Lesson 29 records nn.Linear, MSELoss, SGD and the training-loop structure.
+    review: recorded
+    action: retrieve
+    evidence: >-
+      Lesson 29 records nn.Linear, MSELoss, SGD and the training-loop structure. On
+      24 Sep delayed retrieval kept the epoch/batch/forward/loss/backward/step model
+      intact and mapped backward/step to formal GD/SGD, but optimizer.zero_grad() was
+      omitted twice and validation no_grad() needed prompting.
+    boundary: >-
+      Core optimisation semantics are stronger than orchestration/API recall. This
+      does not establish cold reconstruction of the whole training/validation pipeline
+      or optimiser theory beyond basic SGD mechanics.
+    next: >-
+      Let Lecture 3 reinforce the formal-SGD-to-PyTorch bridge. Later use one changed
+      training-pipeline reconstruction rather than replaying the whole lesson.
+    sources: [pipeline, aims5702_lecture03_session, state]
+    evidence_on: '2026-09-24'
   mlp_classification:
     <<: *built
-    name: MLP binary classification
+    name: MLP classification
     area: Model building
-    evidence: Lesson 30 records ReLU, BCEWithLogitsLoss, batches, sigmoid and thresholds.
+    review: recorded
+    action: retrieve
+    evidence: >-
+      Lesson 30 records a binary ReLU MLP with BCEWithLogitsLoss. On 24 Sep the learner
+      added a guided multiclass bridge: one-hot targets, true-class cross-entropy
+      intuition, dataset-objective notation and the algebraic reason nonlinear
+      activations prevent stacked linear layers collapsing to one linear map.
+    boundary: >-
+      Multiclass loss/objective notation is same-session guided and had early indexing
+      slips. No multiclass PyTorch implementation was attempted. Sigmoid vs softmax
+      roles are not established Lecture 3 evidence.
+    next: >-
+      Use the live Lecture 3 treatment to reinforce multiclass loss/objective notation
+      and MLP semantics; do not add a new implementation exercise before class.
+    sources: [aims5702_lecture03_session, state, roadmap]
+    evidence_on: '2026-09-24'
   linear_algebra:
     <<: *history
     name: Linear algebra — overview
@@ -548,11 +594,26 @@ topics:
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
     depends_on: [real_data_classification, linear_regression]
   cnn:
-    <<: *new
     name: Convolutional neural networks
     area: Model building
-    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
-    next: Use the 24 Sep Lecture 3 bridge only to understand the motivation from large fully-connected parameter counts -> locality -> weight sharing -> convolution. Do not pre-master CNN implementation before the live lecture.
+    concept: taught
+    performance: guided
+    review: recorded
+    action: retrieve
+    evidence: >-
+      The 24 Sep pre-lecture bridge introduced CNN motivation from huge fully-connected
+      parameter counts. The learner correctly reasoned local connectivity and weight
+      sharing on changed prompts and understood convolution as reusing the same local
+      weights across positions.
+    boundary: >-
+      This is conceptual pre-lecture evidence only. No convolution arithmetic, channel/
+      kernel shapes, padding/stride, CNN implementation or training has been attempted.
+    next: >-
+      Attend Lecture 3 and record only genuinely new CNN detail. Do not pre-master the
+      next lecture's convolution mechanics.
+    sources: [aims5702_lecture03_session, syllabus, state]
+    evidence_on: '2026-09-24'
+    depends_on: []
   rnn:
     <<: *new
     name: Recurrent neural networks
@@ -601,18 +662,18 @@ topics:
 lanes:
 - id: continue
   label: Continue next · AIMS5702
-  title: 24 Sep — target Deep Learning Basics before lecture
-  summary: AIMS5701 reconciliation is complete. Use the remaining pre-lecture study time on the actual AIMS5702 Lecture 3 deck, reusing existing PyTorch/MLP evidence instead of relearning the whole training pipeline.
+  title: 24 Sep — attend Lecture 3; no more pre-lecture study
+  summary: The Deep Learning Basics bridge is complete and the learner is at productive saturation. Use the live lecture as the next evidence source rather than adding more preparation.
   target: pytorch_training
   tasks:
-  - title: Translate linear-layer and objective notation
-    when: Next block on 24 Sep
-    topics: [pytorch_training, mlp_classification, calculus]
-    detail: Work y_j=sum_i w_ij x_i+b_j -> shapes/code semantics, then one-hot/cross-entropy and the dataset objective. Make the notation and the existing implementation model converge.
-  - title: Bridge optimisation into architecture
-    when: Remaining pre-lecture time on 24 Sep
-    topics: [pytorch_training, mlp_classification, calculus, cnn]
-    detail: Map formal GD/SGD onto the known PyTorch loop, explain why nonlinearity is required, then preview locality/weight sharing as CNN motivation. Do not pre-master CNN implementation before class.
+  - title: Listen for the fragile notation and pipeline edges
+    when: AIMS5702 Lecture 3
+    topics: [pytorch_training, mlp_classification, real_data_classification]
+    detail: Pay particular attention to indexed/output-shape notation, prediction-vs-loss/objective notation, TensorDataset/DataLoader orchestration and how the lecturer maps formal SGD to PyTorch.
+  - title: Calibrate the MLP/CNN transition
+    when: AIMS5702 Lecture 3
+    topics: [mlp_classification, cnn]
+    detail: Confirm the lecturer's nonlinearity explanation and note any CNN material beyond locality/weight sharing. After class, record only real new gaps; Friday returns to receipts.
 - id: parallel
   label: Parallel block · FTEC5660 receipts
   title: 25/28 Sep — finish receipts before opening another build context
@@ -803,11 +864,12 @@ courses:
       anchors: [pytorch_training, mlp_classification, calculus, evaluation]
       remaining: [cnn]
       note: >-
-        Supplied Lecture 3 deck covers image representation, linear classification,
-        cross-entropy, dataset objectives, GD/SGD, train/validation/test, MLPs and CNN
-        motivation. Existing training-loop/generalisation evidence is strong; pre-lecture
-        work should target notation-to-shapes, cross-entropy/objective notation and
-        locality/weight sharing rather than replaying the whole pipeline.
+        The 24 Sep guided pre-lecture session covered linear indexed notation,
+        cross-entropy/objective semantics, GD/SGD mapping, nonlinearity and CNN
+        locality/weight-sharing motivation. Core optimisation intuition is strong;
+        indexed/output-shape notation and TensorDataset/DataLoader orchestration remain
+        fragile. CNN remains in remaining because only motivation, not mechanics or
+        implementation, has been covered.
       scope: mapped
       due_on: null
     - week: '4'
@@ -1019,3 +1081,10 @@ timeline:
   detail: Morning/afternoon preparation reactivated search and built a minimax/alpha-beta bridge; the live Lecture 2 deck then confirmed single-agent/tree/graph search rather than adversarial search. Post-lecture gaps are now consistency intuition, consistency=>admissibility, the A* optimality proof and safe closing, plus a brief sweep of smaller lecture-only topics.
 - label: 24 September · AIMS5701
   detail: Post-lecture reconciliation completed. The learner swept smaller Lecture 2 gaps, rebuilt iterative deepening after one mechanism correction, developed a durable local-edge intuition for consistency, reconstructed consistency=>admissibility on a changed path, reconstructed the A* blocking proof with support, and connected nondecreasing f to safe closing. Search now moves to spaced maintenance.
+- label: 24 September · AIMS5702
+  detail: >-
+    Guided Lecture 3 preparation connected lecturer-style linear-layer indices and
+    multiclass/objective notation to existing PyTorch knowledge, retrieved GD/SGD and
+    the core training loop, exposed rust in TensorDataset/batch-label/zero_grad/no_grad
+    orchestration, derived why nonlinearity is required, and introduced CNN motivation
+    through locality plus weight sharing.
