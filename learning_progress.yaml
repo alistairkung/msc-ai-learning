@@ -6,18 +6,17 @@ meta:
   reviewed_on: '2026-09-24'
   evidence_through: '2026-09-24'
   repository: alistairkung/msc-ai-learning
-  source_ref: f2a4aa6c1cb4f5e17b8f2fab4614f0e29c30b6a8
+  source_ref: cd531e8f0a922875cdf3aa7f0f5398f2b93f73f7
   review_note: >-
-    Reconciled through the completed 24 Sep AIMS5701 gap block and the subsequent
-    AIMS5702 Lecture 3 pre-lecture session. Deep-learning concepts largely retrieved,
-    while lecturer-style indexed/objective notation and parts of the PyTorch data-loader
-    orchestration remain fresh/fragile. Immediate next evidence source is the live
-    Lecture 3; Friday then returns to receipts.
+    Reconciled through the completed 24 Sep AIMS5702 Lecture 3 and live mini-quiz.
+    The lecture-break plan now prioritises delayed Weeks 1-3 consolidation and one
+    changed PyTorch pipeline reconstruction before a bounded CNN bridge toward 15 Oct.
+    Receipts Friday/Monday and post-receipts AIMS5701 trees remain separate commitments.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 9e0511598bec32b9a98427c28d26a1102d807a94
+    sha: f7664c9297a09285718fe382b90f004f5f4ecf6d
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
@@ -26,7 +25,7 @@ sources:
     sha: 2eb48978d1d21e1e94baaa8510c1ae279b8f5096
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 53ca314db27ecfe6bef68e00ad247cd1a468614c
+    sha: 625b7818b0e4fca9ce114206271a3608b509a774
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
