@@ -682,9 +682,23 @@ topics:
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
 lanes:
 - id: continue
-  label: Continue next · FTEC5660
+  label: Continue next · AIMS5702
+  title: Lecture-break week — consolidate, then bridge toward CNN
+  summary: Lecture 3 is complete. During the break, use delayed retrieval to make current tensor/deep-learning material operational, then build toward the 15 Oct CNN lecture.
+  target: pytorch_training
+  tasks:
+  - title: Consolidate the observed fragile edges
+    when: Lecture-break week
+    topics: [tensor_operations, pytorch_training, mlp_classification, real_data_classification]
+    detail: Revisit unequal-rank broadcasting, equation-vs-PyTorch Linear weight orientation, indexed/objective notation, TensorDataset/DataLoader, batch-label shapes, zero_grad/no_grad and view-vs-copy/stride mechanics. Integrate them in one changed classification pipeline.
+  - title: Begin the CNN bridge
+    when: After consolidation is stable
+    topics: [cnn]
+    detail: Build from image tensor shapes to locality, shared weights, kernels/channels, stride/padding and output-shape reasoning. Keep implementation depth bounded ahead of the 15 Oct lecture.
+- id: parallel
+  label: Parallel block · FTEC5660 receipts
   title: 25/28 Sep — finish receipts before opening another build context
-  summary: Lecture 3 is complete. Return to the constrained receipts homework on Friday, with Monday as contingency until the end-to-end path and evaluation are complete.
+  summary: Friday is receipts-only. Monday is contingency if the homework is not yet complete; trees wait until the receipts context is closed.
   target: prompt_chaining
   tasks:
   - title: Complete validation and E2E receipt flow
@@ -695,8 +709,8 @@ lanes:
     when: After the first end-to-end path runs
     topics: [prompt_chaining]
     detail: Use public receipts and live-model evaluation plus selective deterministic tests and one mocked integration path. Aim for one evidence-driven iteration and protect the 29 Sep deadline.
-- id: parallel
-  label: Parallel next JIT · AIMS5701 trees
+- id: protect
+  label: Protected next JIT · AIMS5701 trees
   title: Begin trees only after receipts is complete
   summary: Once receipts is closed, bridge regression/classification into decision trees and random forests for the next Fundamentals lecture.
   target: decision_trees
@@ -709,20 +723,6 @@ lanes:
     when: After the decision-tree model is coherent
     topics: [decision_trees, random_forests]
     detail: Build the ensemble intuition from multiple decorrelated trees; implementation depth can follow the live lecture demand.
-- id: protect
-  label: Protected break-week · AIMS5702
-  title: Consolidate Weeks 1–3, then bridge toward CNN
-  summary: The week after 24 Sep has no lecture. Use delayed retrieval to make current tensor/deep-learning material operational, then build toward the 15 Oct CNN lecture without displacing nearer work.
-  target: pytorch_training
-  tasks:
-  - title: Consolidate the observed fragile edges
-    when: Lecture-break week
-    topics: [tensor_operations, pytorch_training, mlp_classification, real_data_classification]
-    detail: Revisit unequal-rank broadcasting, equation-vs-PyTorch Linear weight orientation, indexed/objective notation, TensorDataset/DataLoader, batch-label shapes, zero_grad/no_grad and view-vs-copy/stride mechanics. Integrate them in one changed classification pipeline.
-  - title: Begin the CNN bridge
-    when: After consolidation is stable
-    topics: [cnn]
-    detail: Build from image tensor shapes to locality, shared weights, kernels/channels, stride/padding and output-shape reasoning. Keep implementation depth bounded ahead of the 15 Oct lecture.
 
 courses:
   AIMS5701:
