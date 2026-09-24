@@ -62,7 +62,7 @@ def test_deadline_lane_renders_separately_from_learning_lanes(data, deadlines):
     assert 'Hackathon' in html
     assert '2026-10-19' in html
     assert 'Learner-reported' in html
-    assert 'Continue next · AIMS5701 → AIMS5702' in html
+    assert 'Continue next · AIMS5702' in html
 
 
 def test_repository_source_files_exist(data):
