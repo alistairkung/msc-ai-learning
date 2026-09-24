@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-09-23. Learning evidence through 2026-09-23._
+_Last maintained: 2026-09-24. Learning evidence through 2026-09-24._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -8,9 +8,9 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **24 Sep: AIMS5701 reconcile → AIMS5702 Lecture 3 bridge** | Hard-cap the 5701 post-lecture reconciliation at 90 min, then use all remaining pre-lecture study time on 5702 Deep Learning Basics: linear-layer notation/shapes, cross-entropy/objective notation, gradient-descent/SGD mapping, then nonlinearity/MLP/CNN motivation. |
+| Continue | **24 Sep: AIMS5702 Lecture 3 bridge → lecture** | The planned AIMS5701 reconciliation is complete. Use the remaining pre-lecture study time on 5702 Deep Learning Basics: linear-layer notation/shapes, cross-entropy/objective notation, gradient-descent/SGD mapping, then nonlinearity/MLP/CNN motivation. |
 | Parallel | **25/28 Sep: finish FTEC5660 receipts before opening a new build context** | Friday is receipts-only. Continue validation/Decimal normalisation → batching → homework interface → public E2E eval. Monday is contingency if needed; do not switch to trees until receipts is complete. |
-| Protect | **After receipts: AIMS5701 trees bridge for next week's lecture** | Once receipts is closed, retrieve linear/logistic classification briefly, then learn split intuition → Gini/entropy/information gain → recursive decision trees → stopping/overfitting → random forests. Probability maintenance is temporarily displaced by this short-horizon assessed-work/JIT sequence. |
+| Protect | **After receipts: AIMS5701 trees bridge for next week's lecture** | Once receipts is closed, retrieve linear/logistic classification briefly, then learn split intuition → Gini/entropy/information gain → recursive decision trees → stopping/overfitting → random forests. Search now moves to spaced maintenance rather than consuming another JIT block. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
 
@@ -30,9 +30,11 @@ Do not promote minimax/alpha-beta to established or independent mastery yet: thi
 
 Implementation-maintenance decision: do not immediately rebuild BFS/DFS/UCS/A* merely for completeness. Prior implementation evidence already exists; use later changed-problem blank-file reconstruction as an operational spot check when useful.
 
-Post-lecture gap list is now narrower and course-facing: consistency intuition, consistency ⇒ admissibility, the inequality/contradiction proof of A* tree-search optimality, and consistency ⇒ nondecreasing `f` ⇒ safe closing. Also run a brief diagnostic sweep of search formulation/state abstraction, iterative deepening, greedy best-first, relaxed-problem heuristics/dominance and graph search/closed sets. Hard-cap this reconciliation at 90 minutes.
+The 24 Sep reconciliation is now complete. Smaller lecture gaps were swept: state abstraction, graph-vs-tree search, iterative deepening, greedy best-first, relaxed-problem heuristics/dominance and graph-search duplicate handling. Iterative deepening needed one reteach of the actual repeated depth-limited DFS mechanism, after which the learner correctly reasoned why repeated shallow work is cheap relative to deeper exponential growth.
 
-Next AIMS5701 JIT after that reconciliation: brief linear/logistic retrieval, then decision-tree split/impurity/information-gain intuition and random forests — but only after the receipts homework is complete.
+The difficult A* guarantee material materially improved. Consistency is now grounded in the local-edge intuition “heuristic drop cannot exceed step cost”; changed examples were classified correctly. The learner reconstructed consistency ⇒ admissibility on a changed path, reconstructed the A* blocking proof to `f(n) <= f(A) < f(B)` with scaffolding at the first inequality, and connected consistency ⇒ nondecreasing `f` ⇒ safe permanent closing. Admissibility’s exact role in the optimality proof needed one correction, so this is **guided proof reconstruction**, not delayed cold proof mastery.
+
+Search now moves to spaced maintenance. Next AIMS5701 JIT: brief linear/logistic retrieval, then decision-tree split/impurity/information-gain intuition and random forests — but only after the receipts homework is complete.
 
 ## Immediate execution plan — 24 to 28 Sep
 
@@ -40,8 +42,8 @@ This short-horizon sequence is intentionally serial to reduce context switching:
 
 ```text
 24 Sep
-AIMS5701 reconciliation (<= 90 min)
--> AIMS5702 targeted pre-lecture study
+AIMS5701 reconciliation — COMPLETE
+-> AIMS5702 targeted pre-lecture study — NEXT
 -> AIMS5702 Lecture 3
 
 25 Sep
