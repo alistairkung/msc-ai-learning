@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-09-24'
   evidence_through: '2026-09-24'
   repository: alistairkung/msc-ai-learning
-  source_ref: d57dd7795629b6ca1c209c0494d2136f9a109cd4
+  source_ref: 67930048b5a0952983ea84d816e22ea1f9978bdb
   review_note: >-
     Reconciled through the completed 24 Sep AIMS5701 post-lecture block. Search proof
     gaps were reconstructed with support, smaller Lecture 2 gaps were swept, and search
@@ -16,7 +16,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: f3992465a549550ea48c85b1eb0ac8b2242e87b6
+    sha: 4bb7b141522fccc2ea432c9ae92bf96777735446
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
@@ -25,7 +25,7 @@ sources:
     sha: 2eb48978d1d21e1e94baaa8510c1ae279b8f5096
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 89302db89be5457e1be070e48fbcb06398e08db2
+    sha: 4a097445f0a55c734993811a3d0b815d59c695e3
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
@@ -37,7 +37,7 @@ sources:
     sha: 64fe714ce0c8bfeb0d0cae728e3dc2aa900577b8
   search_guarantees_20260923:
     path: lesson_logs/aims5701/search_guarantees_reactivation_2026_09_23.md
-    sha: fb4cb4cda80cf0a5d0a475d2bb9a5c5f577888dd
+    sha: 068623645ba0bfe21fe84ba72bf1fe413ef90fba
   prompt:
     path: lesson_logs/ftec5660/pattern01_prompt_chaining.md
     sha: 3ffbf91b66bd24dc260c1aeb0c1d73d431a1b157
