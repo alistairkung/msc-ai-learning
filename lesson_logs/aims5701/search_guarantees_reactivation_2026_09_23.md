@@ -441,3 +441,128 @@ small-gap diagnostic sweep
 ```
 
 Do not replay full BFS/DFS/UCS/A* implementations. After this reconciliation, move search into spaced maintenance and shift the AIMS5701 JIT lead to linear/logistic retrieval -> decision trees -> random forests for the following week's lecture.
+
+
+## 24 Sep post-lecture reconciliation — completed
+
+**Session type:** post-lecture retrieval/reconstruction using the actual Lecture 2 deck as the taught boundary.
+
+This block completed the planned AIMS5701 search reconciliation. It deliberately did not repeat BFS/DFS/UCS/A* implementations.
+
+### Smaller lecture-gap sweep
+
+The learner retrieved or quickly reconstructed:
+
+- **search-state abstraction:** for an “eat every dot” Pac-Man task, position alone is insufficient; the state also needs the remaining-food booleans. The learner initially included available directions in the stored state, then accepted the distinction that legal actions can be derived by the successor function from state/world structure rather than stored redundantly;
+- **state-space graph vs search tree:** correctly stated that a graph contains one node per unique state, whereas a search tree can contain the same underlying state multiple times through different plans/paths;
+- **iterative deepening:** the learner initially described it as choosing a maximum depth to manage memory. After clarification, they understood the actual mechanism as repeated depth-limited DFS with increasing limits and correctly reasoned why repeated upper-level work is cheap relative to exponentially larger deeper levels;
+- **relaxed-problem heuristics:** correctly reasoned that removing constraints such as maze walls makes the problem easier, so the relaxed optimum is a lower bound and therefore admissible;
+- **heuristic dominance / max combination:** correctly identified the larger admissible heuristic as more informative and explained why the max of admissible heuristics remains admissible;
+- **graph search / closed-state intuition:** linked the lecture’s duplicate-state suppression to the prior BFS `parents`/discovered-state implementation. A useful correction was made: the main saving is repeated expansion/search work, not necessarily memory, and “discovered/seen” is not identical to “closed/expanded”;
+- **greedy best-first:** correctly retrieved priority by `h(n)` and explained its non-optimality as ignoring already-paid `g(n)`.
+
+### Consistency intuition — materially improved
+
+The learner correctly classified changed consistent/inconsistent edges using the new intuition:
+
+> heuristic drop across an edge must not exceed the cost paid for that edge.
+
+For example, with `h(u)=10`, `c(u,v)=2`, `h(v)=3`, the learner explained that the heuristic falls by 7 while only paying cost 2, so the local estimates contradict each other. On a changed example `8 -> 6` with step cost 3, they correctly judged it consistent because the heuristic drops by only 2.
+
+The preferred durable formulation remains:
+
+> **Consistency is a local edge condition:** the heuristic cannot drop by more than the step cost.  
+> Therefore `f = g + h` is nondecreasing along a path.  
+> So when A* pops a state with the smallest current `f`, a later route cannot “come from behind” with a lower `f` and a better `g` for that same state.  
+> Hence the state can be closed permanently.
+
+### Consistency => admissibility — reconstructed with support
+
+The learner first gave the correct high-level intuition but blurred the local consistency condition with the global admissibility conclusion. After separating those roles, they independently completed a chained changed-path example:
+
+```text
+A --2--> B --4--> C --3--> G
+
+h(A) <= 2 + h(B)
+h(B) <= 4 + h(C)
+h(C) <= 3 + h(G)
+h(G) = 0
+
+therefore
+h(A) <= 2 + 4 + 3 = 9
+```
+
+They understood that choosing a shortest path makes that total equal to `h*(A)`, yielding `h(A) <= h*(A)`.
+
+Evidence level: **guided reconstruction with successful changed-example completion**, not delayed cold proof mastery.
+
+### A* tree-search optimality proof — reconstructed step by step
+
+The learner needed support at the first inequality `f(n) <= f(A)`, but then reconstructed the full blocking argument.
+
+Useful decomposition:
+
+1. Let `A` be an optimal goal, `B` a suboptimal goal, and `n` a frontier node on the optimal path to `A`.
+2. Because `n` lies on the optimal path:
+   `g(n) + true_remaining_cost(n -> A) = g(A)`.
+3. Admissibility gives:
+   `h(n) <= true_remaining_cost(n -> A)`.
+4. Therefore:
+   `f(n) = g(n)+h(n) <= g(A) = f(A)`.
+5. Because both `A` and `B` are goals, their heuristic is zero; since `A` is cheaper:
+   `f(A) < f(B)`.
+6. Hence:
+   `f(n) <= f(A) < f(B)`.
+7. A* pops lowest `f`, so it cannot pop suboptimal goal `B` while `n` remains on the frontier.
+
+The learner initially made one false admissibility statement when comparing two goal nodes and later briefly said admissibility played no role because both compared goals had `h=0`. After correction, they correctly located admissibility’s role specifically in proving `f(n) <= f(A)`.
+
+They also understood why some node on the optimal path must remain on the frontier until the goal is reached: after the deepest already-expanded node on that path expands, it generates the next unexpanded path node.
+
+Evidence level: **guided proof reconstruction with successful final verbal synthesis**, not cold-independent theorem proof.
+
+### Consistency => nondecreasing f => safe closing
+
+The learner immediately retrieved:
+
+`g(v)=g(u)+c(u,v)`.
+
+Using consistency, they correctly concluded:
+
+`f(u) <= f(v)`.
+
+They then gave the core safe-closing intuition: when a state is popped, nothing currently on the frontier has a better `f`. The missing piece was added explicitly: with consistency, hidden descendants of frontier nodes cannot later decrease `f`, so a better-`g` route to the already-popped state cannot emerge “from behind.”
+
+The learner finished with a clean distinction:
+
+- **admissibility:** globally, the heuristic cannot overestimate the true remaining cost;
+- **consistency:** locally, across an edge, the heuristic cannot decrease by more than the edge cost;
+- admissible does **not** automatically imply consistent.
+
+### Evidence boundary after 24 Sep block
+
+**Now stronger:**
+- consistency has an intuitive local-edge model and correct changed-example classification;
+- consistency => admissibility was reconstructed on a changed path;
+- the A* optimality blocking proof was reconstructed and verbally summarised;
+- consistency => nondecreasing `f` => safe closing is conceptually connected;
+- smaller Lecture 2 gaps were swept rather than assumed from live familiarity.
+
+**Still not promoted to independent/cold proof mastery:**
+- the A* optimality proof needed scaffolding at the first inequality;
+- admissibility’s exact role in the proof needed correction;
+- iterative-deepening mechanism needed reteaching before its complexity intuition transferred;
+- the consistency/admissibility proof chain has not yet been tested after spacing.
+
+### Next AIMS5701 action
+
+The planned reconciliation is complete. Move search out of the immediate JIT lane.
+
+Later maintenance should be short and changed-example based:
+
+1. retrieve the local consistency condition and canonical intuition;
+2. reconstruct `consistency => admissibility` without seeing the chain;
+3. reconstruct the A* blocking proof from `f(n) <= f(A) < f(B)`;
+4. optionally spot-check UCS/A* implementation mechanics on a changed weighted graph.
+
+The next AIMS5701 JIT topic remains decision trees/random forests, but only after the receipts homework context is closed.
