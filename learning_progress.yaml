@@ -6,17 +6,18 @@ meta:
   reviewed_on: '2026-09-24'
   evidence_through: '2026-09-24'
   repository: alistairkung/msc-ai-learning
-  source_ref: a6e1728829bc44656b37f8449da7303cc5f40f4c
+  source_ref: f2a4aa6c1cb4f5e17b8f2fab4614f0e29c30b6a8
   review_note: >-
-    Reconciled through the completed 24 Sep AIMS5701 post-lecture block. Search proof
-    gaps were reconstructed with support, smaller Lecture 2 gaps were swept, and search
-    now moves to spaced maintenance. Immediate focus advances to the AIMS5702 Lecture 3
-    bridge, followed by receipts Friday/Monday contingency and then trees.
+    Reconciled through the completed 24 Sep AIMS5701 gap block and the subsequent
+    AIMS5702 Lecture 3 pre-lecture session. Deep-learning concepts largely retrieved,
+    while lecturer-style indexed/objective notation and parts of the PyTorch data-loader
+    orchestration remain fresh/fragile. Immediate next evidence source is the live
+    Lecture 3; Friday then returns to receipts.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 4bb7b141522fccc2ea432c9ae92bf96777735446
+    sha: 9e0511598bec32b9a98427c28d26a1102d807a94
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
@@ -25,7 +26,7 @@ sources:
     sha: 2eb48978d1d21e1e94baaa8510c1ae279b8f5096
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 4a097445f0a55c734993811a3d0b815d59c695e3
+    sha: 53ca314db27ecfe6bef68e00ad247cd1a468614c
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
@@ -77,6 +78,9 @@ sources:
   aims5702_lecture03_plan:
     path: lesson_logs/aims5702/lecture03_deep_learning_basics_prelecture_bridge_2026_09_24.md
     sha: dd8fe7842d66cdd90baa427687a9b7341a9e0569
+  aims5702_lecture03_session:
+    path: lesson_logs/aims5702/lecture03_prelecture_session_2026_09_24.md
+    sha: 34bee01848d5c54e06e9cfb73ff2f0ef4948a431
   tensor_practice:
     path: practice/aims5702_assignment01/tensor_ops.py
     sha: bccf003b82636109fc25a26b14b8fefe68f9acd2
