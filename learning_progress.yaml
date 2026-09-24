@@ -886,11 +886,10 @@ courses:
       anchors: [pytorch_training, mlp_classification, calculus, evaluation]
       remaining: [cnn]
       note: >-
-        The 24 Sep guided pre-lecture session covered linear indexed notation,
-        cross-entropy/objective semantics, GD/SGD mapping, nonlinearity and CNN
-        locality/weight-sharing motivation. Core optimisation intuition is strong;
-        indexed/output-shape notation and TensorDataset/DataLoader orchestration remain
-        fragile. CNN remains in remaining because only motivation, not mechanics or
+        Lecture 3 is complete. Preparation plus live retrieval leave core
+        optimisation/nonlinearity intuition stronger than some representation and
+        PyTorch-orchestration details. Use the lecture break for targeted consolidation.
+        CNN remains in remaining because only motivation, not mechanics or
         implementation, has been covered.
       scope: mapped
       due_on: null
