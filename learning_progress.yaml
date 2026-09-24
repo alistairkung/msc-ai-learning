@@ -81,6 +81,9 @@ sources:
   aims5702_lecture03_session:
     path: lesson_logs/aims5702/lecture03_prelecture_session_2026_09_24.md
     sha: 34bee01848d5c54e06e9cfb73ff2f0ef4948a431
+  aims5702_lecture03_live:
+    path: lesson_logs/aims5702/lecture03_live_2026_09_24.md
+    sha: 04eef0eef1a21cdda92554ad6291ff8b0dcd4ffe
   tensor_practice:
     path: practice/aims5702_assignment01/tensor_ops.py
     sha: bccf003b82636109fc25a26b14b8fefe68f9acd2
@@ -364,11 +367,22 @@ topics:
     performance: guided
     review: recorded
     action: practice
-    evidence: The 11 Sep cold review found strong broadcasting/reduction/semantic-shape reasoning with slicing/API rust. On 17 Sep the learner implemented changed-example pairwise dot products with loops, broadcasting and einsum. On 18 Sep a targeted checkpoint taught signed int8/two's-complement and float exponent/significand intuition, then drilled strides, contiguity, slicing, offsets and singleton-axis insertion across changed examples.
-    boundary: This remains guided/same-session evidence rather than delayed cold mastery. Bits/bytes units slipped initially; int8 representation was new; exponent-range vs significand-precision was initially reversed; transpose/stepped-slice contiguity and slice start-vs-step needed correction before transfer.
-    next: Use only a short changed-example retrieval next time, especially slice start -> offset vs step -> stride and paired indexing. Do not replay the full representation lesson.
-    sources: [tensor_review, assignment1_plan, assignment1_pairwise, aims5702_lecture_reflection, assignment1_interpolation_bridge, tensor_practice, state]
-    evidence_on: '2026-09-17'
+    evidence: >-
+      Earlier work established broadcasting/reduction, pairwise loop/broadcast/einsum
+      implementations and guided stride/storage/indexing reasoning. The 24 Sep live
+      mini-quiz sampled these again: einsum, stride/storage-offset and advanced-indexing
+      copy behavior were reported correct, while unequal-rank broadcasting
+      (4,1,3) + (2,3) was incorrectly classified as incompatible.
+    boundary: >-
+      Tensor mechanics remain mixed rather than uniformly cold. The quiz is only a small
+      sample, and the unequal-rank miss shows that implicit leading singleton dimensions
+      still need delayed retrieval.
+    next: >-
+      During the lecture break, use a short changed set covering right-aligned
+      broadcasting, stride/offset and basic-slice versus advanced-indexing storage
+      behavior. Do not replay the completed interpolation assignment.
+    sources: [tensor_review, assignment1_pairwise, aims5702_lecture_reflection, assignment1_interpolation_bridge, tensor_practice, aims5702_lecture03_live, state]
+    evidence_on: '2026-09-24'
     depends_on: []
   tensor_interpolation:
     name: Vectorised indexing & bilinear interpolation
@@ -404,9 +418,10 @@ topics:
       does not establish cold reconstruction of the whole training/validation pipeline
       or optimiser theory beyond basic SGD mechanics.
     next: >-
-      Let Lecture 3 reinforce the formal-SGD-to-PyTorch bridge. Later use one changed
-      training-pipeline reconstruction rather than replaying the whole lesson.
-    sources: [pipeline, aims5702_lecture03_session, state]
+      During the lecture break, reconstruct one changed classification pipeline and
+      explicitly translate equation-oriented weight shapes to PyTorch Linear storage.
+      Focus on the rusty orchestration details rather than replaying the whole lesson.
+    sources: [pipeline, aims5702_lecture03_session, aims5702_lecture03_live, state]
     evidence_on: '2026-09-24'
   mlp_classification:
     <<: *built
@@ -424,9 +439,10 @@ topics:
       slips. No multiclass PyTorch implementation was attempted. Sigmoid vs softmax
       roles are not established Lecture 3 evidence.
     next: >-
-      Use the live Lecture 3 treatment to reinforce multiclass loss/objective notation
-      and MLP semantics; do not add a new implementation exercise before class.
-    sources: [aims5702_lecture03_session, state, roadmap]
+      Lecture 3 is complete. Use the lecture break for delayed retrieval of multiclass
+      loss/objective notation inside one changed pipeline; then let CNN preparation
+      extend the existing MLP model rather than restarting it.
+    sources: [aims5702_lecture03_session, aims5702_lecture03_live, state, roadmap]
     evidence_on: '2026-09-24'
   linear_algebra:
     <<: *history
@@ -613,9 +629,10 @@ topics:
       This is conceptual pre-lecture evidence only. No convolution arithmetic, channel/
       kernel shapes, padding/stride, CNN implementation or training has been attempted.
     next: >-
-      Attend Lecture 3 and record only genuinely new CNN detail. Do not pre-master the
-      next lecture's convolution mechanics.
-    sources: [aims5702_lecture03_session, syllabus, state]
+      Use the lecture break to begin a bounded CNN bridge after consolidation: image
+      tensor shapes -> locality/weight sharing -> kernels/channels -> stride/padding ->
+      output-shape reasoning. Keep implementation depth proportional to the 15 Oct lecture.
+    sources: [aims5702_lecture03_session, aims5702_lecture03_live, syllabus, state]
     evidence_on: '2026-09-24'
     depends_on: []
   rnn:
