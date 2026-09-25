@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-09-24. Learning evidence through 2026-09-24._
+_Last maintained: 2026-09-25. Learning evidence through 2026-09-25._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -8,15 +8,15 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **Lecture-break week: consolidate AIMS5702 for the graded lab, then bridge toward CNN** | Lecture 3 is complete. Use the break first for delayed retrieval and one changed PyTorch pipeline reconstruction; only then extend locality/weight-sharing intuition into CNN shapes/mechanics ahead of the 15 Oct CNN lecture. |
-| Parallel | **25/28 Sep: finish FTEC5660 receipts before opening a new build context** | Friday is receipts-only. Continue validation/Decimal normalisation → batching → homework interface → public E2E eval. Monday is contingency if needed; do not switch to trees until receipts is complete. |
-| Protect | **After receipts: AIMS5701 trees bridge for next week's lecture** | Once receipts is closed, retrieve linear/logistic classification briefly, then learn split intuition → Gini/entropy/information gain → recursive decision trees → stopping/overfitting → random forests. Search now moves to spaced maintenance rather than consuming another JIT block. |
+| Continue | **AIMS5701: regression retrieval → decision trees** | Search reconciliation is complete and receipts is submitted. Briefly reactivate regression/classification, then learn split intuition → Gini/entropy/information gain → recursive trees → stopping/overfitting. |
+| Parallel | **AIMS5702 lecture break: consolidate → CNN bridge** | Lecture 3 is complete. Use delayed retrieval on the observed tensor/PyTorch weak edges and one changed classification pipeline, then extend locality/weight-sharing into CNN shapes/mechanics ahead of 15 Oct. |
+| Protect | **FTEC5660 hackathon incubation** | Receipts is closed. Keep the 19 Oct solo hackathon visible without letting it displace the immediate trees JIT and AIMS5702 consolidation lanes. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
 
 ## Delivery constraints — separate from learning evidence
 
-Canonical structured copy: `deadlines.yaml`. AIMS5702 Assignment 1 was submitted on 21 Sep. Remaining upcoming assessed work is FTEC5660 receipts homework (29 Sep), then the FTEC5660 solo hackathon (19 Oct). Keep delivery planning distinct from `learning_progress.yaml`.
+Canonical structured copy: `deadlines.yaml`. AIMS5702 Assignment 1 was submitted on 21 Sep and FTEC5660 receipts homework was submitted on 25 Sep. The next recorded delivery pressure is the FTEC5660 solo hackathon (19 Oct). Keep delivery planning distinct from `learning_progress.yaml`.
 
 ## AIMS5701 — Search guarantees + adversarial-search bridge, 23 Sep
 
@@ -409,73 +409,31 @@ The transferable target to maintain is notation/scalar algorithm → tensor shap
 
 AIMS5702 Assignment 1 can leave the active implementation queue unless submission/admin work remains.
 
-## FTEC5660 / LangChain — receipts HW1 active
+## FTEC5660 / LangChain — receipts HW1 complete
 
 Detailed sources:
 - `lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md`
 - `lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_22.md`
+- `lesson_logs/ftec5660/hw1_receipt_chain_completion_2026_09_25.md`
 
-### Current receipt pipeline boundary
+The receipts homework is complete and submitted. The final public path passed 27/27 deterministic tests, processed all seven public receipts, and produced both correct aggregate answers.
 
-The 21 Sep session established contract v0, a green deterministic receipts 1+2 integration test and the learner-authored `ReceiptCalculator` with exact Decimal arithmetic.
+The completed architecture separates probabilistic vision extraction from deterministic validation/calculation. `ReceiptValidator` normalises money to Decimal and reconciles item/discount/subtotal/rounding invariants. Real batch evaluation exposed legitimate zero-value marker lines and stochastic model errors including quantity unit-price vs extended-total confusion; the validator and prompt rules were corrected from that evidence.
 
-On 22 Sep the learner resumed with delayed LCEL retrieval before adding multimodal material. Core `prompt | llm | parser`, prompt placeholders, `ChatPromptTemplate`, `JsonOutputParser`, and `RunnablePassthrough.assign` roles retrieved well. Named-placeholder invocation initially used a raw string and needed correction back to `.invoke({"key": value})`; parser instantiation needed a small reminder. This preserves the earlier evidence boundary: architecture is stronger than every syntax detail.
-
-Multimodal LangChain was then newly learned and implemented:
-
-```text
-JPEG
-  -> bytes / base64 data URL
-  -> multimodal HumanMessage / ChatPromptTemplate
-       - text instruction
-       - image_url content block
-  -> DeepSeek vision
-  -> JsonOutputParser
-  -> Python receipt dict
-```
-
-The learner wrote a raw multimodal spike and successfully sent receipt 1 to DeepSeek. They then implemented a reusable multimodal extraction chain from a runtime `{"image_url": ...}` contract. Assistant-generated fake-model tests are green after two debugging discoveries: literal JSON braces in a format template require escaping, and the original generated test was too tightly coupled to pre-render template text.
-
-### Model-configuration evidence
-
-The first structured live calls failed because DeepSeek consumed the entire 500, then 2,000, then 6,000 completion-token budgets as reasoning tokens and emitted empty final content. Inspection of the raw `AIMessage` localised the failure to model reasoning behaviour rather than image transport, template wiring, parser logic or deterministic calculation.
-
-Thinking/reasoning was disabled for the extraction stage. The same prompt then returned valid structured JSON immediately. This reinforces the project architecture: use the model for visual interpretation/transcription/normalisation and deterministic Python for arithmetic/reconciliation rather than paying the model to repeatedly reason through sums.
-
-Receipt 1's first non-thinking live extraction matched the established values exactly: original positive lines 480.20, discounts 85.48, subtotal 394.72, rounding -0.02 and final paid 394.70. It also handled repeated items, extended quantity totals, positive discount magnitudes, the receipt-level 5% discount and payment-metadata exclusion correctly.
-
-This is **one-receipt live baseline evidence only**, not evidence of generalisation across all public or unseen grading receipts.
-
-### Next boundary
-
-Validation/normalisation is designed but not implemented. Planned gate:
+The learner pushed the per-receipt path into a composed LCEL runnable:
 
 ```text
-parsed untrusted dict
-  -> structure/domain checks
-  -> Decimal normalisation
-  -> reconcile gross - discounts == subtotal
-  -> reconcile subtotal + rounding == final paid
-  -> trusted receipt
-  -> ReceiptCalculator
+prompt | llm | JsonOutputParser | RunnableLambda(validate)
+                              -> semantic retry on ValueError
 ```
 
-Initial validation failure policy should be explicit failure/raise, not silent repair. Add retry/routing/reflection only if batch evaluation gives a concrete reason.
+This is meaningful changed-domain transfer of LCEL composition. The broader Runnable API and `RunnableBranch` remain outside cold-independent evidence.
 
-Next session:
-1. implement/test validation + Decimal normalisation;
-2. connect extractor -> validator -> calculator;
-3. batch the receipt folder;
-4. wire `build_chain()` / `answer_queries()`;
-5. run public per-receipt/E2E eval and localise failures;
-6. make one evidence-driven iteration if needed;
-7. cleanup/full tests/final run.
+The final grader policy also introduced a deliberate availability trade-off: validated/retrying extraction is preferred, but after bounded retries a raw extraction fallback prevents one stubborn receipt from crashing the entire batch and suppressing `results.csv`.
 
-Estimated focused work remaining is ~2.5–3.5 hours. Receipts homework remains due 29 Sep; hackathon remains due 19 Oct.
+The lecturer's single-file submission requirement forced the clean modular implementation into `hw1.py` for submission. After submission, the learner froze that repository and created a separate attributed `receipt-agent` project to restore modular extractor/validator/calculator boundaries and add a cleaner standalone pipeline/CLI. Treat this as post-submission engineering reflection, not additional course mastery.
 
-### LCEL / course evidence boundary
-
-Lesson 34 remains guided/green rather than delayed cold-independent. Tutorial 1 is conceptually learned and now has meaningful changed-domain coursework transfer. Routing remains conceptually retrieved from Tutorial 2 Part 1; actual `RunnableBranch` syntax is not cold-independent and parallelisation/reflection remain outside the taught boundary. Multimodal syntax and DeepSeek reasoning configuration are new/same-session evidence, not delayed mastery.
+Receipts should now leave the active build queue. Next FTEC5660 delivery pressure is the 19 Oct solo hackathon; next JIT learning priority remains the AIMS5701 regression -> decision trees -> random forests bridge.
 
 ## AIMS5701 / search and trees
 
