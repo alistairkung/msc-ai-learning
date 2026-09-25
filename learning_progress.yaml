@@ -3,26 +3,30 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-09-24'
-  evidence_through: '2026-09-24'
+  reviewed_on: '2026-09-25'
+  evidence_through: '2026-09-25'
   repository: alistairkung/msc-ai-learning
   source_ref: a6e1728829bc44656b37f8449da7303cc5f40f4c
   review_note: >-
-    Reconciled through the completed 24 Sep AIMS5701 post-lecture block. Search proof
-    gaps were reconstructed with support, smaller Lecture 2 gaps were swept, and search
-    now moves to spaced maintenance. Immediate focus advances to the AIMS5702 Lecture 3
-    bridge, followed by receipts Friday/Monday contingency and then trees.
+    Reconciled through the completed 25 Sep FTEC5660 receipts block. The homework is
+    submitted with public E2E and deterministic tests green. Validation-gated retry,
+    graceful fallback and changed-domain LCEL composition are now recorded without
+    promoting the broader Runnable API to cold mastery. Active JIT focus advances to
+    regression retrieval -> decision trees -> random forests.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 4bb7b141522fccc2ea432c9ae92bf96777735446
+    sha: 431b223e3b404114c6ffdb525aca3efe2c5c629d
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
   receipt_session_2:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_22.md
     sha: 2eb48978d1d21e1e94baaa8510c1ae279b8f5096
+  receipt_completion:
+    path: lesson_logs/ftec5660/hw1_receipt_chain_completion_2026_09_25.md
+    sha: 2b9cce5c5f592a4fd6e36e1b4f111cd954ce6a94
   syllabus:
     path: MSC_SYLLABUS_MAP.md
     sha: 4a097445f0a55c734993811a3d0b815d59c695e3
@@ -194,24 +198,18 @@ topics:
     review: recorded
     action: transfer
     evidence: >-
-      Tutorial 1 decomposition has now transferred into the assessed receipts project.
-      On 21 Sep the learner separated probabilistic interpretation from deterministic
-      calculation; on 22 Sep they built a real multimodal extraction path and used
-      stage-localised evidence to diagnose model reasoning as the cause of empty output.
-      Tutorial 1 was worked through conceptually beyond the original class stopping
-      point. On 21 Sep the learner transferred the decomposition to the receipts
-      homework: they separated probabilistic image interpretation from deterministic
-      arithmetic, designed an extraction contract from real receipt evidence,
-      distinguished authoritative values from reconciliation fields, and implemented
-      the deterministic multi-receipt calculator behind a guiding integration test.
+      Tutorial 1 decomposition has transferred into a completed assessed receipt system.
+      Across 21-25 Sep the learner separated probabilistic image interpretation from
+      deterministic calculation, designed a receipt contract, added reconciliation as a
+      trust boundary, evaluated real model failures and completed the public E2E path.
     boundary: >-
-      Changed-domain transfer is strong, but multimodal syntax and model configuration
-      are same-session/new evidence. Validation, batching and full E2E evaluation remain
-      incomplete, and compact TaxCalcBench reconstruction is not a mastery target.
-    next: Implement validation/Decimal normalisation, then batch receipts and run the
-      public E2E eval before adding routing/reflection/repair complexity.
-    sources: [prompt, tutorial1_arch, receipt_session, receipt_session_2, state]
-    evidence_on: '2026-09-17'
+      Changed-domain decomposition/system-design evidence is strong. Some repetitive
+      validator helpers and test scaffolding were assistant-supplied, and successful
+      submission does not imply cold reconstruction of every implementation detail.
+    next: Receipts is complete; preserve the architecture as transfer evidence and
+      return to new course demand rather than replaying the homework.
+    sources: [prompt, tutorial1_arch, receipt_session, receipt_session_2, receipt_completion, state]
+    evidence_on: '2026-09-25'
     depends_on: []
   lcel:
     name: LangChain / LCEL basics
@@ -221,19 +219,18 @@ topics:
     review: recorded
     action: practice
     evidence: >-
-      Lesson 34 records guided green stateful LCEL. On 22 Sep delayed retrieval recovered
-      prompt|llm|parser, prompt placeholders, ChatPromptTemplate, JsonOutputParser and
-      assign roles; invocation mapping needed one correction. The learner then implemented
-      a reusable multimodal ChatPromptTemplate -> DeepSeek -> JsonOutputParser chain.
+      Lesson 34 records guided stateful LCEL. By 25 Sep the learner had transferred
+      composition into a multimodal receipt system and explicitly pushed validation into
+      the runnable with RunnableLambda plus semantic retry via with_retry after observing
+      stochastic extraction failures.
     boundary: >-
-      Core composition is increasingly transferable, but invocation-map syntax remains
-      mildly fragile and multimodal content blocks/template-brace escaping were newly
-      taught. This is not delayed cold-independent multimodal LCEL mastery.
-    next: Reinforce through the remaining receipts integration rather than replaying
-      syntax; keep validation deterministic and only retrieve RunnableBranch within its
-      taught Routing boundary.
-    sources: [lcel_lesson, lcel_plan, lcel_stateful, routing_review, receipt_session_2, state]
-    evidence_on: '2026-09-22'
+      This is meaningful changed-domain LCEL transfer, but not delayed blank-file
+      reconstruction or blanket mastery of Runnable APIs. RunnableBranch syntax remains
+      outside cold-independent evidence.
+    next: Maintain through future agentic coursework; retrieve exact APIs only when a
+      new task needs them rather than replaying the completed receipt chain.
+    sources: [lcel_lesson, lcel_plan, lcel_stateful, routing_review, receipt_session_2, receipt_completion, state]
+    evidence_on: '2026-09-25'
     depends_on: [prompt_chaining]
   routing:
     name: Routing / conditional workflows
@@ -600,47 +597,39 @@ topics:
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
 lanes:
 - id: continue
-  label: Continue next · AIMS5702
-  title: 24 Sep — target Deep Learning Basics before lecture
-  summary: AIMS5701 reconciliation is complete. Use the remaining pre-lecture study time on the actual AIMS5702 Lecture 3 deck, reusing existing PyTorch/MLP evidence instead of relearning the whole training pipeline.
-  target: pytorch_training
-  tasks:
-  - title: Translate linear-layer and objective notation
-    when: Next block on 24 Sep
-    topics: [pytorch_training, mlp_classification, calculus]
-    detail: Work y_j=sum_i w_ij x_i+b_j -> shapes/code semantics, then one-hot/cross-entropy and the dataset objective. Make the notation and the existing implementation model converge.
-  - title: Bridge optimisation into architecture
-    when: Remaining pre-lecture time on 24 Sep
-    topics: [pytorch_training, mlp_classification, calculus, cnn]
-    detail: Map formal GD/SGD onto the known PyTorch loop, explain why nonlinearity is required, then preview locality/weight sharing as CNN motivation. Do not pre-master CNN implementation before class.
-- id: parallel
-  label: Parallel block · FTEC5660 receipts
-  title: 25/28 Sep — finish receipts before opening another build context
-  summary: Friday is receipts-only. Monday is contingency if the homework is not yet complete; trees wait until the receipts context is closed.
-  target: prompt_chaining
-  tasks:
-  - title: Complete validation and E2E receipt flow
-    when: Friday 25 Sep; continue Monday 28 Sep if needed
-    topics: [prompt_chaining, lcel]
-    detail: Implement validation/Decimal normalisation, batch receipts, wire the homework interface and run the public eval. Keep the constrained architecture; do not add routing/reflection/repair unless evaluation shows a concrete need.
-  - title: Evaluate and localise failures
-    when: After the first end-to-end path runs
-    topics: [prompt_chaining]
-    detail: Use public receipts and live-model evaluation plus selective deterministic tests and one mocked integration path. Aim for one evidence-driven iteration and protect the 29 Sep deadline.
-- id: protect
-  label: Protected next JIT · AIMS5701 trees
-  title: Begin trees only after receipts is complete
-  summary: The next Fundamentals bridge is regression retrieval -> decision trees -> random forests for the following week's lecture. Do not interrupt unfinished receipts work to start it.
+  label: Continue next · AIMS5701
+  title: Bridge regression into decision trees
+  summary: Receipts is submitted and leaves the active build queue. Resume the planned Week-3 JIT bridge with a short regression retrieval before genuinely new tree material.
   target: decision_trees
   tasks:
-  - title: Bridge into decision trees
-    when: After receipts completion, Monday 28 Sep if available
-    topics: [linear_regression, logistic_regression, decision_trees]
-    detail: Briefly retrieve regression/classification, then learn split intuition, Gini/entropy/information gain, recursive construction and stopping/overfitting.
+  - title: Retrieve regression/classification anchors
+    when: Next substantive study block
+    topics: [linear_regression, logistic_regression]
+    detail: Use a brief changed-example retrieval only; do not replay the full historical regression lessons.
+  - title: Learn decision trees
+    when: After the regression retrieval
+    topics: [decision_trees]
+    detail: Build split intuition, Gini/entropy/information gain, recursive construction, stopping and overfitting in time for the next Fundamentals demand.
+- id: parallel
+  label: Parallel block · AIMS5701 ensembles
+  title: Extend trees into random forests
+  summary: Once one-tree mechanics are coherent, use them as the base model for the ensemble intuition rather than opening an unrelated build context.
+  target: random_forests
+  tasks:
   - title: Extend to random forests
-    when: After the decision-tree model is coherent
+    when: After decision-tree mechanics are coherent
     topics: [decision_trees, random_forests]
-    detail: Build the ensemble intuition from multiple decorrelated trees; implementation depth can follow the live lecture demand.
+    detail: Build the intuition for multiple decorrelated trees, bootstrap/data variation and feature randomness; implementation depth can follow live lecture demand.
+- id: protect
+  label: Protected delivery · FTEC5660 hackathon
+  title: Keep the 19 Oct solo hackathon visible
+  summary: Receipts is closed. The next FTEC5660 delivery pressure is the solo hackathon; incubate it without displacing the immediate trees JIT bridge.
+  target: routing
+  tasks:
+  - title: Incubate hackathon scope
+    when: After the immediate AIMS5701 JIT bridge
+    topics: [prompt_chaining, lcel, routing]
+    detail: Reuse learned agentic patterns only where the hackathon problem warrants them; do not add agentic complexity merely to demonstrate patterns.
 courses:
   AIMS5701:
     name: Fundamentals in AI
@@ -773,7 +762,7 @@ courses:
       title: Receipts homework + hackathon + later project work
       anchors: [prompt_chaining, lcel]
       remaining: []
-      note: Receipts homework is due 29 Sep. Hackathon is due 19 Oct and the learner has chosen to work solo. Exact final-project weighting/scope remains separately unverified.
+      note: Receipts homework was submitted 25 Sep with public E2E green. Hackathon is due 19 Oct and the learner has chosen to work solo. Exact final-project weighting/scope remains separately unverified.
       scope: scope_unconfirmed
       due_on: null
   AIMS5702:
@@ -1019,3 +1008,6 @@ timeline:
   detail: Morning/afternoon preparation reactivated search and built a minimax/alpha-beta bridge; the live Lecture 2 deck then confirmed single-agent/tree/graph search rather than adversarial search. Post-lecture gaps are now consistency intuition, consistency=>admissibility, the A* optimality proof and safe closing, plus a brief sweep of smaller lecture-only topics.
 - label: 24 September · AIMS5701
   detail: Post-lecture reconciliation completed. The learner swept smaller Lecture 2 gaps, rebuilt iterative deepening after one mechanism correction, developed a durable local-edge intuition for consistency, reconstructed consistency=>admissibility on a changed path, reconstructed the A* blocking proof with support, and connected nondecreasing f to safe closing. Search now moves to spaced maintenance.
+
+- label: 25 September · FTEC5660
+  detail: Receipts HW1 completed and submitted. The learner implemented deterministic validation/Decimal normalisation, used arithmetic invariants to localise stochastic extraction failures, composed validation and semantic retry into LCEL, added graceful raw fallback for one-shot grading resilience, and verified 27/27 tests plus correct 7-receipt public E2E output. A separate attributed receipt-agent repo was then started for post-submission modular refactoring.
