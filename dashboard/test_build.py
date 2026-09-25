@@ -224,7 +224,7 @@ def test_build_has_hashed_assets_and_fallback(tmp_path):
     assert '{{' not in html
     assert 'filesystem source verification was not run' in html
     assert 'Assignment 1 — tensor vectorisation and bilinear interpolation' not in html
-    assert 'Receipts agentic AI homework' in html
+    assert 'Receipts agentic AI homework' not in html
     assert '2026-09-29' in html
     assert '2026-10-19' in html
     for name in re.findall(r'(?:href|src)="((?:styles|app)\.[a-f0-9]{12}\.(?:css|js))"', html):
