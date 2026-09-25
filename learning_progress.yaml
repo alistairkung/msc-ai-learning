@@ -3,29 +3,33 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-09-24'
-  evidence_through: '2026-09-24'
+  reviewed_on: '2026-09-25'
+  evidence_through: '2026-09-25'
   repository: alistairkung/msc-ai-learning
-  source_ref: a6e1728829bc44656b37f8449da7303cc5f40f4c
+  source_ref: 436520d0e265dd5564398b353afde1f6b418a63d
   review_note: >-
-    Reconciled through the completed 24 Sep AIMS5701 post-lecture block. Search proof
-    gaps were reconstructed with support, smaller Lecture 2 gaps were swept, and search
-    now moves to spaced maintenance. Immediate focus advances to the AIMS5702 Lecture 3
-    bridge, followed by receipts Friday/Monday contingency and then trees.
+    Reconciled through 25 Sep across both outstanding context branches. AIMS5702
+    Lecture 3 preparation/live quiz evidence and break-week consolidation remain
+    preserved; FTEC5660 receipts is now submitted with public E2E and deterministic
+    tests green. Immediate JIT focus advances to regression -> decision trees, while
+    AIMS5702 consolidation/CNN remains a parallel lane.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 4bb7b141522fccc2ea432c9ae92bf96777735446
+    sha: c50278ccde9e03bb6ec065b85778cbb26c936fa0
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
   receipt_session_2:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_22.md
     sha: 2eb48978d1d21e1e94baaa8510c1ae279b8f5096
+  receipt_completion:
+    path: lesson_logs/ftec5660/hw1_receipt_chain_completion_2026_09_25.md
+    sha: 2b9cce5c5f592a4fd6e36e1b4f111cd954ce6a94
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 4a097445f0a55c734993811a3d0b815d59c695e3
+    sha: 625b7818b0e4fca9ce114206271a3608b509a774
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
@@ -77,6 +81,12 @@ sources:
   aims5702_lecture03_plan:
     path: lesson_logs/aims5702/lecture03_deep_learning_basics_prelecture_bridge_2026_09_24.md
     sha: dd8fe7842d66cdd90baa427687a9b7341a9e0569
+  aims5702_lecture03_session:
+    path: lesson_logs/aims5702/lecture03_prelecture_session_2026_09_24.md
+    sha: 34bee01848d5c54e06e9cfb73ff2f0ef4948a431
+  aims5702_lecture03_live:
+    path: lesson_logs/aims5702/lecture03_live_2026_09_24.md
+    sha: 04eef0eef1a21cdda92554ad6291ff8b0dcd4ffe
   tensor_practice:
     path: practice/aims5702_assignment01/tensor_ops.py
     sha: bccf003b82636109fc25a26b14b8fefe68f9acd2
@@ -194,23 +204,17 @@ topics:
     review: recorded
     action: transfer
     evidence: >-
-      Tutorial 1 decomposition has now transferred into the assessed receipts project.
-      On 21 Sep the learner separated probabilistic interpretation from deterministic
-      calculation; on 22 Sep they built a real multimodal extraction path and used
-      stage-localised evidence to diagnose model reasoning as the cause of empty output.
-      Tutorial 1 was worked through conceptually beyond the original class stopping
-      point. On 21 Sep the learner transferred the decomposition to the receipts
-      homework: they separated probabilistic image interpretation from deterministic
-      arithmetic, designed an extraction contract from real receipt evidence,
-      distinguished authoritative values from reconciliation fields, and implemented
-      the deterministic multi-receipt calculator behind a guiding integration test.
+      Tutorial 1 decomposition has transferred into a completed assessed receipt system.
+      Across 21-25 Sep the learner separated probabilistic image interpretation from
+      deterministic calculation, designed a receipt contract, added reconciliation as a
+      trust boundary, evaluated real model failures and completed the public E2E path.
     boundary: >-
-      Changed-domain transfer is strong, but multimodal syntax and model configuration
-      are same-session/new evidence. Validation, batching and full E2E evaluation remain
-      incomplete, and compact TaxCalcBench reconstruction is not a mastery target.
-    next: Implement validation/Decimal normalisation, then batch receipts and run the
-      public E2E eval before adding routing/reflection/repair complexity.
-    sources: [prompt, tutorial1_arch, receipt_session, receipt_session_2, state]
+      Changed-domain decomposition/system-design evidence is strong. Some repetitive
+      validator helpers and test scaffolding were assistant-supplied, and successful
+      submission does not imply cold reconstruction of every implementation detail.
+    next: Receipts is complete; preserve the architecture as transfer evidence and
+      return to new course demand rather than replaying the homework.
+    sources: [prompt, tutorial1_arch, receipt_session, receipt_session_2, receipt_completion, state]
     evidence_on: '2026-09-17'
     depends_on: []
   lcel:
@@ -221,18 +225,17 @@ topics:
     review: recorded
     action: practice
     evidence: >-
-      Lesson 34 records guided green stateful LCEL. On 22 Sep delayed retrieval recovered
-      prompt|llm|parser, prompt placeholders, ChatPromptTemplate, JsonOutputParser and
-      assign roles; invocation mapping needed one correction. The learner then implemented
-      a reusable multimodal ChatPromptTemplate -> DeepSeek -> JsonOutputParser chain.
+      Lesson 34 records guided stateful LCEL. By 25 Sep the learner had transferred
+      composition into a multimodal receipt system and explicitly pushed validation into
+      the runnable with RunnableLambda plus semantic retry via with_retry after observing
+      stochastic extraction failures.
     boundary: >-
-      Core composition is increasingly transferable, but invocation-map syntax remains
-      mildly fragile and multimodal content blocks/template-brace escaping were newly
-      taught. This is not delayed cold-independent multimodal LCEL mastery.
-    next: Reinforce through the remaining receipts integration rather than replaying
-      syntax; keep validation deterministic and only retrieve RunnableBranch within its
-      taught Routing boundary.
-    sources: [lcel_lesson, lcel_plan, lcel_stateful, routing_review, receipt_session_2, state]
+      This is meaningful changed-domain LCEL transfer, but not delayed blank-file
+      reconstruction or blanket mastery of Runnable APIs. RunnableBranch syntax remains
+      outside cold-independent evidence.
+    next: Maintain through future agentic coursework; retrieve exact APIs only when a
+      new task needs them rather than replaying the completed receipt chain.
+    sources: [lcel_lesson, lcel_plan, lcel_stateful, routing_review, receipt_session_2, receipt_completion, state]
     evidence_on: '2026-09-22'
     depends_on: [prompt_chaining]
   routing:
@@ -260,13 +263,19 @@ topics:
     area: Math foundations
     concept: historical
     performance: implemented
-    review: diagnostic
-    action: retrieve
-    evidence: The historical calculus log records the conceptual progression into gradients and chain rule; Lesson 28 provides an executable continuation.
-    boundary: Backpropagation mechanics do not establish convergence proofs, Hessians, convexity or adaptive-optimizer theory.
-    next: Retrieve derivative meaning and a short chain-rule calculation. Introduce later optimisation theory explicitly as new material.
-    sources: [state, roadmap]
-    evidence_on: null
+    review: recorded
+    action: maintain
+    evidence: >-
+      Historical calculus work and Lesson 28 cover gradients/chain rule. On 24 Sep the
+      learner correctly used derivative sign to choose update direction, calculated a
+      changed scalar gradient-descent step and interpreted a three-parameter gradient
+      vector without reteaching the core mechanic.
+    boundary: >-
+      This is retrieval of gradient/update intuition, not evidence for convergence
+      proofs, Hessians, convexity or adaptive-optimizer theory.
+    next: Maintain through course use; introduce optimisation theory explicitly when required.
+    sources: [aims5702_lecture03_session, state, roadmap]
+    evidence_on: '2026-09-24'
     depends_on: []
   real_data_classification:
     name: Real-data ML workflow
@@ -274,12 +283,22 @@ topics:
     concept: demonstrated
     performance: implemented
     review: recorded
-    action: transfer
-    evidence: Lesson 31 contains data splitting, train-only scaling, tensor conversion, training/validation and final held-out evaluation.
-    boundary: Repository code is observable; the degree of independent authorship and current transfer ability cannot be inferred from code alone.
-    next: Transfer the pipeline to a changed problem when the course requires it. Ask the learner to choose and explain the pieces, not copy an orchestration method.
-    sources: [pipeline, state]
-    evidence_on: '2026-09-04'
+    action: retrieve
+    evidence: >-
+      Lesson 31 contains splitting, train-only scaling, tensor conversion,
+      TensorDataset/DataLoader, training/validation and held-out testing. On 24 Sep
+      delayed reconstruction recovered 60/20/20 roles, batching, partial final batches,
+      validation-vs-training behavior and shuffle intuition, while TensorDataset's role,
+      y_batch shape, zero_grad() and validation no_grad() needed correction/prompting.
+    boundary: >-
+      The pipeline is rusty but recoverable. Core workflow understanding is stronger
+      than cold API/orchestration recall; no full blank-file pipeline was implemented
+      in this session.
+    next: >-
+      Later reconstruct one changed pipeline from concepts, focusing on TensorDataset,
+      batch-axis shapes and validation orchestration rather than relearning splitting.
+    sources: [pipeline, aims5702_lecture03_session, state]
+    evidence_on: '2026-09-24'
     depends_on: []
   mle:
     name: Likelihood / MLE
@@ -344,11 +363,22 @@ topics:
     performance: guided
     review: recorded
     action: practice
-    evidence: The 11 Sep cold review found strong broadcasting/reduction/semantic-shape reasoning with slicing/API rust. On 17 Sep the learner implemented changed-example pairwise dot products with loops, broadcasting and einsum. On 18 Sep a targeted checkpoint taught signed int8/two's-complement and float exponent/significand intuition, then drilled strides, contiguity, slicing, offsets and singleton-axis insertion across changed examples.
-    boundary: This remains guided/same-session evidence rather than delayed cold mastery. Bits/bytes units slipped initially; int8 representation was new; exponent-range vs significand-precision was initially reversed; transpose/stepped-slice contiguity and slice start-vs-step needed correction before transfer.
-    next: Use only a short changed-example retrieval next time, especially slice start -> offset vs step -> stride and paired indexing. Do not replay the full representation lesson.
-    sources: [tensor_review, assignment1_plan, assignment1_pairwise, aims5702_lecture_reflection, assignment1_interpolation_bridge, tensor_practice, state]
-    evidence_on: '2026-09-17'
+    evidence: >-
+      Earlier work established broadcasting/reduction, pairwise loop/broadcast/einsum
+      implementations and guided stride/storage/indexing reasoning. The 24 Sep live
+      mini-quiz sampled these again: einsum, stride/storage-offset and advanced-indexing
+      copy behavior were reported correct, while unequal-rank broadcasting
+      (4,1,3) + (2,3) was incorrectly classified as incompatible.
+    boundary: >-
+      Tensor mechanics remain mixed rather than uniformly cold. The quiz is only a small
+      sample, and the unequal-rank miss shows that implicit leading singleton dimensions
+      still need delayed retrieval.
+    next: >-
+      During the lecture break, use a short changed set covering right-aligned
+      broadcasting, stride/offset and basic-slice versus advanced-indexing storage
+      behavior. Do not replay the completed interpolation assignment.
+    sources: [tensor_review, assignment1_pairwise, aims5702_lecture_reflection, assignment1_interpolation_bridge, tensor_practice, aims5702_lecture03_live, state]
+    evidence_on: '2026-09-24'
     depends_on: []
   tensor_interpolation:
     name: Vectorised indexing & bilinear interpolation
@@ -372,12 +402,44 @@ topics:
     <<: *built
     name: PyTorch training loop
     area: Model building
-    evidence: Lesson 29 records nn.Linear, MSELoss, SGD and the training-loop structure.
+    review: recorded
+    action: retrieve
+    evidence: >-
+      Lesson 29 records nn.Linear, MSELoss, SGD and the training-loop structure. On
+      24 Sep delayed retrieval kept the epoch/batch/forward/loss/backward/step model
+      intact and mapped backward/step to formal GD/SGD, but optimizer.zero_grad() was
+      omitted twice and validation no_grad() needed prompting.
+    boundary: >-
+      Core optimisation semantics are stronger than orchestration/API recall. This
+      does not establish cold reconstruction of the whole training/validation pipeline
+      or optimiser theory beyond basic SGD mechanics.
+    next: >-
+      During the lecture break, reconstruct one changed classification pipeline and
+      explicitly translate equation-oriented weight shapes to PyTorch Linear storage.
+      Focus on the rusty orchestration details rather than replaying the whole lesson.
+    sources: [pipeline, aims5702_lecture03_session, aims5702_lecture03_live, state]
+    evidence_on: '2026-09-24'
   mlp_classification:
     <<: *built
-    name: MLP binary classification
+    name: MLP classification
     area: Model building
-    evidence: Lesson 30 records ReLU, BCEWithLogitsLoss, batches, sigmoid and thresholds.
+    review: recorded
+    action: retrieve
+    evidence: >-
+      Lesson 30 records a binary ReLU MLP with BCEWithLogitsLoss. On 24 Sep the learner
+      added a guided multiclass bridge: one-hot targets, true-class cross-entropy
+      intuition, dataset-objective notation and the algebraic reason nonlinear
+      activations prevent stacked linear layers collapsing to one linear map.
+    boundary: >-
+      Multiclass loss/objective notation is same-session guided and had early indexing
+      slips. No multiclass PyTorch implementation was attempted. Sigmoid vs softmax
+      roles are not established Lecture 3 evidence.
+    next: >-
+      Lecture 3 is complete. Use the lecture break for delayed retrieval of multiclass
+      loss/objective notation inside one changed pipeline; then let CNN preparation
+      extend the existing MLP model rather than restarting it.
+    sources: [aims5702_lecture03_session, aims5702_lecture03_live, state, roadmap]
+    evidence_on: '2026-09-24'
   linear_algebra:
     <<: *history
     name: Linear algebra — overview
@@ -548,11 +610,27 @@ topics:
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
     depends_on: [real_data_classification, linear_regression]
   cnn:
-    <<: *new
     name: Convolutional neural networks
     area: Model building
-    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
-    next: Use the 24 Sep Lecture 3 bridge only to understand the motivation from large fully-connected parameter counts -> locality -> weight sharing -> convolution. Do not pre-master CNN implementation before the live lecture.
+    concept: taught
+    performance: guided
+    review: recorded
+    action: retrieve
+    evidence: >-
+      The 24 Sep pre-lecture bridge introduced CNN motivation from huge fully-connected
+      parameter counts. The learner correctly reasoned local connectivity and weight
+      sharing on changed prompts and understood convolution as reusing the same local
+      weights across positions.
+    boundary: >-
+      This is conceptual pre-lecture evidence only. No convolution arithmetic, channel/
+      kernel shapes, padding/stride, CNN implementation or training has been attempted.
+    next: >-
+      Use the lecture break to begin a bounded CNN bridge after consolidation: image
+      tensor shapes -> locality/weight sharing -> kernels/channels -> stride/padding ->
+      output-shape reasoning. Keep implementation depth proportional to the 15 Oct lecture.
+    sources: [aims5702_lecture03_session, aims5702_lecture03_live, syllabus, state]
+    evidence_on: '2026-09-24'
+    depends_on: []
   rnn:
     <<: *new
     name: Recurrent neural networks
@@ -600,47 +678,44 @@ topics:
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
 lanes:
 - id: continue
-  label: Continue next · AIMS5702
-  title: 24 Sep — target Deep Learning Basics before lecture
-  summary: AIMS5701 reconciliation is complete. Use the remaining pre-lecture study time on the actual AIMS5702 Lecture 3 deck, reusing existing PyTorch/MLP evidence instead of relearning the whole training pipeline.
-  target: pytorch_training
-  tasks:
-  - title: Translate linear-layer and objective notation
-    when: Next block on 24 Sep
-    topics: [pytorch_training, mlp_classification, calculus]
-    detail: Work y_j=sum_i w_ij x_i+b_j -> shapes/code semantics, then one-hot/cross-entropy and the dataset objective. Make the notation and the existing implementation model converge.
-  - title: Bridge optimisation into architecture
-    when: Remaining pre-lecture time on 24 Sep
-    topics: [pytorch_training, mlp_classification, calculus, cnn]
-    detail: Map formal GD/SGD onto the known PyTorch loop, explain why nonlinearity is required, then preview locality/weight sharing as CNN motivation. Do not pre-master CNN implementation before class.
-- id: parallel
-  label: Parallel block · FTEC5660 receipts
-  title: 25/28 Sep — finish receipts before opening another build context
-  summary: Friday is receipts-only. Monday is contingency if the homework is not yet complete; trees wait until the receipts context is closed.
-  target: prompt_chaining
-  tasks:
-  - title: Complete validation and E2E receipt flow
-    when: Friday 25 Sep; continue Monday 28 Sep if needed
-    topics: [prompt_chaining, lcel]
-    detail: Implement validation/Decimal normalisation, batch receipts, wire the homework interface and run the public eval. Keep the constrained architecture; do not add routing/reflection/repair unless evaluation shows a concrete need.
-  - title: Evaluate and localise failures
-    when: After the first end-to-end path runs
-    topics: [prompt_chaining]
-    detail: Use public receipts and live-model evaluation plus selective deterministic tests and one mocked integration path. Aim for one evidence-driven iteration and protect the 29 Sep deadline.
-- id: protect
-  label: Protected next JIT · AIMS5701 trees
-  title: Begin trees only after receipts is complete
-  summary: The next Fundamentals bridge is regression retrieval -> decision trees -> random forests for the following week's lecture. Do not interrupt unfinished receipts work to start it.
+  label: Continue next · AIMS5701
+  title: Bridge regression into decision trees
+  summary: Receipts is submitted and search is in spaced maintenance. Use a short regression/classification retrieval before genuinely new decision-tree material.
   target: decision_trees
   tasks:
-  - title: Bridge into decision trees
-    when: After receipts completion, Monday 28 Sep if available
-    topics: [linear_regression, logistic_regression, decision_trees]
-    detail: Briefly retrieve regression/classification, then learn split intuition, Gini/entropy/information gain, recursive construction and stopping/overfitting.
-  - title: Extend to random forests
-    when: After the decision-tree model is coherent
-    topics: [decision_trees, random_forests]
-    detail: Build the ensemble intuition from multiple decorrelated trees; implementation depth can follow the live lecture demand.
+  - title: Retrieve regression/classification anchors
+    when: Next substantive study block
+    topics: [linear_regression, logistic_regression]
+    detail: Use brief changed-example retrieval only; do not replay the full historical regression lessons.
+  - title: Learn decision trees
+    when: After the regression retrieval
+    topics: [decision_trees]
+    detail: Build split intuition, Gini/entropy/information gain, recursive construction, stopping and overfitting for the next Fundamentals demand.
+- id: parallel
+  label: Parallel block · AIMS5702
+  title: Lecture-break consolidation -> CNN bridge
+  summary: Lecture 3 is complete. Consolidate observed tensor/PyTorch weak edges in one changed classification pipeline, then extend locality/weight-sharing into CNN mechanics ahead of 15 Oct.
+  target: pytorch_training
+  tasks:
+  - title: Consolidate fragile edges
+    when: Lecture-break week
+    topics: [tensor_operations, pytorch_training, mlp_classification, real_data_classification]
+    detail: Revisit unequal-rank broadcasting, equation-vs-PyTorch Linear weight orientation, indexed/objective notation, TensorDataset/DataLoader, batch-label shapes, zero_grad/no_grad and view-vs-copy/stride mechanics.
+  - title: Begin bounded CNN bridge
+    when: After consolidation is stable
+    topics: [cnn]
+    detail: Build from image tensor shapes to locality, shared weights, kernels/channels, stride/padding and output-shape reasoning. Keep implementation depth proportional to the 15 Oct lecture.
+- id: protect
+  label: Protected delivery · FTEC5660 hackathon
+  title: Keep the 19 Oct solo hackathon visible
+  summary: Receipts is closed. Incubate the hackathon without displacing the immediate trees JIT or AIMS5702 consolidation.
+  target: routing
+  tasks:
+  - title: Incubate hackathon scope
+    when: After the immediate JIT blocks
+    topics: [prompt_chaining, lcel, routing]
+    detail: Reuse learned agentic patterns only where the hackathon problem warrants them; do not add agentic complexity merely to demonstrate patterns.
+
 courses:
   AIMS5701:
     name: Fundamentals in AI
@@ -773,7 +848,7 @@ courses:
       title: Receipts homework + hackathon + later project work
       anchors: [prompt_chaining, lcel]
       remaining: []
-      note: Receipts homework is due 29 Sep. Hackathon is due 19 Oct and the learner has chosen to work solo. Exact final-project weighting/scope remains separately unverified.
+      note: Receipts homework was submitted 25 Sep with public E2E green. Hackathon is due 19 Oct and the learner has chosen to work solo. Exact final-project weighting/scope remains separately unverified.
       scope: scope_unconfirmed
       due_on: null
   AIMS5702:
@@ -803,11 +878,11 @@ courses:
       anchors: [pytorch_training, mlp_classification, calculus, evaluation]
       remaining: [cnn]
       note: >-
-        Supplied Lecture 3 deck covers image representation, linear classification,
-        cross-entropy, dataset objectives, GD/SGD, train/validation/test, MLPs and CNN
-        motivation. Existing training-loop/generalisation evidence is strong; pre-lecture
-        work should target notation-to-shapes, cross-entropy/objective notation and
-        locality/weight sharing rather than replaying the whole pipeline.
+        Lecture 3 is complete. Preparation plus live retrieval leave core
+        optimisation/nonlinearity intuition stronger than some representation and
+        PyTorch-orchestration details. Use the lecture break for targeted consolidation.
+        CNN remains in remaining because only motivation, not mechanics or
+        implementation, has been covered.
       scope: mapped
       due_on: null
     - week: '4'
@@ -1019,3 +1094,18 @@ timeline:
   detail: Morning/afternoon preparation reactivated search and built a minimax/alpha-beta bridge; the live Lecture 2 deck then confirmed single-agent/tree/graph search rather than adversarial search. Post-lecture gaps are now consistency intuition, consistency=>admissibility, the A* optimality proof and safe closing, plus a brief sweep of smaller lecture-only topics.
 - label: 24 September · AIMS5701
   detail: Post-lecture reconciliation completed. The learner swept smaller Lecture 2 gaps, rebuilt iterative deepening after one mechanism correction, developed a durable local-edge intuition for consistency, reconstructed consistency=>admissibility on a changed path, reconstructed the A* blocking proof with support, and connected nondecreasing f to safe closing. Search now moves to spaced maintenance.
+- label: 24 September · AIMS5702
+  detail: >-
+    Guided Lecture 3 preparation connected lecturer-style linear-layer indices and
+    multiclass/objective notation to existing PyTorch knowledge, retrieved GD/SGD and
+    the core training loop, exposed rust in TensorDataset/batch-label/zero_grad/no_grad
+    orchestration, derived why nonlinearity is required, and introduced CNN motivation
+    through locality plus weight sharing.
+- label: 25 September · FTEC5660
+  detail: >-
+    Receipts HW1 completed and submitted. The learner implemented deterministic
+    validation/Decimal normalisation, used arithmetic invariants to localise stochastic
+    extraction failures, composed validation and semantic retry into LCEL, added graceful
+    raw fallback for one-shot grading resilience, and verified 27/27 tests plus correct
+    7-receipt public E2E output. A separate attributed receipt-agent repo was then started
+    for post-submission modular refactoring.

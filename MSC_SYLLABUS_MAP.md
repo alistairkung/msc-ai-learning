@@ -52,7 +52,7 @@ Readiness key:
 |---|---|---|---|---|
 | W1 | Intro + simple ML example | **Green** | sklearn classification/regression plus completed Lesson 31 real-data train/validation/test pipeline | Retrieve and apply the workflow in a new context |
 | W2 | Vector, matrix, tensor ops; NumPy | **Green/Amber** | Completed 2025 JHU linear algebra foundation + Repo 10–17 + 27 + Lesson 31 scaling/axis/tensor conversion; 17 Sep pairwise vectorisation; 18 Sep representation/interpolation bridge; 21 Sep Assignment 1 no-loop interpolation complete with all supplied tests green | Maintain via later changed notation-to-vectorisation retrieval; paired advanced indexing and dtype/device handling are not yet delayed-cold. Do not re-drill the completed assignment immediately |
-| W3 | Deep Learning Basics: image representation, linear classification, cross-entropy, gradient descent/SGD, MLPs, CNN motivation | **Green/Amber overall; CNN edge Red/Amber** | Existing evidence already covers linear layers, autograd/GD, PyTorch training loops, MLP classification, DataLoader mini-batches and train/validation/test workflow. Assignment 1 strengthened notation/shape translation | Before Lecture 3, target notation-to-shapes for linear layers, one-hot/cross-entropy + dataset objective, formal GD/SGD notation -> PyTorch loop, why nonlinearity is required, then locality/weight sharing as CNN motivation. Do not re-teach the existing validation/training pipeline from zero |
+| W3 | Deep Learning Basics: image representation, linear classification, cross-entropy, gradient descent/SGD, MLPs, CNN motivation | **Green/Amber overall; CNN motivation Amber / implementation Red** | Lecture 3 completed 24 Sep after targeted preparation. Mini-quiz result was 6/8; observed misses were unequal-rank broadcasting and PyTorch Linear weight-storage orientation | During the lecture break, consolidate the sampled misses plus indexed/objective notation and PyTorch pipeline orchestration; then begin a bounded CNN bridge ahead of 15 Oct |
 | W4 | MLP, CNN, RNN | **MLP Green/Amber; CNN/RNN Red** | Repo 28–30 + Lesson 31 MLP workflow | CNN/RNN architecture intuition before W4; do not need mastery yet |
 | W5 | Housing-price prediction (Boston House Dataset) | **Amber/Green** | sklearn regression (23), MLP/MSE mechanics, completed Lesson 31 preprocessing/validation workflow | Transfer the same split/scaling/validation discipline to NN regression |
 | W6 | Data prep + data loading optimisation | **Amber/Green** | `TensorDataset`/`DataLoader`, mini-batches, shuffle retrieved again in Lesson 31 | Workers/pinning/loading efficiency are new |
@@ -65,9 +65,9 @@ Readiness key:
 
 ### AI in Practice next priorities
 
-1. **24 Sep pre-lecture bridge is now the immediate study target:** use the remaining time on Lecture 3 Deep Learning Basics. Prioritise linear-layer notation/shapes -> cross-entropy/objective notation -> gradient descent/SGD mapping -> nonlinearity/MLP -> CNN locality/weight-sharing motivation.
-2. Treat train/validation/test, overfitting, DataLoader basics and the generic PyTorch training loop as retrieval/application, not new teaching; existing Lesson 29–31 evidence is stronger there.
-3. After Lecture 3, use live gaps to decide whether CNN needs a dedicated bridge. Do not pre-master later architecture material merely because it appears at the end of the deck.
+1. **The 24 Sep pre-lecture bridge is complete.** Attend Lecture 3 and use the live lecture as the next evidence source; do not add more prep today.
+2. Preserve the actual fragile points from the prep: indexed `w_ij` notation/output-side shapes, prediction-vs-loss/objective notation, `TensorDataset`, batch-label shape, `zero_grad()` and validation `no_grad()`.
+3. Existing GD/SGD mechanics, train/validation/test roles, linear-stack/nonlinearity intuition and CNN locality/weight-sharing motivation are strong enough for lecture recognition. After class, record only new/changed gaps and let Friday return to receipts.
 
 ### Lesson 31 readiness gain
 
