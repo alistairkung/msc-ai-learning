@@ -73,12 +73,13 @@ def check(site: Path, screenshots: Path | None = None) -> None:
         assert page.locator('#topic-rows tr:visible').count() == 3
         page.locator('#reset').click()
         page.locator('#kind').select_option('focus')
+        assert page.locator('#topic-rows tr:visible').count() > 0
         if screenshots:
             screenshots.mkdir(parents=True, exist_ok=True)
             page.screenshot(path=str(screenshots/'atlas-desktop.png'), full_page=True)
         page.set_viewport_size({'width': 390, 'height': 844})
         assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
-        page.locator('#topic-rows [data-open="decision_trees"]').first.click()
+        page.locator('#topic-rows [data-open="decision_trees"]:visible').first.click()
         expect(page.locator('#detail')).to_be_visible()
         assert page.locator('#detail').bounding_box()['width'] <= 390
         page.keyboard.press('Escape')
@@ -92,7 +93,8 @@ def check(site: Path, screenshots: Path | None = None) -> None:
         expect(plain.locator('#record-bfs')).to_be_visible()
         expect(plain.locator('#runway')).to_be_visible()
         assert plain.get_by_text('Assignment 1 — tensor vectorisation and bilinear interpolation', exact=True).count() == 0
-        expect(plain.get_by_text('Receipts agentic AI homework', exact=True)).to_be_visible()
+        assert plain.get_by_text('Receipts agentic AI homework', exact=True).count() == 0
+        expect(plain.get_by_text('Hackathon', exact=True)).to_be_visible()
         assert plain.locator('#topic-rows tr').count() == count
         assert not remote, remote
         assert not errors, errors
