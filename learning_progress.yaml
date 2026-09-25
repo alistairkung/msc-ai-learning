@@ -209,7 +209,7 @@ topics:
     next: Receipts is complete; preserve the architecture as transfer evidence and
       return to new course demand rather than replaying the homework.
     sources: [prompt, tutorial1_arch, receipt_session, receipt_session_2, receipt_completion, state]
-    evidence_on: '2026-09-25'
+    evidence_on: '2026-09-17'
     depends_on: []
   lcel:
     name: LangChain / LCEL basics
@@ -230,7 +230,7 @@ topics:
     next: Maintain through future agentic coursework; retrieve exact APIs only when a
       new task needs them rather than replaying the completed receipt chain.
     sources: [lcel_lesson, lcel_plan, lcel_stateful, routing_review, receipt_session_2, receipt_completion, state]
-    evidence_on: '2026-09-25'
+    evidence_on: '2026-09-22'
     depends_on: [prompt_chaining]
   routing:
     name: Routing / conditional workflows
