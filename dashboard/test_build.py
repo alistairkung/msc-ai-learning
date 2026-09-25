@@ -31,6 +31,7 @@ def test_deadline_schema(data, deadlines):
         '2026-09-24', '2026-09-29', '2026-10-19']
     assert deadlines['deadlines'][0]['provenance'] == 'course_material'
     assert deadlines['deadlines'][0]['status'] == 'submitted'
+    assert deadlines['deadlines'][1]['status'] == 'submitted'
     assert deadlines['deadlines'][2]['mode'] == 'solo'
 
 
@@ -56,12 +57,11 @@ def test_deadline_lane_renders_separately_from_learning_lanes(data, deadlines):
     html = render(data, [], data['meta']['source_ref'], deadlines)
     assert 'Delivery lane · external constraints' in html
     assert 'Assignment 1 — tensor vectorisation and bilinear interpolation' not in html
-    assert 'Receipts agentic AI homework' in html
-    assert '2026-09-29' in html
+    assert 'Receipts agentic AI homework' not in html
     assert 'Hackathon' in html
     assert '2026-10-19' in html
     assert 'Learner-reported' in html
-    assert 'Continue next · AIMS5702' in html
+    assert 'Continue next · AIMS5701' in html
 
 
 def test_repository_source_files_exist(data):
@@ -224,8 +224,7 @@ def test_build_has_hashed_assets_and_fallback(tmp_path):
     assert '{{' not in html
     assert 'filesystem source verification was not run' in html
     assert 'Assignment 1 — tensor vectorisation and bilinear interpolation' not in html
-    assert 'Receipts agentic AI homework' in html
-    assert '2026-09-29' in html
+    assert 'Receipts agentic AI homework' not in html
     assert '2026-10-19' in html
     for name in re.findall(r'(?:href|src)="((?:styles|app)\.[a-f0-9]{12}\.(?:css|js))"', html):
         assert (tmp_path/name).is_file()
