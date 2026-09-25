@@ -1,6 +1,6 @@
 # Delivery planning is separate from learning evidence.
 schema_version: 1
-reviewed_on: '2026-09-23'
+reviewed_on: '2026-09-25'
 provenance_note: >-
   Dates below are learner-reported planning constraints unless a stronger source is
   named. They affect workload prioritisation, not learning/mastery evidence.
@@ -20,15 +20,14 @@ deadlines:
   course: FTEC5660
   title: Receipts agentic AI homework
   due_on: '2026-09-29'
-  status: upcoming
+  status: submitted
   provenance: learner_report
   mode: individual
   note: >-
-    Primary assessed-work build block is Friday 25 Sep, with Monday 28 Sep reserved as
-    contingency until the homework is complete. Keep the constrained image -> structured
-    extraction -> validation -> deterministic calculation -> aggregation architecture,
-    then run the public E2E eval. Do not interrupt an unfinished receipts block to start
-    the decision-tree bridge.
+    Submitted on 25 Sep. Final local verification passed 27 deterministic tests,
+    processed all seven public receipts, and produced both correct public aggregate
+    answers. The submitted repository is now frozen; later receipt-agent refactoring is
+    isolated in a separate post-submission repository.
 - id: ftec5660_hackathon
   course: FTEC5660
   title: Hackathon
