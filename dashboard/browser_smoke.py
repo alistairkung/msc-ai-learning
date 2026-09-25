@@ -62,7 +62,7 @@ def check(site: Path, screenshots: Path | None = None) -> None:
         expect(page.get_by_text('Project presentation', exact=True)).to_be_visible()
         page.locator('#tab-queue').click()
         assert page.locator('.queue-col').count() == 3
-        assert page.locator('.deadline-card').count() == 2
+        assert page.locator('.deadline-card').count() == 1
         assert page.get_by_text('Assignment 1 — tensor vectorisation and bilinear interpolation', exact=True).count() == 0
         assert page.get_by_text('2026-09-24', exact=True).count() == 0
         expect(page.get_by_text('Receipts agentic AI homework', exact=True)).to_be_visible()
