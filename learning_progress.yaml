@@ -17,7 +17,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: f7664c9297a09285718fe382b90f004f5f4ecf6d
+    sha: c50278ccde9e03bb6ec065b85778cbb26c936fa0
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
@@ -26,7 +26,7 @@ sources:
     sha: 2eb48978d1d21e1e94baaa8510c1ae279b8f5096
   receipt_completion:
     path: lesson_logs/ftec5660/hw1_receipt_chain_completion_2026_09_25.md
-    sha: PLACEHOLDER
+    sha: 2b9cce5c5f592a4fd6e36e1b4f111cd954ce6a94
   syllabus:
     path: MSC_SYLLABUS_MAP.md
     sha: 625b7818b0e4fca9ce114206271a3608b509a774
@@ -1102,3 +1102,10 @@ timeline:
     orchestration, derived why nonlinearity is required, and introduced CNN motivation
     through locality plus weight sharing.
 - label: 25 September · FTEC5660
+  detail: >-
+    Receipts HW1 completed and submitted. The learner implemented deterministic
+    validation/Decimal normalisation, used arithmetic invariants to localise stochastic
+    extraction failures, composed validation and semantic retry into LCEL, added graceful
+    raw fallback for one-shot grading resilience, and verified 27/27 tests plus correct
+    7-receipt public E2E output. A separate attributed receipt-agent repo was then started
+    for post-submission modular refactoring.
