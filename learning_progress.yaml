@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-09-25'
   evidence_through: '2026-09-25'
   repository: alistairkung/msc-ai-learning
-  source_ref: d9f56964a0da8e04472356a1d93bd0b065a2bd58
+  source_ref: 3311af4d16b4166a89646ed353cdd619cff1097b
   review_note: >-
     Reconciled through the completed 25 Sep FTEC5660 receipts block. The homework is
     submitted with public E2E and deterministic tests green. Validation-gated retry,
