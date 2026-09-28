@@ -153,7 +153,7 @@ def test_original_topic_ids_preserved(data):
 def test_actual_event_dates_preserved(data):
     assert data['topics']['bfs']['evidence_on'] == '2026-09-06'
     assert data['topics']['prompt_chaining']['evidence_on'] == '2026-09-17'
-    assert data['topics']['bayes']['evidence_on'] is None
+    assert data['topics']['bayes']['evidence_on'] == '2026-09-28'
     assert data['topics']['real_data_classification']['performance'] != 'independent'
 
 

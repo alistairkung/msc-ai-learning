@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-09-25. Learning evidence through 2026-09-25._
+_Last maintained: 2026-09-28. Learning evidence through 2026-09-28._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -8,7 +8,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **AIMS5701: regression retrieval → decision trees** | Search reconciliation is complete and receipts is submitted. Briefly reactivate regression/classification, then learn split intuition → Gini/entropy/information gain → recursive trees → stopping/overfitting. |
+| Continue | **AIMS5701: Bayesian-networks JIT → Wednesday cold retrieval/extension** | The live sequence shows Bayesian networks next, not trees. The 28 Sep bridge covered probability notation, conditional independence, DAG/CPT factorisation, marginalisation, simple inference and forward sampling; Wednesday should test delayed retention before expanding coverage. |
 | Parallel | **AIMS5702 lecture break: consolidate → CNN bridge** | Lecture 3 is complete. Use delayed retrieval on the observed tensor/PyTorch weak edges and one changed classification pipeline, then extend locality/weight-sharing into CNN shapes/mechanics ahead of 15 Oct. |
 | Protect | **FTEC5660 hackathon incubation** | Receipts is closed. Keep the 19 Oct solo hackathon visible without letting it displace the immediate trees JIT and AIMS5702 consolidation lanes. |
 
@@ -17,6 +17,20 @@ These lanes coexist; they are not one sequential queue. Delivery dates can tempo
 ## Delivery constraints — separate from learning evidence
 
 Canonical structured copy: `deadlines.yaml`. AIMS5702 Assignment 1 was submitted on 21 Sep and FTEC5660 receipts homework was submitted on 25 Sep. The next recorded delivery pressure is the FTEC5660 solo hackathon (19 Oct). Keep delivery planning distinct from `learning_progress.yaml`.
+
+## AIMS5701 — Bayesian-networks JIT bridge, 28 Sep
+
+Detailed source: `lesson_logs/aims5701/bayesian_networks_jit_2026_09_28.md`. Durable notation/reference sheet: `foundations/probability_statistics/bayesian_network_probability_bridge.md`.
+
+The live course sequence was corrected from the stale map: the next Fundamentals lecture is **Bayesian networks: representation, independence, inference and sampling**, not decision trees.
+
+Probability retrieval was stronger than expected. Conditional and joint probability were intact once notation was translated. Bayes' formula was not cold, but the learner derived it from the shared joint event viewed from opposite conditioning directions. Independence was initially conflated with mutual exclusivity; conditional independence intuition returned quickly.
+
+New same-session Bayesian-network work covered DAGs/parents, CPTs, binary assignment growth, local joint factorisation, marginalisation, simple exact inference and forward/prior-sampling intuition. The strongest changed-example evidence was independently identifying a hidden middle variable and computing `P(Focus=T | Exercise=T) = (0.7*0.8)+(0.3*0.2)=0.62` by marginalising over it.
+
+Do not over-promote this material. On the final cold check one DAG edge was misread during factorisation, marginalisation still needed wording tightened, and sampling had one threshold slip before correction. No delayed retrieval has happened yet; variable elimination, chain/fork/collider graphical independence, rejection sampling, likelihood weighting and Gibbs/MCMC were not taught.
+
+Wednesday plan: ~1h delayed Search retrieval, ~1h delayed retrieval of this BN bridge without the summary sheet, then use the remaining 2–3h for likely lecture-facing expansion. Prioritise chain/fork/collider structure and explaining-away intuition, exact inference/variable-elimination intuition, then rejection sampling/sampling with evidence. Treat those as predicted coverage until the actual lecture deck/live teaching confirms scope.
 
 ## AIMS5701 — Search guarantees + adversarial-search bridge, 23 Sep
 

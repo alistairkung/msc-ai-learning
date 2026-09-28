@@ -23,8 +23,8 @@ Readiness key:
 |---|---|---|---|---|
 | W1 | Introduction, Logic, Reasoning and Learning | **Amber/Red** | General AI/ML vocabulary strong enough | Formal logic/reasoning vocabulary is new; preview propositions/rules/inference at a light level |
 | W2 | Uninformed + informed search; graph search | **Green/Amber** | BFS/DFS reactivated; UCS/A* guided implementations exist; 24 Sep reconciliation swept the actual Lecture 2 gaps and reconstructed consistency=>admissibility, A* optimality blocking and safe-closing logic with support | Move to spaced maintenance. Later cold-check the proof chain and theorem assumptions; do not spend another JIT block repeating search implementations. Minimax/alpha-beta remains parked because it was not in the actual Lecture 2 deck |
-| W3 | Linear regression, logistic regression, decision trees, random forests | **Linear/logistic Green/Amber; trees Red** | Repo 21–23 + Lessons 30–31 classification/evaluation work + historical least-squares/normal-equation foundation | Consolidate model maths; learn decision trees + random forests before W3 |
-| W4 | Bayesian networks, inference, sampling | **Amber** | Historical JHU probability strongly covers conditional probability, independence, total probability, Bayes, random variables and joint/marginal distributions | Cold-retrieve Bayes/conditioning; then learn graphical-model semantics, conditional independence in graphs and inference/sampling algorithms |
+| W3 | Bayesian networks: representation, independence, inference and sampling **(confirmed next live lecture from course intro slide)** | **Amber/Green introductory** | 28 Sep JIT retrieved conditional/joint probability and derived Bayes; introduced DAGs/CPTs, conditional independence, BN factorisation, marginalisation, simple exact inference and forward-sampling intuition | Wed delayed cold retrieval; then chain/fork/collider independence, deeper exact-inference/variable-elimination intuition and sampling with evidence. Exact lecture algorithms remain unconfirmed until deck/live teaching |
+| W4 | Linear regression, logistic regression, decision trees, random forests **(sequence displaced from prior map; exact new slot to confirm)** | **Linear/logistic Green/Amber; trees Red** | Repo 21–23 + Lessons 30–31 classification/evaluation work + historical least-squares/normal-equation foundation | Park trees until live sequence confirms their new slot; do not let the stale historical ordering drive JIT work |
 | W5 | Hidden Markov Models, particle filtering | **Amber/Red** | Historical probability foundation established; learner remembers Markov chains but recoverable worked evidence is weak | Diagnose Markov-chain recall first; then Markov property, transition/state reasoning, filtering and particle sampling |
 | W6 | KNN, K-means, SVM, gradient boosting | **Red/Amber** | Distance/vector and classification workflow foundations | Fast conceptual + implementation survey; focus on model assumptions/trade-offs |
 | W7 | Neural networks | **Green/Amber** | Repo 27–31, including the completed real-data workflow | Deeper architecture vocabulary |
@@ -38,9 +38,9 @@ Readiness key:
 
 1. **Lecture 2 reconciliation is complete.** Search now moves to spaced maintenance; later cold-check consistency=>admissibility, the A* blocking proof and safe-closing logic rather than repeating the whole lecture or implementations.
 2. **Keep minimax/alpha-beta parked.** It was useful pre-reading but was not in the actual Lecture 2 deck. Revisit only when live course material requires adversarial search.
-3. **After receipts is complete, bridge directly to W3:** brief linear/logistic retrieval -> decision-tree split intuition -> Gini/entropy/information gain -> recursive construction/stopping/overfitting -> random forests.
-4. Before W4, cold-retrieve the historical Bayes/random-variable foundation rather than relearning probability from zero.
-5. Before W5, run a diagnostic on remembered Markov-chain material and rebuild only what does not return.
+3. **Live sequence correction:** the next lecture is Bayesian networks, not decision trees. The 28 Sep bridge now covers representation/conditional-independence/factorisation, marginalisation, simple inference and forward sampling at introductory depth.
+4. **Wednesday pre-lecture:** cold-retrieve search for ~1h and the 28 Sep BN material for ~1h; then extend likely lecture-facing coverage through chain/fork/collider structure, deeper exact inference/variable elimination and sampling with evidence, bounded by the actual advertised scope.
+5. **Park decision trees/random forests** until the live course sequence confirms their new slot. Before HMMs, diagnose remembered Markov-chain material and rebuild only what does not return.
 
 ---
 
