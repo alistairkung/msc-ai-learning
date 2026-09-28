@@ -792,7 +792,7 @@ courses:
       due_on: null
     - week: '3'
       title: Bayesian networks — representation, independence, inference and sampling
-      anchors: [bayes, distributions, joint_moments, bayesian_networks]
+      anchors: [bayes, distributions, joint_moments]
       remaining: [bayesian_networks]
       note: >-
         Confirmed as the next live lecture from the course intro slide. The 28 Sep JIT
