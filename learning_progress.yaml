@@ -17,7 +17,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: c50278ccde9e03bb6ec065b85778cbb26c936fa0
+    sha: 8b44a9984f4891c79648ed04ececa80012f65632
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
@@ -27,9 +27,15 @@ sources:
   receipt_completion:
     path: lesson_logs/ftec5660/hw1_receipt_chain_completion_2026_09_25.md
     sha: 2b9cce5c5f592a4fd6e36e1b4f111cd954ce6a94
+  probability_bridge:
+    path: foundations/probability_statistics/bayesian_network_probability_bridge.md
+    sha: 80d315910b5cf28b632b89257295805465e64d67
+  bayes_jit_20260928:
+    path: lesson_logs/aims5701/bayesian_networks_jit_2026_09_28.md
+    sha: d9234fca5749d0cc5ea11e360eb2a6c6ce83cf3d
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 625b7818b0e4fca9ce114206271a3608b509a774
+    sha: 3e6f771cff49a84703d93788924eaa2f9665d2a3
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
@@ -1157,3 +1163,10 @@ timeline:
     raw fallback for one-shot grading resilience, and verified 27/27 tests plus correct
     7-receipt public E2E output. A separate attributed receipt-agent repo was then started
     for post-submission modular refactoring.
+- label: 28 September · AIMS5701
+  detail: >-
+    First Bayesian-networks JIT bridge retrieved conditional/joint probability and
+    derived Bayes from the shared joint event, corrected independence versus mutual
+    exclusivity, then introduced DAG/CPT factorisation, marginalisation, simple exact
+    inference and forward sampling. A changed hidden-variable inference was solved
+    independently; delayed retrieval and deeper inference/sampling remain for Wednesday.
