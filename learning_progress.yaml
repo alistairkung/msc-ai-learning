@@ -3,16 +3,16 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-09-25'
-  evidence_through: '2026-09-25'
+  reviewed_on: '2026-09-28'
+  evidence_through: '2026-09-28'
   repository: alistairkung/msc-ai-learning
   source_ref: 436520d0e265dd5564398b353afde1f6b418a63d
   review_note: >-
-    Reconciled through 25 Sep across both outstanding context branches. AIMS5702
-    Lecture 3 preparation/live quiz evidence and break-week consolidation remain
-    preserved; FTEC5660 receipts is now submitted with public E2E and deterministic
-    tests green. Immediate JIT focus advances to regression -> decision trees, while
-    AIMS5702 consolidation/CNN remains a parallel lane.
+    Reconciled through the 28 Sep AIMS5701 Bayesian-networks JIT bridge. The live
+    sequence is corrected to Bayesian networks next; probability/Bayes retrieval and
+    same-session BN representation, marginalisation, inference and forward-sampling
+    evidence are recorded without promoting delayed mastery. Wednesday is now the
+    Continue lane for Search + BN cold retrieval and bounded lecture-facing extension.
   stale_after_days: 21
 sources:
   state:
@@ -252,12 +252,25 @@ topics:
     evidence_on: '2026-09-17'
     depends_on: [lcel]
   bayes:
-    <<: *history
     name: Bayes & conditioning
     area: Math foundations
-    evidence: The historical record preserves joint-versus-posterior confusion, constructing the total-probability denominator and the effect of base rates.
-    boundary: This does not establish mastery of graphical-model inference or current unaided Bayes performance.
-    next: Use a changed finite-counts/Bayes example without a refresher. Record the support needed, then repair only the observed gap.
+    concept: demonstrated
+    performance: guided
+    review: recorded
+    action: retrieve
+    evidence: >-
+      On 28 Sep conditional/joint probability returned readily once notation was
+      translated. Bayes' formula itself was not cold, but the learner reconstructed it
+      from the same joint intersection viewed from opposite conditioning directions and
+      then applied the population interpretation correctly.
+    boundary: >-
+      Formula recall was rusty and this is same-session derivation, not delayed mastery.
+      Independence was initially confused with mutual exclusivity. Graphical-model
+      inference is tracked separately.
+    next: Cold-retrieve Bayes and the shared-intersection derivation on Wednesday before using the notation sheet.
+    sources: [bayes_jit_20260928, probability_bridge, state]
+    evidence_on: '2026-09-28'
+    depends_on: []
   calculus:
     name: Derivatives -> gradients
     area: Math foundations
@@ -487,6 +500,32 @@ topics:
     name: CLT & introductory inference
     area: Math foundations
     evidence: Historical work covers sampling distributions, standard error and Z-style testing/p-value interpretation.
+  bayesian_networks:
+    name: Bayesian networks — representation, independence, inference & sampling
+    area: Classical AI
+    concept: taught
+    performance: guided
+    review: recorded
+    action: retrieve
+    evidence: >-
+      The 28 Sep JIT bridge introduced DAGs/parents, CPTs, conditional independence,
+      local joint factorisation, marginalisation, simple exact inference and
+      forward/prior-sampling intuition. On a changed Exercise->Energy->Focus problem,
+      the learner independently identified Energy as hidden and computed
+      P(Focus=T|Exercise=T)=(0.7*0.8)+(0.3*0.2)=0.62.
+    boundary: >-
+      This is same-session introductory evidence only. One DAG edge was misread during
+      the final factorisation check, marginalisation wording needed refinement and one
+      sampling threshold was initially inverted. No delayed retrieval yet. Chain/fork/
+      collider graphical independence, variable elimination and sampling with evidence
+      remain untaught.
+    next: >-
+      Wednesday: cold-retrieve today's material first, then extend likely lecture-facing
+      coverage through chain/fork/collider structure, exact-inference/variable-elimination
+      intuition and rejection sampling if time permits.
+    sources: [bayes_jit_20260928, probability_bridge, state, syllabus]
+    evidence_on: '2026-09-28'
+    depends_on: [bayes]
   markov:
     name: Markov chains
     area: Math foundations
@@ -679,18 +718,22 @@ topics:
 lanes:
 - id: continue
   label: Continue next · AIMS5701
-  title: Bridge regression into decision trees
-  summary: Receipts is submitted and search is in spaced maintenance. Use a short regression/classification retrieval before genuinely new decision-tree material.
-  target: decision_trees
+  title: Bayesian-networks JIT -> Wednesday cold retrieval
+  summary: The live sequence shows Bayesian networks next, not trees. Test delayed retention of the 28 Sep bridge before expanding likely lecture-facing coverage.
+  target: bayesian_networks
   tasks:
-  - title: Retrieve regression/classification anchors
-    when: Next substantive study block
-    topics: [linear_regression, logistic_regression]
-    detail: Use brief changed-example retrieval only; do not replay the full historical regression lessons.
-  - title: Learn decision trees
-    when: After the regression retrieval
-    topics: [decision_trees]
-    detail: Build split intuition, Gini/entropy/information gain, recursive construction, stopping and overfitting for the next Fundamentals demand.
+  - title: Cold-retrieve Search
+    when: First hour Wednesday
+    topics: [bfs, dfs, ucs, astar, search_complexity]
+    detail: Reconstruct BFS/DFS/UCS/Greedy/A* concepts, guarantees and actual Lecture 2 gaps without replaying full implementations.
+  - title: Cold-retrieve Bayesian-network bridge
+    when: Second hour Wednesday
+    topics: [bayes, bayesian_networks]
+    detail: Retrieve conditional/joint probability, Bayes derivation, independence, DAG/CPT factorisation, marginalisation, one inference problem and sampling before opening the summary.
+  - title: Extend likely lecture coverage
+    when: Remaining Wednesday block
+    topics: [bayesian_networks]
+    detail: Prioritise chain/fork/collider independence, variable-elimination intuition and rejection sampling/sampling with evidence; treat these as predicted until the live deck confirms scope.
 - id: parallel
   label: Parallel block · AIMS5702
   title: Lecture-break consolidation -> CNN bridge
@@ -708,7 +751,7 @@ lanes:
 - id: protect
   label: Protected delivery · FTEC5660 hackathon
   title: Keep the 19 Oct solo hackathon visible
-  summary: Receipts is closed. Incubate the hackathon without displacing the immediate trees JIT or AIMS5702 consolidation.
+  summary: Receipts is closed. Incubate the hackathon without displacing the immediate AIMS5701 Bayesian-network JIT or AIMS5702 consolidation.
   target: routing
   tasks:
   - title: Incubate hackathon scope
@@ -742,17 +785,22 @@ courses:
       scope: mapped
       due_on: null
     - week: '3'
-      title: Linear regression, logistic regression, decision trees, random forests
-      anchors: [linear_regression, logistic_regression, la_projection]
-      remaining: [decision_trees, random_forests]
-      note: Regression is retrieval/transfer; trees/random forests are genuinely new and should become the next JIT lane after search.
+      title: Bayesian networks — representation, independence, inference and sampling
+      anchors: [bayes, distributions, joint_moments, bayesian_networks]
+      remaining: [bayesian_networks]
+      note: >-
+        Confirmed as the next live lecture from the course intro slide. The 28 Sep JIT
+        bridge gives introductory guided evidence only; Wednesday delayed retrieval and
+        likely lecture-facing extension are the immediate lane.
       scope: mapped
       due_on: null
     - week: '4'
-      title: Bayesian networks, inference, sampling
-      anchors: [bayes, distributions, joint_moments]
-      remaining: [bayesian_networks]
-      note: Historical probability is a foundation, not current graphical-model mastery. Keep retrieval small until this week approaches.
+      title: Linear/logistic regression, decision trees, random forests — displaced slot to confirm
+      anchors: [linear_regression, logistic_regression, la_projection]
+      remaining: [decision_trees, random_forests]
+      note: >-
+        The prior map had this before Bayesian networks, but the live sequence contradicts
+        that ordering. Park trees until the course confirms their new slot.
       scope: mapped
       due_on: null
     - week: '5'
