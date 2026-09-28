@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-09-28'
   evidence_through: '2026-09-28'
   repository: alistairkung/msc-ai-learning
-  source_ref: dbd5d4d82bdbc60704cedc53654731f83b4685a3
+  source_ref: 5bf1f7c2d3bc65b1066e0b8f8e020dece58ad61e
   review_note: >-
     Reconciled through the 28 Sep AIMS5701 Bayesian-networks JIT bridge. The live
     sequence is corrected to Bayesian networks next; probability/Bayes retrieval and
