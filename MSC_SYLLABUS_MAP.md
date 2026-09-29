@@ -17,30 +17,40 @@ Readiness key:
 # AIMS5701 — Fundamentals in Artificial Intelligence
 
 **Term:** Sep–Dec 2026  
-**Timing update:** the course start has been delayed by **one week**. Preserve the syllabus week ordering below; use the added pre-course runway to deepen search preparation rather than shifting the topic labels themselves.
+**Canonical scope source:** live 2026 Lecture 1 intro deck supplied 29 Sep. Its tentative course schedule supersedes the older public-description ordering for JIT planning.
 
-| Week | MSc topic | Current readiness | Evidence / existing hook | Main gap before lecture |
+The live deck frames AIMS5701 in three stages: (1) selected pre-deep-learning AI — Search, Bayesian Networks, Hidden Markov Models and Particle Filtering; (2) a Deep Learning core — model, loss, optimisation and backpropagation; and (3) introductions to modern AI areas. Classical survey topics such as decision trees, random forests, KNN, K-means, SVM and gradient boosting do **not** appear in the 12-week live schedule. Treat them as out of current AIMS5701 scope unless later live material explicitly introduces them; this is a course-scope decision, not a claim that the algorithms are obsolete.
+
+| Week | Live 2026 topic | Current readiness | Evidence / existing hook | Main gap before lecture |
 |---|---|---|---|---|
-| W1 | Introduction, Logic, Reasoning and Learning | **Amber/Red** | General AI/ML vocabulary strong enough | Formal logic/reasoning vocabulary is new; preview propositions/rules/inference at a light level |
-| W2 | Uninformed + informed search; graph search | **Green/Amber** | BFS/DFS reactivated; UCS/A* guided implementations exist; 24 Sep reconciliation swept the actual Lecture 2 gaps and reconstructed consistency=>admissibility, A* optimality blocking and safe-closing logic with support | Move to spaced maintenance. Later cold-check the proof chain and theorem assumptions; do not spend another JIT block repeating search implementations. Minimax/alpha-beta remains parked because it was not in the actual Lecture 2 deck |
-| W3 | Bayesian networks: representation, independence, inference and sampling **(confirmed next live lecture from course intro slide)** | **Amber/Green introductory** | 28 Sep JIT retrieved conditional/joint probability and derived Bayes; introduced DAGs/CPTs, conditional independence, BN factorisation, marginalisation, simple exact inference and forward-sampling intuition | Wed delayed cold retrieval; then chain/fork/collider independence, deeper exact-inference/variable-elimination intuition and sampling with evidence. Exact lecture algorithms remain unconfirmed until deck/live teaching |
-| W4 | Linear regression, logistic regression, decision trees, random forests **(sequence displaced from prior map; exact new slot to confirm)** | **Linear/logistic Green/Amber; trees Red** | Repo 21–23 + Lessons 30–31 classification/evaluation work + historical least-squares/normal-equation foundation | Park trees until live sequence confirms their new slot; do not let the stale historical ordering drive JIT work |
-| W5 | Hidden Markov Models, particle filtering | **Amber/Red** | Historical probability foundation established; learner remembers Markov chains but recoverable worked evidence is weak | Diagnose Markov-chain recall first; then Markov property, transition/state reasoning, filtering and particle sampling |
-| W6 | KNN, K-means, SVM, gradient boosting | **Red/Amber** | Distance/vector and classification workflow foundations | Fast conceptual + implementation survey; focus on model assumptions/trade-offs |
-| W7 | Neural networks | **Green/Amber** | Repo 27–31, including the completed real-data workflow | Deeper architecture vocabulary |
-| W8 | Backpropagation and SGD | **Green/Amber** | Manual autograd/GD + standard PyTorch loops; chain rule/backprop derived by hand | Keep chain-rule notation warm; theory of convergence still later |
-| W9 | Computer vision | **Red/Amber** | Tensor/shape base | Image tensor semantics + CNN basics; AI in Practice should lead this |
-| W10 | NLP | **Red/Amber** | General software/LLM familiarity | Formal text representation/embedding/sequence-model basics |
-| W11 | Reinforcement learning, recommendation | **Amber/Red** | Exploration/exploitation hooks from black-box optimisation/agentic study | MDP/value/policy/Q basics; recommendation formulation |
-| W12 | Generative models | **Amber/Red** | NN foundation; generative-AI familiarity | Probabilistic/generative modelling foundations; keep preview light |
+| W1 | Introduction, logistics, intelligence from computation vs. data | **Amber/Green** | Lecture 1 introduces rational-agent framing plus ML as learned input→output mapping and shallow→deep learned representations | Quiz-oriented retrieval later; do not invent a formal-logic week that is absent from the live deck |
+| W2 | Search: uninformed search, informed search, etc. | **Green/Amber** | BFS/DFS reactivated; UCS/A* guided implementations exist; 24 Sep reconciliation covered actual Lecture 2 gaps, guarantees and safe-closing logic with support | 1h delayed cold retrieval on 30 Sep as first cumulative midterm-retention pass; include Greedy and mixed unlabeled questions |
+| W3 | Bayesian networks: representation, independence, inference and sampling | **Amber/Green introductory** | 28 Sep JIT retrieved conditional/joint probability and derived Bayes; introduced DAGs/CPTs, conditional independence, factorisation, marginalisation, simple inference and forward sampling | 30 Sep cold retrieval, then chain/fork/collider independence, deeper inference/variable-elimination intuition and sampling with evidence as time/course scope warrants |
+| W4 | Hidden Markov Models and Particle Filtering | **Amber/Red** | Historical probability foundation; remembered Markov-chain study but recoverable worked evidence is weak | Diagnose Markov-chain recall first, then bridge BN inference/sampling into hidden state, observations, filtering and particle approximation |
+| W5 | Basics of Machine Learning: models, loss, optimization, Backpropagation, training a Neural Network | **Green/Amber anchors** | Existing regression/classification, manual autograd/GD, chain-rule/backprop and PyTorch training-loop work | Reconcile against live Week 5 deck when available; likely retrieval/notation consolidation rather than classical-algorithm survey |
+| W6 | Computer Vision: Convolution Neural Networks | **Red/Amber** | Tensor/shape base; AIMS5702 CNN bridge planned | Image tensor semantics, convolution/locality/weight sharing and output-shape reasoning |
+| W7 | Natural Language Processing: RNN and Transformers | **Red/Amber** | General LLM familiarity; RNN formalism not established | Sequence representations, RNN mechanics and Transformer foundations proportional to live deck |
+| W8 | Reinforcement Learning, Recommendation Systems | **Amber/Red** | Exploration/exploitation hooks from black-box optimisation/agentic study | MDP/value/policy/Q basics and recommendation framing |
+| W9 | Latent Variable Models, Generative Adversarial Networks and Diffusion Models | **Red/Amber** | Probability + NN foundation | Latent-variable/generative modelling and diffusion/GAN foundations |
+| W10 | Meta Learning and Multi-modal Learning | **Red** | No direct mastery evidence | Build only when live lecture approaches |
+| W11 | Agentic AI and Embodied AI | **Amber** | FTEC5660 gives substantial agentic-system hooks; embodied AI new | Transfer agentic concepts carefully; build embodied-AI framing from live deck |
+| W12 | Review and Project Presentation | **N/A** | Cumulative evidence system + final project work | Use course review to close exam/project gaps |
+
+### Assessment / retention implications
+
+The live intro deck gives a **40% written midterm exam**. The learner reports that it focuses on the first five weeks. Until a more specific exam scope is supplied, plan cumulative retention around W1–W5 rather than around the stale public syllabus.
+
+Use two loops:
+1. **Acquisition/JIT:** prepare the next live lecture, attend it, reconcile against actual slides, solve changed problems.
+2. **Cumulative midterm retention:** repeatedly cold-retrieve W1–W5, repair only observed gaps, and progress toward mixed unlabeled questions where the learner must identify the relevant concept.
 
 ### Fundamentals next priorities
 
-1. **Lecture 2 reconciliation is complete.** Search now moves to spaced maintenance; later cold-check consistency=>admissibility, the A* blocking proof and safe-closing logic rather than repeating the whole lecture or implementations.
-2. **Keep minimax/alpha-beta parked.** It was useful pre-reading but was not in the actual Lecture 2 deck. Revisit only when live course material requires adversarial search.
-3. **Live sequence correction:** the next lecture is Bayesian networks, not decision trees. The 28 Sep bridge now covers representation/conditional-independence/factorisation, marginalisation, simple inference and forward sampling at introductory depth.
-4. **Wednesday pre-lecture:** cold-retrieve search for ~1h and the 28 Sep BN material for ~1h; then extend likely lecture-facing coverage through chain/fork/collider structure, deeper exact inference/variable elimination and sampling with evidence, bounded by the actual advertised scope.
-5. **Park decision trees/random forests** until the live course sequence confirms their new slot. Before HMMs, diagnose remembered Markov-chain material and rebuild only what does not return.
+1. **30 Sep first hour: Search cold retrieval.** Treat this as real delayed midterm evidence: BFS/DFS/UCS/Greedy/A*, frontier ordering, guarantees, complexity, admissibility/consistency, graph-vs-tree search and safe closing. Avoid notes/rescue until the diagnostic has exposed what survived.
+2. **Then Bayesian-network cold retrieval and extension.** Retrieve the 28 Sep bridge before opening the summary; repair only failures; extend likely lecture-facing coverage without trying to master the whole graphical-model field.
+3. **HMM/particle filtering is next, not trees.** After the BN lecture, diagnose Markov-chain recall before deciding how much rebuilding is needed.
+4. **Remove classical survey algorithms from the active AIMS5701 roadmap.** Trees/forests/KNN/K-means/SVM/boosting are absent from the live 12-week deck; do not spend AIMS5701 JIT time on them unless later live material brings them back.
+5. **Week 5 is the deep-learning bridge.** Existing model/loss/optimisation/backprop/NN-training evidence should be retrieved and reconciled against the live lecture rather than replaced by an assumed classical-ML block.
 
 ---
 

@@ -8,7 +8,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **AIMS5701: Bayesian-networks JIT → Wednesday cold retrieval/extension** | The live sequence shows Bayesian networks next, not trees. The 28 Sep bridge covered probability notation, conditional independence, DAG/CPT factorisation, marginalisation, simple inference and forward sampling; Wednesday should test delayed retention before expanding coverage. |
+| Continue | **AIMS5701: Search midterm retrieval → Bayesian-networks JIT** | The live 2026 deck confirms W2 Search, W3 Bayesian Networks, W4 HMM/Particle Filtering and W5 DL foundations. Start 30 Sep with a real delayed Search retrieval, then cold-retrieve/extend the BN bridge. |
 | Parallel | **AIMS5702 lecture break: consolidate → CNN bridge** | Lecture 3 is complete. Use delayed retrieval on the observed tensor/PyTorch weak edges and one changed classification pipeline, then extend locality/weight-sharing into CNN shapes/mechanics ahead of 15 Oct. |
 | Protect | **FTEC5660 Private Client Graph: freeze Case 01 contract → first extraction** | The 29 Sep design session produced the six-edge answer key, realistic attendance-note source and a draft expected-extraction proposal. Next review that proposal, freeze only the minimum contract, then attempt the smallest structured extraction; do not add agentic stages before observed failures justify them. |
 
@@ -29,6 +29,16 @@ The strongest learning evidence is architectural boundary-setting rather than fr
 Source-fixture realism improved after domain feedback. A too-short synthetic note was replaced by a roughly 2–3 page-style one-hour fact-finding attendance note whose extra prose comes from scope, questioning, clarification, recap and next steps rather than extra graph facts. The source was checked against the six-edge answer key. One sufficient exact source passage per relationship is enough for provenance; exhaustive repeated-mention detection is not required.
 
 Do not over-promote this session. Trust-domain vocabulary and several benchmark-design distinctions were guided/new, and no extraction pipeline has yet been implemented or tested. The draft `expected_extraction.json` in the hackathon repository is intentionally unresolved. Next session: review its field/ID/evidence choices, freeze the smallest Case 01 contract, then run the first structured extraction before considering retries, routing, reflection or other agentic complexity.
+
+## AIMS5701 — live 2026 course map confirmed, 29 Sep
+
+Source basis: the learner supplied the current Lecture 1 intro deck. Its live tentative schedule now supersedes the older public-description ordering for AIMS5701 planning.
+
+The course is explicitly structured around selected pre-deep-learning AI (Search -> Bayesian Networks -> HMMs/Particle Filtering), then a Week 5 deep-learning bridge (models, loss, optimisation, backpropagation, NN training), then CNNs, RNN/Transformers, RL/recommendation, latent-variable/GAN/diffusion models, meta/multimodal learning and agentic/embodied AI. Decision trees, random forests, KNN, K-means, SVM and gradient boosting do not appear anywhere in the live 12-week schedule. Remove them from the active AIMS5701 JIT roadmap unless later live material explicitly brings them back; do not interpret this scope decision as a judgment about their general relevance.
+
+The live deck also confirms a 40% written midterm. The learner reports that it focuses on the first five weeks. This materially changes the study strategy: retain JIT for acquisition, but add systematic cumulative cold retrieval across W1-W5. Search retrieval on 30 Sep should therefore count as the first deliberate spaced midterm-retention pass rather than mere maintenance.
+
+Current live sequence through the midterm window is: W1 introduction/intelligence-from-computation-vs-data; W2 Search; W3 Bayesian Networks; W4 HMMs + Particle Filtering; W5 models/loss/optimisation/backprop/NN training. This is a much more coherent exam target than the stale classical-ML survey map and should drive planning until contradicted by newer live material.
 
 ## AIMS5701 — Bayesian-networks JIT bridge, 28 Sep
 
