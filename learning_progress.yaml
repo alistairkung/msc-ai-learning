@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-09-29'
   evidence_through: '2026-09-29'
   repository: alistairkung/msc-ai-learning
-  source_ref: 47bc79c8648df2502968c9e4377b77e8750780e2
+  source_ref: 59d93bcc90ec747ff4a9032a8c7f79cc53d907b6
   review_note: >-
     Reconciled the current AIMS5701 Lecture 1 intro deck on 29 Sep. The live 2026
     schedule now supersedes the stale public-description ordering: Search -> Bayesian
@@ -17,7 +17,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 497b5bbceca7194e38f081ed8759427ebbd6e222
+    sha: c14345344448878114e3bd563360d37085e976ac
   private_client_graph_case01:
     path: lesson_logs/ftec5660/private_client_graph_case01_design_2026_09_29.md
     sha: 808b60c5342ae227f49896c07b886bd30e2bdbd5
@@ -38,7 +38,7 @@ sources:
     sha: d9234fca5749d0cc5ea11e360eb2a6c6ce83cf3d
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 484d8e9f5c983e0bf5e9a6d96b5eea9dcc3b2fa8
+    sha: 4ba0e1a2c8ac4d37efa21c9935b0d0a9c92adf86
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
