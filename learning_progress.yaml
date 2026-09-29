@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-09-29'
   evidence_through: '2026-09-29'
   repository: alistairkung/msc-ai-learning
-  source_ref: b160d7d3efefdf65bd03874377aaa3a0caeac4ce
+  source_ref: 391b8224f9ec0418658887b7bb999bef55d56c0d
   review_note: >-
     Reconciled 29 Sep after moving the rich Private Client Graph Case 01 decision
     records from the shared hackathon repository into the personal FTEC5660 learning
