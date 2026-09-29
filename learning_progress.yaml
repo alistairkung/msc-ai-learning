@@ -3,21 +3,25 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-09-28'
-  evidence_through: '2026-09-28'
+  reviewed_on: '2026-09-29'
+  evidence_through: '2026-09-29'
   repository: alistairkung/msc-ai-learning
-  source_ref: 9f65a92e3b2f49f9c51abc4a260b13ff8c1b1fc6
+  source_ref: 47bc79c8648df2502968c9e4377b77e8750780e2
   review_note: >-
-    Reconciled through the 28 Sep AIMS5701 Bayesian-networks JIT bridge. The live
-    sequence is corrected to Bayesian networks next; probability/Bayes retrieval and
-    same-session BN representation, marginalisation, inference and forward-sampling
-    evidence are recorded without promoting delayed mastery. Wednesday is now the
-    Continue lane for Search + BN cold retrieval and bounded lecture-facing extension.
+    Reconciled through the 29 Sep FTEC5660 Private Client Graph Case 01 design session.
+    The hackathon now has a six-edge answer key, realistic provenance-bearing source
+    fixture and draft expected-extraction proposal. This adds changed-domain evidence
+    for contract/provenance boundary design without promoting LCEL/routing mastery.
+    Protect now points to freezing the minimum Case 01 contract and attempting the first
+    structured extraction after the immediate AIMS5701/AIMS5702 lanes.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 8b44a9984f4891c79648ed04ececa80012f65632
+    sha: 497b5bbceca7194e38f081ed8759427ebbd6e222
+  private_client_graph_case01:
+    path: lesson_logs/ftec5660/private_client_graph_case01_design_2026_09_29.md
+    sha: 808b60c5342ae227f49896c07b886bd30e2bdbd5
   receipt_session:
     path: lesson_logs/ftec5660/hw1_receipt_chain_session_2026_09_21.md
     sha: 92a9bd9e13b486b316e5a2aa2b17613343592ed1
@@ -35,7 +39,7 @@ sources:
     sha: d9234fca5749d0cc5ea11e360eb2a6c6ce83cf3d
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 3e6f771cff49a84703d93788924eaa2f9665d2a3
+    sha: 484d8e9f5c983e0bf5e9a6d96b5eea9dcc3b2fa8
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
@@ -210,10 +214,11 @@ topics:
     review: recorded
     action: transfer
     evidence: >-
-      Tutorial 1 decomposition has transferred into a completed assessed receipt system.
-      Across 21-25 Sep the learner separated probabilistic image interpretation from
-      deterministic calculation, designed a receipt contract, added reconciliation as a
-      trust boundary, evaluated real model failures and completed the public E2E path.
+      Tutorial 1 decomposition transferred into the completed assessed receipt system.
+      On 29 Sep the same contract-first discipline transferred into Private Client Graph:
+      the learner separated hidden graph truth, source evidence and justified extraction,
+      preferred deterministic canonicalisation over redundant LLM output, and made
+      provenance first-class before implementing a pipeline.
     boundary: >-
       Changed-domain decomposition/system-design evidence is strong. Some repetitive
       validator helpers and test scaffolding were assistant-supplied, and successful
@@ -239,10 +244,10 @@ topics:
       This is meaningful changed-domain LCEL transfer, but not delayed blank-file
       reconstruction or blanket mastery of Runnable APIs. RunnableBranch syntax remains
       outside cold-independent evidence.
-    next: Maintain through future agentic coursework; retrieve exact APIs only when a
-      new task needs them rather than replaying the completed receipt chain.
-    sources: [lcel_lesson, lcel_plan, lcel_stateful, routing_review, receipt_session_2, receipt_completion, state]
-    evidence_on: '2026-09-22'
+    next: Use the Case 01 contract to attempt the smallest structured extraction; add
+      chaining/retry stages only if observed failures justify them.
+    sources: [lcel_lesson, lcel_plan, lcel_stateful, routing_review, receipt_session_2, receipt_completion, private_client_graph_case01, state]
+    evidence_on: '2026-09-29'
     depends_on: [prompt_chaining]
   routing:
     name: Routing / conditional workflows
@@ -756,14 +761,14 @@ lanes:
     detail: Build from image tensor shapes to locality, shared weights, kernels/channels, stride/padding and output-shape reasoning. Keep implementation depth proportional to the 15 Oct lecture.
 - id: protect
   label: Protected delivery · FTEC5660 hackathon
-  title: Keep the 19 Oct solo hackathon visible
-  summary: Receipts is closed. Incubate the hackathon without displacing the immediate AIMS5701 Bayesian-network JIT or AIMS5702 consolidation.
-  target: routing
+  title: Freeze Case 01 contract, then attempt extraction
+  summary: Private Client Graph now has a six-edge answer key, realistic source fixture and draft expected extraction. Keep the 19 Oct hackathon visible without displacing immediate AIMS5701/AIMS5702 work.
+  target: prompt_chaining
   tasks:
-  - title: Incubate hackathon scope
-    when: After the immediate JIT blocks
-    topics: [prompt_chaining, lcel, routing]
-    detail: Reuse learned agentic patterns only where the hackathon problem warrants them; do not add agentic complexity merely to demonstrate patterns.
+  - title: Review Case 01 expected extraction
+    when: Next hackathon block
+    topics: [prompt_chaining, lcel]
+    detail: Resolve only the field/ID/evidence choices needed for Case 01, freeze the three fixtures, then attempt the smallest structured extraction. Do not add routing, retries or reflection until failures earn them.
 
 courses:
   AIMS5701:
@@ -902,7 +907,7 @@ courses:
       title: Receipts homework + hackathon + later project work
       anchors: [prompt_chaining, lcel]
       remaining: []
-      note: Receipts homework was submitted 25 Sep with public E2E green. Hackathon is due 19 Oct and the learner has chosen to work solo. Exact final-project weighting/scope remains separately unverified.
+      note: Receipts homework was submitted 25 Sep with public E2E green. The 19 Oct solo hackathon is now scoped as Private Client Graph; Case 01 benchmark design is underway with ground truth/source fixtures and a draft expected-extraction contract. Exact final-project weighting/scope remains separately unverified.
       scope: scope_unconfirmed
       due_on: null
   AIMS5702:
@@ -1163,6 +1168,12 @@ timeline:
     raw fallback for one-shot grading resilience, and verified 27/27 tests plus correct
     7-receipt public E2E output. A separate attributed receipt-agent repo was then started
     for post-submission modular refactoring.
+- label: 29 September · FTEC5660
+  detail: >-
+    Private Client Graph Case 01 design transferred the receipts contract-first discipline
+    into a new domain: six canonical relationship primitives, stable entity identity,
+    first-class provenance, a graph-answer-key boundary, and a realistic synthetic
+    attendance-note fixture were defined before any LangChain implementation.
 - label: 28 September · AIMS5701
   detail: >-
     First Bayesian-networks JIT bridge retrieved conditional/joint probability and
