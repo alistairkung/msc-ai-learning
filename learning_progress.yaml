@@ -8,12 +8,11 @@ meta:
   repository: alistairkung/msc-ai-learning
   source_ref: 47bc79c8648df2502968c9e4377b77e8750780e2
   review_note: >-
-    Reconciled through the 29 Sep FTEC5660 Private Client Graph Case 01 design session.
-    The hackathon now has a six-edge answer key, realistic provenance-bearing source
-    fixture and draft expected-extraction proposal. This adds changed-domain evidence
-    for contract/provenance boundary design without promoting LCEL/routing mastery.
-    Protect now points to freezing the minimum Case 01 contract and attempting the first
-    structured extraction after the immediate AIMS5701/AIMS5702 lanes.
+    Reconciled the current AIMS5701 Lecture 1 intro deck on 29 Sep. The live 2026
+    schedule now supersedes the stale public-description ordering: Search -> Bayesian
+    Networks -> HMM/Particle Filtering -> DL foundations -> modern AI areas. Classical
+    survey algorithms absent from the live 12-week map are removed from active AIMS5701
+    JIT planning. The 40% written midterm motivates cumulative W1-W5 cold retrieval.
   stale_after_days: 21
 sources:
   state:
@@ -729,14 +728,14 @@ topics:
 lanes:
 - id: continue
   label: Continue next · AIMS5701
-  title: Bayesian-networks JIT -> Wednesday cold retrieval
-  summary: The live sequence shows Bayesian networks next, not trees. Test delayed retention of the 28 Sep bridge before expanding likely lecture-facing coverage.
+  title: Search midterm retrieval -> Bayesian-networks JIT
+  summary: The live 2026 deck confirms the first-five-week sequence. Start with a real delayed Search retrieval for cumulative midterm retention, then cold-retrieve and extend the 28 Sep Bayesian-network bridge.
   target: bayesian_networks
   tasks:
   - title: Cold-retrieve Search
     when: First hour Wednesday
     topics: [bfs, dfs, ucs, astar, search_complexity]
-    detail: Reconstruct BFS/DFS/UCS/Greedy/A* concepts, guarantees and actual Lecture 2 gaps without replaying full implementations.
+    detail: Treat this as cumulative 40%-midterm retention evidence: reconstruct BFS/DFS/UCS/Greedy/A*, guarantees, complexity and graph-search details without notes or premature rescue; finish with mixed unlabeled questions.
   - title: Cold-retrieve Bayesian-network bridge
     when: Second hour Wednesday
     topics: [bayes, bayesian_networks]
@@ -773,26 +772,24 @@ lanes:
 courses:
   AIMS5701:
     name: Fundamentals in AI
-    timing: Start delayed one week (learner report); exact revised dates unconfirmed. Course weeks are not calendar weeks.
+    timing: Live 2026 Lecture 1 deck supplied 29 Sep; use its tentative schedule as the canonical JIT sequence until newer live material supersedes it.
     expected_weeks: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
     weeks:
     - week: '1'
-      title: Introduction, Logic, Reasoning and Learning
+      title: Introduction, logistics, intelligence from computation vs. data
       anchors: []
-      remaining: [logic]
-      note: ''
-      scope: mapped
+      remaining: []
+      note: Live deck framing replaces the stale formal-logic week in the prior public-description map.
+      scope: overview
       due_on: null
     - week: '2'
-      title: Uninformed search, informed search, graph search
+      title: Search — uninformed search, informed search, etc.
       anchors: [bfs, dfs, ucs, astar]
       remaining: [search_complexity]
       note: >-
-        Actual Lecture 2 scope is confirmed and the 24 Sep reconciliation is complete.
-        Smaller gaps were swept and A* guarantees were reconstructed with support.
-        search_complexity remains listed only for delayed maintenance/cold proof checking,
-        not because another immediate search block is planned. Minimax/alpha-beta remains
-        parked because it was not in the actual lecture.
+        Actual Lecture 2 scope is reconciled. The 30 Sep first-hour cold call is now
+        deliberate cumulative midterm-retention evidence, including Greedy and mixed
+        unlabeled questions rather than another implementation replay.
       scope: mapped
       due_on: null
     - week: '3'
@@ -800,75 +797,76 @@ courses:
       anchors: [bayes, distributions, joint_moments]
       remaining: [bayesian_networks]
       note: >-
-        Confirmed as the next live lecture from the course intro slide. The 28 Sep JIT
-        bridge gives introductory guided evidence only; Wednesday delayed retrieval and
-        likely lecture-facing extension are the immediate lane.
+        The 28 Sep JIT bridge gives introductory guided evidence only. Cold-retrieve it
+        on 30 Sep before extending likely lecture-facing independence, inference and
+        sampling coverage.
       scope: mapped
       due_on: null
     - week: '4'
-      title: Linear/logistic regression, decision trees, random forests — displaced slot to confirm
-      anchors: [linear_regression, logistic_regression, la_projection]
-      remaining: [decision_trees, random_forests]
-      note: >-
-        The prior map had this before Bayesian networks, but the live sequence contradicts
-        that ordering. Park trees until the course confirms their new slot.
+      title: Hidden Markov Models and Particle Filtering
+      anchors: [bayes, distributions]
+      remaining: [markov, hmm, particle_filtering]
+      note: Diagnose remembered Markov-chain material first; rebuild only observed gaps before bridging to filtering and particle approximation.
       scope: mapped
       due_on: null
     - week: '5'
-      title: Hidden Markov Models, particle filtering
-      anchors: [bayes, distributions]
-      remaining: [markov, hmm, particle_filtering]
-      note: Run a Markov diagnostic before rebuilding anything broadly.
+      title: Basics of Machine Learning — models, loss, optimization, Backpropagation, training a Neural Network
+      anchors: [linear_regression, logistic_regression, calculus, autograd, pytorch_training]
+      remaining: []
+      note: >-
+        Live deck frames this as the deep-learning bridge, not a classical-algorithm
+        survey. Existing model/loss/optimisation/backprop/training evidence is an anchor
+        to retrieve and reconcile when the live Week 5 deck arrives.
       scope: mapped
       due_on: null
     - week: '6'
-      title: KNN, K-means, SVM, gradient boosting
-      anchors: [numpy, la_projection]
-      remaining: []
-      note: Algorithm-specific preparation is not yet tracked individually.
-      scope: not_mapped
+      title: Computer Vision — Convolution Neural Networks
+      anchors: [tensor_operations]
+      remaining: [cnn]
+      note: AIMS5702 CNN preparation may provide useful transfer; do not infer AIMS5701 mastery from cross-course exposure.
+      scope: mapped
       due_on: null
     - week: '7'
-      title: Neural networks
-      anchors: [mlp_classification, pytorch_training]
-      remaining: [cnn, rnn]
-      note: Existing MLP evidence is an anchor, not coverage of every architecture.
+      title: Natural Language Processing — RNN and Transformers
+      anchors: []
+      remaining: [rnn]
+      note: Formal sequence-model/Transformer coverage should follow the live deck.
       scope: mapped
       due_on: null
     - week: '8'
-      title: Backpropagation and SGD
-      anchors: [calculus, autograd, pytorch_training]
-      remaining: []
-      note: Keep chain-rule notation warm. Readiness is not inferred from these anchors.
-      scope: mapped
-      due_on: null
-    - week: '9'
-      title: Computer vision
-      anchors: [tensor_operations]
-      remaining: [cnn]
-      note: ''
-      scope: mapped
-      due_on: null
-    - week: '10'
-      title: NLP
-      anchors: [logistic_regression]
-      remaining: [rnn]
-      note: Text representations/embedding requirements need further mapping.
-      scope: not_mapped
-      due_on: null
-    - week: '11'
-      title: Reinforcement learning, recommendation
+      title: Reinforcement Learning, Recommendation Systems
       anchors: [joint_moments]
       remaining: []
-      note: MDP/value/policy/Q and recommendation are new; detailed requirements not yet mapped.
+      note: Detailed MDP/value/policy/Q and recommendation requirements are not yet mapped.
       scope: not_mapped
       due_on: null
-    - week: '12'
-      title: Generative models
+    - week: '9'
+      title: Latent Variable Models, Generative Adversarial Networks and Diffusion Models
       anchors: [distributions, mlp_classification]
       remaining: []
       note: Generative-model-specific learning remains new.
       scope: not_mapped
+      due_on: null
+    - week: '10'
+      title: Meta Learning and Multi-modal Learning
+      anchors: []
+      remaining: []
+      note: Build only when the live lecture approaches.
+      scope: not_mapped
+      due_on: null
+    - week: '11'
+      title: Agentic AI and Embodied AI
+      anchors: [prompt_chaining, routing]
+      remaining: []
+      note: FTEC5660 provides agentic-system hooks; embodied-AI requirements remain new and should follow live teaching.
+      scope: not_mapped
+      due_on: null
+    - week: '12'
+      title: Review and Project Presentation
+      anchors: []
+      remaining: []
+      note: Use cumulative course evidence and project state to close remaining gaps.
+      scope: overview
       due_on: null
   FTEC5660:
     name: Agentic AI in Finance / FinTech
