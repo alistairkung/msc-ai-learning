@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-09-28. Learning evidence through 2026-09-28._
+_Last maintained: 2026-09-29. Learning evidence through 2026-09-29._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -10,13 +10,25 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 |---|---|---|
 | Continue | **AIMS5701: Bayesian-networks JIT → Wednesday cold retrieval/extension** | The live sequence shows Bayesian networks next, not trees. The 28 Sep bridge covered probability notation, conditional independence, DAG/CPT factorisation, marginalisation, simple inference and forward sampling; Wednesday should test delayed retention before expanding coverage. |
 | Parallel | **AIMS5702 lecture break: consolidate → CNN bridge** | Lecture 3 is complete. Use delayed retrieval on the observed tensor/PyTorch weak edges and one changed classification pipeline, then extend locality/weight-sharing into CNN shapes/mechanics ahead of 15 Oct. |
-| Protect | **FTEC5660 hackathon incubation** | Receipts is closed. Keep the 19 Oct solo hackathon visible without letting it displace the immediate trees JIT and AIMS5702 consolidation lanes. |
+| Protect | **FTEC5660 Private Client Graph: freeze Case 01 contract → first extraction** | The 29 Sep design session produced the six-edge answer key, realistic attendance-note source and a draft expected-extraction proposal. Next review that proposal, freeze only the minimum contract, then attempt the smallest structured extraction; do not add agentic stages before observed failures justify them. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
 
 ## Delivery constraints — separate from learning evidence
 
 Canonical structured copy: `deadlines.yaml`. AIMS5702 Assignment 1 was submitted on 21 Sep and FTEC5660 receipts homework was submitted on 25 Sep. The next recorded delivery pressure is the FTEC5660 solo hackathon (19 Oct). Keep delivery planning distinct from `learning_progress.yaml`.
+
+## FTEC5660 — Private Client Graph Case 01 design, 29 Sep
+
+Detailed source: `lesson_logs/ftec5660/private_client_graph_case01_design_2026_09_29.md`.
+
+A focused ~90-minute hackathon session deliberately stopped before LangChain implementation and transferred the receipts design discipline into a new relationship-extraction problem. Case 01 now has a six-edge graph answer key across Alice Chen, David Chen, Bob Chen, Carol Wong and the Evergreen Family Trust; the initial primitives are `parent_of`, `sibling_of`, `spouse_of`, `settlor_of`, `trustee_of` and `beneficiary_of`.
+
+The strongest learning evidence is architectural boundary-setting rather than framework syntax. The learner reasoned that inverse/symmetric graph views should be derived deterministically rather than redundantly extracted, trust roles belong on edges, relationships should attach to stable entity identities, and provenance should be first-class evidence referenced by relationships. The learner also caught that treating ground truth as merely "facts we care about" would distort precision/recall; it is now framed as the complete answer key for the graph task, while graph-neutral meeting facts may remain outside it.
+
+Source-fixture realism improved after domain feedback. A too-short synthetic note was replaced by a roughly 2–3 page-style one-hour fact-finding attendance note whose extra prose comes from scope, questioning, clarification, recap and next steps rather than extra graph facts. The source was checked against the six-edge answer key. One sufficient exact source passage per relationship is enough for provenance; exhaustive repeated-mention detection is not required.
+
+Do not over-promote this session. Trust-domain vocabulary and several benchmark-design distinctions were guided/new, and no extraction pipeline has yet been implemented or tested. The draft `expected_extraction.json` in the hackathon repository is intentionally unresolved. Next session: review its field/ID/evidence choices, freeze the smallest Case 01 contract, then run the first structured extraction before considering retries, routing, reflection or other agentic complexity.
 
 ## AIMS5701 — Bayesian-networks JIT bridge, 28 Sep
 
