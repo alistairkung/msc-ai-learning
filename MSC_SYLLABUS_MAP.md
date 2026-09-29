@@ -218,7 +218,7 @@ This is a deliberate course-learning method, not extra material to memorise.
 - two major project-style assessments: a **hackathon** and a **final project**;
 - recollection is that they account for **roughly 80% of the module grade combined**.
 
-Even before the exact weighting is verified, treat FTEC5660 as a **high-variance Term-1 workload source**. Project periods may temporarily consume much more time than ordinary lecture weeks.
+Even before the exact weighting is verified, treat FTEC5660 as a **high-variance Term-1 workload source**. The 19 Oct solo hackathon is now concretely scoped as **Private Client Graph**, a synthetic relationship-graph extraction/evaluation spike; Case 01 benchmark design began on 29 Sep. Project periods may temporarily consume much more time than ordinary lecture weeks.
 
 ### Planning implications
 
