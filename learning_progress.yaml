@@ -8,16 +8,24 @@ meta:
   repository: alistairkung/msc-ai-learning
   source_ref: b160d7d3efefdf65bd03874377aaa3a0caeac4ce
   review_note: >-
-    Reconciled the current AIMS5701 Lecture 1 intro deck on 29 Sep. The live 2026
-    schedule now supersedes the stale public-description ordering: Search -> Bayesian
-    Networks -> HMM/Particle Filtering -> DL foundations -> modern AI areas. Classical
-    survey algorithms absent from the live 12-week map are removed from active AIMS5701
-    JIT planning. The 40% written midterm motivates cumulative W1-W5 cold retrieval.
+    Reconciled 29 Sep after moving the rich Private Client Graph Case 01 decision
+    records from the shared hackathon repository into the personal FTEC5660 learning
+    record. Learning evidence/status is unchanged; source locations and handover
+    references were reviewed and refreshed.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: c14345344448878114e3bd563360d37085e976ac
+    sha: 676696cb8cc5d5a910f888775b0e935d2bc33044
+  private_client_graph_decision_entities:
+    path: lesson_logs/ftec5660/private_client_graph/decisions/entity-identity-provenance-case-01.md
+    sha: 7ed7c7d8becf5dc78124317f5140b4881e90a794
+  private_client_graph_decision_ground_truth:
+    path: lesson_logs/ftec5660/private_client_graph/decisions/ground-truth-as-answer-key.md
+    sha: b079319d64568e37130024937b31a7c8b6261762
+  private_client_graph_decision_relationships:
+    path: lesson_logs/ftec5660/private_client_graph/decisions/relationship-primitives-case-01.md
+    sha: 230dbbd20fca99d7e3ce00e28eeeded0d6399c3c
   private_client_graph_case01:
     path: lesson_logs/ftec5660/private_client_graph_case01_design_2026_09_29.md
     sha: 808b60c5342ae227f49896c07b886bd30e2bdbd5
@@ -245,7 +253,7 @@ topics:
       outside cold-independent evidence.
     next: Use the Case 01 contract to attempt the smallest structured extraction; add
       chaining/retry stages only if observed failures justify them.
-    sources: [lcel_lesson, lcel_plan, lcel_stateful, routing_review, receipt_session_2, receipt_completion, private_client_graph_case01, state]
+    sources: [lcel_lesson, lcel_plan, lcel_stateful, routing_review, receipt_session_2, receipt_completion, private_client_graph_case01, private_client_graph_decision_entities, private_client_graph_decision_ground_truth, private_client_graph_decision_relationships, state]
     evidence_on: '2026-09-29'
     depends_on: [prompt_chaining]
   routing:
