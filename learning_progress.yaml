@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-09-29'
   evidence_through: '2026-09-29'
   repository: alistairkung/msc-ai-learning
-  source_ref: 3d854c696e74003dc6da36d4e8def79689a12df1
+  source_ref: 47bc79c8648df2502968c9e4377b77e8750780e2
   review_note: >-
     Reconciled through the 29 Sep FTEC5660 Private Client Graph Case 01 design session.
     The hackathon now has a six-edge answer key, realistic provenance-bearing source
@@ -39,7 +39,7 @@ sources:
     sha: d9234fca5749d0cc5ea11e360eb2a6c6ce83cf3d
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 3e6f771cff49a84703d93788924eaa2f9665d2a3
+    sha: 484d8e9f5c983e0bf5e9a6d96b5eea9dcc3b2fa8
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
