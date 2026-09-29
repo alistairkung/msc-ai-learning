@@ -735,7 +735,10 @@ lanes:
   - title: Cold-retrieve Search
     when: First hour Wednesday
     topics: [bfs, dfs, ucs, astar, search_complexity]
-    detail: Treat this as cumulative 40%-midterm retention evidence: reconstruct BFS/DFS/UCS/Greedy/A*, guarantees, complexity and graph-search details without notes or premature rescue; finish with mixed unlabeled questions.
+    detail: >-
+      Treat this as cumulative 40%-midterm retention evidence: reconstruct
+      BFS/DFS/UCS/Greedy/A*, guarantees, complexity and graph-search details without
+      notes or premature rescue; finish with mixed unlabeled questions.
   - title: Cold-retrieve Bayesian-network bridge
     when: Second hour Wednesday
     topics: [bayes, bayesian_networks]
