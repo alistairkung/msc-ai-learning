@@ -3,21 +3,30 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-09-29'
-  evidence_through: '2026-09-29'
+  reviewed_on: '2026-09-30'
+  evidence_through: '2026-09-30'
   repository: alistairkung/msc-ai-learning
-  source_ref: b160d7d3efefdf65bd03874377aaa3a0caeac4ce
+  source_ref: 432bcfc3babd7e14a2b1c42eb6e3bde7255c51f7
   review_note: >-
-    Reconciled the current AIMS5701 Lecture 1 intro deck on 29 Sep. The live 2026
-    schedule now supersedes the stale public-description ordering: Search -> Bayesian
-    Networks -> HMM/Particle Filtering -> DL foundations -> modern AI areas. Classical
-    survey algorithms absent from the live 12-week map are removed from active AIMS5701
-    JIT planning. The 40% written midterm motivates cumulative W1-W5 cold retrieval.
+    Reconciled the 30 Sep AIMS5701 Search retrieval and Bayes Nets I pre-lecture
+    bridge while also preserving the moved Private Client Graph Case 01 decision
+    records from the parallel branch. Search and Bayesian-network evidence retain
+    their 30 Sep boundaries; the Private Client Graph change is evidence-location
+    preservation only and does not promote learning status.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: c14345344448878114e3bd563360d37085e976ac
+    sha: 401c741ab39188e3f7c28878ea304b391b97fa71
+  private_client_graph_decision_entities:
+    path: lesson_logs/ftec5660/private_client_graph/decisions/entity-identity-provenance-case-01.md
+    sha: 7ed7c7d8becf5dc78124317f5140b4881e90a794
+  private_client_graph_decision_ground_truth:
+    path: lesson_logs/ftec5660/private_client_graph/decisions/ground-truth-as-answer-key.md
+    sha: b079319d64568e37130024937b31a7c8b6261762
+  private_client_graph_decision_relationships:
+    path: lesson_logs/ftec5660/private_client_graph/decisions/relationship-primitives-case-01.md
+    sha: 230dbbd20fca99d7e3ce00e28eeeded0d6399c3c
   private_client_graph_case01:
     path: lesson_logs/ftec5660/private_client_graph_case01_design_2026_09_29.md
     sha: 808b60c5342ae227f49896c07b886bd30e2bdbd5
@@ -30,6 +39,9 @@ sources:
   receipt_completion:
     path: lesson_logs/ftec5660/hw1_receipt_chain_completion_2026_09_25.md
     sha: 2b9cce5c5f592a4fd6e36e1b4f111cd954ce6a94
+  aims5701_prelecture_20260930:
+    path: lesson_logs/aims5701/lecture03_prelecture_retrieval_2026_09_30.md
+    sha: ca16ab0924fbf665ce4ce8754aa36cb83fdf2814
   probability_bridge:
     path: foundations/probability_statistics/bayesian_network_probability_bridge.md
     sha: 80d315910b5cf28b632b89257295805465e64d67
@@ -38,7 +50,7 @@ sources:
     sha: d9234fca5749d0cc5ea11e360eb2a6c6ce83cf3d
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 4ba0e1a2c8ac4d37efa21c9935b0d0a9c92adf86
+    sha: 586708c23431fd042cda91fcc8517dcc7db0b492
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
@@ -168,17 +180,18 @@ topics:
     review: recorded
     action: retrieve
     evidence: >-
-      Lesson 33 records a passing guided UCS implementation. On 23 Sep delayed
-      retrieval recovered lowest-g selection and cheaper-route replacement after one
-      initial UCS/A* heuristic mix-up; goal-popped optimality was then corrected and
-      immediately retrieved in recap.
+      Lesson 33 records a passing guided UCS implementation. On 30 Sep delayed
+      midterm retrieval recovered lowest-g selection cold. Optimality was initially
+      misrecalled as false, then reconstructed from the fact that a popped goal has the
+      smallest frontier g and non-negative edges cannot later reduce a more expensive
+      route below it.
     boundary: >-
-      Heap/API implementation remains guided rather than cold-independent. The learner
-      initially thought UCS used a heuristic and initially thought first discovery of
-      the goal was sufficient; non-negative-cost assumptions still need consolidation.
-    next: Briefly retrieve why goal-popped matters and cost assumptions; use a later changed weighted-graph blank-file implementation only as an operational spot check, not an immediate full search rewrite.
-    sources: [search_lesson33, search_guarantees_20260923, state]
-    evidence_on: '2026-09-23'
+      Heap/API implementation remains guided rather than cold-independent. The 30 Sep
+      guarantee was recoverable by reasoning but not initially recalled correctly;
+      non-negative-cost assumptions still need spaced retrieval.
+    next: Cold-retrieve the goal-popped/non-negative-cost optimality argument in a later mixed Search check; do not replay the full UCS implementation.
+    sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, state]
+    evidence_on: '2026-09-30'
     depends_on: [bfs]
   astar:
     name: A* search
@@ -188,22 +201,23 @@ topics:
     review: recorded
     action: maintain
     evidence: >-
-      Lesson 33 records guided A* implementation. On 23 Sep delayed retrieval recovered
-      g, h, f and goal-popped reasoning. On 24 Sep the learner correctly classified
-      changed consistency examples, reconstructed consistency=>admissibility on a changed
-      path, reconstructed the A* blocking chain f(n)<=f(A)<f(B) with scaffolding, and
-      connected consistency=>nondecreasing f=>safe permanent closing.
+      Lesson 33 records guided implementation and 24 Sep records the first deep proof
+      reconstruction. On 30 Sep delayed retrieval recovered g/h/f, admissibility and the
+      meaning of consistency cold. The A* blocking proof was rebuilt and then transferred
+      to changed costs: admissibility bounds an optimal-path frontier node by
+      f(n)<=C*, while a suboptimal goal has h=0 and f>C*.
     boundary: >-
-      Implementation remains guided. The 24 Sep proof work materially improved the
-      conceptual model, but the first f(n)<=f(A) step and admissibility's exact role
-      needed support. This is guided proof reconstruction, not delayed cold theorem mastery.
+      Implementation remains guided. The proof is materially stronger but not yet cold
+      theorem mastery: after the break the admissibility inequality was flipped once,
+      h*(n)=C*-g(n) was twice confused with the bound on f(n), and
+      consistency=>admissibility still needed scaffolding before the final changed proof
+      was produced independently apart from a notation typo.
     next: >-
-      Move A* out of the immediate JIT lane. After spacing, cold-reconstruct the local
-      consistency condition, consistency=>admissibility and the blocking argument from
-      f(n)<=f(A)<f(B); use a changed weighted-graph implementation only as an occasional
-      operational spot check.
-    sources: [search_lesson33, search_guarantees_20260923, state]
-    evidence_on: '2026-09-24'
+      Keep A* in spaced midterm retrieval. Later cold-reconstruct admissibility,
+      consistency=>admissibility and the blocking inequality f(n)<=C*<f(G) without
+      scaffolding; no full implementation replay is needed.
+    sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, state]
+    evidence_on: '2026-09-30'
     depends_on: [ucs]
   prompt_chaining:
     name: Prompt chaining
@@ -513,29 +527,33 @@ topics:
   bayesian_networks:
     name: Bayesian networks — representation, independence, inference & sampling
     area: Classical AI
-    concept: taught
+    concept: demonstrated
     performance: guided
     review: recorded
     action: retrieve
     evidence: >-
-      The 28 Sep JIT bridge introduced DAGs/parents, CPTs, conditional independence,
-      local joint factorisation, marginalisation, simple exact inference and
-      forward/prior-sampling intuition. On a changed Exercise->Energy->Focus problem,
-      the learner independently identified Energy as hidden and computed
-      P(Focus=T|Exercise=T)=(0.7*0.8)+(0.3*0.2)=0.62.
+      The 30 Sep delayed pass recovered joint/conditional notation, conditional-
+      independence meaning, DAG parent reading, local factorisation and marginalisation
+      definition cold. Hidden-variable inference initially failed at role identification,
+      then transferred on a changed Study->Prepared->Pass problem after population-flow
+      repair. New guided work covered chain/fork/collider, explaining away, observed
+      collider descendants, multi-path d-separation, rejection sampling and likelihood
+      weighting; a two-evidence likelihood-weighting sample produced w=0.16 independently.
     boundary: >-
-      This is same-session introductory evidence only. One DAG edge was misread during
-      the final factorisation check, marginalisation wording needed refinement and one
-      sampling threshold was initially inverted. No delayed retrieval yet. Chain/fork/
-      collider graphical independence, variable elimination and sampling with evidence
-      remain untaught.
+      This is mixed delayed and same-session evidence, not blanket mastery. Applying
+      marginalisation initially failed despite the definition being retained; the first
+      abstract independence table and first d-separation exercise reversed the
+      chain/fork observed rule before repair. Likelihood weighting and variable-
+      elimination intuition are pre-reading, not live Lecture 3 coverage. The released
+      Bayes Nets I deck confirms representation + independence only.
     next: >-
-      Wednesday: cold-retrieve today's material first, then extend likely lecture-facing
-      coverage through chain/fork/collider structure, exact-inference/variable-elimination
-      intuition and rejection sampling if time permits.
-    sources: [bayes_jit_20260928, probability_bridge, state, syllabus]
-    evidence_on: '2026-09-28'
+      Attend Lecture 3, then cold-check DAG/CPT semantics, factorisation, the local
+      Markov property, chain/fork/collider and one multi-path d-separation query. Park
+      sampling/variable-elimination as future runway until live teaching brings them in.
+    sources: [bayes_jit_20260928, probability_bridge, aims5701_prelecture_20260930, state, syllabus]
+    evidence_on: '2026-09-30'
     depends_on: [bayes]
+
   markov:
     name: Markov chains
     area: Math foundations
@@ -599,24 +617,25 @@ topics:
     review: recorded
     action: maintain
     evidence: >-
-      The 23 Sep blocks established completeness/optimality and BFS/DFS complexity
-      intuition. The 24 Sep post-lecture sweep verified state abstraction, graph-vs-tree,
-      greedy, relaxed heuristics/dominance and graph-search duplicate handling. Iterative
-      deepening needed one reteach of repeated depth-limited DFS, after which the learner
-      correctly explained why repeated shallow work is cheap relative to deeper
-      exponential growth. A* guarantee proofs were then reconstructed in depth.
+      The 30 Sep first cumulative midterm-retention pass recovered BFS/DFS/UCS/Greedy/A*
+      frontier policies, g/h/f, admissibility and consistency meaning without notes.
+      Changed frontier ordering was clean. UCS optimality and Greedy completeness were
+      initially misrecalled, then repaired by reasoning from frontier order and an
+      infinite low-h branch. A* blocking was reconstructed in depth.
     boundary: >-
-      The reconciliation is sufficient to close the immediate Lecture 2 JIT gap, but
-      proof mastery is not cold-independent. Iterative-deepening mechanism was not
-      initially retained, exact theorem assumptions are not memorised, and the A*
-      blocking proof required scaffolding.
+      Core search selection is durable, but guarantee/proof recall is uneven. Greedy
+      completeness and UCS optimality were not initially correct; the A* proof still
+      needed repair around inequality direction and h* versus f. Complexity formulas,
+      graph-search closing/reopening and iterative deepening were not all retested in
+      this one-hour pass.
     next: >-
-      Search now moves to spaced maintenance. Later use a short changed-example check of
-      consistency=>admissibility, f(n)<=f(A)<f(B), safe closing, and BFS/DFS complexity;
-      do not repeat the whole lecture or all four search implementations.
-    sources: [search, search_lesson33, search_guarantees_20260923, state]
-    evidence_on: '2026-09-24'
+      Maintain through short mixed midterm retrieval. Next Search check should be
+      unlabeled and target guarantees/proofs plus one complexity/graph-search question,
+      not another full lecture replay.
+    sources: [search, search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, state]
+    evidence_on: '2026-09-30'
     depends_on: []
+
   scientific_python:
     <<: *new
     name: Scientific Python & representations
@@ -634,12 +653,6 @@ topics:
     area: Model building
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
     depends_on: [decision_trees]
-  bayesian_networks:
-    <<: *new
-    name: Bayesian networks & inference
-    area: Model building
-    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
-    depends_on: [bayes, joint_moments]
   hmm:
     <<: *new
     name: Hidden Markov Models
@@ -728,25 +741,31 @@ topics:
 lanes:
 - id: continue
   label: Continue next · AIMS5701
-  title: Search midterm retrieval -> Bayesian-networks JIT
-  summary: The live 2026 deck confirms the first-five-week sequence. Start with a real delayed Search retrieval for cumulative midterm retention, then cold-retrieve and extend the 28 Sep Bayesian-network bridge.
+  title: Attend Bayes Nets I -> post-lecture retrieval -> HMM diagnostic
+  summary: The 30 Sep Search retention pass and BN pre-lecture bridge are complete. The released Lecture 3 deck confirms representation + independence only; reconcile live emphasis next, then diagnose Markov-chain recall before HMM work.
   target: bayesian_networks
   tasks:
-  - title: Cold-retrieve Search
-    when: First hour Wednesday
-    topics: [bfs, dfs, ucs, astar, search_complexity]
-    detail: >-
-      Treat this as cumulative 40%-midterm retention evidence: reconstruct
-      BFS/DFS/UCS/Greedy/A*, guarantees, complexity and graph-search details without
-      notes or premature rescue; finish with mixed unlabeled questions.
-  - title: Cold-retrieve Bayesian-network bridge
-    when: Second hour Wednesday
+  - title: Attend and reconcile Bayes Nets I
+    when: 30 Sep lecture + next retrieval block
     topics: [bayes, bayesian_networks]
-    detail: Retrieve conditional/joint probability, Bayes derivation, independence, DAG/CPT factorisation, marginalisation, one inference problem and sampling before opening the summary.
-  - title: Extend likely lecture coverage
-    when: Remaining Wednesday block
+    detail: >-
+      Listen rather than pre-study further. Afterwards cold-check DAG/CPT semantics,
+      factorisation, the local Markov property, chain/fork/collider, explaining away and
+      one multi-path d-separation query against the actual lecture emphasis.
+  - title: Keep sampling runway parked
+    when: Until live Bayes-net teaching requires it
     topics: [bayesian_networks]
-    detail: Prioritise chain/fork/collider independence, variable-elimination intuition and rejection sampling/sampling with evidence; treat these as predicted until the live deck confirms scope.
+    detail: >-
+      Rejection sampling, likelihood weighting and variable-elimination intuition were
+      useful 30 Sep extensions but are absent from the Bayes Nets I deck. Preserve them
+      as same-session guided evidence without treating them as current lecture scope.
+  - title: Diagnose Markov-chain recall
+    when: After Lecture 3 reconciliation
+    topics: [markov, hmm, particle_filtering]
+    detail: >-
+      Test remembered Markov-chain concepts before teaching HMMs. Rebuild only observed
+      gaps and keep the HMM/particle-filtering sequence tentative until newer live
+      material confirms it.
 - id: parallel
   label: Parallel block · AIMS5702
   title: Lecture-break consolidation -> CNN bridge
@@ -790,19 +809,21 @@ courses:
       anchors: [bfs, dfs, ucs, astar]
       remaining: [search_complexity]
       note: >-
-        Actual Lecture 2 scope is reconciled. The 30 Sep first-hour cold call is now
-        deliberate cumulative midterm-retention evidence, including Greedy and mixed
-        unlabeled questions rather than another implementation replay.
+        The 30 Sep delayed midterm pass recovered frontier policies and core heuristic
+        definitions cold. UCS/Greedy guarantees and the A* blocking proof remain spaced-
+        retrieval targets; do not replay implementations.
       scope: mapped
       due_on: null
     - week: '3'
-      title: Bayesian networks — representation, independence, inference and sampling
+      title: Bayes Nets I — representation and independence
       anchors: [bayes, distributions, joint_moments]
       remaining: [bayesian_networks]
       note: >-
-        The 28 Sep JIT bridge gives introductory guided evidence only. Cold-retrieve it
-        on 30 Sep before extending likely lecture-facing independence, inference and
-        sampling coverage.
+        The released Lecture 3 deck confirms representation + independence: probability
+        review, DAG/CPT semantics, factorisation, conditional independence, canonical
+        triples and d-separation. The 30 Sep pre-lecture block now gives delayed
+        factorisation/marginalisation evidence plus guided d-separation. Sampling and
+        variable-elimination extensions are not in this deck and stay parked as runway.
       scope: mapped
       due_on: null
     - week: '4'

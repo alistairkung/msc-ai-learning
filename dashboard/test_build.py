@@ -140,6 +140,14 @@ def test_unknown_is_not_failed_and_overview_is_not_a_backlog(data):
     assert 'other_agents' not in data['courses']['AIMS5701']['weeks'][1]['remaining']
 
 
+def test_learning_progress_has_no_duplicate_topic_ids():
+    raw = DATA_PATH.read_text(encoding='utf-8')
+    topics_section = raw.split('\ntopics:\n', 1)[1].split('\nlanes:\n', 1)[0]
+    topic_ids = re.findall(r'^  ([a-z0-9_]+):\s*$', topics_section, flags=re.M)
+    duplicates = sorted({key for key in topic_ids if topic_ids.count(key) > 1})
+    assert duplicates == [], f'duplicate topic ids: {duplicates}'
+
+
 def test_original_topic_ids_preserved(data):
     old = {'python_fluency','dsa_patterns','numpy','pandas','linear_algebra','calculus',
            'scientific_python','probability','linear_regression','logistic_regression',
@@ -154,6 +162,8 @@ def test_actual_event_dates_preserved(data):
     assert data['topics']['bfs']['evidence_on'] == '2026-09-06'
     assert data['topics']['prompt_chaining']['evidence_on'] == '2026-09-17'
     assert data['topics']['bayes']['evidence_on'] == '2026-09-28'
+    assert data['topics']['bayesian_networks']['evidence_on'] == '2026-09-30'
+    assert data['topics']['bayesian_networks']['performance'] == 'guided'
     assert data['topics']['real_data_classification']['performance'] != 'independent'
 
 
