@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-09-30'
   evidence_through: '2026-09-30'
   repository: alistairkung/msc-ai-learning
-  source_ref: d1a8383d41c10d852f3a76ca7dfa994df7142c73
+  source_ref: 432bcfc3babd7e14a2b1c42eb6e3bde7255c51f7
   review_note: >-
     Reconciled the 30 Sep AIMS5701 Search retrieval and Bayes Nets I pre-lecture
     bridge while also preserving the moved Private Client Graph Case 01 decision
