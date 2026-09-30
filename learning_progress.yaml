@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-09-30'
   evidence_through: '2026-09-30'
   repository: alistairkung/msc-ai-learning
-  source_ref: b160d7d3efefdf65bd03874377aaa3a0caeac4ce
+  source_ref: e822c5988ed058f66f57df08686bff95708bdf95
   review_note: >-
     Reconciled the 30 Sep AIMS5701 Search retrieval and Bayes Nets I pre-lecture
     bridge. Search now has delayed midterm-retention evidence with specific guarantee/
