@@ -9,17 +9,24 @@ meta:
   source_ref: d1a8383d41c10d852f3a76ca7dfa994df7142c73
   review_note: >-
     Reconciled the 30 Sep AIMS5701 Search retrieval and Bayes Nets I pre-lecture
-    bridge. Search now has delayed midterm-retention evidence with specific guarantee/
-    proof fragilities preserved. Bayesian-network evidence now includes delayed
-    factorisation/marginalisation retrieval plus guided chain/fork/collider,
-    d-separation and likelihood-weighting transfer. The released Lecture 3 deck narrows
-    confirmed live scope to representation + independence; sampling/inference extensions
-    are parked as future runway.
+    bridge while also preserving the moved Private Client Graph Case 01 decision
+    records from the parallel branch. Search and Bayesian-network evidence retain
+    their 30 Sep boundaries; the Private Client Graph change is evidence-location
+    preservation only and does not promote learning status.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: d8b1bb08a41329b9c42b56c17cbedaf095cd1889
+    sha: 401c741ab39188e3f7c28878ea304b391b97fa71
+  private_client_graph_decision_entities:
+    path: lesson_logs/ftec5660/private_client_graph/decisions/entity-identity-provenance-case-01.md
+    sha: 7ed7c7d8becf5dc78124317f5140b4881e90a794
+  private_client_graph_decision_ground_truth:
+    path: lesson_logs/ftec5660/private_client_graph/decisions/ground-truth-as-answer-key.md
+    sha: b079319d64568e37130024937b31a7c8b6261762
+  private_client_graph_decision_relationships:
+    path: lesson_logs/ftec5660/private_client_graph/decisions/relationship-primitives-case-01.md
+    sha: 230dbbd20fca99d7e3ce00e28eeeded0d6399c3c
   private_client_graph_case01:
     path: lesson_logs/ftec5660/private_client_graph_case01_design_2026_09_29.md
     sha: 808b60c5342ae227f49896c07b886bd30e2bdbd5
