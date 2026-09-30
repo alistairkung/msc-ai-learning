@@ -24,8 +24,8 @@ The live deck frames AIMS5701 in three stages: (1) selected pre-deep-learning AI
 | Week | Live 2026 topic | Current readiness | Evidence / existing hook | Main gap before lecture |
 |---|---|---|---|---|
 | W1 | Introduction, logistics, intelligence from computation vs. data | **Amber/Green** | Lecture 1 introduces rational-agent framing plus ML as learned input→output mapping and shallow→deep learned representations | Quiz-oriented retrieval later; do not invent a formal-logic week that is absent from the live deck |
-| W2 | Search: uninformed search, informed search, etc. | **Green/Amber** | BFS/DFS reactivated; UCS/A* guided implementations exist; 24 Sep reconciliation covered actual Lecture 2 gaps, guarantees and safe-closing logic with support | 1h delayed cold retrieval on 30 Sep as first cumulative midterm-retention pass; include Greedy and mixed unlabeled questions |
-| W3 | Bayesian networks: representation, independence, inference and sampling | **Amber/Green introductory** | 28 Sep JIT retrieved conditional/joint probability and derived Bayes; introduced DAGs/CPTs, conditional independence, factorisation, marginalisation, simple inference and forward sampling | 30 Sep cold retrieval, then chain/fork/collider independence, deeper inference/variable-elimination intuition and sampling with evidence as time/course scope warrants |
+| W2 | Search: uninformed search, informed search, etc. | **Green/Amber** | 30 Sep delayed retrieval recovered all five frontier policies, g/h/f, admissibility and consistency meaning; UCS/Greedy guarantees and A* blocking proof were reconstructed through reasoning | Keep in cumulative midterm rotation; later cold-check UCS/Greedy guarantees and A* blocking without scaffolding rather than replaying implementations |
+| W3 | Bayes Nets I — representation and independence | **Green/Amber guided** | 30 Sep delayed retrieval recovered notation, parent reading, factorisation and marginalisation definition; changed inference was repaired, then chain/fork/collider, explaining away and multi-path d-separation were demonstrated with some early rule reversals | Attend live Lecture 3, then cold-check local Markov wording and one changed d-separation graph; sampling/variable-elimination were useful pre-reading but are absent from this deck |
 | W4 | Hidden Markov Models and Particle Filtering | **Amber/Red** | Historical probability foundation; remembered Markov-chain study but recoverable worked evidence is weak | Diagnose Markov-chain recall first, then bridge BN inference/sampling into hidden state, observations, filtering and particle approximation |
 | W5 | Basics of Machine Learning: models, loss, optimization, Backpropagation, training a Neural Network | **Green/Amber anchors** | Existing regression/classification, manual autograd/GD, chain-rule/backprop and PyTorch training-loop work | Reconcile against live Week 5 deck when available; likely retrieval/notation consolidation rather than classical-algorithm survey |
 | W6 | Computer Vision: Convolution Neural Networks | **Red/Amber** | Tensor/shape base; AIMS5702 CNN bridge planned | Image tensor semantics, convolution/locality/weight sharing and output-shape reasoning |
@@ -46,11 +46,11 @@ Use two loops:
 
 ### Fundamentals next priorities
 
-1. **30 Sep first hour: Search cold retrieval.** Treat this as real delayed midterm evidence: BFS/DFS/UCS/Greedy/A*, frontier ordering, guarantees, complexity, admissibility/consistency, graph-vs-tree search and safe closing. Avoid notes/rescue until the diagnostic has exposed what survived.
-2. **Then Bayesian-network cold retrieval and extension.** Retrieve the 28 Sep bridge before opening the summary; repair only failures; extend likely lecture-facing coverage without trying to master the whole graphical-model field.
-3. **HMM/particle filtering is next, not trees.** After the BN lecture, diagnose Markov-chain recall before deciding how much rebuilding is needed.
-4. **Remove classical survey algorithms from the active AIMS5701 roadmap.** Trees/forests/KNN/K-means/SVM/boosting are absent from the live 12-week deck; do not spend AIMS5701 JIT time on them unless later live material brings them back.
-5. **Week 5 is the deep-learning bridge.** Existing model/loss/optimisation/backprop/NN-training evidence should be retrieved and reconciled against the live lecture rather than replaced by an assumed classical-ML block.
+1. **Attend Lecture 3: Bayes Nets I.** The released deck confirms the immediate live scope is representation + independence, not sampling/variable elimination.
+2. **Post-lecture retrieval:** cold-check DAG/CPT semantics, factorisation, the local Markov property, chain/fork/collider, explaining away and one multi-path d-separation query. Repair only observed failures.
+3. **Keep sampling/inference extensions parked as runway.** Rejection sampling, likelihood weighting and variable-elimination intuition were introduced pre-lecture on 30 Sep but are not in the Bayes Nets I deck; do not infer their live slot yet.
+4. **HMM/particle filtering remains the next tentative term-map item.** After Lecture 3 reconciliation, diagnose Markov-chain recall before deciding how much rebuilding is needed; do not move the live sequence until newer course material confirms it.
+5. **Classical survey algorithms stay out of the active AIMS5701 roadmap.** Trees/forests/KNN/K-means/SVM/boosting are absent from the live 12-week deck unless later live material explicitly reintroduces them.
 
 ---
 
