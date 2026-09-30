@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-09-29. Learning evidence through 2026-09-29._
+_Last maintained: 2026-09-30. Learning evidence through 2026-09-30._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -8,7 +8,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **AIMS5701: Search midterm retrieval → Bayesian-networks JIT** | The live 2026 deck confirms W2 Search, W3 Bayesian Networks, W4 HMM/Particle Filtering and W5 DL foundations. Start 30 Sep with a real delayed Search retrieval, then cold-retrieve/extend the BN bridge. |
+| Continue | **AIMS5701: attend Bayes Nets I → post-lecture retrieval → HMM diagnostic** | The 30 Sep pre-lecture block completed the first Search midterm-retention pass and extended Bayesian-network readiness through d-separation. The released Lecture 3 deck is narrower than predicted: representation + independence only. Reconcile the live lecture next, then diagnose Markov-chain recall before HMM work. |
 | Parallel | **AIMS5702 lecture break: consolidate → CNN bridge** | Lecture 3 is complete. Use delayed retrieval on the observed tensor/PyTorch weak edges and one changed classification pipeline, then extend locality/weight-sharing into CNN shapes/mechanics ahead of 15 Oct. |
 | Protect | **FTEC5660 Private Client Graph: freeze Case 01 contract → first extraction** | The 29 Sep design session produced the six-edge answer key, realistic attendance-note source and a draft expected-extraction proposal. Next review that proposal, freeze only the minimum contract, then attempt the smallest structured extraction; do not add agentic stages before observed failures justify them. |
 
@@ -29,6 +29,22 @@ The strongest learning evidence is architectural boundary-setting rather than fr
 Source-fixture realism improved after domain feedback. A too-short synthetic note was replaced by a roughly 2–3 page-style one-hour fact-finding attendance note whose extra prose comes from scope, questioning, clarification, recap and next steps rather than extra graph facts. The source was checked against the six-edge answer key. One sufficient exact source passage per relationship is enough for provenance; exhaustive repeated-mention detection is not required.
 
 Do not over-promote this session. Trust-domain vocabulary and several benchmark-design distinctions were guided/new, and no extraction pipeline has yet been implemented or tested. The draft `expected_extraction.json` in the hackathon repository is intentionally unresolved. Next session: review its field/ID/evidence choices, freeze the smallest Case 01 contract, then run the first structured extraction before considering retries, routing, reflection or other agentic complexity.
+
+## AIMS5701 — Search retrieval + Bayes Nets I pre-lecture bridge, 30 Sep
+
+Detailed source: `lesson_logs/aims5701/lecture03_prelecture_retrieval_2026_09_30.md`.
+
+The first deliberate cumulative midterm-retention pass on Search produced meaningful delayed evidence. BFS/DFS/UCS/Greedy/A* frontier policies, `g/h/f`, admissibility and the intuition for consistency returned cold. UCS optimality was initially misrecalled as non-optimal and Greedy as complete; both were repaired by reasoning from frontier order and infinite-branch counterexamples. The A* blocking proof was reconstructed in depth. Its overall structure now transfers, but the admissibility inequality was flipped once after the break and `h*(n)` (remaining cost) was twice confused with the bound on `f(n)` (whole estimated path). Final changed-proof performance was independent apart from a notation typo. Keep the proof in spaced retrieval rather than promoting theorem mastery.
+
+The 28 Sep Bayesian-network bridge also received its first delayed retrieval. Joint/conditional notation, conditional-independence meaning, DAG parent reading, local factorisation and the definition of marginalisation returned cold. Applying marginalisation to an unseen hidden-variable inference initially failed: the learner misidentified the hidden variable. Population-flow scaffolding repaired the operation, and a changed Study -> Prepared -> Pass problem then had evidence/hidden/query roles and both branches constructed independently, with only an arithmetic addition slip.
+
+New pre-lecture work covered forward sampling, rejection sampling and likelihood weighting through a population/dot model. The key likelihood-weighting idea became operational: force observed evidence for every sample, sample unobserved nodes normally, multiply a running weight by each evidence likelihood from the CPT, then estimate a posterior as weighted query mass divided by total weighted mass. A two-evidence changed example produced `w=0.16` independently, and the indicator-function estimator notation became readable. This is same-session guided transfer, not delayed mastery.
+
+Independence work progressed through chain, fork/common-cause and collider/common-effect structures, explaining away, observed descendants of colliders and multi-path d-separation. Concrete reasoning was strong, but the first abstract table reversed the observed chain/fork cases and the first d-separation exercise repeated the fork reversal; both were repaired immediately, after which changed multi-path examples were solved correctly. Treat d-separation as newly demonstrated/guided.
+
+The newly released **Lecture 3: Bayes Nets I** deck materially narrows tonight's confirmed scope to **representation** and **independence**. It reviews joint/marginal/conditional probability and Bayes, defines Bayes-net semantics as a directed acyclic graph plus local conditional probabilities/CPTs, develops joint factorisation, then covers conditional independence, chain/common-cause/common-effect triples and d-separation. Sampling and variable elimination do not appear in this deck. Keep today's sampling/inference work as useful future runway; do not infer where that material moved until newer live teaching resolves it.
+
+Next: attend Lecture 3 without more pre-study. In the next retrieval block, reconcile live emphasis and cold-check DAG/CPT semantics, factorisation, the local Markov property (“a node is conditionally independent of its non-descendants given its parents”), chain/fork/collider and one changed d-separation graph. Then diagnose Markov-chain recall before HMM / particle-filtering JIT.
 
 ## AIMS5701 — live 2026 course map confirmed, 29 Sep
 
