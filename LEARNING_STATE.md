@@ -20,7 +20,7 @@ Canonical structured copy: `deadlines.yaml`. AIMS5702 Assignment 1 was submitted
 
 ## FTEC5660 — Private Client Graph Case 01 design, 29 Sep
 
-Detailed source: `lesson_logs/ftec5660/private_client_graph_case01_design_2026_09_29.md`.
+Detailed source: `lesson_logs/ftec5660/private_client_graph_case01_design_2026_09_29.md`. Rich personal decision records are preserved under `lesson_logs/ftec5660/private_client_graph/decisions/` rather than the shared hackathon repository.
 
 A focused ~90-minute hackathon session deliberately stopped before LangChain implementation and transferred the receipts design discipline into a new relationship-extraction problem. Case 01 now has a six-edge graph answer key across Alice Chen, David Chen, Bob Chen, Carol Wong and the Evergreen Family Trust; the initial primitives are `parent_of`, `sibling_of`, `spouse_of`, `settlor_of`, `trustee_of` and `beneficiary_of`.
 
