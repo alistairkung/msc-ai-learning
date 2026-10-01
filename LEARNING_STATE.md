@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-09-30. Learning evidence through 2026-09-30._
+_Last maintained: 2026-10-01. Learning evidence through 2026-10-01._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -9,7 +9,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
 | Continue | **AIMS5701: attend Bayes Nets I → post-lecture retrieval → HMM diagnostic** | The 30 Sep pre-lecture block completed the first Search midterm-retention pass and extended Bayesian-network readiness through d-separation. The released Lecture 3 deck is narrower than predicted: representation + independence only. Reconcile the live lecture next, then diagnose Markov-chain recall before HMM work. |
-| Parallel | **AIMS5702 lecture break: consolidate → CNN bridge** | Lecture 3 is complete. Use delayed retrieval on the observed tensor/PyTorch weak edges and one changed classification pipeline, then extend locality/weight-sharing into CNN shapes/mechanics ahead of 15 Oct. |
+| Parallel | **AIMS5702 lab readiness: epoch/eval orchestration → CNN bridge** | The 1 Oct delayed sweep confirmed broad Lecture 1–3 retention and repaired unequal-rank broadcasting plus stepped-slice stride/offset reasoning. The remaining practical gap is epoch/evaluation orchestration and metric accumulation; close that with one changed pipeline, then move into CNN shapes/mechanics ahead of 15 Oct. |
 | Protect | **FTEC5660 Private Client Graph: freeze Case 01 contract → first extraction** | The 29 Sep design session produced the six-edge answer key, realistic attendance-note source and a draft expected-extraction proposal. Next review that proposal, freeze only the minimum contract, then attempt the smallest structured extraction; do not add agentic stages before observed failures justify them. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
@@ -17,6 +17,20 @@ These lanes coexist; they are not one sequential queue. Delivery dates can tempo
 ## Delivery constraints — separate from learning evidence
 
 Canonical structured copy: `deadlines.yaml`. AIMS5702 Assignment 1 was submitted on 21 Sep and FTEC5660 receipts homework was submitted on 25 Sep. The next recorded delivery pressure is the FTEC5660 solo hackathon (19 Oct). Keep delivery planning distinct from `learning_progress.yaml`.
+
+## AIMS5702 — lecture-break consolidation + lab readiness, 1 Oct
+
+Detailed source: `lesson_logs/aims5702/lecture_break_consolidation_lab_readiness_2026_10_01.md`.
+
+A broad delayed retrieval sweep across Lectures 1–3 was productive. Tensor-axis/reduction semantics, right-aligned broadcasting, singleton insertion, pairwise dot products/einsum, reshape/flatten/transpose distinctions, cross-entropy intuition, Dataset/DataLoader roles, train/validation/test roles and the core batch-training dependency chain all returned with either independent answers or quick repair.
+
+The most substantial repair was stepped-slice storage reasoning. The learner already understood stride/offset/contiguity conceptually, but repeatedly mixed slice stop, selected-count/shape and step when calculating a view's stride. After ~30 minutes of changed examples the durable mapping stabilised as **start -> base offset, step -> new stride, count -> new shape**, and the final changed example was solved cleanly end to end. Keep this as same-session repaired evidence rather than delayed-independent mastery.
+
+Other narrow weak edges remain: integer index versus length-one slice, PyTorch `Linear.weight` storage orientation, and formal objective notation. These all responded to semantic grounding rather than requiring conceptual reteaching.
+
+The changed multiclass lab-style pipeline reached a useful boundary. Data/split shapes, `TensorDataset`, loader intent, `nn.Sequential(6 -> 12 -> ReLU -> 3)`, CrossEntropyLoss, SGD intent and the core `zero_grad -> forward -> loss -> backward -> step` sequence were reconstructed. API names needed small corrections (`model(X)`, `loss.backward()`), and validation/evaluation orchestration remained hazy: epoch wrapping, `model.train()/eval()`, `torch.no_grad()`, using current validation batches, `argmax` predictions and epoch-level loss/accuracy accumulation were not independently reconstructed.
+
+Next AIMS5702 block: do **not** repeat the broad sweep. Use a nearly complete changed script and fill only the epoch/eval/metric pieces, then reconstruct the whole small pipeline once with minimal prompting. If stable, begin the bounded CNN bridge.
 
 ## FTEC5660 — Private Client Graph Case 01 design, 29 Sep
 

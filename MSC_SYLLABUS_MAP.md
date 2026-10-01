@@ -62,7 +62,7 @@ Use two loops:
 |---|---|---|---|---|
 | W1 | Intro + simple ML example | **Green** | sklearn classification/regression plus completed Lesson 31 real-data train/validation/test pipeline | Retrieve and apply the workflow in a new context |
 | W2 | Vector, matrix, tensor ops; NumPy | **Green/Amber** | Completed 2025 JHU linear algebra foundation + Repo 10–17 + 27 + Lesson 31 scaling/axis/tensor conversion; 17 Sep pairwise vectorisation; 18 Sep representation/interpolation bridge; 21 Sep Assignment 1 no-loop interpolation complete with all supplied tests green | Maintain via later changed notation-to-vectorisation retrieval; paired advanced indexing and dtype/device handling are not yet delayed-cold. Do not re-drill the completed assignment immediately |
-| W3 | Deep Learning Basics: image representation, linear classification, cross-entropy, gradient descent/SGD, MLPs, CNN motivation | **Green/Amber overall; CNN motivation Amber / implementation Red** | Lecture 3 completed 24 Sep after targeted preparation. Mini-quiz result was 6/8; observed misses were unequal-rank broadcasting and PyTorch Linear weight-storage orientation | During the lecture break, consolidate the sampled misses plus indexed/objective notation and PyTorch pipeline orchestration; then begin a bounded CNN bridge ahead of 15 Oct |
+| W3 | Deep Learning Basics: image representation, linear classification, cross-entropy, gradient descent/SGD, MLPs, CNN motivation | **Green/Amber overall; pipeline orchestration Amber; CNN motivation Amber / implementation Red** | Lecture 3 completed 24 Sep; the 1 Oct delayed sweep repaired unequal-rank broadcasting and stepped-slice stride/offset reasoning, and reconstructed most of a changed multiclass pipeline | Close the remaining epoch/eval/metric-orchestration gap with one changed script, then begin a bounded CNN bridge ahead of 15 Oct |
 | W4 | MLP, CNN, RNN | **MLP Green/Amber; CNN/RNN Red** | Repo 28–30 + Lesson 31 MLP workflow | CNN/RNN architecture intuition before W4; do not need mastery yet |
 | W5 | Housing-price prediction (Boston House Dataset) | **Amber/Green** | sklearn regression (23), MLP/MSE mechanics, completed Lesson 31 preprocessing/validation workflow | Transfer the same split/scaling/validation discipline to NN regression |
 | W6 | Data prep + data loading optimisation | **Amber/Green** | `TensorDataset`/`DataLoader`, mini-batches, shuffle retrieved again in Lesson 31 | Workers/pinning/loading efficiency are new |
@@ -75,9 +75,9 @@ Use two loops:
 
 ### AI in Practice next priorities
 
-1. **The 24 Sep pre-lecture bridge is complete.** Attend Lecture 3 and use the live lecture as the next evidence source; do not add more prep today.
-2. Preserve the actual fragile points from the prep: indexed `w_ij` notation/output-side shapes, prediction-vs-loss/objective notation, `TensorDataset`, batch-label shape, `zero_grad()` and validation `no_grad()`.
-3. Existing GD/SGD mechanics, train/validation/test roles, linear-stack/nonlinearity intuition and CNN locality/weight-sharing motivation are strong enough for lecture recognition. After class, record only new/changed gaps and let Friday return to receipts.
+1. **Lecture 1–3 broad consolidation is complete for this break.** Do not replay the whole sweep.
+2. Next lab-readiness block: fill only the epoch loop, `model.train()/eval()`, `torch.no_grad()`, batch predictions, metric accumulation and epoch reporting in a changed classifier; then reconstruct the full small pipeline once with minimal prompting.
+3. Keep three narrow retrieval items in the pool: integer index vs length-one slice, PyTorch `Linear.weight` orientation, and stepped slicing as **start -> offset, step -> stride, count -> shape**. If the changed pipeline is stable, begin the bounded CNN bridge.
 
 ### Lesson 31 readiness gain
 

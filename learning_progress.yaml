@@ -3,21 +3,21 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-09-30'
-  evidence_through: '2026-09-30'
+  reviewed_on: '2026-10-01'
+  evidence_through: '2026-10-01'
   repository: alistairkung/msc-ai-learning
-  source_ref: 432bcfc3babd7e14a2b1c42eb6e3bde7255c51f7
+  source_ref: a9c1c3d90b4a821b8b62aafedd325eddd6c3af18
   review_note: >-
-    Reconciled the 30 Sep AIMS5701 Search retrieval and Bayes Nets I pre-lecture
-    bridge while also preserving the moved Private Client Graph Case 01 decision
-    records from the parallel branch. Search and Bayesian-network evidence retain
-    their 30 Sep boundaries; the Private Client Graph change is evidence-location
-    preservation only and does not promote learning status.
+    Reconciled the 1 Oct AIMS5702 lecture-break consolidation and lab-readiness
+    diagnostic. Broad Lecture 1-3 concepts survived delayed retrieval, stepped-slice
+    stride/offset reasoning was repaired without promoting it to delayed-independent
+    mastery, and the remaining PyTorch gap is narrowed to epoch/evaluation/metric
+    orchestration before the bounded CNN bridge.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 401c741ab39188e3f7c28878ea304b391b97fa71
+    sha: b9adbd10e4a389df7e4efd22bd83e60d2fa1741e
   private_client_graph_decision_entities:
     path: lesson_logs/ftec5660/private_client_graph/decisions/entity-identity-provenance-case-01.md
     sha: 7ed7c7d8becf5dc78124317f5140b4881e90a794
@@ -50,7 +50,7 @@ sources:
     sha: d9234fca5749d0cc5ea11e360eb2a6c6ce83cf3d
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 586708c23431fd042cda91fcc8517dcc7db0b492
+    sha: 360e7a46fd9a96e047d638e24ddb526880dbd4e0
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
@@ -108,6 +108,9 @@ sources:
   aims5702_lecture03_live:
     path: lesson_logs/aims5702/lecture03_live_2026_09_24.md
     sha: 04eef0eef1a21cdda92554ad6291ff8b0dcd4ffe
+  aims5702_consolidation_20261001:
+    path: lesson_logs/aims5702/lecture_break_consolidation_lab_readiness_2026_10_01.md
+    sha: 39bd1cef9b3c56470c6ab1357efb213a0a35c5fb
   tensor_practice:
     path: practice/aims5702_assignment01/tensor_ops.py
     sha: bccf003b82636109fc25a26b14b8fefe68f9acd2
@@ -401,21 +404,22 @@ topics:
     review: recorded
     action: practice
     evidence: >-
-      Earlier work established broadcasting/reduction, pairwise loop/broadcast/einsum
-      implementations and guided stride/storage/indexing reasoning. The 24 Sep live
-      mini-quiz sampled these again: einsum, stride/storage-offset and advanced-indexing
-      copy behavior were reported correct, while unequal-rank broadcasting
-      (4,1,3) + (2,3) was incorrectly classified as incompatible.
+      The 1 Oct delayed sweep recovered axis/reduction semantics, unequal-rank
+      right-aligned broadcasting, singleton insertion, pairwise dot products/einsum,
+      reshape/flatten/transpose distinctions and view-versus-copy reasoning. The earlier
+      broadcasting quiz miss repaired cleanly. Stepped-slice storage reasoning required
+      substantial repair before one final changed example was solved correctly.
     boundary: >-
-      Tensor mechanics remain mixed rather than uniformly cold. The quiz is only a small
-      sample, and the unequal-rank miss shows that implicit leading singleton dimensions
-      still need delayed retrieval.
+      Tensor concepts are broadly retrievable, but stepped-slice execution is not yet
+      delayed-independent. The learner repeatedly mixed slice stop/count/shape with the
+      step before stabilising the rule start -> offset, step -> stride, count -> shape.
+      Integer indexing versus a length-one slice also remains a narrow recall trap.
     next: >-
-      During the lecture break, use a short changed set covering right-aligned
-      broadcasting, stride/offset and basic-slice versus advanced-indexing storage
-      behavior. Do not replay the completed interpolation assignment.
-    sources: [tensor_review, assignment1_pairwise, aims5702_lecture_reflection, assignment1_interpolation_bridge, tensor_practice, aims5702_lecture03_live, state]
-    evidence_on: '2026-09-24'
+      Do not replay the broad tensor sweep. Later sample one short changed stepped-slice
+      problem plus integer-index-versus-slice shape preservation; otherwise move study
+      time to PyTorch lab orchestration and then CNN mechanics.
+    sources: [tensor_review, assignment1_pairwise, aims5702_lecture_reflection, assignment1_interpolation_bridge, tensor_practice, aims5702_lecture03_live, aims5702_consolidation_20261001, state]
+    evidence_on: '2026-10-01'
     depends_on: []
   tensor_interpolation:
     name: Vectorised indexing & bilinear interpolation
@@ -440,43 +444,47 @@ topics:
     name: PyTorch training loop
     area: Model building
     review: recorded
-    action: retrieve
+    action: practice
     evidence: >-
-      Lesson 29 records nn.Linear, MSELoss, SGD and the training-loop structure. On
-      24 Sep delayed retrieval kept the epoch/batch/forward/loss/backward/step model
-      intact and mapped backward/step to formal GD/SGD, but optimizer.zero_grad() was
-      omitted twice and validation no_grad() needed prompting.
+      On 1 Oct the learner reconstructed Dataset/DataLoader setup, a 6 -> 12 -> ReLU -> 3
+      model, CrossEntropyLoss/SGD intent and the core batch-training order
+      zero_grad -> forward -> loss -> backward -> step. Epoch meaning and validation
+      concepts were understood, but orchestration and metric bookkeeping were not
+      independently produced.
     boundary: >-
-      Core optimisation semantics are stronger than orchestration/API recall. This
-      does not establish cold reconstruction of the whole training/validation pipeline
-      or optimiser theory beyond basic SGD mechanics.
+      Core training semantics are stronger than API/orchestration recall. model(X) and
+      loss.backward() needed API correction; validation first used whole X_val/y_val
+      inside the loader loop; argmax accuracy, epoch-level accumulation and reporting
+      were taught/shown. This is not a cold-independent end-to-end pipeline.
     next: >-
-      During the lecture break, reconstruct one changed classification pipeline and
-      explicitly translate equation-oriented weight shapes to PyTorch Linear storage.
-      Focus on the rusty orchestration details rather than replaying the whole lesson.
-    sources: [pipeline, aims5702_lecture03_session, aims5702_lecture03_live, state]
-    evidence_on: '2026-09-24'
+      Give a nearly complete changed classifier and have the learner fill only the epoch
+      loop, model.train()/eval(), torch.no_grad(), batch predictions, loss/accuracy
+      accumulation and epoch reporting. Then reconstruct the full small pipeline once
+      with minimal prompting before moving on.
+    sources: [pipeline, aims5702_lecture03_session, aims5702_lecture03_live, aims5702_consolidation_20261001, state]
+    evidence_on: '2026-10-01'
   mlp_classification:
     <<: *built
     name: MLP classification
     area: Model building
     review: recorded
-    action: retrieve
+    action: practice
     evidence: >-
-      Lesson 30 records a binary ReLU MLP with BCEWithLogitsLoss. On 24 Sep the learner
-      added a guided multiclass bridge: one-hot targets, true-class cross-entropy
-      intuition, dataset-objective notation and the algebraic reason nonlinear
-      activations prevent stacked linear layers collapsing to one linear map.
+      The 1 Oct delayed pass recovered multiclass true-class cross-entropy intuition and
+      built a guided 3-class 6 -> 12 -> ReLU -> 3 PyTorch model. Dataset-objective
+      notation was initially hazy but became readable after decomposing i, I_i,
+      f_theta(I_i), y_i and min_theta.
     boundary: >-
-      Multiclass loss/objective notation is same-session guided and had early indexing
-      slips. No multiclass PyTorch implementation was attempted. Sigmoid vs softmax
-      roles are not established Lecture 3 evidence.
+      Model architecture and loss choice are usable, but formal objective notation is
+      still a representation-translation target and the multiclass pipeline was guided
+      rather than independently implemented. Logits-as-class-scores and argmax
+      predictions required prompting during the lab-style reconstruction.
     next: >-
-      Lecture 3 is complete. Use the lecture break for delayed retrieval of multiclass
-      loss/objective notation inside one changed pipeline; then let CNN preparation
-      extend the existing MLP model rather than restarting it.
-    sources: [aims5702_lecture03_session, aims5702_lecture03_live, state, roadmap]
-    evidence_on: '2026-09-24'
+      Consolidate the same changed classifier through independent epoch/evaluation
+      orchestration, then let the CNN bridge extend this MLP foundation rather than
+      restarting classification from zero.
+    sources: [aims5702_lecture03_session, aims5702_lecture03_live, aims5702_consolidation_20261001, state, roadmap]
+    evidence_on: '2026-10-01'
   linear_algebra:
     <<: *history
     name: Linear algebra — overview
@@ -768,16 +776,20 @@ lanes:
       material confirms it.
 - id: parallel
   label: Parallel block · AIMS5702
-  title: Lecture-break consolidation -> CNN bridge
-  summary: Lecture 3 is complete. Consolidate observed tensor/PyTorch weak edges in one changed classification pipeline, then extend locality/weight-sharing into CNN mechanics ahead of 15 Oct.
+  title: Lab readiness -> CNN bridge
+  summary: The 1 Oct broad consolidation is complete. Close the remaining epoch/eval/metric-orchestration gap in one changed classifier, then extend locality/weight-sharing into CNN mechanics ahead of 15 Oct.
   target: pytorch_training
   tasks:
-  - title: Consolidate fragile edges
-    when: Lecture-break week
-    topics: [tensor_operations, pytorch_training, mlp_classification, real_data_classification]
-    detail: Revisit unequal-rank broadcasting, equation-vs-PyTorch Linear weight orientation, indexed/objective notation, TensorDataset/DataLoader, batch-label shapes, zero_grad/no_grad and view-vs-copy/stride mechanics.
+  - title: Close epoch/evaluation orchestration gap
+    when: Next AIMS5702 block
+    topics: [pytorch_training, mlp_classification, evaluation]
+    detail: Fill model.train/eval, epoch wrapping, torch.no_grad, current-batch validation, argmax predictions, metric accumulation and epoch reporting in a nearly complete changed script; then reconstruct the full small pipeline once with minimal prompting.
+  - title: Keep narrow tensor checks spaced
+    when: Short retrieval only
+    topics: [tensor_operations]
+    detail: Sample integer index vs length-one slice, Linear weight orientation and one stepped-slice start/step/count problem; do not replay the broad 1 Oct sweep.
   - title: Begin bounded CNN bridge
-    when: After consolidation is stable
+    when: After the changed pipeline is stable
     topics: [cnn]
     detail: Build from image tensor shapes to locality, shared weights, kernels/channels, stride/padding and output-shape reasoning. Keep implementation depth proportional to the 15 Oct lecture.
 - id: protect
@@ -959,11 +971,11 @@ courses:
       anchors: [pytorch_training, mlp_classification, calculus, evaluation]
       remaining: [cnn]
       note: >-
-        Lecture 3 is complete. Preparation plus live retrieval leave core
-        optimisation/nonlinearity intuition stronger than some representation and
-        PyTorch-orchestration details. Use the lecture break for targeted consolidation.
-        CNN remains in remaining because only motivation, not mechanics or
-        implementation, has been covered.
+        The 1 Oct delayed sweep broadly recovered Lecture 1-3 tensor/MLP concepts and
+        repaired the earlier unequal-rank broadcasting miss plus stepped-slice
+        stride/offset reasoning. The remaining lab-readiness gap is epoch/evaluation
+        orchestration and metric accumulation; CNN remains in remaining because only
+        motivation, not mechanics or implementation, has been covered.
       scope: mapped
       due_on: null
     - week: '4'
