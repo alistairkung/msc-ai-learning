@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-10-01'
   evidence_through: '2026-10-01'
   repository: alistairkung/msc-ai-learning
-  source_ref: 432bcfc3babd7e14a2b1c42eb6e3bde7255c51f7
+  source_ref: a9c1c3d90b4a821b8b62aafedd325eddd6c3af18
   review_note: >-
     Reconciled the 1 Oct AIMS5702 lecture-break consolidation and lab-readiness
     diagnostic. Broad Lecture 1-3 concepts survived delayed retrieval, stepped-slice
