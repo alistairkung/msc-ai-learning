@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-10-01. Learning evidence through 2026-10-01._
+_Last maintained: 2026-10-02. Learning evidence through 2026-10-02._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -10,7 +10,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 |---|---|---|
 | Continue | **AIMS5701: attend Bayes Nets I → post-lecture retrieval → HMM diagnostic** | The 30 Sep pre-lecture block completed the first Search midterm-retention pass and extended Bayesian-network readiness through d-separation. The released Lecture 3 deck is narrower than predicted: representation + independence only. Reconcile the live lecture next, then diagnose Markov-chain recall before HMM work. |
 | Parallel | **AIMS5702 lab readiness: epoch/eval orchestration → CNN bridge** | The 1 Oct delayed sweep confirmed broad Lecture 1–3 retention and repaired unequal-rank broadcasting plus stepped-slice stride/offset reasoning. The remaining practical gap is epoch/evaluation orchestration and metric accumulation; close that with one changed pipeline, then move into CNN shapes/mechanics ahead of 15 Oct. |
-| Protect | **FTEC5660 Private Client Graph: freeze Case 01 contract → first extraction** | The 29 Sep design session produced the six-edge answer key, realistic attendance-note source and a draft expected-extraction proposal. Next review that proposal, freeze only the minimum contract, then attempt the smallest structured extraction; do not add agentic stages before observed failures justify them. |
+| Protect | **FTEC5660 Private Client Graph: first structured extraction → inspect failure** | The 2 Oct review froze the raw LLM handoff as relationship candidates only; IDs, entity construction/typing and evidence deduplication stay deterministic. The first bounded implementation is now delegated behind that contract. Next get Case 01 source → `RelationshipCandidate[]` running, inspect the actual output, then earn any validation/retry complexity from observed failures. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
 
@@ -31,6 +31,22 @@ Other narrow weak edges remain: integer index versus length-one slice, PyTorch `
 The changed multiclass lab-style pipeline reached a useful boundary. Data/split shapes, `TensorDataset`, loader intent, `nn.Sequential(6 -> 12 -> ReLU -> 3)`, CrossEntropyLoss, SGD intent and the core `zero_grad -> forward -> loss -> backward -> step` sequence were reconstructed. API names needed small corrections (`model(X)`, `loss.backward()`), and validation/evaluation orchestration remained hazy: epoch wrapping, `model.train()/eval()`, `torch.no_grad()`, using current validation batches, `argmax` predictions and epoch-level loss/accuracy accumulation were not independently reconstructed.
 
 Next AIMS5702 block: do **not** repeat the broad sweep. Use a nearly complete changed script and fill only the epoch/eval/metric pieces, then reconstruct the whole small pipeline once with minimal prompting. If stable, begin the bounded CNN bridge.
+
+## FTEC5660 — Private Client Graph extraction contract + delegation boundary, 2 Oct
+
+Detailed decision records:
+- `lesson_logs/ftec5660/private_client_graph/decisions/extraction-contract-case-01-2026-10-02.md`
+- `lesson_logs/ftec5660/private_client_graph/decisions/ai-implementation-delegation-2026-10-02.md`
+
+Case 01's first-stage contract is now substantially simpler than the 29 Sep proposal. The LLM should emit only semantic relationship candidates containing `source_name`, `relationship_type`, `target_name` and exact `supporting_text`. It does not emit entity/evidence IDs, a separate entity list, or entity types. Deterministic code will derive unique endpoint entities, infer person/trust type from relationship semantics, detect conflicts, assign internal IDs, deduplicate evidence and build the normalised graph.
+
+The learner actively challenged the initial idea of separate LLM entity extraction and pushed to maximise deterministic work. A neutral third-agent review was used to break the tie and independently recommended relationship-only extraction for Case 01. The future trigger for a separate entity-extraction path is now explicit: entity information must become useful even when no supported relationship edge can be asserted.
+
+Runtime normalisation is expected to use a name-keyed entity lookup for Case 01, with the clear boundary that raw names cease to be sufficient once aliases/entity resolution enter scope. Final normalised objects remain deliberately lean: Entity = id/type/name; Relationship = source/type/target/evidence_ids; Evidence = id/document/supporting_text. Literal generated ID values are implementation handles rather than semantic evaluation targets.
+
+The learner also intentionally loosened implementation guardrails. LangChain/API syntax is not itself the assessment target, so bounded coding-agent assistance is now acceptable once semantics have been designed. The learner retains ownership of contracts, deterministic-vs-probabilistic boundaries, evaluation and failure interpretation; framework plumbing/repetitive implementation may be delegated. The immediate delegated task is only source → structured `RelationshipCandidate[]`, with validation/normalisation/retries/UI explicitly excluded until the first real model output is inspected.
+
+Do not over-promote this as framework mastery: no model call has yet been run in the project. The learning evidence is stronger architecture/delegation judgment and contract refinement. Next step is the first actual Case 01 structured extraction and then failure-driven iteration.
 
 ## FTEC5660 — Private Client Graph Case 01 design, 29 Sep
 
