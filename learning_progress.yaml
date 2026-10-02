@@ -6,24 +6,27 @@ meta:
   reviewed_on: '2026-10-02'
   evidence_through: '2026-10-02'
   repository: alistairkung/msc-ai-learning
-  source_ref: 5ef350306b617788c0f56524df7c9339711915ef
+  source_ref: 013ec2be203c5d568c1e6d557ea8c638d05ee8f5
   review_note: >-
-    Reconciled through the 2 Oct FTEC5660 Private Client Graph contract-design session.
-    Case 01 now uses relationship-only semantic LLM output with deterministic entity
-    construction/typing, IDs, evidence deduplication and graph normalisation. The
-    implementation guardrail was deliberately loosened for bounded coding-agent plumbing
-    while preserving learner ownership of semantics, evaluation and failure interpretation.
+    Reconciled through the 2 Oct FTEC5660 Private Client Graph evaluation-design session.
+    Case 01 now has a successful live relationship-only extraction and a separate deterministic
+    graph-construction boundary. Evaluation semantics are frozen around normalized semantic
+    edge TP/FP/FN, precision/recall/F1, and approved-evidence provenance scored on true-positive
+    edges only. No stronger framework mastery is inferred from delegated implementation.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 4cf74b3ac076a215815d04b81b54133e76f2dee8
+    sha: 42cca1ae6c71405983c882f32112b6b93d46c106
   private_client_graph_decision_extraction_contract:
     path: lesson_logs/ftec5660/private_client_graph/decisions/extraction-contract-case-01-2026-10-02.md
     sha: 042e929dd8a258b5b6cb47d91bfe2afe2e9a7799
   private_client_graph_decision_delegation:
     path: lesson_logs/ftec5660/private_client_graph/decisions/ai-implementation-delegation-2026-10-02.md
     sha: 45ae5be228027c1d52be5c3c0c3a3469a2ed50a3
+  private_client_graph_decision_evaluation:
+    path: lesson_logs/ftec5660/private_client_graph/decisions/evaluation-design-case-01-2026-10-02.md
+    sha: 37a7d44c5b6cd08878902d284ac071bd325dd4a7
   private_client_graph_decision_entities:
     path: lesson_logs/ftec5660/private_client_graph/decisions/entity-identity-provenance-case-01.md
     sha: 7ed7c7d8becf5dc78124317f5140b4881e90a794
@@ -241,13 +244,16 @@ topics:
       On 2 Oct the learner refined that boundary further: the raw LLM handoff was reduced
       to semantic relationship candidates only, while entity construction/typing, IDs,
       evidence deduplication and graph normalisation were explicitly kept deterministic.
+      The first live Case 01 extraction then recovered all six intended edges with no extras.
+      Evaluation was designed as a third separate concern using semantic edge normalization,
+      TP/FP/FN and approved-evidence provenance rather than generated-ID comparison.
     boundary: >-
       Changed-domain decomposition/system-design evidence is strong. Some repetitive
       validator helpers and test scaffolding were assistant-supplied, and successful
       submission does not imply cold reconstruction of every implementation detail.
-    next: Run the first Case 01 structured extraction against the frozen relationship-only
-      contract; inspect real failures before adding more stages or semantic responsibility.
-    sources: [prompt, tutorial1_arch, receipt_session, receipt_session_2, receipt_completion, private_client_graph_case01, private_client_graph_decision_extraction_contract, private_client_graph_decision_delegation, state]
+    next: Implement the deterministic Case 01 evaluator behind the frozen semantic scoring
+      contract; use its diagnostics to choose the next benchmark difficulty before adding retries.
+    sources: [prompt, tutorial1_arch, receipt_session, receipt_session_2, receipt_completion, private_client_graph_case01, private_client_graph_decision_extraction_contract, private_client_graph_decision_delegation, private_client_graph_decision_evaluation, state]
     evidence_on: '2026-09-17'
     depends_on: []
   lcel:
