@@ -3,21 +3,27 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-10-01'
-  evidence_through: '2026-10-01'
+  reviewed_on: '2026-10-02'
+  evidence_through: '2026-10-02'
   repository: alistairkung/msc-ai-learning
-  source_ref: a9c1c3d90b4a821b8b62aafedd325eddd6c3af18
+  source_ref: 5ef350306b617788c0f56524df7c9339711915ef
   review_note: >-
-    Reconciled the 1 Oct AIMS5702 lecture-break consolidation and lab-readiness
-    diagnostic. Broad Lecture 1-3 concepts survived delayed retrieval, stepped-slice
-    stride/offset reasoning was repaired without promoting it to delayed-independent
-    mastery, and the remaining PyTorch gap is narrowed to epoch/evaluation/metric
-    orchestration before the bounded CNN bridge.
+    Reconciled through the 2 Oct FTEC5660 Private Client Graph contract-design session.
+    Case 01 now uses relationship-only semantic LLM output with deterministic entity
+    construction/typing, IDs, evidence deduplication and graph normalisation. The
+    implementation guardrail was deliberately loosened for bounded coding-agent plumbing
+    while preserving learner ownership of semantics, evaluation and failure interpretation.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: b9adbd10e4a389df7e4efd22bd83e60d2fa1741e
+    sha: 4cf74b3ac076a215815d04b81b54133e76f2dee8
+  private_client_graph_decision_extraction_contract:
+    path: lesson_logs/ftec5660/private_client_graph/decisions/extraction-contract-case-01-2026-10-02.md
+    sha: 042e929dd8a258b5b6cb47d91bfe2afe2e9a7799
+  private_client_graph_decision_delegation:
+    path: lesson_logs/ftec5660/private_client_graph/decisions/ai-implementation-delegation-2026-10-02.md
+    sha: 45ae5be228027c1d52be5c3c0c3a3469a2ed50a3
   private_client_graph_decision_entities:
     path: lesson_logs/ftec5660/private_client_graph/decisions/entity-identity-provenance-case-01.md
     sha: 7ed7c7d8becf5dc78124317f5140b4881e90a794
@@ -231,17 +237,17 @@ topics:
     action: transfer
     evidence: >-
       Tutorial 1 decomposition transferred into the completed assessed receipt system.
-      On 29 Sep the same contract-first discipline transferred into Private Client Graph:
-      the learner separated hidden graph truth, source evidence and justified extraction,
-      preferred deterministic canonicalisation over redundant LLM output, and made
-      provenance first-class before implementing a pipeline.
+      On 29 Sep the same contract-first discipline transferred into Private Client Graph.
+      On 2 Oct the learner refined that boundary further: the raw LLM handoff was reduced
+      to semantic relationship candidates only, while entity construction/typing, IDs,
+      evidence deduplication and graph normalisation were explicitly kept deterministic.
     boundary: >-
       Changed-domain decomposition/system-design evidence is strong. Some repetitive
       validator helpers and test scaffolding were assistant-supplied, and successful
       submission does not imply cold reconstruction of every implementation detail.
-    next: Receipts is complete; preserve the architecture as transfer evidence and
-      return to new course demand rather than replaying the homework.
-    sources: [prompt, tutorial1_arch, receipt_session, receipt_session_2, receipt_completion, state]
+    next: Run the first Case 01 structured extraction against the frozen relationship-only
+      contract; inspect real failures before adding more stages or semantic responsibility.
+    sources: [prompt, tutorial1_arch, receipt_session, receipt_session_2, receipt_completion, private_client_graph_case01, private_client_graph_decision_extraction_contract, private_client_graph_decision_delegation, state]
     evidence_on: '2026-09-17'
     depends_on: []
   lcel:
@@ -260,9 +266,10 @@ topics:
       This is meaningful changed-domain LCEL transfer, but not delayed blank-file
       reconstruction or blanket mastery of Runnable APIs. RunnableBranch syntax remains
       outside cold-independent evidence.
-    next: Use the Case 01 contract to attempt the smallest structured extraction; add
-      chaining/retry stages only if observed failures justify them.
-    sources: [lcel_lesson, lcel_plan, lcel_stateful, routing_review, receipt_session_2, receipt_completion, private_client_graph_case01, state]
+    next: Use bounded coding assistance to implement source -> structured RelationshipCandidate[].
+      Do not infer stronger LCEL fluency from delegated framework plumbing; review the
+      resulting diff and actual model output before adding validation/retry stages.
+    sources: [lcel_lesson, lcel_plan, lcel_stateful, routing_review, receipt_session_2, receipt_completion, private_client_graph_case01, private_client_graph_decision_extraction_contract, private_client_graph_decision_delegation, state]
     evidence_on: '2026-09-29'
     depends_on: [prompt_chaining]
   routing:
@@ -794,14 +801,14 @@ lanes:
     detail: Build from image tensor shapes to locality, shared weights, kernels/channels, stride/padding and output-shape reasoning. Keep implementation depth proportional to the 15 Oct lecture.
 - id: protect
   label: Protected delivery · FTEC5660 hackathon
-  title: Freeze Case 01 contract, then attempt extraction
-  summary: Private Client Graph now has a six-edge answer key, realistic source fixture and draft expected extraction. Keep the 19 Oct hackathon visible without displacing immediate AIMS5701/AIMS5702 work.
+  title: First structured extraction, then inspect failure
+  summary: Case 01's semantic contract is now frozen as relationship candidates only. Deterministic code owns entity construction/typing, IDs and evidence normalisation; bounded coding-agent help may implement framework plumbing without redesigning semantics.
   target: prompt_chaining
   tasks:
-  - title: Review Case 01 expected extraction
-    when: Next hackathon block
+  - title: Run Case 01 relationship extraction
+    when: Current hackathon block
     topics: [prompt_chaining, lcel]
-    detail: Resolve only the field/ID/evidence choices needed for Case 01, freeze the three fixtures, then attempt the smallest structured extraction. Do not add routing, retries or reflection until failures earn them.
+    detail: Implement source -> structured RelationshipCandidate[] behind the frozen contract, run the first real extraction and inspect the output. Add deterministic validation/normalisation only in response to concrete needs; do not add routing, retries or reflection pre-emptively.
 
 courses:
   AIMS5701:
@@ -1202,6 +1209,12 @@ timeline:
     raw fallback for one-shot grading resilience, and verified 27/27 tests plus correct
     7-receipt public E2E output. A separate attributed receipt-agent repo was then started
     for post-submission modular refactoring.
+- label: 2 October · FTEC5660
+  detail: >-
+    Private Client Graph froze its first semantic extraction boundary: the LLM returns
+    relationship candidates with inline evidence only, while entities/types/IDs/evidence
+    deduplication remain deterministic. The learner also deliberately shifted to bounded
+    coding-agent assistance for framework plumbing while retaining architectural control.
 - label: 29 September · FTEC5660
   detail: >-
     Private Client Graph Case 01 design transferred the receipts contract-first discipline
