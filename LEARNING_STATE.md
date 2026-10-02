@@ -10,7 +10,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 |---|---|---|
 | Continue | **AIMS5701: attend Bayes Nets I → post-lecture retrieval → HMM diagnostic** | The 30 Sep pre-lecture block completed the first Search midterm-retention pass and extended Bayesian-network readiness through d-separation. The released Lecture 3 deck is narrower than predicted: representation + independence only. Reconcile the live lecture next, then diagnose Markov-chain recall before HMM work. |
 | Parallel | **AIMS5702 lab readiness: epoch/eval orchestration → CNN bridge** | The 1 Oct delayed sweep confirmed broad Lecture 1–3 retention and repaired unequal-rank broadcasting plus stepped-slice stride/offset reasoning. The remaining practical gap is epoch/evaluation orchestration and metric accumulation; close that with one changed pipeline, then move into CNN shapes/mechanics ahead of 15 Oct. |
-| Protect | **FTEC5660 Private Client Graph: first structured extraction → inspect failure** | The 2 Oct review froze the raw LLM handoff as relationship candidates only; IDs, entity construction/typing and evidence deduplication stay deterministic. The first bounded implementation is now delegated behind that contract. Next get Case 01 source → `RelationshipCandidate[]` running, inspect the actual output, then earn any validation/retry complexity from observed failures. |
+| Protect | **FTEC5660 Private Client Graph: build deterministic evaluator** | Case 01 now runs through live structured extraction and deterministic graph construction. The first live extraction recovered all six intended edges with no extras. Evaluation semantics are now frozen: semantic edge comparison, symmetric normalization, precision/recall/F1, and approved-evidence provenance scored only on true-positive edges. Next implement the evaluator behind this contract before adding harder cases or retries. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
 
@@ -31,6 +31,21 @@ Other narrow weak edges remain: integer index versus length-one slice, PyTorch `
 The changed multiclass lab-style pipeline reached a useful boundary. Data/split shapes, `TensorDataset`, loader intent, `nn.Sequential(6 -> 12 -> ReLU -> 3)`, CrossEntropyLoss, SGD intent and the core `zero_grad -> forward -> loss -> backward -> step` sequence were reconstructed. API names needed small corrections (`model(X)`, `loss.backward()`), and validation/evaluation orchestration remained hazy: epoch wrapping, `model.train()/eval()`, `torch.no_grad()`, using current validation batches, `argmax` predictions and epoch-level loss/accuracy accumulation were not independently reconstructed.
 
 Next AIMS5702 block: do **not** repeat the broad sweep. Use a nearly complete changed script and fill only the epoch/eval/metric pieces, then reconstruct the whole small pipeline once with minimal prompting. If stable, begin the bounded CNN bridge.
+
+## FTEC5660 — Private Client Graph evaluation design + first end-to-end slice, 2 Oct
+
+Detailed decision record:
+- `lesson_logs/ftec5660/private_client_graph/decisions/evaluation-design-case-01-2026-10-02.md`
+
+The first live Case 01 structured extraction succeeded against the frozen relationship-only contract: all six intended relationships were recovered, no unsupported extras appeared, directions were correct, and the shared parent sentence was reused for both parent edges. This is useful evidence that the minimal semantic extraction contract is sufficient for Case 01; it does not justify retries, verifier agents or additional LLM stages.
+
+Deterministic graph construction is now treated as a separate bounded context from extraction. It owns candidate validation, entity derivation and type inference, entity/evidence IDs, evidence deduplication, symmetric-edge canonicalisation and relationship deduplication. The implementation is deliberately separated from `extract.py`, and each deterministic behaviour was required to have focused unit tests. This is architecture/test-design evidence rather than cold implementation mastery because coding-agent assistance was intentionally used behind learner-owned contracts.
+
+Evaluation semantics were then designed before implementation. Predicted and ground-truth relationships will be compared as normalized semantic triples rather than by generated IDs. `spouse_of` and `sibling_of` are canonicalised symmetrically; directed relationships retain direction. Relationship quality uses TP/FP/FN plus precision, recall and F1, with diagnostic edge sets returned for failure analysis.
+
+Provenance ground truth will store a list of `approved_evidence` spans alongside each relationship. Provenance is scored only for true-positive edges, and an edge passes when at least one attached predicted evidence span matches at least one approved span. V1 provenance accuracy is therefore the proportion of correctly recovered edges with at least one approved evidence span. This remains distinct from deterministic grounding validation, which only proves that an extracted quote occurs verbatim in the source.
+
+Next step: implement the smallest deterministic evaluator against this frozen contract, then use its diagnostics to decide what Case 02 should make harder.
 
 ## FTEC5660 — Private Client Graph extraction contract + delegation boundary, 2 Oct
 
