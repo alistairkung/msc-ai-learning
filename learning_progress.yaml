@@ -248,7 +248,7 @@ topics:
     next: Run the first Case 01 structured extraction against the frozen relationship-only
       contract; inspect real failures before adding more stages or semantic responsibility.
     sources: [prompt, tutorial1_arch, receipt_session, receipt_session_2, receipt_completion, private_client_graph_case01, private_client_graph_decision_extraction_contract, private_client_graph_decision_delegation, state]
-    evidence_on: '2026-10-02'
+    evidence_on: '2026-09-17'
     depends_on: []
   lcel:
     name: LangChain / LCEL basics
