@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-10-02'
   evidence_through: '2026-10-02'
   repository: alistairkung/msc-ai-learning
-  source_ref: 5edb9069190b822be045445f9b9ca1a5959dcb42
+  source_ref: 5ef350306b617788c0f56524df7c9339711915ef
   review_note: >-
     Reconciled through the 2 Oct FTEC5660 Private Client Graph contract-design session.
     Case 01 now uses relationship-only semantic LLM output with deterministic entity
