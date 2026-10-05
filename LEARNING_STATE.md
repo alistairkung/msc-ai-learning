@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-10-02. Learning evidence through 2026-10-02._
+_Last maintained: 2026-10-05. Learning evidence through 2026-10-02. Delivery/recall plan reviewed 2026-10-05._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -8,7 +8,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **AIMS5701: attend Bayes Nets I → post-lecture retrieval → HMM diagnostic** | The 30 Sep pre-lecture block completed the first Search midterm-retention pass and extended Bayesian-network readiness through d-separation. The released Lecture 3 deck is narrower than predicted: representation + independence only. Reconcile the live lecture next, then diagnose Markov-chain recall before HMM work. |
+| Continue | **AIMS5701 HW1 (Search): targeted cold recall → independent attempt by 14 Oct** | HW1 is now the nearest recorded delivery deadline. Search is already Green/Amber overall; prepare with structurally equivalent but concretely different exercises only. Priority gaps are novel state-space cardinality, manual UCS/A* bookkeeping, changed heuristic admissibility/consistency, and admissible-but-inconsistent A* graph-search reasoning. Do not reuse the homework's figures/specifics or solve its questions during recall. |
 | Parallel | **AIMS5702 lab readiness: epoch/eval orchestration → CNN bridge** | The 1 Oct delayed sweep confirmed broad Lecture 1–3 retention and repaired unequal-rank broadcasting plus stepped-slice stride/offset reasoning. The remaining practical gap is epoch/evaluation orchestration and metric accumulation; close that with one changed pipeline, then move into CNN shapes/mechanics ahead of 15 Oct. |
 | Protect | **FTEC5660 Private Client Graph: build deterministic evaluator** | Case 01 now runs through live structured extraction and deterministic graph construction. The first live extraction recovered all six intended edges with no extras. Evaluation semantics are now frozen: semantic edge comparison, symmetric normalization, precision/recall/F1, and approved-evidence provenance scored only on true-positive edges. Next implement the evaluator behind this contract before adding harder cases or retries. |
 
@@ -16,7 +16,7 @@ These lanes coexist; they are not one sequential queue. Delivery dates can tempo
 
 ## Delivery constraints — separate from learning evidence
 
-Canonical structured copy: `deadlines.yaml`. AIMS5702 Assignment 1 was submitted on 21 Sep and FTEC5660 receipts homework was submitted on 25 Sep. The next recorded delivery pressure is the FTEC5660 solo hackathon (19 Oct). Keep delivery planning distinct from `learning_progress.yaml`.
+Canonical structured copy: `deadlines.yaml`. **AIMS5701 Homework 1 — Search Algorithms is due 14 Oct and is the nearest delivery priority**, ahead of the FTEC5660 solo hackathon on 19 Oct. Preparation is a targeted changed-example cold-recall session followed by an independent homework attempt; AI must not reuse the assignment's concrete figures/specifics or provide answers. Preserve full AI transcripts used for assignment-related concept support to satisfy the homework acknowledgement requirement. Keep delivery planning distinct from `learning_progress.yaml`.
 
 ## AIMS5702 — lecture-break consolidation + lab readiness, 1 Oct
 

@@ -62,9 +62,11 @@ def check(site: Path, screenshots: Path | None = None) -> None:
         expect(page.get_by_text('Project presentation', exact=True)).to_be_visible()
         page.locator('#tab-queue').click()
         assert page.locator('.queue-col').count() == 3
-        assert page.locator('.deadline-card').count() == 1
+        assert page.locator('.deadline-card').count() == 2
         assert page.get_by_text('Assignment 1 — tensor vectorisation and bilinear interpolation', exact=True).count() == 0
         assert page.get_by_text('2026-09-24', exact=True).count() == 0
+        expect(page.get_by_text('Homework 1 — Search Algorithms', exact=True)).to_be_visible()
+        expect(page.get_by_text('2026-10-14', exact=True)).to_be_visible()
         expect(page.get_by_text('Hackathon', exact=True)).to_be_visible()
         expect(page.get_by_text('2026-10-19', exact=True)).to_be_visible()
         page.locator('#tab-knowledge').click()
@@ -94,6 +96,8 @@ def check(site: Path, screenshots: Path | None = None) -> None:
         expect(plain.locator('#runway')).to_be_visible()
         assert plain.get_by_text('Assignment 1 — tensor vectorisation and bilinear interpolation', exact=True).count() == 0
         assert plain.get_by_text('Receipts agentic AI homework', exact=True).count() == 0
+        expect(plain.get_by_text('Homework 1 — Search Algorithms', exact=True)).to_be_visible()
+        expect(plain.get_by_text('2026-10-14', exact=True)).to_be_visible()
         expect(plain.get_by_text('Hackathon', exact=True)).to_be_visible()
         assert plain.locator('#topic-rows tr').count() == count
         assert not remote, remote

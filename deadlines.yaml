@@ -1,6 +1,6 @@
 # Delivery planning is separate from learning evidence.
 schema_version: 1
-reviewed_on: '2026-09-25'
+reviewed_on: '2026-10-05'
 provenance_note: >-
   Dates below are learner-reported planning constraints unless a stronger source is
   named. They affect workload prioritisation, not learning/mastery evidence.
@@ -28,6 +28,20 @@ deadlines:
     processed all seven public receipts, and produced both correct public aggregate
     answers. The submitted repository is now frozen; later receipt-agent refactoring is
     isolated in a separate post-submission repository.
+- id: aims5701_homework_1
+  course: AIMS5701
+  title: Homework 1 — Search Algorithms
+  due_on: '2026-10-14'
+  status: upcoming
+  provenance: course_material
+  mode: individual
+  note: >-
+    Current highest-priority delivery deadline. Preparation should use targeted cold
+    recall on structurally equivalent but concretely different examples; do not reuse
+    the homework's figures, graph values, scenarios, or other question specifics.
+    AI support is restricted to concept preparation unless the learner explicitly
+    changes that boundary. Preserve full AI transcripts used for assignment-related
+    concept support because the homework requires acknowledgement/transcript receipts.
 - id: ftec5660_hackathon
   course: FTEC5660
   title: Hackathon
@@ -35,4 +49,6 @@ deadlines:
   status: upcoming
   provenance: learner_report
   mode: solo
-  note: Solo by choice; incubate before the homework deadline, then ramp after 29 Sep.
+  note: >-
+    Solo by choice. Continue bounded incubation, but AIMS5701 Homework 1 due 14 Oct is
+    the nearer delivery priority; ramp hackathon work after that submission.
