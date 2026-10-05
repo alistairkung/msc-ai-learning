@@ -3,12 +3,12 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-10-02'
+  reviewed_on: '2026-10-05'
   evidence_through: '2026-10-02'
   repository: alistairkung/msc-ai-learning
   source_ref: 013ec2be203c5d568c1e6d557ea8c638d05ee8f5
   review_note: >-
-    Reconciled through the 2 Oct FTEC5660 Private Client Graph evaluation-design session.
+    Learning evidence remains reconciled through the 2 Oct FTEC5660 Private Client Graph evaluation-design session. On 5 Oct the operational handover and delivery plan were reviewed for AIMS5701 HW1; no topic mastery statuses changed.
     Case 01 now has a successful live relationship-only extraction and a separate deterministic
     graph-construction boundary. Evaluation semantics are frozen around normalized semantic
     edge TP/FP/FN, precision/recall/F1, and approved-evidence provenance scored on true-positive
@@ -17,7 +17,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 42cca1ae6c71405983c882f32112b6b93d46c106
+    sha: 1940ad0091aa5abe6a74f9d3e9784830bba3762b
   private_client_graph_decision_extraction_contract:
     path: lesson_logs/ftec5660/private_client_graph/decisions/extraction-contract-case-01-2026-10-02.md
     sha: 042e929dd8a258b5b6cb47d91bfe2afe2e9a7799
