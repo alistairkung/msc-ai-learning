@@ -28,11 +28,13 @@ def test_real_schema(data):
 def test_deadline_schema(data, deadlines):
     validate_deadlines(deadlines, set(data['courses']))
     assert [item['due_on'] for item in deadlines['deadlines']] == [
-        '2026-09-24', '2026-09-29', '2026-10-19']
+        '2026-09-24', '2026-09-29', '2026-10-14', '2026-10-19']
     assert deadlines['deadlines'][0]['provenance'] == 'course_material'
     assert deadlines['deadlines'][0]['status'] == 'submitted'
     assert deadlines['deadlines'][1]['status'] == 'submitted'
-    assert deadlines['deadlines'][2]['mode'] == 'solo'
+    assert deadlines['deadlines'][2]['provenance'] == 'course_material'
+    assert deadlines['deadlines'][2]['status'] == 'upcoming'
+    assert deadlines['deadlines'][3]['mode'] == 'solo'
 
 
 def test_bad_deadline_date_rejected(data, deadlines):
@@ -58,6 +60,8 @@ def test_deadline_lane_renders_separately_from_learning_lanes(data, deadlines):
     assert 'Delivery lane · external constraints' in html
     assert 'Assignment 1 — tensor vectorisation and bilinear interpolation' not in html
     assert 'Receipts agentic AI homework' not in html
+    assert 'Homework 1 — Search Algorithms' in html
+    assert '2026-10-14' in html
     assert 'Hackathon' in html
     assert '2026-10-19' in html
     assert 'Learner-reported' in html
@@ -235,6 +239,7 @@ def test_build_has_hashed_assets_and_fallback(tmp_path):
     assert 'filesystem source verification was not run' in html
     assert 'Assignment 1 — tensor vectorisation and bilinear interpolation' not in html
     assert 'Receipts agentic AI homework' not in html
+    assert '2026-10-14' in html
     assert '2026-10-19' in html
     for name in re.findall(r'(?:href|src)="((?:styles|app)\.[a-f0-9]{12}\.(?:css|js))"', html):
         assert (tmp_path/name).is_file()
