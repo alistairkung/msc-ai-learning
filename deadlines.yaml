@@ -51,4 +51,19 @@ deadlines:
   mode: solo
   note: >-
     Solo by choice. Continue bounded incubation, but AIMS5701 Homework 1 due 14 Oct is
-    the nearer delivery priority; ramp hackathon work after that submission.
+    the nearer delivery priority. Homework 2 is due the following day, so avoid letting
+    hackathon expansion consume the entire post-5701 runway.
+- id: ftec5660_homework_2
+  course: FTEC5660
+  title: Homework 2 — CV verification agent and adversarial CV
+  due_on: '2026-10-20'
+  status: upcoming
+  provenance: course_material
+  mode: individual
+  note: >-
+    Build a DeepSeek/LangChain CV-verification agent over the supplied SocialGraph MCP
+    tools, then produce and explain an adversarial CV, plus the required report and AI
+    paradox reflection. Course use of GenAI is learner-reported as permitted; given the
+    compressed 14–20 Oct delivery window, preserve learner ownership of architecture,
+    deterministic-versus-stochastic boundaries, evaluation and attack reasoning while
+    delegating routine implementation where useful.

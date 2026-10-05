@@ -6,18 +6,22 @@ meta:
   reviewed_on: '2026-10-05'
   evidence_through: '2026-10-02'
   repository: alistairkung/msc-ai-learning
-  source_ref: 013ec2be203c5d568c1e6d557ea8c638d05ee8f5
+  source_ref: f82348c60bb6ea2d4c10f0f1f9c6d7f393d14cd8
   review_note: >-
-    Learning evidence remains reconciled through the 2 Oct FTEC5660 Private Client Graph evaluation-design session. On 5 Oct the operational handover and delivery plan were reviewed for AIMS5701 HW1; no topic mastery statuses changed.
-    Case 01 now has a successful live relationship-only extraction and a separate deterministic
-    graph-construction boundary. Evaluation semantics are frozen around normalized semantic
-    edge TP/FP/FN, precision/recall/F1, and approved-evidence provenance scored on true-positive
-    edges only. No stronger framework mastery is inferred from delegated implementation.
+    Learning evidence remains reconciled through the 2 Oct FTEC5660 Private Client Graph
+    evaluation-design session. On 5 Oct the operational handover and delivery plan were
+    reconciled to add FTEC5660 Homework 2 due 20 Oct, immediately after the 19 Oct solo
+    hackathon; AIMS5701 HW1 due 14 Oct remains the nearest delivery priority. No topic mastery
+    statuses changed. Case 01 still has a successful live relationship-only extraction and a
+    separate deterministic graph-construction boundary. Evaluation semantics remain frozen
+    around normalized semantic edge TP/FP/FN, precision/recall/F1, and approved-evidence
+    provenance scored on true-positive edges only. No stronger framework mastery is inferred
+    from delegated implementation.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 1940ad0091aa5abe6a74f9d3e9784830bba3762b
+    sha: 649561ae8a672a093c74c437e8a006e5a66db242
   private_client_graph_decision_extraction_contract:
     path: lesson_logs/ftec5660/private_client_graph/decisions/extraction-contract-case-01-2026-10-02.md
     sha: 042e929dd8a258b5b6cb47d91bfe2afe2e9a7799

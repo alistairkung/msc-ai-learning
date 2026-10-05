@@ -28,7 +28,7 @@ def test_real_schema(data):
 def test_deadline_schema(data, deadlines):
     validate_deadlines(deadlines, set(data['courses']))
     assert [item['due_on'] for item in deadlines['deadlines']] == [
-        '2026-09-24', '2026-09-29', '2026-10-14', '2026-10-19']
+        '2026-09-24', '2026-09-29', '2026-10-14', '2026-10-19', '2026-10-20']
     assert deadlines['deadlines'][0]['provenance'] == 'course_material'
     assert deadlines['deadlines'][0]['status'] == 'submitted'
     assert deadlines['deadlines'][1]['status'] == 'submitted'

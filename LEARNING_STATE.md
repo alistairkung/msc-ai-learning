@@ -16,7 +16,7 @@ These lanes coexist; they are not one sequential queue. Delivery dates can tempo
 
 ## Delivery constraints — separate from learning evidence
 
-Canonical structured copy: `deadlines.yaml`. **AIMS5701 Homework 1 — Search Algorithms is due 14 Oct and is the nearest delivery priority**, ahead of the FTEC5660 solo hackathon on 19 Oct. Preparation is a targeted changed-example cold-recall session followed by an independent homework attempt; AI must not reuse the assignment's concrete figures/specifics or provide answers. Preserve full AI transcripts used for assignment-related concept support to satisfy the homework acknowledgement requirement. Keep delivery planning distinct from `learning_progress.yaml`.
+Canonical structured copy: `deadlines.yaml`. **AIMS5701 Homework 1 — Search Algorithms is due 14 Oct and remains the nearest delivery priority**, followed by the FTEC5660 solo hackathon on 19 Oct and **FTEC5660 Homework 2 — CV verification agent and adversarial CV on 20 Oct**. Protect the 5701 cold-recall/independent-attempt boundary first, then treat 19–20 Oct as a compressed FTEC delivery cluster rather than two unrelated queues. For HW2, course use of GenAI is learner-reported as permitted; preserve learner ownership of agent/verification architecture, deterministic-versus-stochastic boundaries, evaluation and adversarial reasoning while allowing routine implementation to be delegated where useful. Preserve full AI transcripts used for AIMS5701 assignment-related concept support to satisfy that homework's acknowledgement requirement. Keep delivery planning distinct from `learning_progress.yaml`.
 
 ## AIMS5702 — lecture-break consolidation + lab readiness, 1 Oct
 
