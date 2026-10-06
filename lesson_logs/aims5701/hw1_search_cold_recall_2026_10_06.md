@@ -78,3 +78,55 @@ Still fragile:
 2. If a real homework question exposes a block, use a separate transcript-recorded context with the HW1 uploaded and practise on structurally equivalent but concretely different examples rather than solving the assignment question directly.
 3. On 7 Oct, spend only **5–10 minutes** cold-reconstructing consistency => nondecreasing `f` and the reopening consequence. Stop if it returns cleanly.
 4. Preserve the remainder of the protected 7 Oct AIMS5701 blocks for HMM / particle-filtering JIT rather than turning Search into comprehensive revision.
+
+
+## HW1-calibrated survey continuation
+
+A second Search block on 6 Oct explicitly loaded the HW1 sheet only to calibrate concept coverage, reasoning pattern and difficulty. All tutoring exercises remained freshly generated analogues; no homework solution, intermediate homework step or disguised copy was produced. Because this block was directly assignment-related, the full user-visible transcript is preserved under `lesson_logs/aims5701/assignments/hw1_search/ai_transcripts/`.
+
+### State formulation and cardinality
+
+The strongest newly exposed gap was minimal-state formulation. The learner initially mixed dynamic state with fixed environment/problem data, and on changed examples occasionally omitted a dynamic Boolean flag that changed future legal transitions. After repeated fresh examples, the distinction became operational:
+
+```text
+candidate state variable
+  -> can it change during one search run?
+  -> if yes, can it change legal future actions / goal-relevant outcomes?
+  -> if yes, include it in the state
+fixed map / goal / problem data stay outside the state
+path-cost bookkeeping is not automatically world state
+```
+
+By the final changed factory example, the learner independently selected all future-relevant dynamic variables, excluded fixed corridor/tool-station/goal information and counted the product correctly. A follow-up symbolic-range question also correctly used `Rmax + 1` values for an inclusive `0..Rmax` integer range. Treat this as repaired same-session evidence rather than delayed mastery.
+
+### Admissibility from problem mechanics
+
+A changed momentum-style example exposed an inequality-direction slip, but the learner correctly identified the central modelling issue: a heuristic measured in geometric distance is not automatically a lower bound when the objective is action count and one action may traverse multiple spatial units. After feedback, the learner restated that if `h(s)` can exceed the true remaining action cost `h*(s)`, the heuristic is not necessarily admissible.
+
+This is conceptually sound after repair. Keep a light reminder to check both the admissibility inequality direction and whether heuristic units align with the cost model.
+
+### BFS path reconstruction
+
+The learner initially conflated expansion order with the returned solution path. Parent tracing repaired this immediately. On a second fresh BFS graph, FIFO order, duplicate suppression and the reconstructed path were conceptually correct; remaining mistakes were small table/notation slips. Keep the practical rule that expansion/frontier order and parent-chain reconstruction are separate bookkeeping tracks.
+
+### A* trace
+
+A fresh A* trace produced one arithmetic error in the initial `f=g+h` calculation, which changed the expansion order. Once corrected, the cheaper-path update and parent-chain logic were understood. This reinforces the earlier conclusion: A* mechanics are conceptually available, but manual `g/h/f` arithmetic and frontier bookkeeping are vulnerable under fatigue. Externalise the table on paper.
+
+### Admissibility vs consistency
+
+This area strengthened relative to the earlier generic recall. The learner cold-restated that consistency implies admissibility via the local edge condition / nondecreasing-`f` intuition, then independently gave the canonical distinction that an admissible heuristic can still violate `h(A) <= c(A,B)+h(B)` on an edge.
+
+The formal repeated-edge proof of consistency => admissibility is not a major conceptual gap, but remains worth a brief cold reconstruction.
+
+## Revised next retrieval targets
+
+Treat 7 Oct as a short confirmation pass rather than another long Search lesson:
+
+1. one cold UCS trace;
+2. one clean A* trace with careful `g/h/f` arithmetic and parent updates;
+3. one heuristic-design/admissibility question where cost units must be reasoned about;
+4. one small admissible-but-inconsistent graph with closed-set tracing;
+5. a brief cold reconstruction of consistency => admissibility / nondecreasing `f`.
+
+Do not overdrill state formulation tomorrow unless it fails a changed delayed example. The learner's energy was visibly dropping late in this session, so today's final status should be treated as a survey of likely failure modes rather than a mastery exam.
