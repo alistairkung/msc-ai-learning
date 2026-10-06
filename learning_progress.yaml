@@ -3,20 +3,19 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-10-05'
-  evidence_through: '2026-10-02'
+  reviewed_on: '2026-10-06'
+  evidence_through: '2026-10-06'
   repository: alistairkung/msc-ai-learning
   source_ref: f82348c60bb6ea2d4c10f0f1f9c6d7f393d14cd8
   review_note: >-
-    Learning evidence remains reconciled through the 2 Oct FTEC5660 Private Client Graph
-    evaluation-design session. On 5 Oct the operational handover and delivery plan were
-    reconciled to add FTEC5660 Homework 2 due 20 Oct, immediately after the 19 Oct solo
-    hackathon; AIMS5701 HW1 due 14 Oct remains the nearest delivery priority. No topic mastery
-    statuses changed. Case 01 still has a successful live relationship-only extraction and a
-    separate deterministic graph-construction boundary. Evaluation semantics remain frozen
-    around normalized semantic edge TP/FP/FN, precision/recall/F1, and approved-evidence
-    provenance scored on true-positive edges only. No stronger framework mastery is inferred
-    from delegated implementation.
+    Learning evidence is reconciled through the 6 Oct AIMS5701 HW1-targeted generic Search
+    recall. State-space counting repaired after one joint-configuration slip; UCS goal-popped
+    reasoning held; admissibility versus consistency repaired cleanly on a changed example.
+    Manual A* remains representation-sensitive: external graph/frontier bookkeeping helps,
+    and one genuine g-versus-f accumulation slip occurred. Admissible-but-inconsistent
+    graph-search reasoning is understood, but consistency => nondecreasing f remains a
+    short cold-retrieval target for 7 Oct. AIMS5701 HW1 due 14 Oct remains the nearest
+    delivery priority; no stronger theorem or implementation mastery is inferred.
   stale_after_days: 21
 sources:
   state:
@@ -55,6 +54,9 @@ sources:
   aims5701_prelecture_20260930:
     path: lesson_logs/aims5701/lecture03_prelecture_retrieval_2026_09_30.md
     sha: ca16ab0924fbf665ce4ce8754aa36cb83fdf2814
+  aims5701_hw1_recall_20261006:
+    path: lesson_logs/aims5701/hw1_search_cold_recall_2026_10_06.md
+    sha: pending
   probability_bridge:
     path: foundations/probability_statistics/bayesian_network_probability_bridge.md
     sha: 80d315910b5cf28b632b89257295805465e64d67
@@ -197,17 +199,18 @@ topics:
     action: retrieve
     evidence: >-
       Lesson 33 records a passing guided UCS implementation. On 30 Sep delayed
-      midterm retrieval recovered lowest-g selection cold. Optimality was initially
-      misrecalled as false, then reconstructed from the fact that a popped goal has the
-      smallest frontier g and non-negative edges cannot later reduce a more expensive
-      route below it.
+      midterm retrieval recovered lowest-g selection cold. On 6 Oct the learner again
+      correctly explained that goal discovery is insufficient and that UCS is safe to
+      terminate when the goal is popped as the lowest-g frontier item under the usual
+      cost assumptions.
     boundary: >-
-      Heap/API implementation remains guided rather than cold-independent. The 30 Sep
-      guarantee was recoverable by reasoning but not initially recalled correctly;
-      non-negative-cost assumptions still need spaced retrieval.
-    next: Cold-retrieve the goal-popped/non-negative-cost optimality argument in a later mixed Search check; do not replay the full UCS implementation.
-    sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, state]
-    evidence_on: '2026-09-30'
+      Heap/API implementation remains guided rather than cold-independent. Manual graph
+      bookkeeping is easier when the frontier is externalised on paper; do not interpret
+      text-only working-memory load as a UCS conceptual failure. Exact theorem assumptions
+      still deserve spaced retrieval.
+    next: Maintain the goal-popped distinction through the independent HW1 attempt; do not replay the full UCS implementation unless a concrete gap appears.
+    sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, aims5701_hw1_recall_20261006, state]
+    evidence_on: '2026-10-06'
     depends_on: [bfs]
   astar:
     name: A* search
@@ -219,21 +222,22 @@ topics:
     evidence: >-
       Lesson 33 records guided implementation and 24 Sep records the first deep proof
       reconstruction. On 30 Sep delayed retrieval recovered g/h/f, admissibility and the
-      meaning of consistency cold. The A* blocking proof was rebuilt and then transferred
-      to changed costs: admissibility bounds an optimal-path frontier node by
-      f(n)<=C*, while a suboptimal goal has h=0 and f>C*.
+      meaning of consistency cold. On 6 Oct a HW1-targeted generic recall repaired one
+      g-versus-f accumulation slip, then independently classified a changed heuristic as
+      both admissible and consistent after the two tests were re-separated. The learner
+      also understood that an admissible-but-inconsistent heuristic can make f decrease
+      along an edge and require reopening a closed node after a cheaper g is found.
     boundary: >-
-      Implementation remains guided. The proof is materially stronger but not yet cold
-      theorem mastery: after the break the admissibility inequality was flipped once,
-      h*(n)=C*-g(n) was twice confused with the bound on f(n), and
-      consistency=>admissibility still needed scaffolding before the final changed proof
-      was produced independently apart from a notation typo.
+      Implementation remains guided, and manual bookkeeping is representation-sensitive:
+      external graph/frontier state materially reduces working-memory noise. The
+      consistency => nondecreasing-f derivation was understood when shown but was
+      explicitly not expected to return cold yet. Do not promote this to theorem mastery.
     next: >-
-      Keep A* in spaced midterm retrieval. Later cold-reconstruct admissibility,
-      consistency=>admissibility and the blocking inequality f(n)<=C*<f(G) without
-      scaffolding; no full implementation replay is needed.
-    sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, state]
-    evidence_on: '2026-09-30'
+      On 7 Oct spend 5-10 minutes cold-reconstructing consistency => nondecreasing f and
+      the reopening consequence. Otherwise let the independent HW1 attempt drive any
+      further Search scaffolding; no full implementation replay is needed.
+    sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, aims5701_hw1_recall_20261006, state]
+    evidence_on: '2026-10-06'
     depends_on: [ucs]
   prompt_chaining:
     name: Prompt chaining
@@ -1238,3 +1242,10 @@ timeline:
     exclusivity, then introduced DAG/CPT factorisation, marginalisation, simple exact
     inference and forward sampling. A changed hidden-variable inference was solved
     independently; delayed retrieval and deeper inference/sampling remain for Wednesday.
+- label: 6 October · AIMS5701
+  detail: >-
+    A bounded HW1-targeted generic Search recall repaired joint state-space counting and
+    admissibility-versus-consistency, retained the UCS goal-popped distinction, and
+    exposed a paper-bookkeeping need in A*: externalise graph/frontier state and keep g
+    separate from f. Admissible-but-inconsistent reopening reasoning is understood;
+    consistency => nondecreasing f remains a 5-10 minute cold target for 7 Oct.
