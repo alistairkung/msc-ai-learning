@@ -49,6 +49,16 @@ The changed multiclass lab-style pipeline reached a useful boundary. Data/split 
 
 Next AIMS5702 block: do **not** repeat the broad sweep. Use a nearly complete changed script and fill only the epoch/eval/metric pieces, then reconstruct the whole small pipeline once with minimal prompting. If stable, begin the bounded CNN bridge.
 
+## FTEC5660 — Private Client Graph canonical persistence reflection, 6 Oct
+
+Detailed source: `lesson_logs/ftec5660/private_client_graph/data_modelling_case04_2026_10_06.md`.
+
+Cases 02–04 have begun to pressure-test the Case 01 architecture rather than merely enlarge the benchmark. The most important 6 Oct modelling discussion came from Case 04: multiple source documents can support the same semantic relationship, so relationship identity must remain distinct from individual Evidence/assertion instances. The emerging model is Matter -> Sources -> Evidence alongside canonical Entities/Relationships, with Relationship <-> Evidence many-to-many and each Evidence item belonging to one Source.
+
+The learner challenged an initially attractive hybrid persistence option in which Source/Evidence became relational but canonical graph facts remained authoritative inside JSONB. The resulting principle is stronger: PostgreSQL should persist enough canonical Matter facts and relationships to reconstruct the current Matter state deterministically; `CanonicalGraph` is currently a derived domain/presentation representation of that state rather than necessarily a separately persisted entity. Independent graph identity should be earned only by future lifecycle/history semantics such as graph versioning or supersession.
+
+This is meaningful architecture/data-modelling judgement and a useful future interview example, not independent SQL implementation evidence. No relational migration was implemented in this record. Next PCG architecture work should let Case 04 specify the smallest schema evolution consistent with canonical relational state, while continuing to resist table-per-noun normalisation.
+
 ## FTEC5660 — Private Client Graph evaluation design + first end-to-end slice, 2 Oct
 
 Detailed decision record:
