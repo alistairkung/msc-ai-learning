@@ -8,14 +8,17 @@ meta:
   repository: alistairkung/msc-ai-learning
   source_ref: f82348c60bb6ea2d4c10f0f1f9c6d7f393d14cd8
   review_note: >-
-    Learning evidence is reconciled through the 6 Oct AIMS5701 HW1-targeted generic Search
-    recall. State-space counting repaired after one joint-configuration slip; UCS goal-popped
-    reasoning held; admissibility versus consistency repaired cleanly on a changed example.
-    Manual A* remains representation-sensitive: external graph/frontier bookkeeping helps,
-    and one genuine g-versus-f accumulation slip occurred. Admissible-but-inconsistent
-    graph-search reasoning is understood, but consistency => nondecreasing f remains a
-    short cold-retrieval target for 7 Oct. AIMS5701 HW1 due 14 Oct remains the nearest
-    delivery priority; no stronger theorem or implementation mastery is inferred.
+    Learning evidence is reconciled through both 6 Oct AIMS5701 Search blocks: the initial
+    generic recall plus the later HW1-calibrated analogue survey. The later survey exposed
+    minimal-state formulation (dynamic vs fixed information, plus future-relevant flags) as
+    the clearest conceptual gap; this repaired on repeated changed examples but remains
+    same-session evidence. BFS needed explicit separation of expansion order from parent-chain
+    reconstruction. Admissibility reasoning repaired an inequality-direction slip and now
+    includes cost-unit reasoning; admissibility-versus-consistency is conceptually strong.
+    Manual A* remains bookkeeping-sensitive under fatigue, with one fresh f=g+h arithmetic
+    error changing expansion order. Use a short 7 Oct confirmation pass: UCS, one clean A*,
+    heuristic admissibility/design, one inconsistent-heuristic closed-set trace, and the
+    consistency=>admissibility proof. HW1 due 14 Oct remains the nearest delivery priority.
   stale_after_days: 21
 sources:
   state:
@@ -173,7 +176,7 @@ topics:
     action: maintain
     evidence: The 6 September session log records a complete independent BFS reconstruction after debugging two state-role mistakes. Lesson 33 later refreshed the search comparison without displacing this as the strongest BFS evidence.
     boundary: Independent reconstruction still showed a recurring fixed-search-node vs moving-reconstruction-cursor fragility. It does not prove all search guarantees or permanent retention.
-    next: Maintain with occasional changed-graph retrieval while prioritising search guarantees/complexity rather than another immediate full rewrite.
+    next: Maintain with occasional changed-graph retrieval. Preserve explicit parent pointers so expansion order is not confused with the returned solution path.
     sources: [search, search_lesson33, state]
     evidence_on: '2026-09-06'
     depends_on: []
@@ -233,9 +236,10 @@ topics:
       consistency => nondecreasing-f derivation was understood when shown but was
       explicitly not expected to return cold yet. Do not promote this to theorem mastery.
     next: >-
-      On 7 Oct spend 5-10 minutes cold-reconstructing consistency => nondecreasing f and
-      the reopening consequence. Otherwise let the independent HW1 attempt drive any
-      further Search scaffolding; no full implementation replay is needed.
+      On 7 Oct use one bounded confirmation pass: one UCS trace, one clean A* trace with
+      explicit g/h/f and parent bookkeeping, one heuristic-design/admissibility probe,
+      one admissible-but-inconsistent closed-set trace, and a brief consistency =>
+      admissibility reconstruction. Stop if these return cleanly.
     sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, aims5701_hw1_recall_20261006, state]
     evidence_on: '2026-10-06'
     depends_on: [ucs]
