@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-10-07'
   evidence_through: '2026-10-07'
   repository: alistairkung/msc-ai-learning
-  source_ref: 90cf8d51439e442a40276e4ce58fe2c4103a9732
+  source_ref: d5df1f1a8311b49c131f34eec5544efe0efac94f
   review_note: >-
     Learning evidence is reconciled through 7 Oct. The FTEC5660 Private Client Graph
     architecture grill materially deepened the prior Case 04 modelling reflection:
@@ -23,7 +23,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: eb6072f02fc8c410866700680999ab82d7ae03ee
+    sha: 35db7e71624918f095f36c3e09eb85d5e88b6fdf
   private_client_graph_canonical_persistence_grill:
     path: lesson_logs/ftec5660/private_client_graph/canonical_persistence_grill_2026_10_07.md
     sha: fa53167cff8d8df6b3edd5cee2691f79b0097c6f
