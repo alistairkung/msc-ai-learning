@@ -49,6 +49,18 @@ The changed multiclass lab-style pipeline reached a useful boundary. Data/split 
 
 Next AIMS5702 block: do **not** repeat the broad sweep. Use a nearly complete changed script and fill only the epoch/eval/metric pieces, then reconstruct the whole small pipeline once with minimal prompting. If stable, begin the bounded CNN bridge.
 
+## FTEC5660 — Private Client Graph canonical persistence architecture grill, 7 Oct
+
+Detailed source: `lesson_logs/ftec5660/private_client_graph/canonical_persistence_grill_2026_10_07.md`.
+
+A ~1 hour adversarial architecture grill materially strengthened the 6 Oct data-modelling reflection. The learner entered with a preference for relational canonical persistence, but accepted the challenge that PostgreSQL JSONB can itself be authoritative and that neither Case 02 nor the current Case 04 fixture proves relationalisation necessary. Rather than defending the preferred implementation directly, the learner articulated the production lesson behind the preference: canonical persisted state should remain internally trustworthy, with PostgreSQL enforcing structural/referential invariants it can naturally express rather than relying solely on application validation.
+
+The resulting proposed boundary makes provenance integrity, provenance completeness and Matter/Proposal aggregate isolation explicit domain requirements. Evidence belongs to one explicit Source; Relationships connect Matter-local Entity identities rather than names and must retain at least one Evidence association; Proposal and Matter remain distinct lifecycle states with equivalent structural guarantees; and `CanonicalGraph` remains a deterministic reconstructed representation rather than separately persisted truth.
+
+Important deferred boundary: entity resolution is part of the future stochastic/evaluation problem, not name normalisation in persistence. A Case 03-driven review must evaluate both under-merging (different surface forms for one real entity) and over-merging (identical names for different entities). Persistence must represent both outcomes. A future practitioner-asserted/unsubstantiated Relationship is also recorded only as a hypothesis; today's accepted Relationships continue to require documentary Evidence.
+
+The architecture is proposed, not implemented. This is strong architecture/data-modelling judgement with AI used adversarially, not SQL/PostgreSQL implementation mastery. Next engineering step is to ticket the agreed persistence slice, then establish Case 01 equivalence plus a controlled model-free multi-source provenance baseline before resuming stochastic Cases 02–04 experiments.
+
 ## FTEC5660 — Private Client Graph canonical persistence reflection, 6 Oct
 
 Detailed source: `lesson_logs/ftec5660/private_client_graph/data_modelling_case04_2026_10_06.md`.
