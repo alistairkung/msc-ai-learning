@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-10-06. Learning evidence through 2026-10-06. Delivery/recall plan reviewed 2026-10-05._
+_Last maintained: 2026-10-07. Learning evidence through 2026-10-07. Delivery/recall plan reviewed 2026-10-05._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
