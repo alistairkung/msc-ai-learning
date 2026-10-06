@@ -20,7 +20,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 649561ae8a672a093c74c437e8a006e5a66db242
+    sha: 83fe7c3f7c38c259400fc49dd14400dfd64c11d2
   private_client_graph_decision_extraction_contract:
     path: lesson_logs/ftec5660/private_client_graph/decisions/extraction-contract-case-01-2026-10-02.md
     sha: 042e929dd8a258b5b6cb47d91bfe2afe2e9a7799
@@ -56,7 +56,7 @@ sources:
     sha: ca16ab0924fbf665ce4ce8754aa36cb83fdf2814
   aims5701_hw1_recall_20261006:
     path: lesson_logs/aims5701/hw1_search_cold_recall_2026_10_06.md
-    sha: pending
+    sha: 916d3a2f48892c7bda7e29daf0acae94e4c416d1
   probability_bridge:
     path: foundations/probability_statistics/bayesian_network_probability_bridge.md
     sha: 80d315910b5cf28b632b89257295805465e64d67
