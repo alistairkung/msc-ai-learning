@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-10-05. Learning evidence through 2026-10-02. Delivery/recall plan reviewed 2026-10-05._
+_Last maintained: 2026-10-06. Learning evidence through 2026-10-06. Delivery/recall plan reviewed 2026-10-05._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -8,7 +8,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **AIMS5701 HW1 (Search): targeted cold recall → independent attempt by 14 Oct** | HW1 is now the nearest recorded delivery deadline. Search is already Green/Amber overall; prepare with structurally equivalent but concretely different exercises only. Priority gaps are novel state-space cardinality, manual UCS/A* bookkeeping, changed heuristic admissibility/consistency, and admissible-but-inconsistent A* graph-search reasoning. Do not reuse the homework's figures/specifics or solve its questions during recall. |
+| Continue | **AIMS5701 HW1 (Search): independent attempt → receipt-recorded targeted scaffolding by 14 Oct** | The 6 Oct generic cold-recall block repaired state-space counting and admissibility/consistency on changed examples, and confirmed the UCS goal-popped distinction. Manual A* work is conceptually sounder when the graph/frontier are externalised on paper; one real `g`/`f` bookkeeping slip occurred. Admissible-but-inconsistent reasoning is understood, but consistency ⇒ nondecreasing `f` is not yet cold-retrievable. Next: attempt HW1 independently; if blocked, use a separate transcript-recorded window with structurally equivalent but concretely different scaffolds. |
 | Parallel | **AIMS5702 lab readiness: epoch/eval orchestration → CNN bridge** | The 1 Oct delayed sweep confirmed broad Lecture 1–3 retention and repaired unequal-rank broadcasting plus stepped-slice stride/offset reasoning. The remaining practical gap is epoch/evaluation orchestration and metric accumulation; close that with one changed pipeline, then move into CNN shapes/mechanics ahead of 15 Oct. |
 | Protect | **FTEC5660 Private Client Graph: build deterministic evaluator** | Case 01 now runs through live structured extraction and deterministic graph construction. The first live extraction recovered all six intended edges with no extras. Evaluation semantics are now frozen: semantic edge comparison, symmetric normalization, precision/recall/F1, and approved-evidence provenance scored only on true-positive edges. Next implement the evaluator behind this contract before adding harder cases or retries. |
 
@@ -17,6 +17,20 @@ These lanes coexist; they are not one sequential queue. Delivery dates can tempo
 ## Delivery constraints — separate from learning evidence
 
 Canonical structured copy: `deadlines.yaml`. **AIMS5701 Homework 1 — Search Algorithms is due 14 Oct and remains the nearest delivery priority**, followed by the FTEC5660 solo hackathon on 19 Oct and **FTEC5660 Homework 2 — CV verification agent and adversarial CV on 20 Oct**. Protect the 5701 cold-recall/independent-attempt boundary first, then treat 19–20 Oct as a compressed FTEC delivery cluster rather than two unrelated queues. For HW2, course use of GenAI is learner-reported as permitted; preserve learner ownership of agent/verification architecture, deterministic-versus-stochastic boundaries, evaluation and adversarial reasoning while allowing routine implementation to be delegated where useful. Preserve full AI transcripts used for AIMS5701 assignment-related concept support to satisfy that homework's acknowledgement requirement. Keep delivery planning distinct from `learning_progress.yaml`.
+
+## AIMS5701 — HW1-targeted Search cold recall, 6 Oct
+
+Detailed source: `lesson_logs/aims5701/hw1_search_cold_recall_2026_10_06.md`.
+
+A bounded generic Search diagnostic was completed without loading the HW1 problem sheet. State-space cardinality initially undercounted two independent binary variables as two states rather than four, then repaired immediately and transferred cleanly to a changed multi-switch example. The useful rule is to count joint configurations, not variables.
+
+UCS/A* understanding was partly obscured by text-only graph presentation and working-memory load. The learner correctly retained the UCS rule that discovering a goal is not enough; it is safe only when the goal is popped as the lowest-priority frontier item under the usual cost assumptions. In A* bookkeeping, one genuine slip used a parent's `f` value as though it were accumulated `g`; after correction, the learner understood that `g(child)=g(parent)+edge cost` and `f=g+h`. Future written practice should externalise the graph and frontier rather than test prompt memory.
+
+Admissibility versus consistency was repaired cleanly. After initially mixing the tests, a changed example was classified correctly and independently: admissibility compares `h(n)` with `h*(n)`, while consistency is the edge condition `h(A) <= c(A,B)+h(B)`. The learner also understood the graph-search consequence of an admissible-but-inconsistent heuristic: `f` can decrease along an edge and a previously closed node may need reopening if a cheaper `g` is later found.
+
+The algebraic proof that consistency implies nondecreasing `f` was understood when shown but was explicitly identified by the learner as unlikely to be cold-retrievable yet. Earmark a **5–10 minute cold reconstruction on 7 Oct**, then stop if it returns cleanly.
+
+Next 5701 step: attempt HW1 independently. If the real assignment exposes a block, preserve the assignment boundary by using a separate transcript-recorded context with the HW1 uploaded and practising on structurally equivalent but concretely different questions rather than solving the submitted problem directly.
 
 ## AIMS5702 — lecture-break consolidation + lab readiness, 1 Oct
 
