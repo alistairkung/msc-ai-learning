@@ -18,19 +18,22 @@ These lanes coexist; they are not one sequential queue. Delivery dates can tempo
 
 Canonical structured copy: `deadlines.yaml`. **AIMS5701 Homework 1 — Search Algorithms is due 14 Oct and remains the nearest delivery priority**, followed by the FTEC5660 solo hackathon on 19 Oct and **FTEC5660 Homework 2 — CV verification agent and adversarial CV on 20 Oct**. Protect the 5701 cold-recall/independent-attempt boundary first, then treat 19–20 Oct as a compressed FTEC delivery cluster rather than two unrelated queues. For HW2, course use of GenAI is learner-reported as permitted; preserve learner ownership of agent/verification architecture, deterministic-versus-stochastic boundaries, evaluation and adversarial reasoning while allowing routine implementation to be delegated where useful. Preserve full AI transcripts used for AIMS5701 assignment-related concept support to satisfy that homework's acknowledgement requirement. Keep delivery planning distinct from `learning_progress.yaml`.
 
-## AIMS5701 — HW1-targeted Search cold recall, 6 Oct
+## AIMS5701 — HW1-targeted Search cold recall + calibrated survey, 6 Oct
 
 Detailed source: `lesson_logs/aims5701/hw1_search_cold_recall_2026_10_06.md`.
+Assignment-related transcript receipt: `lesson_logs/aims5701/assignments/hw1_search/ai_transcripts/AIMS5701_HW1_AI_Conversation_Transcript_2026-10-06.md`.
 
-A bounded generic Search diagnostic was completed without loading the HW1 problem sheet. State-space cardinality initially undercounted two independent binary variables as two states rather than four, then repaired immediately and transferred cleanly to a changed multi-switch example. The useful rule is to count joint configurations, not variables.
+Two Search blocks were completed on 6 Oct. The first was a generic cold-recall diagnostic without the problem sheet. The second loaded HW1 only to calibrate concept coverage, reasoning pattern and difficulty; every practice task remained a concretely fresh analogue and the actual assessed questions were not solved.
 
-UCS/A* understanding was partly obscured by text-only graph presentation and working-memory load. The learner correctly retained the UCS rule that discovering a goal is not enough; it is safe only when the goal is popped as the lowest-priority frontier item under the usual cost assumptions. In A* bookkeeping, one genuine slip used a parent's `f` value as though it were accumulated `g`; after correction, the learner understood that `g(child)=g(parent)+edge cost` and `f=g+h`. Future written practice should externalise the graph and frontier rather than test prompt memory.
+The strongest newly exposed conceptual gap was **minimal state formulation**: distinguishing dynamic world state from fixed map/problem information, then retaining only dynamic variables that can affect legal future behaviour or goal-relevant outcomes. Repeated changed examples repaired this within-session, including future-relevant Boolean flags and inclusive symbolic ranges such as `0..Rmax -> Rmax+1`. Treat this as repaired same-session evidence and check once with a delayed changed example before calling it durable.
 
-Admissibility versus consistency was repaired cleanly. After initially mixing the tests, a changed example was classified correctly and independently: admissibility compares `h(n)` with `h*(n)`, while consistency is the edge condition `h(A) <= c(A,B)+h(B)`. The learner also understood the graph-search consequence of an admissible-but-inconsistent heuristic: `f` can decrease along an edge and a previously closed node may need reopening if a cheaper `g` is later found.
+BFS mechanics are broadly intact, but the learner initially conflated expansion order with returned path; explicit parent tracing repaired this. State-space counting still shows occasional small off-by-one or omitted-factor slips.
 
-The algebraic proof that consistency implies nondecreasing `f` was understood when shown but was explicitly identified by the learner as unlikely to be cold-retrievable yet. Earmark a **5–10 minute cold reconstruction on 7 Oct**, then stop if it returns cleanly.
+Admissibility reasoning is conceptually available. A changed example exposed one inequality-direction slip, then the learner correctly articulated that heuristic distance and true action cost may be in different units, so a distance heuristic can overestimate when one action covers multiple cells. Admissibility versus consistency is now stronger: the learner independently distinguished the global lower-bound condition from the local edge condition and gave an admissible-but-inconsistent edge inequality.
 
-Next 5701 step: attempt HW1 independently. If the real assignment exposes a block, preserve the assignment boundary by using a separate transcript-recorded context with the HW1 uploaded and practising on structurally equivalent but concretely different questions rather than solving the submitted problem directly.
+A* remains primarily a **bookkeeping-under-load** risk rather than a missing algorithmic model. One fresh trace used an incorrect initial `f=g+h` arithmetic result, changing expansion order, but cheaper-path update and parent logic were understood after correction. Continue to externalise `g/h/f`, frontier and parents on paper.
+
+Next AIMS5701 confirmation pass on 7 Oct should stay bounded: one cold UCS trace; one clean A* trace; one heuristic-design/admissibility probe; one small admissible-but-inconsistent closed-set trace; and a brief cold reconstruction of consistency => admissibility / nondecreasing `f`. Do not turn this into another long Search session if those return cleanly.
 
 ## AIMS5702 — lecture-break consolidation + lab readiness, 1 Oct
 
