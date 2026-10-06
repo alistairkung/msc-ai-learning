@@ -6,24 +6,25 @@ meta:
   reviewed_on: '2026-10-06'
   evidence_through: '2026-10-06'
   repository: alistairkung/msc-ai-learning
-  source_ref: f82348c60bb6ea2d4c10f0f1f9c6d7f393d14cd8
+  source_ref: 47f9590674e36db5325a0d015d7e848d86255295
   review_note: >-
-    Learning evidence is reconciled through both 6 Oct AIMS5701 Search blocks: the initial
-    generic recall plus the later HW1-calibrated analogue survey. The later survey exposed
-    minimal-state formulation (dynamic vs fixed information, plus future-relevant flags) as
-    the clearest conceptual gap; this repaired on repeated changed examples but remains
-    same-session evidence. BFS needed explicit separation of expansion order from parent-chain
-    reconstruction. Admissibility reasoning repaired an inequality-direction slip and now
-    includes cost-unit reasoning; admissibility-versus-consistency is conceptually strong.
-    Manual A* remains bookkeeping-sensitive under fatigue, with one fresh f=g+h arithmetic
-    error changing expansion order. Use a short 7 Oct confirmation pass: UCS, one clean A*,
-    heuristic admissibility/design, one inconsistent-heuristic closed-set trace, and the
-    consistency=>admissibility proof. HW1 due 14 Oct remains the nearest delivery priority.
+    Learning evidence is reconciled through 6 Oct. A new FTEC5660 Private Client Graph
+    reflection records learner-led data-modelling judgement prompted by Case 04:
+    relationship identity was separated from multi-source Evidence, and the learner
+    challenged a hybrid JSONB design in favour of the principle that PostgreSQL should
+    persist enough canonical Matter facts to reconstruct current state deterministically.
+    CanonicalGraph is treated as a derived representation unless an independent lifecycle
+    later earns persisted identity. This is architecture/reflection evidence, not SQL
+    implementation mastery. Existing AIMS5701 Search evidence and 7 Oct confirmation plan
+    remain unchanged; HW1 due 14 Oct remains the nearest delivery priority.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 1f784f6438f693bce56a35ed3027bc9fb849e0b9
+    sha: bc98ae3a5ebad74749c86d2e583df8f06ed6483b
+  private_client_graph_data_modelling_case04:
+    path: lesson_logs/ftec5660/private_client_graph/data_modelling_case04_2026_10_06.md
+    sha: aa9bfc23049b20f538f77116875b6c205b730e4a
   private_client_graph_decision_extraction_contract:
     path: lesson_logs/ftec5660/private_client_graph/decisions/extraction-contract-case-01-2026-10-02.md
     sha: 042e929dd8a258b5b6cb47d91bfe2afe2e9a7799
