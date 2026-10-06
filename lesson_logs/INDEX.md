@@ -79,6 +79,7 @@ Folder: `lesson_logs/ftec5660/`
 | `lcel_guided_practice_2026_09_09.md` | Guided LCEL reconstruction: prompt templates, parsers, invocation and build/run-time separation | Taught/guided evidence; records support needs before Lesson 32 exercises |
 | `tutorial01_study_plan.md` | Plain-English follow-up route through Tutorial 1: state enrichment, Python runnables, gates, compact payments/KYC workflow, generated-code concept and routing bridge | **Parked plan.** Resume one day before the next FTEC5660 lecture; notebook itself is not committed |
 | `private_client_graph/data_modelling_case04_2026_10_06.md` | Case 04 data modelling: multi-source provenance, relationship/evidence identity, canonical relational persistence, CanonicalGraph as derived representation | Architecture/reflection evidence; learner-led boundary reasoning, not SQL implementation mastery |
+| `private_client_graph/canonical_persistence_grill_2026_10_07.md` | Adversarial persistence design: provenance completeness, aggregate isolation, Entity identity, Proposal/Matter integrity, derived CanonicalGraph, deferred entity-resolution semantics | Strong learner-led architecture/data-modelling evidence; proposed design, not PostgreSQL implementation mastery |
 
 For FTEC5660, future lecture/project logs should preserve the same source boundary: **what the lecturer/material supports** vs **the learner's own synthesis or hypothesis**. Tutorial logs must also preserve the actual in-class stopping point: code appearing later in a supplied notebook is not automatically learned material.
 
