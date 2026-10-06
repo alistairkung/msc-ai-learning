@@ -3,25 +3,30 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-10-06'
-  evidence_through: '2026-10-06'
+  reviewed_on: '2026-10-07'
+  evidence_through: '2026-10-07'
   repository: alistairkung/msc-ai-learning
-  source_ref: 47f9590674e36db5325a0d015d7e848d86255295
+  source_ref: 90cf8d51439e442a40276e4ce58fe2c4103a9732
   review_note: >-
-    Learning evidence is reconciled through 6 Oct. A new FTEC5660 Private Client Graph
-    reflection records learner-led data-modelling judgement prompted by Case 04:
-    relationship identity was separated from multi-source Evidence, and the learner
-    challenged a hybrid JSONB design in favour of the principle that PostgreSQL should
-    persist enough canonical Matter facts to reconstruct current state deterministically.
-    CanonicalGraph is treated as a derived representation unless an independent lifecycle
-    later earns persisted identity. This is architecture/reflection evidence, not SQL
-    implementation mastery. Existing AIMS5701 Search evidence and 7 Oct confirmation plan
-    remain unchanged; HW1 due 14 Oct remains the nearest delivery priority.
+    Learning evidence is reconciled through 7 Oct. The FTEC5660 Private Client Graph
+    architecture grill materially deepened the prior Case 04 modelling reflection:
+    the learner's preference for relational canonical persistence survived an explicit
+    challenge only after being grounded in database-enforced provenance integrity,
+    provenance completeness and aggregate isolation. Entity identity is separated from
+    names; Proposal and Matter remain distinct states with equivalent integrity guarantees;
+    CanonicalGraph remains a deterministic representation. Entity-resolution evaluation
+    and practitioner-asserted/unsubstantiated relationships are explicitly deferred.
+    This is architecture/data-modelling judgement, not PostgreSQL implementation mastery.
+    Existing AIMS5701 Search evidence is unchanged and HW1 due 14 Oct remains the nearest
+    delivery priority.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: bc98ae3a5ebad74749c86d2e583df8f06ed6483b
+    sha: eb6072f02fc8c410866700680999ab82d7ae03ee
+  private_client_graph_canonical_persistence_grill:
+    path: lesson_logs/ftec5660/private_client_graph/canonical_persistence_grill_2026_10_07.md
+    sha: fa53167cff8d8df6b3edd5cee2691f79b0097c6f
   private_client_graph_data_modelling_case04:
     path: lesson_logs/ftec5660/private_client_graph/data_modelling_case04_2026_10_06.md
     sha: aa9bfc23049b20f538f77116875b6c205b730e4a
