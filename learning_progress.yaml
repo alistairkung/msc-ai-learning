@@ -23,7 +23,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 83fe7c3f7c38c259400fc49dd14400dfd64c11d2
+    sha: 1f784f6438f693bce56a35ed3027bc9fb849e0b9
   private_client_graph_decision_extraction_contract:
     path: lesson_logs/ftec5660/private_client_graph/decisions/extraction-contract-case-01-2026-10-02.md
     sha: 042e929dd8a258b5b6cb47d91bfe2afe2e9a7799
