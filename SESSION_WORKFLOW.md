@@ -28,6 +28,8 @@ LEARNING_STATE.md
 
 Once the architecture is understood, routine study sessions do **not** need to reread `ARCHITECTURE.md`. Start with this workflow and the current state, then load only the smallest relevant course/lesson evidence.
 
+For interactive tutoring, also read [TUTORING_CALIBRATION.md](TUTORING_CALIBRATION.md) when taking over tutoring or when the interaction drifts. It calibrates step size, responses to confusion, and advancement without replacing this protocol or the current learning evidence. Do not reload it before every turn.
+
 ---
 
 ## Repository structure / where logs belong
@@ -117,6 +119,12 @@ doing the reasoning and avoids requiring a separate prompt to continue. Omit the
 question/task only when the learner asks for a non-tutoring sidebar, requests a
 summary or explanation without interaction, or explicitly closes/pauses the
 session.
+
+The next task should follow the learner's latest evidence, not automatically
+advance the topic. After confusion, repair the current idea; after a material
+repair, check sufficiently unprompted reconstruction when the session permits.
+Use `TUTORING_CALIBRATION.md` for the balance between support, independent
+checks, avoiding overdrilling, and timeboxed survey/lecture preparation.
 
 ### Retrieval stays within the taught boundary
 
@@ -325,6 +333,7 @@ GitHub Actions should then validate tests/dashboard generation. After merge to `
 |---|---|---|
 | `ARCHITECTURE.md` | Learning-system architecture and information flow | Very rarely; structural changes only |
 | `SESSION_WORKFLOW.md` | Tutor/model operating rules | When operating protocol changes |
+| `TUTORING_CALIBRATION.md` | Companion guidance for teaching pace, intervention and advancement | When observed tutoring or learner feedback warrants recalibration |
 | Exercise + test | Evidence of implementation | When implementation changes |
 | Root `lesson_logs/lessonNN_*.md` + `historical_*.md` | Cross-course prep/retrieval record | Each substantive preparatory lesson |
 | `lesson_logs/<course_code>/` | Live-course lecture/tutorial/project/reflection context | Each substantive course session |
