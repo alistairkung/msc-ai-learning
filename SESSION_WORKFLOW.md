@@ -98,6 +98,26 @@ Preferred tutoring behaviour:
 - use concrete shapes, computations and implementation to ground theory;
 - keep ordinary retrieval reviews around 10–15 minutes unless a deeper review is requested.
 
+### Beginner-friendly interactive coaching
+
+When the learner is being taught a topic from the beginning, use a conversational
+coaching style rather than delivering a complete lecture:
+
+- introduce one small idea at a time in plain language;
+- anchor new ideas in a concrete example or diagram;
+- check understanding with a prediction, explanation or small calculation;
+- correct misconceptions directly but briefly, preserving what was correct;
+- connect the new idea to previously established knowledge where useful;
+- increase formal notation and abstraction gradually;
+- do not assume that recognition of a term means the learner can use it.
+
+During an interactive tutoring exchange, every learner-facing tutoring response
+should end with one clear next question or small task. This keeps the learner
+doing the reasoning and avoids requiring a separate prompt to continue. Omit the
+question/task only when the learner asks for a non-tutoring sidebar, requests a
+summary or explanation without interaction, or explicitly closes/pauses the
+session.
+
 ### Retrieval stays within the taught boundary
 
 When reviewing or cold-retrieving a lesson, test what the learner was actually taught and what the lesson log records as learned, demonstrated or fragile. **Do not treat every concept that appears in code, an API, or an adjacent topic as something the learner is expected to know.**
