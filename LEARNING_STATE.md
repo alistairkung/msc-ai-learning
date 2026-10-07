@@ -18,6 +18,22 @@ These lanes coexist; they are not one sequential queue. Delivery dates can tempo
 
 Canonical structured copy: `deadlines.yaml`. **AIMS5701 Homework 1 — Search Algorithms is due 14 Oct and remains the nearest delivery priority**, followed by the FTEC5660 solo hackathon on 19 Oct and **FTEC5660 Homework 2 — CV verification agent and adversarial CV on 20 Oct**. Protect the 5701 cold-recall/independent-attempt boundary first, then treat 19–20 Oct as a compressed FTEC delivery cluster rather than two unrelated queues. For HW2, course use of GenAI is learner-reported as permitted; preserve learner ownership of agent/verification architecture, deterministic-versus-stochastic boundaries, evaluation and adversarial reasoning while allowing routine implementation to be delegated where useful. Preserve full AI transcripts used for AIMS5701 assignment-related concept support to satisfy that homework's acknowledgement requirement. Keep delivery planning distinct from `learning_progress.yaml`.
 
+## AIMS5701 — HMM preparation paused after Bayes Nets scope update, 7 Oct
+
+Detailed source: `lesson_logs/aims5701/bayes_nets_scope_pivot_2026_10_07.md`.
+
+The next-lecture tutoring block introduced HMMs and particle filtering from
+first principles using a weather/umbrella example. The learner can now explain
+hidden states versus observations, transition versus emission models, exact
+prediction/update, and particle weighting/resampling at a guided same-session
+level. This is not delayed or independent HMM mastery; decoding/Viterbi was
+introduced too early and has been parked.
+
+The learner then reported that the newly released lecture slides continue Bayes
+Nets. This supersedes the immediate HMM preparation assumption for course-facing
+planning. Reconcile the new Bayes Nets material first; keep HMM/particle
+filtering as deferred runway until live teaching reaches it.
+
 ## AIMS5701 — HW1-targeted Search cold recall + calibrated survey, 6 Oct
 
 Detailed source: `lesson_logs/aims5701/hw1_search_cold_recall_2026_10_06.md`.

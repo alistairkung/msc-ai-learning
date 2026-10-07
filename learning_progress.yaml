@@ -8,22 +8,21 @@ meta:
   repository: alistairkung/msc-ai-learning
   source_ref: d5df1f1a8311b49c131f34eec5544efe0efac94f
   review_note: >-
-    Learning evidence is reconciled through 7 Oct. The FTEC5660 Private Client Graph
-    architecture grill materially deepened the prior Case 04 modelling reflection:
-    the learner's preference for relational canonical persistence survived an explicit
-    challenge only after being grounded in database-enforced provenance integrity,
-    provenance completeness and aggregate isolation. Entity identity is separated from
-    names; Proposal and Matter remain distinct states with equivalent integrity guarantees;
-    CanonicalGraph remains a deterministic representation. Entity-resolution evaluation
-    and practitioner-asserted/unsubstantiated relationships are explicitly deferred.
-    This is architecture/data-modelling judgement, not PostgreSQL implementation mastery.
-    Existing AIMS5701 Search evidence is unchanged and HW1 due 14 Oct remains the nearest
+    Learning evidence is reconciled through 7 Oct. AIMS5701 HMM and particle-filter
+    concepts received a guided same-session introduction, but the learner reported
+    that the newly released lecture slides continue Bayes Nets; HMM readiness remains
+    introductory runway rather than live-course or independent evidence. The FTEC5660
+    Private Client Graph architecture grill materially deepened the prior Case 04
+    modelling reflection: the learner's preference for relational canonical persistence
+    survived an explicit challenge only after being grounded in database-enforced
+    provenance integrity, provenance completeness and aggregate isolation. Existing
+    AIMS5701 Search evidence is unchanged and HW1 due 14 Oct remains the nearest
     delivery priority.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 35db7e71624918f095f36c3e09eb85d5e88b6fdf
+    sha: 2b6cfc087ccd618b054520615cee55d899fd0294
   private_client_graph_canonical_persistence_grill:
     path: lesson_logs/ftec5660/private_client_graph/canonical_persistence_grill_2026_10_07.md
     sha: fa53167cff8d8df6b3edd5cee2691f79b0097c6f
@@ -65,7 +64,10 @@ sources:
     sha: ca16ab0924fbf665ce4ce8754aa36cb83fdf2814
   aims5701_hw1_recall_20261006:
     path: lesson_logs/aims5701/hw1_search_cold_recall_2026_10_06.md
-    sha: 916d3a2f48892c7bda7e29daf0acae94e4c416d1
+    sha: a7ed9dd786c6e66a35b2261152f75f90accb0892
+  aims5701_bayes_nets_scope_pivot_20261007:
+    path: lesson_logs/aims5701/bayes_nets_scope_pivot_2026_10_07.md
+    sha: 7fad8927a70c17ff406993c1515157bacd35315b
   probability_bridge:
     path: foundations/probability_statistics/bayesian_network_probability_bridge.md
     sha: 80d315910b5cf28b632b89257295805465e64d67
@@ -74,7 +76,7 @@ sources:
     sha: d9234fca5749d0cc5ea11e360eb2a6c6ce83cf3d
   syllabus:
     path: MSC_SYLLABUS_MAP.md
-    sha: 360e7a46fd9a96e047d638e24ddb526880dbd4e0
+    sha: 9d571d7c2de8ae54b2e05fbcd79ac0fae69da8d4
   roadmap:
     path: LEARNING_ROADMAP.md
     sha: c41afef1c1617e545bfb4b87ca0f688ea4abdf5d
@@ -583,13 +585,15 @@ topics:
       marginalisation initially failed despite the definition being retained; the first
       abstract independence table and first d-separation exercise reversed the
       chain/fork observed rule before repair. Likelihood weighting and variable-
-      elimination intuition are pre-reading, not live Lecture 3 coverage. The released
-      Bayes Nets I deck confirms representation + independence only.
+      elimination intuition are pre-reading, not live Lecture 3 coverage. The learner
+      now reports that the newly released continuation still covers Bayes Nets; no
+      HMM live-course coverage should be inferred from the guided 7 Oct preparation.
     next: >-
-      Attend Lecture 3, then cold-check DAG/CPT semantics, factorisation, the local
-      Markov property, chain/fork/collider and one multi-path d-separation query. Park
-      sampling/variable-elimination as future runway until live teaching brings them in.
-    sources: [bayes_jit_20260928, probability_bridge, aims5701_prelecture_20260930, state, syllabus]
+      Reconcile the new Bayes Nets material, then cold-check DAG/CPT semantics,
+      factorisation, the local Markov property, chain/fork/collider and one changed
+      multi-path d-separation query. Keep sampling/variable-elimination and HMM
+      preparation as future runway until live teaching brings them in.
+    sources: [bayes_jit_20260928, probability_bridge, aims5701_prelecture_20260930, aims5701_bayes_nets_scope_pivot_20261007, state, syllabus]
     evidence_on: '2026-09-30'
     depends_on: [bayes]
 
@@ -693,16 +697,51 @@ topics:
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
     depends_on: [decision_trees]
   hmm:
-    <<: *new
     name: Hidden Markov Models
     area: Model building
-    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    concept: taught
+    performance: guided
+    review: recorded
+    action: retrieve
+    evidence: >-
+      On 7 Oct the learner received a first-principles guided introduction using
+      hidden weather states and visible umbrella observations. They followed
+      transition versus emission models, exact prediction/update and the basic
+      particle-filter transition/weight/resample loop.
+    boundary: >-
+      This is same-session guided introductory evidence, not delayed or independent
+      HMM mastery. Filtering became understandable through concrete examples, while
+      decoding/Viterbi was introduced too early and explicitly parked. The learner
+      then reported that the newly released live lecture slides continue Bayes Nets;
+      no live HMM coverage is recorded.
+    next: >-
+      Keep HMMs as deferred runway. Diagnose Markov-chain recall and return to the
+      transition/emission/filtering foundation when live teaching reaches HMMs.
+    sources: [aims5701_bayes_nets_scope_pivot_20261007, state, syllabus]
+    evidence_on: '2026-10-07'
     depends_on: [markov, bayes]
   particle_filtering:
-    <<: *new
     name: Particle filtering
     area: Model building
-    evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+    concept: taught
+    performance: guided
+    review: recorded
+    action: retrieve
+    evidence: >-
+      The 7 Oct guided introduction connected particle filtering to the exact
+      filtering loop: transition particles, weight them by observation likelihood,
+      then resample. The learner understood that the population approximates a
+      probability distribution and that more particles generally reduce sampling
+      noise.
+    boundary: >-
+      This is same-session guided introductory evidence, not independent
+      implementation or durable cold recall. Particle-filter details beyond the
+      basic loop remain new, and live course coverage has not been established.
+    next: >-
+      Park after the basic loop. Revisit with changed examples when HMM/particle
+      filtering becomes the live course demand.
+    sources: [aims5701_bayes_nets_scope_pivot_20261007, state, syllabus]
+    evidence_on: '2026-10-07'
     depends_on: [hmm]
   neural_regression:
     <<: *new
@@ -780,31 +819,38 @@ topics:
 lanes:
 - id: continue
   label: Continue next · AIMS5701
-  title: Attend Bayes Nets I -> post-lecture retrieval -> HMM diagnostic
-  summary: The 30 Sep Search retention pass and BN pre-lecture bridge are complete. The released Lecture 3 deck confirms representation + independence only; reconcile live emphasis next, then diagnose Markov-chain recall before HMM work.
-  target: bayesian_networks
+  title: AIMS5701 HW1 independent attempt -> Bayes Nets continuation
+  summary: HW1 remains the nearest delivery priority. The 7 Oct HMM introduction was guided and paused when the learner reported that the new lecture slides continue Bayes Nets; reconcile that live material before returning to HMM runway.
+  target: search_complexity
   tasks:
-  - title: Attend and reconcile Bayes Nets I
-    when: 30 Sep lecture + next retrieval block
+  - title: Attempt HW1 independently
+    when: Before 14 Oct
+    topics: [search_complexity, ucs, astar]
+    detail: >-
+      Attempt the homework independently first. If blocked, use a separate
+      transcript-recorded window with structurally equivalent but concretely
+      different scaffolds; preserve the assignment acknowledgement boundary.
+  - title: Reconcile the Bayes Nets continuation
+    when: Next AIMS5701 lecture/retrieval block
     topics: [bayes, bayesian_networks]
     detail: >-
-      Listen rather than pre-study further. Afterwards cold-check DAG/CPT semantics,
-      factorisation, the local Markov property, chain/fork/collider, explaining away and
-      one multi-path d-separation query against the actual lecture emphasis.
+      Use the newly released slides and actual lecture emphasis. Cold-check DAG/CPT
+      semantics, factorisation, the local Markov property, chain/fork/collider,
+      explaining away and one changed multi-path d-separation query.
   - title: Keep sampling runway parked
-    when: Until live Bayes-net teaching requires it
+    when: Until live teaching requires it
     topics: [bayesian_networks]
     detail: >-
       Rejection sampling, likelihood weighting and variable-elimination intuition were
       useful 30 Sep extensions but are absent from the Bayes Nets I deck. Preserve them
       as same-session guided evidence without treating them as current lecture scope.
-  - title: Diagnose Markov-chain recall
-    when: After Lecture 3 reconciliation
+  - title: Defer HMM/particle filtering
+    when: Until live course reaches HMMs
     topics: [markov, hmm, particle_filtering]
     detail: >-
-      Test remembered Markov-chain concepts before teaching HMMs. Rebuild only observed
-      gaps and keep the HMM/particle-filtering sequence tentative until newer live
-      material confirms it.
+      The 7 Oct guided introduction is runway only. Diagnose remembered Markov-chain
+      concepts and return to HMM filtering/particle filtering when the live sequence
+      reaches the topic.
 - id: parallel
   label: Parallel block · AIMS5702
   title: Lab readiness -> CNN bridge
@@ -865,15 +911,16 @@ courses:
         The released Lecture 3 deck confirms representation + independence: probability
         review, DAG/CPT semantics, factorisation, conditional independence, canonical
         triples and d-separation. The 30 Sep pre-lecture block now gives delayed
-        factorisation/marginalisation evidence plus guided d-separation. Sampling and
-        variable-elimination extensions are not in this deck and stay parked as runway.
+        factorisation/marginalisation evidence plus guided d-separation. The learner
+        reports that the newly released continuation still covers Bayes Nets, so
+        sampling, variable elimination and HMM preparation stay parked as runway.
       scope: mapped
       due_on: null
     - week: '4'
       title: Hidden Markov Models and Particle Filtering
       anchors: [bayes, distributions]
       remaining: [markov, hmm, particle_filtering]
-      note: Diagnose remembered Markov-chain material first; rebuild only observed gaps before bridging to filtering and particle approximation.
+      note: HMM/particle filtering remains deferred. Diagnose remembered Markov-chain material first and bridge to filtering only when live teaching reaches this week.
       scope: mapped
       due_on: null
     - week: '5'
