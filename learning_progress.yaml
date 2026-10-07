@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-10-07'
   evidence_through: '2026-10-07'
   repository: alistairkung/msc-ai-learning
-  source_ref: d5df1f1a8311b49c131f34eec5544efe0efac94f
+  source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
   review_note: >-
     Learning evidence is reconciled through 7 Oct. AIMS5701 HMM and particle-filter
     concepts received a guided same-session introduction, but the learner reported
