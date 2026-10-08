@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-10-07. Learning evidence through 2026-10-07. Delivery/recall plan reviewed 2026-10-05._
+_Last maintained: 2026-10-08. Learning evidence through 2026-10-08. Delivery/recall plan reviewed 2026-10-05._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -9,7 +9,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
 | Continue | **AIMS5701 HW1 (Search): independent attempt → receipt-recorded targeted scaffolding by 14 Oct** | The 6 Oct generic cold-recall block repaired state-space counting and admissibility/consistency on changed examples, and confirmed the UCS goal-popped distinction. Manual A* work is conceptually sounder when the graph/frontier are externalised on paper; one real `g`/`f` bookkeeping slip occurred. Admissible-but-inconsistent reasoning is understood, but consistency ⇒ nondecreasing `f` is not yet cold-retrievable. Next: attempt HW1 independently; if blocked, use a separate transcript-recorded window with structurally equivalent but concretely different scaffolds. |
-| Parallel | **AIMS5702 lab readiness: epoch/eval orchestration → CNN bridge** | The 1 Oct delayed sweep confirmed broad Lecture 1–3 retention and repaired unequal-rank broadcasting plus stepped-slice stride/offset reasoning. The remaining practical gap is epoch/evaluation orchestration and metric accumulation; close that with one changed pipeline, then move into CNN shapes/mechanics ahead of 15 Oct. |
+| Parallel | **AIMS5702 assessed lab 8 Oct: independent execution and Q&A → CNN bridge** | The 8 Oct 50-question cold review confirmed training fundamentals, broadcasting, parameter counting and core update ordering; evaluation-mode semantics, full validation loop, and stepped-slice offsets still required repair. Prioritise permitted lab execution and oral readiness today, then independently reconstruct a new full evaluation epoch before CNN preparation. |
 | Protect | **FTEC5660 Private Client Graph: build deterministic evaluator** | Case 01 now runs through live structured extraction and deterministic graph construction. The first live extraction recovered all six intended edges with no extras. Evaluation semantics are now frozen: semantic edge comparison, symmetric normalization, precision/recall/F1, and approved-evidence provenance scored only on true-positive edges. Next implement the evaluator behind this contract before adding harder cases or retries. |
 
 These lanes coexist; they are not one sequential queue. Delivery dates can temporarily resize them, but a deadline is not itself learning evidence.
@@ -50,6 +50,15 @@ Admissibility reasoning is conceptually available. A changed example exposed one
 A* remains primarily a **bookkeeping-under-load** risk rather than a missing algorithmic model. One fresh trace used an incorrect initial `f=g+h` arithmetic result, changing expansion order, but cheaper-path update and parent logic were understood after correction. Continue to externalise `g/h/f`, frontier and parents on paper.
 
 Next AIMS5701 confirmation pass on 7 Oct should stay bounded: one cold UCS trace; one clean A* trace; one heuristic-design/admissibility probe; one small admissible-but-inconsistent closed-set trace; and a brief cold reconstruction of consistency => admissibility / nondecreasing `f`. Do not turn this into another long Search session if those return cleanly.
+
+## AIMS5702 — lab-day cold retrieval and oral readiness, 8 Oct
+
+Detailed evidence: `lesson_logs/aims5702/lab_day_cold_retrieval_2026_10_08.md`.
+Portable crib sheet: `lesson_logs/aims5702/lab_day_revision_sheet_2026_10_08.md`.
+
+A broad oral-style review of the actual Lecture 1–3 scope independently retrieved training/inference, parameter counts, generalisation, tensor broadcasting, einsum, mini-batch arithmetic, backward/gradient accumulation, and training-step API sequence. Partial or mistaken cold responses exposed fragile image/video axis order, reduction entry semantics, integer-versus-slice shape, stepped slice stride/offset, transpose view semantics, gradient descent formula, one-hot cross-entropy target, and validation orchestration. Changed-example repairs generally worked within session, **not** after a delay. Core PyTorch validation mode versus `no_grad`, class `argmax`, sample-count accumulation and metric APIs needed incremental scaffolding, so a fully independent validation epoch remains unproven.
+
+The planned distinct mixed oral simulation was not completed; do not infer full Q&A readiness from prompted repairs. Today: protect meal/travel time and assessed-lab process; confirm course GenAI permission before notebook assistance. Next independent practice: one full changed training/validation pipeline and one spaced tensor-storage exercise. CNN bridge follows after lab.
 
 ## AIMS5702 — lecture-break consolidation + lab readiness, 1 Oct
 
