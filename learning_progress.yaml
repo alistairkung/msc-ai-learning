@@ -3,21 +3,12 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-10-07'
-  evidence_through: '2026-10-07'
+  reviewed_on: '2026-10-08'
+  evidence_through: '2026-10-08'
   repository: alistairkung/msc-ai-learning
   source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
   review_note: >-
-    Learning evidence is reconciled through 7 Oct. AIMS5701 HMM and particle-filter
-    concepts received a guided same-session introduction, but the learner reported
-    that the newly released lecture slides continue Bayes Nets; HMM readiness remains
-    introductory runway rather than live-course or independent evidence. The FTEC5660
-    Private Client Graph architecture grill materially deepened the prior Case 04
-    modelling reflection: the learner's preference for relational canonical persistence
-    survived an explicit challenge only after being grounded in database-enforced
-    provenance integrity, provenance completeness and aggregate isolation. Existing
-    AIMS5701 Search evidence is unchanged and HW1 due 14 Oct remains the nearest
-    delivery priority.
+    AIMS5702 oral-style review on 8 Oct sampled actual Lectures 1–3. Core training concepts, broadcasting, parameter counting and batch mechanics returned independently, but stepped-slice offset/stride, mode-versus-gradient distinction, cross-entropy target and complete validation orchestration required guided repair. A full independent epoch/validation loop and separate mixed oral simulation remain unproven. Other-course evidence and delivery priorities unchanged.
   stale_after_days: 21
 sources:
   state:
@@ -483,14 +474,14 @@ topics:
       model, CrossEntropyLoss/SGD intent and the core batch-training order
       zero_grad -> forward -> loss -> backward -> step. Epoch meaning and validation
       concepts were understood, but orchestration and metric bookkeeping were not
-      independently produced.
+      independently produced. On 8 Oct core batch step returned cold, but validation mode, argmax, counters and accuracy required scaffolding.
     boundary: >-
       Core training semantics are stronger than API/orchestration recall. model(X) and
       loss.backward() needed API correction; validation first used whole X_val/y_val
       inside the loader loop; argmax accuracy, epoch-level accumulation and reporting
       were taught/shown. This is not a cold-independent end-to-end pipeline.
     next: >-
-      Give a nearly complete changed classifier and have the learner fill only the epoch
+      After 8 Oct lab, give a nearly complete changed classifier and have the learner fill only the epoch
       loop, model.train()/eval(), torch.no_grad(), batch predictions, loss/accuracy
       accumulation and epoch reporting. Then reconstruct the full small pipeline once
       with minimal prompting before moving on.
