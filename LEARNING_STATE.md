@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-10-08. Learning evidence through 2026-10-08. Delivery/recall plan reviewed 2026-10-05._
+_Last maintained: 2026-10-09. Learning evidence through 2026-10-09. Delivery/recall plan reviewed 2026-10-05._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -8,7 +8,7 @@ Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the s
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
-| Continue | **AIMS5701 HW1 (Search): independent attempt → receipt-recorded targeted scaffolding by 14 Oct** | The 6 Oct generic cold-recall block repaired state-space counting and admissibility/consistency on changed examples, and confirmed the UCS goal-popped distinction. Manual A* work is conceptually sounder when the graph/frontier are externalised on paper; one real `g`/`f` bookkeeping slip occurred. Admissible-but-inconsistent reasoning is understood, but consistency ⇒ nondecreasing `f` is not yet cold-retrievable. Next: attempt HW1 independently; if blocked, use a separate transcript-recorded window with structurally equivalent but concretely different scaffolds. |
+| Continue | **AIMS5701 HW1 (Search): finish remaining problems and independent write-up by 14 Oct** | On 9 Oct the learner attempted the actual assignment with AI used for targeted checking. Q1–Q4 received substantive attempts; paper BFS/DFS/UCS/A* traces and admissibility/consistency checks were generally correct after feedback. Q6(b)(i) required iterative construction and frontier corrections before a valid admissible-but-inconsistent closed-set counterexample emerged; Q6(b)(ii) reopening rule was identified with guidance. Q5 is not evidenced in this conversation. Prioritise Q5, check Q6(a), independently draft solutions, and verify required original AI-interaction receipts. No claim of final submission or delayed mastery. |
 | Parallel | **AIMS5702 assessed lab 8 Oct: independent execution and Q&A → CNN bridge** | The 8 Oct 50-question cold review confirmed training fundamentals, broadcasting, parameter counting and core update ordering; evaluation-mode semantics, full validation loop, and stepped-slice offsets still required repair. Prioritise permitted lab execution and oral readiness today, then independently reconstruct a new full evaluation epoch before CNN preparation. |
 | Protect | **FTEC5660 Private Client Graph: build deterministic evaluator** | Case 01 now runs through live structured extraction and deterministic graph construction. The first live extraction recovered all six intended edges with no extras. Evaluation semantics are now frozen: semantic edge comparison, symmetric normalization, precision/recall/F1, and approved-evidence provenance scored only on true-positive edges. Next implement the evaluator behind this contract before adding harder cases or retries. |
 
@@ -17,6 +17,14 @@ These lanes coexist; they are not one sequential queue. Delivery dates can tempo
 ## Delivery constraints — separate from learning evidence
 
 Canonical structured copy: `deadlines.yaml`. **AIMS5701 Homework 1 — Search Algorithms is due 14 Oct and remains the nearest delivery priority**, followed by the FTEC5660 solo hackathon on 19 Oct and **FTEC5660 Homework 2 — CV verification agent and adversarial CV on 20 Oct**. Protect the 5701 cold-recall/independent-attempt boundary first, then treat 19–20 Oct as a compressed FTEC delivery cluster rather than two unrelated queues. For HW2, course use of GenAI is learner-reported as permitted; preserve learner ownership of agent/verification architecture, deterministic-versus-stochastic boundaries, evaluation and adversarial reasoning while allowing routine implementation to be delegated where useful. Preserve full AI transcripts used for AIMS5701 assignment-related concept support to satisfy that homework's acknowledgement requirement. Keep delivery planning distinct from `learning_progress.yaml`.
+
+## AIMS5701 — actual HW1 guided attempt, 9 Oct
+
+Detailed evidence: `lesson_logs/aims5701/hw1_actual_attempt_2026_10_09.md`.
+
+The learner worked from the assigned problem sheet under a no-full-answers tutoring boundary. Q1 state-space variables were identified independently with an omitted grid dimension repaired; Q1 heuristic admissibility needed a concrete valid motion counterexample and explicit substitution into Euclidean coordinates. Q2 handwritten BFS/DFS/UCS frontiers, returned paths and costs were checked, including lower-`g` frontier updates and goal-popped termination. Q3 paper A* trace used `g/h/f` and corrected a frontier path, and Q4 per-node admissibility plus per-edge consistency checks were supplied on paper. Avoid treating tutor validation of assessed answers as an independent cold transfer check.
+
+Q6(b) featured a useful deeper repair: the learner formulated the no-reopening failure mechanism and constructed a four-node counterexample, but repeatedly confused a goal candidate's path cost and parent before correcting the frontier and cumulative closed set. The learner named reopening on improved `g` for Q6(b)(ii), after which the tutor supplied implementation detail. This is strong guided construction, not independent proof mastery. Q5 and Q6(a) were not demonstrated in this chat. The immediate follow-up is to finish those parts, independently write the final submission, and confirm the original unedited interaction record is retained; a reconstructed summary/PDF is not equivalent to an original transcript. The local conversation had a readable reconstruction and separate browser screenshots combined for the learner, but those artifacts were not committed to this repo in this sync.
 
 ## AIMS5701 — HMM preparation paused after Bayes Nets scope update, 7 Oct
 
