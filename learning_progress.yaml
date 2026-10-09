@@ -3,26 +3,17 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-10-07'
-  evidence_through: '2026-10-07'
+  reviewed_on: '2026-10-08'
+  evidence_through: '2026-10-08'
   repository: alistairkung/msc-ai-learning
   source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
   review_note: >-
-    Learning evidence is reconciled through 7 Oct. AIMS5701 HMM and particle-filter
-    concepts received a guided same-session introduction, but the learner reported
-    that the newly released lecture slides continue Bayes Nets; HMM readiness remains
-    introductory runway rather than live-course or independent evidence. The FTEC5660
-    Private Client Graph architecture grill materially deepened the prior Case 04
-    modelling reflection: the learner's preference for relational canonical persistence
-    survived an explicit challenge only after being grounded in database-enforced
-    provenance integrity, provenance completeness and aggregate isolation. Existing
-    AIMS5701 Search evidence is unchanged and HW1 due 14 Oct remains the nearest
-    delivery priority.
+    AIMS5702 oral-style review on 8 Oct sampled actual Lectures 1–3. Core training concepts, broadcasting, parameter counting and batch mechanics returned independently, but stepped-slice offset/stride, mode-versus-gradient distinction, cross-entropy target and complete validation orchestration required guided repair. A full independent epoch/validation loop and separate mixed oral simulation remain unproven. Other-course evidence and delivery priorities unchanged.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 2b6cfc087ccd618b054520615cee55d899fd0294
+    sha: 870bff20ae211f2fabac95f7e24c7062d52b7dcb
   private_client_graph_canonical_persistence_grill:
     path: lesson_logs/ftec5660/private_client_graph/canonical_persistence_grill_2026_10_07.md
     sha: fa53167cff8d8df6b3edd5cee2691f79b0097c6f
@@ -134,6 +125,12 @@ sources:
   aims5702_lecture03_live:
     path: lesson_logs/aims5702/lecture03_live_2026_09_24.md
     sha: 04eef0eef1a21cdda92554ad6291ff8b0dcd4ffe
+  aims5702_lab_day_retrieval_20261008:
+    path: lesson_logs/aims5702/lab_day_cold_retrieval_2026_10_08.md
+    sha: ddcd909a47fdc3c66d1f9d5760424e757b8eb787
+  aims5702_lab_day_revision_20261008:
+    path: lesson_logs/aims5702/lab_day_revision_sheet_2026_10_08.md
+    sha: ec9f56d2a8294be4bb10eec5282b5195226587fe
   aims5702_consolidation_20261001:
     path: lesson_logs/aims5702/lecture_break_consolidation_lab_readiness_2026_10_01.md
     sha: 39bd1cef9b3c56470c6ab1357efb213a0a35c5fb
@@ -483,14 +480,14 @@ topics:
       model, CrossEntropyLoss/SGD intent and the core batch-training order
       zero_grad -> forward -> loss -> backward -> step. Epoch meaning and validation
       concepts were understood, but orchestration and metric bookkeeping were not
-      independently produced.
+      independently produced. On 8 Oct core batch step returned cold, but validation mode, argmax, counters and accuracy required scaffolding.
     boundary: >-
       Core training semantics are stronger than API/orchestration recall. model(X) and
       loss.backward() needed API correction; validation first used whole X_val/y_val
       inside the loader loop; argmax accuracy, epoch-level accumulation and reporting
       were taught/shown. This is not a cold-independent end-to-end pipeline.
     next: >-
-      Give a nearly complete changed classifier and have the learner fill only the epoch
+      After 8 Oct lab, give a nearly complete changed classifier and have the learner fill only the epoch
       loop, model.train()/eval(), torch.no_grad(), batch predictions, loss/accuracy
       accumulation and epoch reporting. Then reconstruct the full small pipeline once
       with minimal prompting before moving on.
