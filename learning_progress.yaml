@@ -3,12 +3,12 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-10-08'
-  evidence_through: '2026-10-08'
+  reviewed_on: '2026-10-09'
+  evidence_through: '2026-10-09'
   repository: alistairkung/msc-ai-learning
   source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
   review_note: >-
-    AIMS5702 oral-style review on 8 Oct sampled actual Lectures 1–3. Core training concepts, broadcasting, parameter counting and batch mechanics returned independently, but stepped-slice offset/stride, mode-versus-gradient distinction, cross-entropy target and complete validation orchestration required guided repair. A full independent epoch/validation loop and separate mixed oral simulation remain unproven. Other-course evidence and delivery priorities unchanged.
+    On 9 Oct the learner attempted actual AIMS5701 HW1 questions with bounded AI diagnosis. Handwritten BFS/DFS/UCS/A* traces, state counts, admissibility and consistency were assessed, while the no-reopen A* counterexample required multi-turn guided cost/parent bookkeeping repair. Do not infer final submitted answers, delayed mastery, or Q5/Q6(a) completion. Prior AIMS5702 evidence and delivery priorities remain unchanged.
   stale_after_days: 21
 sources:
   state:
@@ -53,6 +53,9 @@ sources:
   aims5701_prelecture_20260930:
     path: lesson_logs/aims5701/lecture03_prelecture_retrieval_2026_09_30.md
     sha: ca16ab0924fbf665ce4ce8754aa36cb83fdf2814
+  aims5701_hw1_attempt_20261009:
+    path: lesson_logs/aims5701/hw1_actual_attempt_2026_10_09.md
+    sha: 7a50b8445a6a4678fafc121734824800548d161f
   aims5701_hw1_recall_20261006:
     path: lesson_logs/aims5701/hw1_search_cold_recall_2026_10_06.md
     sha: a7ed9dd786c6e66a35b2261152f75f90accb0892
@@ -206,6 +209,9 @@ topics:
     review: recorded
     action: retrieve
     evidence: >-
+      On 9 Oct the learner supplied a handwritten UCS frontier trace on the actual
+      HW1 graph, including cheaper-path cost/parent updates, and independently
+      stated why the goal is only safe to accept when popped.
       Lesson 33 records a passing guided UCS implementation. On 30 Sep delayed
       midterm retrieval recovered lowest-g selection cold. On 6 Oct the learner again
       correctly explained that goal discovery is insufficient and that UCS is safe to
@@ -216,9 +222,9 @@ topics:
       bookkeeping is easier when the frontier is externalised on paper; do not interpret
       text-only working-memory load as a UCS conceptual failure. Exact theorem assumptions
       still deserve spaced retrieval.
-    next: Maintain the goal-popped distinction through the independent HW1 attempt; do not replay the full UCS implementation unless a concrete gap appears.
-    sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, aims5701_hw1_recall_20261006, state]
-    evidence_on: '2026-10-06'
+    next: Maintain goal-popped termination and correct parent/cost updates through a later changed-graph spot check; implementation fluency remains separately unproven.
+    sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, aims5701_hw1_recall_20261006, aims5701_hw1_attempt_20261009, state]
+    evidence_on: '2026-10-09'
     depends_on: [bfs]
   astar:
     name: A* search
@@ -228,6 +234,10 @@ topics:
     review: recorded
     action: maintain
     evidence: >-
+      On 9 Oct paper A* tracing and Q4 admissibility/consistency calculations were
+      successful after review. The learner constructed a valid four-node
+      admissible-but-inconsistent closed-set counterexample after correcting
+      multiple frontier/parent-cost errors with guidance.
       Lesson 33 records guided implementation and 24 Sep records the first deep proof
       reconstruction. On 30 Sep delayed retrieval recovered g/h/f, admissibility and the
       meaning of consistency cold. On 6 Oct a HW1-targeted generic recall repaired one
@@ -236,17 +246,20 @@ topics:
       also understood that an admissible-but-inconsistent heuristic can make f decrease
       along an edge and require reopening a closed node after a cheaper g is found.
     boundary: >-
+      The 9 Oct HW1 no-reopening counterexample was completed with iterative tutor
+      corrections of goal g/parent values and frontier membership. This is guided
+      same-session evidence rather than independent theorem mastery.
       Implementation remains guided, and manual bookkeeping is representation-sensitive:
       external graph/frontier state materially reduces working-memory noise. The
       consistency => nondecreasing-f derivation was understood when shown but was
       explicitly not expected to return cold yet. Do not promote this to theorem mastery.
     next: >-
-      On 7 Oct use one bounded confirmation pass: one UCS trace, one clean A* trace with
-      explicit g/h/f and parent bookkeeping, one heuristic-design/admissibility probe,
-      one admissible-but-inconsistent closed-set trace, and a brief consistency =>
-      admissibility reconstruction. Stop if these return cleanly.
-    sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, aims5701_hw1_recall_20261006, state]
-    evidence_on: '2026-10-06'
+      Finish the remaining assessed work independently. On a later changed example,
+      check frontier-versus-rejected-candidate status, parent/g updates, cumulative
+      closed-set tracing, and why inconsistent heuristics require reopening. Retest
+      consistency => nondecreasing f without using the assessed graph.
+    sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, aims5701_hw1_recall_20261006, aims5701_hw1_attempt_20261009, state]
+    evidence_on: '2026-10-09'
     depends_on: [ucs]
   prompt_chaining:
     name: Prompt chaining
@@ -1303,3 +1316,10 @@ timeline:
     exposed a paper-bookkeeping need in A*: externalise graph/frontier state and keep g
     separate from f. Admissible-but-inconsistent reopening reasoning is understood;
     consistency => nondecreasing f remains a 5-10 minute cold target for 7 Oct.
+
+- label: 9 October · AIMS5701
+  detail: >-
+    Actual HW1 supported attempt: handwritten BFS/DFS/UCS/A* traces and heuristic
+    checks were reviewed; Euclidean-counterexample coordinates needed explicit
+    translation; an admissible-but-inconsistent no-reopen graph was constructed
+    with guided frontier/parent repairs. Q5 and Q6(a) remain unobserved here.
