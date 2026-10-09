@@ -13,7 +13,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 870bff20ae211f2fabac95f7e24c7062d52b7dcb
+    sha: e65c521a78a20cc61afe2f548e071648d312e5b4
   private_client_graph_canonical_persistence_grill:
     path: lesson_logs/ftec5660/private_client_graph/canonical_persistence_grill_2026_10_07.md
     sha: fa53167cff8d8df6b3edd5cee2691f79b0097c6f
@@ -55,7 +55,7 @@ sources:
     sha: ca16ab0924fbf665ce4ce8754aa36cb83fdf2814
   aims5701_hw1_attempt_20261009:
     path: lesson_logs/aims5701/hw1_actual_attempt_2026_10_09.md
-    sha: 7a50b8445a6a4678fafc121734824800548d161f
+    sha: e6d2b9b04e9672a71f3e48aede1199e4a1f7a30e
   aims5701_hw1_recall_20261006:
     path: lesson_logs/aims5701/hw1_search_cold_recall_2026_10_06.md
     sha: a7ed9dd786c6e66a35b2261152f75f90accb0892
