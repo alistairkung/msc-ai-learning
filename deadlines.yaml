@@ -1,6 +1,6 @@
 # Delivery planning is separate from learning evidence.
 schema_version: 1
-reviewed_on: '2026-10-05'
+reviewed_on: '2026-10-15'
 provenance_note: >-
   Dates below are learner-reported planning constraints unless a stronger source is
   named. They affect workload prioritisation, not learning/mastery evidence.
@@ -67,3 +67,16 @@ deadlines:
     compressed 14–20 Oct delivery window, preserve learner ownership of architecture,
     deterministic-versus-stochastic boundaries, evaluation and attack reasoning while
     delegating routine implementation where useful.
+
+- id: aims5701_homework_2
+  course: AIMS5701
+  title: Homework 2 — Bayes Nets I
+  due_on: '2026-10-21'
+  status: upcoming
+  provenance: course_material
+  mode: individual
+  note: >-
+    Released 14 Oct. Covers probability rules, Bayes diagnostic reasoning,
+    BN factorisation/marginalisation, CPT parameter counting, d-separation,
+    multi-variable evidence reasoning and local Markov property. Use independent
+    learner attempts as consolidation and preserve original AI-assistance receipts.
