@@ -28,7 +28,7 @@ def test_real_schema(data):
 def test_deadline_schema(data, deadlines):
     validate_deadlines(deadlines, set(data['courses']))
     assert [item['due_on'] for item in deadlines['deadlines']] == [
-        '2026-09-24', '2026-09-29', '2026-10-14', '2026-10-19', '2026-10-20']
+        '2026-09-24', '2026-09-29', '2026-10-14', '2026-10-19', '2026-10-20', '2026-10-21']
     assert deadlines['deadlines'][0]['provenance'] == 'course_material'
     assert deadlines['deadlines'][0]['status'] == 'submitted'
     assert deadlines['deadlines'][1]['status'] == 'submitted'
@@ -166,7 +166,7 @@ def test_actual_event_dates_preserved(data):
     assert data['topics']['bfs']['evidence_on'] == '2026-09-06'
     assert data['topics']['prompt_chaining']['evidence_on'] == '2026-09-17'
     assert data['topics']['bayes']['evidence_on'] == '2026-09-28'
-    assert data['topics']['bayesian_networks']['evidence_on'] == '2026-09-30'
+    assert data['topics']['bayesian_networks']['evidence_on'] == '2026-10-14'
     assert data['topics']['bayesian_networks']['performance'] == 'guided'
     assert data['topics']['real_data_classification']['performance'] != 'independent'
 

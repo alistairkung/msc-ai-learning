@@ -1,6 +1,6 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-10-09. Learning evidence through 2026-10-09. Delivery/recall plan reviewed 2026-10-05._
+_Last maintained: 2026-10-15. Learning evidence through 2026-10-14. Delivery/recall reviewed 2026-10-15._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
@@ -16,7 +16,15 @@ These lanes coexist; they are not one sequential queue. Delivery dates can tempo
 
 ## Delivery constraints — separate from learning evidence
 
-Canonical structured copy: `deadlines.yaml`. **AIMS5701 Homework 1 — Search Algorithms is due 14 Oct and remains the nearest delivery priority**, followed by the FTEC5660 solo hackathon on 19 Oct and **FTEC5660 Homework 2 — CV verification agent and adversarial CV on 20 Oct**. Protect the 5701 cold-recall/independent-attempt boundary first, then treat 19–20 Oct as a compressed FTEC delivery cluster rather than two unrelated queues. For HW2, course use of GenAI is learner-reported as permitted; preserve learner ownership of agent/verification architecture, deterministic-versus-stochastic boundaries, evaluation and adversarial reasoning while allowing routine implementation to be delegated where useful. Preserve full AI transcripts used for AIMS5701 assignment-related concept support to satisfy that homework's acknowledgement requirement. Keep delivery planning distinct from `learning_progress.yaml`.
+Canonical structured copy: `deadlines.yaml`. **AIMS5701 Homework 2 — Bayes Nets I is due 21 Oct (newly released)**; HW1 was written up by learner report but submission status remains unverified, followed by the FTEC5660 solo hackathon on 19 Oct and **FTEC5660 Homework 2 — CV verification agent and adversarial CV on 20 Oct**. Protect the 5701 cold-recall/independent-attempt boundary first, then treat 19–20 Oct as a compressed FTEC delivery cluster rather than two unrelated queues. For HW2, course use of GenAI is learner-reported as permitted; preserve learner ownership of agent/verification architecture, deterministic-versus-stochastic boundaries, evaluation and adversarial reasoning while allowing routine implementation to be delegated where useful. Preserve full AI transcripts used for AIMS5701 assignment-related concept support to satisfy that homework's acknowledgement requirement. Keep delivery planning distinct from `learning_progress.yaml`.
+
+## AIMS5701 — Bayes Nets consolidation and HW2 release, 14 Oct
+
+Detailed evidence: `lesson_logs/aims5701/bayes_nets_consolidation_2026_10_14.md`.
+
+Lecture 3's probability, graph/CPT factorisation, independence and reversed CPT example were actively consolidated. Learner independently derived the chain rule in another order, simplified fork/chain joint factorisations, marginalised Rain from a four-entry joint and correctly set up the four reversed conditional probabilities, with isolated lookup/transcription mistakes. A fresh diagnostic Bayes exercise had learner-directed total-probability products after support. Multi-path d-separation and collider descendant activation were successful, but chain/fork conditioning first reversed; local Markov wording required teaching; distinguishing graph non-separation from actual CPT dependence remained fragile. A hidden-variable chain calculation to 0.74 was scaffolded, not independent end-to-end inference. Numerical conditional independence was repaired with changed examples. These are mixed cold/guided/same-session successes, **not delayed mastery**.
+
+Actual Lecture 4 covers factor joining, variable elimination, ordering and multiple sampling methods including Gibbs, but was not consolidated on 14 Oct. New **AIMS5701 HW2 (Bayes Nets I) due 21 Oct** should become assessed application/consolidation: first independent attempt, then targeted repair and changed transfer. Key risks are multivariable posterior inference, CPT parameter counting and exhaustive independences. Protect original AI-transcript receipts. Learner reported exhaustion and overwhelm after long active reasoning, with evening lecture still ahead; reduce study load and do not infer HMM was taught.
 
 ## AIMS5701 — actual HW1 guided attempt, 9 Oct
 
