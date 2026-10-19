@@ -3,21 +3,22 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-10-15'
-  evidence_through: '2026-10-14'
+  reviewed_on: '2026-10-19'
+  evidence_through: '2026-10-19'
   repository: alistairkung/msc-ai-learning
   source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
   review_note: >-
-    Reconciled 14 Oct AIMS5701 Bayes Nets I consolidation: CPT reversal,
-    chain rule and partial probabilistic inference improved with mixed independent
-    and guided evidence. Chain/fork conditional independence and numerical
-    independence required repair; full variable elimination and sampling remain
-    unverified. New AIMS5701 HW2 is due 21 Oct; delivery is not mastery.
+    Reconciled the 19 Oct AIMS5701 HW2 cold review: independent fresh Q2-style
+    factorization, marginalization and posterior; Q3 counts and causal choice
+    after small repair; and improved Q4 path checks with remaining bookkeeping
+    fragility. Q5 common-cause/common-effect slider examples were guided and
+    reproduced, not independent integrated inference. Q6 enumeration and
+    formal Q1 chain-rule proof remain untested. HW2 due 21 Oct.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 97bd76abc25c0ac6cea0a5e9a8f6f69c90b93a34
+    sha: f189170bb91c5e0461ad04e5e496a48eec957ec9
   private_client_graph_canonical_persistence_grill:
     path: lesson_logs/ftec5660/private_client_graph/canonical_persistence_grill_2026_10_07.md
     sha: fa53167cff8d8df6b3edd5cee2691f79b0097c6f
@@ -66,6 +67,9 @@ sources:
   aims5701_bayes_nets_scope_pivot_20261007:
     path: lesson_logs/aims5701/bayes_nets_scope_pivot_2026_10_07.md
     sha: 7fad8927a70c17ff406993c1515157bacd35315b
+  aims5701_hw2_cold_review_20261019:
+    path: lesson_logs/aims5701/hw2_bayes_nets_cold_review_2026_10_19.md
+    sha: 6b0b3edbeae580c80a2e34826cddb4007742f86e
   aims5701_bayes_consolidation_20261014:
     path: lesson_logs/aims5701/bayes_nets_consolidation_2026_10_14.md
     sha: c549f31e88954aa34a293acd20a6619e7cf61948
@@ -590,24 +594,34 @@ topics:
     review: recorded
     action: retrieve
     evidence: >-
-      On 14 Oct, after prior 30 Sep delayed retrieval, independently reconstructed
-      alternative chain-rule ordering, selected BN factorisation and CPT reversal,
-      marginalised a small Rain/Traffic joint and set up reversed CPT entries.
-      Collider and multi-path d-separation returned, while chain/fork rules,
-      local Markov wording, numerical independence and conditional/joint distinction
-      needed direct teaching or corrections. A small hidden-variable inference was
-      scaffolded; mathematical operations later became more self-selected.
+      On 19 Oct, independently completed a fresh four-node Q2-level
+      factorization, two marginals and Bayes posterior with written steps;
+      correctly handled Q3 free parameters on changed examples (after
+      parent-count repair), and applied Q4 d-separation across changed multi-path
+      graphs. Same-session correction strengthened the distinction between
+      common cause and common effect, plus active paths versus independence
+      guarantees. Two Q5 component worked examples (independent causes and
+      two observations) were reproduced with guided, color-highlighted
+      CPT-and-slider walkthroughs.
     boundary: >-
-      Mixed cold and same-session guided/repaired evidence; not delayed independent
-      mastery. Not-d-separated versus actual dependence stayed fragile. Individual
-      CPT calculations are stronger than unassisted complete inference. Lecture 4
-      variable elimination, sampling and Gibbs were not consolidated in this block.
+      Stronger numerical execution and graph interpretation on fresh examples,
+      but no delayed cold transfer. Separately planning a two-edge likelihood
+      required help; the Q2-style checkpoint provided intermediate queries.
+      Q4 reasoning still shows under-load pair-switching and rule reversals.
+      Q5 multi-variable posterior is guided only, with no integrated fresh
+      five-node problem demonstrated. Q6 exhaustive enumeration and formal
+      Q1 chain-rule proof are untested. Lecture 4 variable elimination and
+      sampling remain outside consolidated scope.
     next: >-
-      Begin independent AIMS5701 HW2 attempt (due 21 Oct), then repair identified
-      gaps with changed examples; defer full Lecture 4 exact inference/sampling
-      to a protected block and preserve recovery time.
-    sources: [bayes_jit_20260928, probability_bridge, aims5701_prelecture_20260930, aims5701_bayes_nets_scope_pivot_20261007, aims5701_bayes_consolidation_20261014, state, syllabus]
-    evidence_on: '2026-10-14'
+      On 20 Oct do two fresh common-cause and two common-effect exercises:
+      notes-assisted first and closed-notes second in each structure.
+      If successful, integrate both in a five-node posterior using visible CPTs
+      and an interactive formula/table/ledger before testing unassisted planning.
+      Follow with bounded Q6 exhaustive independence listing and Q1 derivation
+      check, then independently attempt HW2 due 21 Oct. Keep original AI
+      assistance transcript and do not infer submission or mastery.
+    sources: [bayes_jit_20260928, probability_bridge, aims5701_prelecture_20260930, aims5701_bayes_nets_scope_pivot_20261007, aims5701_bayes_consolidation_20261014, aims5701_hw2_cold_review_20261019, state, syllabus]
+    evidence_on: '2026-10-19'
     depends_on: [bayes]
 
   markov:
