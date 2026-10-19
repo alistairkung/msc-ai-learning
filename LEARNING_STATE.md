@@ -1,8 +1,20 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-10-15. Learning evidence through 2026-10-14. Delivery/recall reviewed 2026-10-15._
+_Last maintained: 2026-10-19. AIMS5701 learning evidence through 2026-10-19; other lanes retain their last evidenced state._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
+
+## Current priority — AIMS5701 HW2, 19 Oct (supersedes stale delivery priorities below)
+
+**Next session, 20 Oct:** begin with the learner's requested **two common-cause exercises and two common-effect exercises**: one notes-assisted then one fresh closed-notes for each. Preserve full CPT tables and the color-coded **slider + running ledger** method; use formula -> row-wise table -> multiplication -> summation -> posterior. If transfers work, integrate both structures in a fresh five-node graph and verify independent inference planning. Then one bounded Q6 exhaustive d-separation enumeration and a short Q1(a) chain-rule proof check. Only after these checks begin independent assessed HW2 write-up. **HW2 due 21 Oct 2026.** Do not claim submission or mastery, and retain original AI transcript/acknowledgement evidence.
+
+**19 Oct review evidence:** detailed log at `lesson_logs/aims5701/hw2_bayes_nets_cold_review_2026_10_19.md`. Q2: independently solved a fresh complete four-node calculation on paper (joint factorization, two marginals, posterior), but a separately posed posterior without provided intermediate quantities still needed guidance. Q3: binary parameter counting up to four parents and causal elicitation explanation passed after exponent correction. Q4: considerable changed-graph practice on causal chain, common cause, common effect/v-structure, observed descendants and multiple paths; a fresh direct-edge path test was correct independently, while earlier query-pair bookkeeping and common-cause activation reversals remain a risk. Q1: chain-rule factors and diagnostic Bayes posterior rehearsed, but the formal proof remains untested. Q5: separate independent-causes and two-observations **slider walkthroughs followed/reproduced**, not cold standalone or integrated competence. Q6: general systematic idea recognized, full enumeration untested.
+
+**Tutoring correction:** The learner could often directly simplify a graph without constructing the full joint. Accept valid efficient solutions when they show enough sums for the marks. Concrete CPTs must remain visible (avoid scrollbacks); reveal each stage in a slider with explicitly labeled target, highlighted CPT entries, and results ledger. Do not turn the session into disconnected arithmetic prompts or overread typed transcription slips. Finish tonight; late-session fatigue was reported.
+
+**Historical context below:** older priorities and 14 Oct state remain as evidence of prior sessions and have not been re-verified as current delivery status.
+
+---
 
 ## Three parallel commitments
 
