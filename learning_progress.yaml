@@ -3,22 +3,21 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-10-19'
-  evidence_through: '2026-10-19'
+  reviewed_on: '2026-10-24'
+  evidence_through: '2026-10-23'
   repository: alistairkung/msc-ai-learning
   source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
   review_note: >-
-    Reconciled the 19 Oct AIMS5701 HW2 cold review: independent fresh Q2-style
-    factorization, marginalization and posterior; Q3 counts and causal choice
-    after small repair; and improved Q4 path checks with remaining bookkeeping
-    fragility. Q5 common-cause/common-effect slider examples were guided and
-    reproduced, not independent integrated inference. Q6 enumeration and
-    formal Q1 chain-rule proof remain untested. HW2 due 21 Oct.
+    Reconciled 21–23 Oct evidence: HW2 Bayes Nets draft reviewed but not
+    confirmed submitted; AIMS5702 backprop chain rule restored, A.1 tested,
+    A.2 drafted, A.3 scalar/matrix reasoning established with batch tensor
+    implementation unfinished. Convolution backward and residual CNN code
+    remain unattempted. Preserved 7 Oct Search proof evidence from PR #59.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: f189170bb91c5e0461ad04e5e496a48eec957ec9
+    sha: 993a51a0d8acffb18c311d127ca302418431dd66
   private_client_graph_canonical_persistence_grill:
     path: lesson_logs/ftec5660/private_client_graph/canonical_persistence_grill_2026_10_07.md
     sha: fa53167cff8d8df6b3edd5cee2691f79b0097c6f
@@ -63,10 +62,16 @@ sources:
     sha: e6d2b9b04e9672a71f3e48aede1199e4a1f7a30e
   aims5701_hw1_recall_20261006:
     path: lesson_logs/aims5701/hw1_search_cold_recall_2026_10_06.md
-    sha: a7ed9dd786c6e66a35b2261152f75f90accb0892
+    sha: 7202861f6b22b76224063fe322e4b43bb3aa714f
   aims5701_bayes_nets_scope_pivot_20261007:
     path: lesson_logs/aims5701/bayes_nets_scope_pivot_2026_10_07.md
     sha: 7fad8927a70c17ff406993c1515157bacd35315b
+  aims5701_hw2_writeup_review_20261022:
+    path: lesson_logs/aims5701/hw2_writeup_review_2026_10_22.md
+    sha: a3e112c0bca4629dcd737b194fc39500cb53841c
+  aims5702_assignment3_backprop_20261023:
+    path: lesson_logs/aims5702/assignment03_backprop_2026_10_23.md
+    sha: 6633e150510b978f6971688779689eae3d31c426
   aims5701_hw2_cold_review_20261019:
     path: lesson_logs/aims5701/hw2_bayes_nets_cold_review_2026_10_19.md
     sha: 6b0b3edbeae580c80a2e34826cddb4007742f86e
@@ -489,10 +494,34 @@ topics:
     evidence_on: '2026-09-21'
     depends_on: [tensor_operations]
   autograd:
-    <<: *built
     name: Autograd & manual gradient descent
     area: Model building
-    evidence: Lesson 28 makes the earlier manual gradient/chain-rule understanding executable.
+    concept: demonstrated
+    performance: guided
+    review: recorded
+    action: practice
+    evidence: >-
+      On 22–23 Oct the learner independently recovered scalar chain rule,
+      cumulative upstream gradients, ReLU and branching accumulation on
+      changed examples after initial repairs. AIMS5702 Assignment 3 A.1
+      multiplication backward implementation passed supplied tests;
+      A.2 derivation and NumPy implementation were completed but passing
+      tests not reported. Independently derived all gradients of a small
+      two-output linear+ReLU model and recalled batched GW, G^T X, sum(G).
+    boundary: >-
+      Same-session repaired work is not delayed cold mastery. The batched
+      NumPy A.3 implementation is unverified; translating computational
+      graphs to matrix notation and shapes remains difficult, especially
+      ReLU masking and choosing @ versus *. A.4 convolution derivatives
+      and implementation are untouched.
+    next: >-
+      Verify A.2 test, finish A.3 forward/input/parameter methods and
+      tests with input/weight/bias shape checks; then begin A.4 with one
+      small convolution trace and learner-owned implementation.
+    sources: [aims5702_assignment3_backprop_20261023, state, syllabus]
+    evidence_on: '2026-10-23'
+    depends_on: []
+
   pytorch_training:
     <<: *built
     name: PyTorch training loop
@@ -594,34 +623,24 @@ topics:
     review: recorded
     action: retrieve
     evidence: >-
-      On 19 Oct, independently completed a fresh four-node Q2-level
-      factorization, two marginals and Bayes posterior with written steps;
-      correctly handled Q3 free parameters on changed examples (after
-      parent-count repair), and applied Q4 d-separation across changed multi-path
-      graphs. Same-session correction strengthened the distinction between
-      common cause and common effect, plus active paths versus independence
-      guarantees. Two Q5 component worked examples (independent causes and
-      two observations) were reproduced with guided, color-highlighted
-      CPT-and-slider walkthroughs.
+      On 19 Oct, independently completed a fresh Q2-style four-node factorization
+      and posterior, plus changed Q3 parameter counting and Q4 path analysis,
+      after occasional repairs. On 21–22 Oct a nine-page actual HW2 draft
+      received focused review: Q1/Q2 broadly sound, Q3 elicitation comparison
+      and labels needed revision, Q5 denominator formula needed correction,
+      and Q6(b) seven independence claims were checked as correct.
     boundary: >-
-      Stronger numerical execution and graph interpretation on fresh examples,
-      but no delayed cold transfer. Separately planning a two-edge likelihood
-      required help; the Q2-style checkpoint provided intermediate queries.
-      Q4 reasoning still shows under-load pair-switching and rule reversals.
-      Q5 multi-variable posterior is guided only, with no integrated fresh
-      five-node problem demonstrated. Q6 exhaustive enumeration and formal
-      Q1 chain-rule proof are untested. Lecture 4 variable elimination and
-      sampling remain outside consolidated scope.
+      A reviewed homework draft does not prove delayed cold inference mastery
+      or course submission. Q4 bookkeeping and integrated Q5 posterior
+      remain fragile; no independent five-node unseen transfer established.
+      Q6(a) wording required a local-Markov expression. Complete lecture-4
+      variable elimination and sampling remain unverified.
     next: >-
-      On 20 Oct do two fresh common-cause and two common-effect exercises:
-      notes-assisted first and closed-notes second in each structure.
-      If successful, integrate both in a five-node posterior using visible CPTs
-      and an interactive formula/table/ledger before testing unassisted planning.
-      Follow with bounded Q6 exhaustive independence listing and Q1 derivation
-      check, then independently attempt HW2 due 21 Oct. Keep original AI
-      assistance transcript and do not infer submission or mastery.
-    sources: [bayes_jit_20260928, probability_bridge, aims5701_prelecture_20260930, aims5701_bayes_nets_scope_pivot_20261007, aims5701_bayes_consolidation_20261014, aims5701_hw2_cold_review_20261019, state, syllabus]
-    evidence_on: '2026-10-19'
+      Confirm assessed submission separately. After the deadline, use one
+      fresh integrated BN inference and a bounded d-separation check, then
+      return to HMM/particle filtering when syllabus demand calls for it.
+    sources: [bayes_jit_20260928, probability_bridge, aims5701_bayes_consolidation_20261014, aims5701_hw2_cold_review_20261019, aims5701_hw2_writeup_review_20261022, state, syllabus]
+    evidence_on: '2026-10-22'
     depends_on: [bayes]
 
   markov:
@@ -782,22 +801,25 @@ topics:
     concept: taught
     performance: guided
     review: recorded
-    action: retrieve
+    action: practice
     evidence: >-
-      The 24 Sep pre-lecture bridge introduced CNN motivation from huge fully-connected
-      parameter counts. The learner correctly reasoned local connectivity and weight
-      sharing on changed prompts and understood convolution as reusing the same local
-      weights across positions.
+      On 15 Oct CNN prelecture preparation the learner worked through
+      convolution and pooling output shapes, channel/filter parameter
+      counting, stride-1 receptive-field growth and U-Net skip-connection
+      intuition. The 23 Oct Assignment 3 review linked these ideas to
+      deeper CNN, residual and 1x1 projection exercises.
     boundary: >-
-      This is conceptual pre-lecture evidence only. No convolution arithmetic, channel/
-      kernel shapes, padding/stride, CNN implementation or training has been attempted.
+      This is lecture preparation and architectural reasoning, not verified
+      independent CNN implementation or training. Part B Assignment 3
+      baseline/deep/residual/projection runs have not started.
     next: >-
-      Use the lecture break to begin a bounded CNN bridge after consolidation: image
-      tensor shapes -> locality/weight sharing -> kernels/channels -> stride/padding ->
-      output-shape reasoning. Keep implementation depth proportional to the 15 Oct lecture.
-    sources: [aims5702_lecture03_session, aims5702_lecture03_live, syllabus, state]
-    evidence_on: '2026-09-24'
+      After the manual backward sections, run the supplied baseline,
+      implement and test deep/residual/projection CNN variations, and
+      preserve observations from the 20-epoch experiments.
+    sources: [aims5702_lecture03_session, aims5702_lecture03_live, aims5702_assignment3_backprop_20261023, state, syllabus]
+    evidence_on: '2026-10-23'
     depends_on: []
+
   rnn:
     <<: *new
     name: Recurrent neural networks
@@ -843,69 +865,57 @@ topics:
     name: Exponential-family models
     area: Math foundations
     evidence: The syllabus/roadmap records this as new material or an extension, not demonstrated mastery.
+
 lanes:
 - id: continue
-  label: Continue next · AIMS5701
-  title: AIMS5701 HW1 independent attempt -> Bayes Nets continuation
-  summary: HW1 remains the nearest delivery priority. The 7 Oct HMM introduction was guided and paused when the learner reported that the new lecture slides continue Bayes Nets; reconcile that live material before returning to HMM runway.
-  target: search_complexity
+  label: Continue next · AIMS5702
+  title: Assignment 3 manual backpropagation -> CNN experiments
+  summary: A.1 verified passing; A.2 implementation awaits test confirmation; A.3 batch NumPy gradients remain unverified; A.4 and Part B not begun. Prioritise passing checks before the 29 Oct deadline.
+  target: autograd
   tasks:
-  - title: Attempt HW1 independently
-    when: Before 14 Oct
-    topics: [search_complexity, ucs, astar]
+  - title: Finish A.3 and validate A.2
+    when: Next workable study block before travel
+    topics: [autograd, tensor_operations]
     detail: >-
-      Attempt the homework independently first. If blocked, use a separate
-      transcript-recorded window with structurally equivalent but concretely
-      different scaffolds; preserve the assignment acknowledgement boundary.
-  - title: Reconcile the Bayes Nets continuation
-    when: Next AIMS5701 lecture/retrieval block
-    topics: [bayes, bayesian_networks]
+      First verify A.2, then independently implement A.3 forward/input/parameter
+      methods using ReLU mask plus GW, G^T X and batch sum(G). Test tensor shapes
+      and distinguish @ from elementwise multiplication.
+  - title: Complete convolution backward
+    when: Before full CNN training
+    topics: [cnn, autograd]
     detail: >-
-      Use the newly released slides and actual lecture emphasis. Cold-check DAG/CPT
-      semantics, factorisation, the local Markov property, chain/fork/collider,
-      explaining away and one changed multi-path d-separation query.
-  - title: Keep sampling runway parked
-    when: Until live teaching requires it
-    topics: [bayesian_networks]
+      Start with one tiny non-assessed convolution gradient trace, then implement
+      and verify A.4; do not let a difficult index loop hide Part B requirements.
+  - title: Train Part B CNN variants
+    when: Reliable GPU and network available
+    topics: [cnn, pytorch_training]
     detail: >-
-      Rejection sampling, likelihood weighting and variable-elimination intuition were
-      useful 30 Sep extensions but are absent from the Bayes Nets I deck. Preserve them
-      as same-session guided evidence without treating them as current lecture scope.
-  - title: Defer HMM/particle filtering
-    when: Until live course reaches HMMs
-    topics: [markov, hmm, particle_filtering]
-    detail: >-
-      The 7 Oct guided introduction is runway only. Diagnose remembered Markov-chain
-      concepts and return to HMM filtering/particle filtering when the live sequence
-      reaches the topic.
+      Run provided baseline, then deeper, residual and projection CNN training
+      with required epochs and comparison; reserve final day for export and submission.
 - id: parallel
-  label: Parallel block · AIMS5702
-  title: Lab readiness -> CNN bridge
-  summary: The 1 Oct broad consolidation is complete. Close the remaining epoch/eval/metric-orchestration gap in one changed classifier, then extend locality/weight-sharing into CNN mechanics ahead of 15 Oct.
-  target: pytorch_training
+  label: Parallel block · AIMS5701
+  title: HW2 assessed write-up verification and later HMM runway
+  summary: Nine-page HW2 draft reviewed 21–22 Oct and final submission not confirmed. Due date extended to 23 Oct. Avoid equating review with completion; HMM and particle filtering remain later course-facing material.
+  target: bayesian_networks
   tasks:
-  - title: Close epoch/evaluation orchestration gap
-    when: Next AIMS5702 block
-    topics: [pytorch_training, mlp_classification, evaluation]
-    detail: Fill model.train/eval, epoch wrapping, torch.no_grad, current-batch validation, argmax predictions, metric accumulation and epoch reporting in a nearly complete changed script; then reconstruct the full small pipeline once with minimal prompting.
-  - title: Keep narrow tensor checks spaced
-    when: Short retrieval only
-    topics: [tensor_operations]
-    detail: Sample integer index vs length-one slice, Linear weight orientation and one stepped-slice start/step/count problem; do not replay the broad 1 Oct sweep.
-  - title: Begin bounded CNN bridge
-    when: After the changed pipeline is stable
-    topics: [cnn]
-    detail: Build from image tensor shapes to locality, shared weights, kernels/channels, stride/padding and output-shape reasoning. Keep implementation depth proportional to the 15 Oct lecture.
+  - title: Confirm HW2 course submission
+    when: After the 23 Oct deadline
+    topics: [bayesian_networks]
+    detail: Confirm Blackboard status and required AI acknowledgement receipt; do not infer submission from reviewed draft.
+  - title: Maintain BN and revisit HMM later
+    when: After AIMS5702 deadline, if course demand warrants
+    topics: [bayesian_networks, hmm, particle_filtering]
+    detail: One changed integrated inference/d-separation check, then HMM/particle-filtering JIT rather than replaying full HW2.
 - id: protect
-  label: Protected delivery · FTEC5660 hackathon
-  title: First structured extraction, then inspect failure
-  summary: Case 01's semantic contract is now frozen as relationship candidates only. Deterministic code owns entity construction/typing, IDs and evidence normalisation; bounded coding-agent help may implement framework plumbing without redesigning semantics.
-  target: prompt_chaining
+  label: Protected runway · Transformers
+  title: Missed Transformer lecture and recovery
+  summary: Catch up on queries/keys/values and attention after AIMS5702 deadline if travel permits; preserve a realistic wedding/transpacific travel buffer instead of assuming uninterrupted work.
+  target: cnn
   tasks:
-  - title: Run Case 01 relationship extraction
-    when: Current hackathon block
-    topics: [prompt_chaining, lcel]
-    detail: Implement source -> structured RelationshipCandidate[] behind the frozen contract, run the first real extraction and inspect the output. Add deterministic validation/normalisation only in response to concrete needs; do not add routing, retries or reflection pre-emptively.
+  - title: Rebuild Transformers lecture
+    when: After AIMS5702 implementation is stable
+    topics: [cnn, autograd]
+    detail: Bridge CNNs to attention, scaled dot-product and multi-head attention and positional encoding, with conceptual orientation first.
 
 courses:
   AIMS5701:
@@ -1256,6 +1266,16 @@ paths:
   topics: [numpy, tensor_operations, tensor_interpolation]
   note: Move from shape/broadcasting fluency into advanced indexed gathering and interpolation for the current AIMS5702 assignment; assignment completion is not automatically durable mastery.
 timeline:
+- label: 23 October · AIMS5702
+  detail: >-
+    Assignment 3: A.1 multiplication backward tests passed, A.2 implementation
+    drafted without confirmed test, and scalar/matrix gradients for linear+ReLU
+    reconstructed. Batched implementation translation remains fragile; A.4
+    and Part B not yet attempted.
+- label: 22 October · AIMS5701
+  detail: >-
+    Nine-page HW2 draft reviewed with sound Q1/Q2, targeted Q3/Q5 corrections,
+    and improved Q6; final course submission not independently confirmed.
 - label: Historical maths
   detail: JHU linear algebra and probability, plus chat-based calculus; evidence strength varies by topic.
 - label: Lessons 01-09
