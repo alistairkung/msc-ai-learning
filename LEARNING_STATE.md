@@ -1,22 +1,26 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-10-19. AIMS5701 learning evidence through 2026-10-19; other lanes retain their last evidenced state._
+_Last maintained: 2026-10-24. Learning evidence through 2026-10-23._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
-## Current priority — AIMS5701 HW2, 19 Oct (supersedes stale delivery priorities below)
+## Current handover — 24 Oct (evidence through 23 Oct)
 
-**Next session, 20 Oct:** begin with the learner's requested **two common-cause exercises and two common-effect exercises**: one notes-assisted then one fresh closed-notes for each. Preserve full CPT tables and the color-coded **slider + running ledger** method; use formula -> row-wise table -> multiplication -> summation -> posterior. If transfers work, integrate both structures in a fresh five-node graph and verify independent inference planning. Then one bounded Q6 exhaustive d-separation enumeration and a short Q1(a) chain-rule proof check. Only after these checks begin independent assessed HW2 write-up. **HW2 due 21 Oct 2026.** Do not claim submission or mastery, and retain original AI transcript/acknowledgement evidence.
+**Continue — AIMS5702 Assignment 3 (due 29 Oct):** Primary task is to finish Part A before the Part B CNN experiments. A.1 multiplication gradients passed the supplied test; A.2 multiplication+ReLU was derived and implemented but a passing test was not reported. In A.3 the learner independently performed scalar and 2-input/2-output linear+ReLU gradient working after scaffolding, then retrieved batched matrix formulas: `G = upstream * (ReLU output > 0)`, input `G @ W`, weights `G.T @ X`, bias `G.sum(axis=0)`. **Actual A.3 batched forward/backward implementation remains unfinished/unverified**: the fragile points are matching mask to preactivation/output, matrix `@` versus elementwise `*`, `W.T` in forward, and input/parameter gradient shape contracts. A.4 convolution backprop and Part B architecture/training are unstarted. See `lesson_logs/aims5702/assignment03_backprop_2026_10_23.md`.
 
-**19 Oct review evidence:** detailed log at `lesson_logs/aims5701/hw2_bayes_nets_cold_review_2026_10_19.md`. Q2: independently solved a fresh complete four-node calculation on paper (joint factorization, two marginals, posterior), but a separately posed posterior without provided intermediate quantities still needed guidance. Q3: binary parameter counting up to four parents and causal elicitation explanation passed after exponent correction. Q4: considerable changed-graph practice on causal chain, common cause, common effect/v-structure, observed descendants and multiple paths; a fresh direct-edge path test was correct independently, while earlier query-pair bookkeeping and common-cause activation reversals remain a risk. Q1: chain-rule factors and diagnostic Bayes posterior rehearsed, but the formal proof remains untested. Q5: separate independent-causes and two-observations **slider walkthroughs followed/reproduced**, not cold standalone or integrated competence. Q6: general systematic idea recognized, full enumeration untested.
+**Parallel — AIMS5701 HW2:** A nine-page write-up was reviewed on 21–22 Oct. Q1/Q2 were broadly sound; Q3 label/causal-comparison wording, Q5 denominator notation, and Q6(a) local-Markov expression required correction; Q6(b) seven independence claims reviewed as correct. The deadline was extended to **23 Oct**, not 21 Oct. **Final course submission has not been confirmed**, so do not mark submitted. See `lesson_logs/aims5701/hw2_writeup_review_2026_10_22.md`.
 
-**Tutoring correction:** The learner could often directly simplify a graph without constructing the full joint. Accept valid efficient solutions when they show enough sums for the marks. Concrete CPTs must remain visible (avoid scrollbacks); reveal each stage in a slider with explicitly labeled target, highlighted CPT entries, and results ledger. Do not turn the session into disconnected arithmetic prompts or overread typed transcription slips. Finish tonight; late-session fatigue was reported.
+**Protect — course runway and personal schedule:** Transformers lecture was missed and needs a focused catch-up after the assignment if practical; CNN pre-lecture work on convolution/pooling/receptive fields and U-Net skip connections occurred 15 Oct (conceptual preparation, not independent CNN coding). Wedding 23–24 Oct US local; depart SF Sun 25 Oct, arrive HK Tue 27 Oct, patchy in-flight connectivity. Do not assume Monday is a working day or that travel time is uninterrupted. Test CNN workloads on reliable GPU/network before submission.
 
-**Historical context below:** older priorities and 14 Oct state remain as evidence of prior sessions and have not been re-verified as current delivery status.
+**Tutoring approach:** Preserve learner-owned assessed solutions. This learner prefers a **complete visible worked example with a slider, then an unseen whole problem**; overly granular prompting causes loss of context and feels like answer-feeding. For A.3, show complete tensor shapes and the four-step forward/backward map, then let the learner implement and test the functions in one connected attempt. Prior independent scalar work is evidence of chain-rule understanding, not evidence of fluent batched tensor implementation.
+
+**Other recorded outcomes:** Search consistency/nondecreasing-`f` and A* goal-blocking proofs were reconstructed on 7 Oct after initial repair (now preserved from older PR #59 in `lesson_logs/aims5701/hw1_search_cold_recall_2026_10_06.md`). FTEC5660 HW2 was reported submitted 16 Oct, and Private Client Graph reached a ready-to-submit hackathon milestone by 19 Oct; actual upload of hackathon materials was not confirmed in this context.
+
+**Historical sections below** retain earlier evidence, not current delivery priorities.
 
 ---
 
-## Three parallel commitments
+## Historical parallel commitments (superseded by current handover above)
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|
