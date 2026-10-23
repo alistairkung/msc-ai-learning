@@ -23,3 +23,20 @@ Shapes: `X(B,I)`, `W(O,I)`, `Z/G(B,O)`; expected gradients `dX(B,I)`, `dW(O,I)`,
 - Do not repeat the full scalar derivation. Provide a compact anchor of the whole computation, then let the learner independently write the A.3 methods. Diagnose concrete shape/operator errors rather than repeatedly prompting one line at a time. Respect learner ownership of assessed implementations.
 - First verify A.2's tests, then complete A.3's forward, input and parameter-gradient methods, and run supplied checks. Next begin A.4 with one small convolution gradient trace before coding. Part B needs GPU/training runs and remains untouched.
 - Deadline planning: wedding 23–24 Oct local US, travel from San Francisco Sun 25 Oct arriving Hong Kong Tue 27 Oct, with patchy in-flight internet. Do not assume full travel days or turn wedding time into mandatory study. Original 8-hour completion target was revised upward because mathematical groundwork and CNN experiment runs take longer.
+
+## 24 Oct follow-up — Part A passes; independent convolution reconstruction parked
+
+Learner confirmed **all four A.1–A.4 notebook tests passed**. This supersedes the unverified A.2–A.4 implementation status in the earlier session log. It is learner-reported passing-test evidence, not proof of delayed independent reconstruction.
+
+**A.4 difficulty and productive visualisation:** A.4 was experienced as extremely challenging and relied on considerable guidance. Three aligned, interactive tensors — input X, kernel K and output/upstream gradient G — were decisive: selecting a kernel placement and highlighting the corresponding input window, kernel position and upstream gradient made the local contribution and accumulation interpretable. There is now an operational understanding of kernel-gradient gathering (one fixed weight, all placements), input-gradient scatter/overlap (one fixed pixel, all placements covering it) and bias-gradient summation.
+
+**Remaining gap:** Generalising one pictured convolution window to the full four-dimensional algorithm, identifying destination versus accumulation dimensions, handling multiple batch/channel indices, matching slices, broadcasting across the batch, and choosing sum versus indexed addition. Assembled, passing NumPy code followed sustained scaffolding. Do not score this as unassisted implementation fluency.
+
+**Explicit post-deadline return (after 29 Oct, no immediate assessment pressure):**
+1. Start with a side-by-side input X / kernel K / upstream gradient G slider and have the learner describe *which variable's gradient is being tracked*, which window/pair contributes and why.
+2. Work a small changed unseen problem: one kernel weight, one corner input pixel, one centre pixel and one bias. Show each contributing path and running accumulation.
+3. Before coding, specify result shape; indices identifying one result; axes that accumulate; and axes NumPy can process together.
+4. Generalise stepwise to batch, input/output channels, padding, slices, broadcasting and reductions, then independently reconstruct a small convolution backward routine against changed-shape tests.
+5. Retest after a delay, distinguishing cold unaided completion from guided repair.
+
+**Immediate priority:** Part B architectures/training and assignment submission; do not revisit A.4 in depth until assessment pressure is over.
