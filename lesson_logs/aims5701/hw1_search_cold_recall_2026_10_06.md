@@ -130,3 +130,70 @@ Treat 7 Oct as a short confirmation pass rather than another long Search lesson:
 5. a brief cold reconstruction of consistency => admissibility / nondecreasing `f`.
 
 Do not overdrill state formulation tomorrow unless it fails a changed delayed example. The learner's energy was visibly dropping late in this session, so today's final status should be treated as a survey of likely failure modes rather than a mastery exam.
+
+
+## 7 Oct delayed confirmation — exam-ready A* proof scripts
+
+The bounded Search confirmation ran longer than intended because the learner chose to make two proof arguments conceptually retrievable rather than merely memorised. This produced useful delayed evidence and is now a stop condition for Search today.
+
+### Consistency => nondecreasing f
+
+Exam-ready structure with conceptual narration:
+
+```text
+Consistency on edge A -> B:
+h(A) <= c(A,B) + h(B)
+
+Meaning: estimated remaining cost at A cannot exceed the real one-step cost to B
+plus the estimated remaining cost from B.
+
+Add g(A) to both sides:
+g(A) + h(A) <= g(A) + c(A,B) + h(B)
+
+Meaning: add the cost already accumulated from the start to A. This converts a
+remaining-cost comparison into an estimated total-solution-cost comparison.
+
+Since g(B) = g(A) + c(A,B):
+f(A) <= f(B)
+
+Therefore f is nondecreasing along every edge/path.
+```
+
+The learner initially reused the goal-node fact `h(goal)=0`, then after visual/scaffolded repair independently reconstructed the full derivation without looking. The conceptual anchor that landed was: **`g` = cost already paid, `h` = estimated cost still to pay, `f=g+h` = estimated total solution cost through the current node.**
+
+A small inconsistent-heuristic graph also made the reopening mechanism concrete: if `f` is allowed to drop along an edge, a later route can reveal a cheaper `g` for a node that was already closed; consistency forbids this decreasing-`f` surprise.
+
+### A* blocking a suboptimal goal
+
+Exam-ready structure with the same conceptual narration:
+
+```text
+Let C* be the optimal solution cost and let n be a frontier node on an optimal path.
+
+Admissibility:
+h(n) <= h*(n)
+
+Add g(n):
+g(n) + h(n) <= g(n) + h*(n) = C*
+so f(n) <= C*.
+
+Meaning: a frontier node on an optimal path advertises an estimated TOTAL solution
+cost no greater than the true optimal solution cost.
+
+For a suboptimal goal G:
+h(G) = 0, so f(G) = g(G) > C*.
+
+Meaning: at a goal there is no remaining estimate, so f is the actual complete path
+cost. A suboptimal goal therefore advertises a cost greater than C*.
+
+Thus:
+f(n) <= C* < f(G)
+
+Since A* pops minimum f, n must be popped before the suboptimal goal G.
+```
+
+Useful memory contrast: both proofs use adding `g` to convert a statement about remaining cost into one about estimated total solution cost. Consistency uses this to obtain `f(A) <= f(B)`; admissibility on an optimal-path node uses it to obtain `f(n) <= C*`.
+
+### Evidence boundary / next
+
+This is meaningful delayed strengthening, but the first consistency attempt needed repair before the final cold reconstruction. Do not spend more of today's HMM/particle-filtering JIT block on Search. Move now to the historically weak-evidence Markov-chain diagnostic.
