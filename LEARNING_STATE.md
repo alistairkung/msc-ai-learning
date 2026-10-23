@@ -1,10 +1,26 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-10-15. Learning evidence through 2026-10-14. Delivery/recall reviewed 2026-10-15._
+_Last maintained: 2026-10-24. Learning evidence through 2026-10-23._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
-## Three parallel commitments
+## Current handover — 24 Oct (evidence through 23 Oct)
+
+**Continue — AIMS5702 Assignment 3 (due 29 Oct):** Primary task is to finish Part A before the Part B CNN experiments. A.1 multiplication gradients passed the supplied test; A.2 multiplication+ReLU was derived and implemented but a passing test was not reported. In A.3 the learner independently performed scalar and 2-input/2-output linear+ReLU gradient working after scaffolding, then retrieved batched matrix formulas: `G = upstream * (ReLU output > 0)`, input `G @ W`, weights `G.T @ X`, bias `G.sum(axis=0)`. **Actual A.3 batched forward/backward implementation remains unfinished/unverified**: the fragile points are matching mask to preactivation/output, matrix `@` versus elementwise `*`, `W.T` in forward, and input/parameter gradient shape contracts. A.4 convolution backprop and Part B architecture/training are unstarted. See `lesson_logs/aims5702/assignment03_backprop_2026_10_23.md`.
+
+**Parallel — AIMS5701 HW2:** A nine-page write-up was reviewed on 21–22 Oct. Q1/Q2 were broadly sound; Q3 label/causal-comparison wording, Q5 denominator notation, and Q6(a) local-Markov expression required correction; Q6(b) seven independence claims reviewed as correct. The deadline was extended to **23 Oct**, not 21 Oct. **Final course submission has not been confirmed**, so do not mark submitted. See `lesson_logs/aims5701/hw2_writeup_review_2026_10_22.md`.
+
+**Protect — course runway and personal schedule:** Transformers lecture was missed and needs a focused catch-up after the assignment if practical; CNN pre-lecture work on convolution/pooling/receptive fields and U-Net skip connections occurred 15 Oct (conceptual preparation, not independent CNN coding). Wedding 23–24 Oct US local; depart SF Sun 25 Oct, arrive HK Tue 27 Oct, patchy in-flight connectivity. Do not assume Monday is a working day or that travel time is uninterrupted. Test CNN workloads on reliable GPU/network before submission.
+
+**Tutoring approach:** Preserve learner-owned assessed solutions. This learner prefers a **complete visible worked example with a slider, then an unseen whole problem**; overly granular prompting causes loss of context and feels like answer-feeding. For A.3, show complete tensor shapes and the four-step forward/backward map, then let the learner implement and test the functions in one connected attempt. Prior independent scalar work is evidence of chain-rule understanding, not evidence of fluent batched tensor implementation.
+
+**Other recorded outcomes:** Search consistency/nondecreasing-`f` and A* goal-blocking proofs were reconstructed on 7 Oct after initial repair (now preserved from older PR #59 in `lesson_logs/aims5701/hw1_search_cold_recall_2026_10_06.md`). FTEC5660 HW2 was reported submitted 16 Oct, and Private Client Graph reached a ready-to-submit hackathon milestone by 19 Oct; actual upload of hackathon materials was not confirmed in this context.
+
+**Historical sections below** retain earlier evidence, not current delivery priorities.
+
+---
+
+## Historical parallel commitments (superseded by current handover above)
 
 | Lane | Next useful work | Why / boundary |
 |---|---|---|

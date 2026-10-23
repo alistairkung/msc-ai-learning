@@ -1,6 +1,6 @@
 # Delivery planning is separate from learning evidence.
 schema_version: 1
-reviewed_on: '2026-10-15'
+reviewed_on: '2026-10-24'
 provenance_note: >-
   Dates below are learner-reported planning constraints unless a stronger source is
   named. They affect workload prioritisation, not learning/mastery evidence.
@@ -32,16 +32,12 @@ deadlines:
   course: AIMS5701
   title: Homework 1 — Search Algorithms
   due_on: '2026-10-14'
-  status: upcoming
+  status: submitted
   provenance: course_material
   mode: individual
   note: >-
-    Current highest-priority delivery deadline. Preparation should use targeted cold
-    recall on structurally equivalent but concretely different examples; do not reuse
-    the homework's figures, graph values, scenarios, or other question specifics.
-    AI support is restricted to concept preparation unless the learner explicitly
-    changes that boundary. Preserve full AI transcripts used for assignment-related
-    concept support because the homework requires acknowledgement/transcript receipts.
+    Submitted by the deadline, as learner-reported in October. Retain the AI
+    acknowledgement/transcript receipts and independent-versus-guided evidence boundary.
 - id: ftec5660_hackathon
   course: FTEC5660
   title: Hackathon
@@ -50,33 +46,41 @@ deadlines:
   provenance: learner_report
   mode: solo
   note: >-
-    Solo by choice. Continue bounded incubation, but AIMS5701 Homework 1 due 14 Oct is
-    the nearer delivery priority. Homework 2 is due the following day, so avoid letting
-    hackathon expansion consume the entire post-5701 runway.
+    Project was ready to submit by 19 Oct; final hackathon upload was not independently
+    confirmed. Historical deadline retained pending a learner-reported submission status.
 - id: ftec5660_homework_2
   course: FTEC5660
   title: Homework 2 — CV verification agent and adversarial CV
   due_on: '2026-10-20'
-  status: upcoming
+  status: submitted
   provenance: course_material
   mode: individual
   note: >-
-    Build a DeepSeek/LangChain CV-verification agent over the supplied SocialGraph MCP
-    tools, then produce and explain an adversarial CV, plus the required report and AI
-    paradox reflection. Course use of GenAI is learner-reported as permitted; given the
-    compressed 14–20 Oct delivery window, preserve learner ownership of architecture,
-    deterministic-versus-stochastic boundaries, evaluation and attack reasoning while
-    delegating routine implementation where useful.
+    Learner reported submission on 16 Oct. The DeepSeek/LangChain CV-verification
+    and adversarial CV work is delivery evidence, not a general agent-mastery claim.
 
 - id: aims5701_homework_2
   course: AIMS5701
   title: Homework 2 — Bayes Nets I
-  due_on: '2026-10-21'
+  due_on: '2026-10-23'
   status: upcoming
   provenance: course_material
   mode: individual
   note: >-
-    Released 14 Oct. Covers probability rules, Bayes diagnostic reasoning,
-    BN factorisation/marginalisation, CPT parameter counting, d-separation,
-    multi-variable evidence reasoning and local Markov property. Use independent
-    learner attempts as consolidation and preserve original AI-assistance receipts.
+    Due date extended to 23 Oct. By 21–22 Oct a nine-page draft had been
+    reviewed with targeted corrections to Q3/Q5/Q6; course submission is not
+    verified. Retain pending/unconfirmed status until learner confirmation and
+    preserve original AI-assistance receipts.
+- id: aims5702_assignment_3
+  course: AIMS5702
+  title: Assignment 3 — manual backpropagation and residual CNNs
+  due_on: '2026-10-29'
+  status: upcoming
+  provenance: course_material
+  mode: individual
+  note: >-
+    Notebook and PDF export required. Part A manual NumPy gradients:
+    multiplication, ReLU, linear layer and convolution. Part B progressively
+    deeper CNNs, residual blocks and 1x1 projection shortcuts with training
+    experiments. A.1 tests passed; A.2 implementation drafted (tests not
+    confirmed); A.3 in progress; A.4 and Part B unstarted as of 23 Oct.

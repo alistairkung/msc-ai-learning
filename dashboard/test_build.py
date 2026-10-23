@@ -27,13 +27,19 @@ def test_real_schema(data):
 
 def test_deadline_schema(data, deadlines):
     validate_deadlines(deadlines, set(data['courses']))
-    assert [item['due_on'] for item in deadlines['deadlines']] == [
-        '2026-09-24', '2026-09-29', '2026-10-14', '2026-10-19', '2026-10-20', '2026-10-21']
+    assert [(item['id'], item['due_on']) for item in deadlines['deadlines']] == [
+        ('aims5702_assignment_1', '2026-09-24'),
+        ('ftec5660_receipts_homework', '2026-09-29'),
+        ('aims5701_homework_1', '2026-10-14'),
+        ('ftec5660_hackathon', '2026-10-19'),
+        ('ftec5660_homework_2', '2026-10-20'),
+        ('aims5701_homework_2', '2026-10-23'),
+        ('aims5702_assignment_3', '2026-10-29')]
     assert deadlines['deadlines'][0]['provenance'] == 'course_material'
     assert deadlines['deadlines'][0]['status'] == 'submitted'
     assert deadlines['deadlines'][1]['status'] == 'submitted'
     assert deadlines['deadlines'][2]['provenance'] == 'course_material'
-    assert deadlines['deadlines'][2]['status'] == 'upcoming'
+    assert deadlines['deadlines'][2]['status'] == 'submitted'
     assert deadlines['deadlines'][3]['mode'] == 'solo'
 
 
@@ -60,12 +66,13 @@ def test_deadline_lane_renders_separately_from_learning_lanes(data, deadlines):
     assert 'Delivery lane · external constraints' in html
     assert 'Assignment 1 — tensor vectorisation and bilinear interpolation' not in html
     assert 'Receipts agentic AI homework' not in html
-    assert 'Homework 1 — Search Algorithms' in html
-    assert '2026-10-14' in html
+    assert 'Homework 2 — Bayes Nets I' in html
+    assert 'Assignment 3 — manual backpropagation and residual CNNs' in html
+    assert '2026-10-23' in html
     assert 'Hackathon' in html
     assert '2026-10-19' in html
     assert 'Learner-reported' in html
-    assert 'Continue next · AIMS5701' in html
+    assert 'Continue next · AIMS5702' in html
 
 
 def test_repository_source_files_exist(data):
@@ -166,7 +173,7 @@ def test_actual_event_dates_preserved(data):
     assert data['topics']['bfs']['evidence_on'] == '2026-09-06'
     assert data['topics']['prompt_chaining']['evidence_on'] == '2026-09-17'
     assert data['topics']['bayes']['evidence_on'] == '2026-09-28'
-    assert data['topics']['bayesian_networks']['evidence_on'] == '2026-10-14'
+    assert data['topics']['bayesian_networks']['evidence_on'] == '2026-10-22'
     assert data['topics']['bayesian_networks']['performance'] == 'guided'
     assert data['topics']['real_data_classification']['performance'] != 'independent'
 
@@ -239,8 +246,8 @@ def test_build_has_hashed_assets_and_fallback(tmp_path):
     assert 'filesystem source verification was not run' in html
     assert 'Assignment 1 — tensor vectorisation and bilinear interpolation' not in html
     assert 'Receipts agentic AI homework' not in html
-    assert '2026-10-14' in html
-    assert '2026-10-19' in html
+    assert '2026-10-23' in html
+    assert '2026-10-29' in html
     for name in re.findall(r'(?:href|src)="((?:styles|app)\.[a-f0-9]{12}\.(?:css|js))"', html):
         assert (tmp_path/name).is_file()
     assert len(list(tmp_path.glob('styles.*.css'))) == 1
