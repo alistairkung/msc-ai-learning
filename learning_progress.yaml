@@ -4,20 +4,19 @@ meta:
   title: Learning Atlas
   subtitle: MSc AI
   reviewed_on: '2026-10-24'
-  evidence_through: '2026-10-23'
+  evidence_through: '2026-10-24'
   repository: alistairkung/msc-ai-learning
   source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
   review_note: >-
-    Reconciled 21–23 Oct evidence: HW2 Bayes Nets draft reviewed but not
-    confirmed submitted; AIMS5702 backprop chain rule restored, A.1 tested,
-    A.2 drafted, A.3 scalar/matrix reasoning established with batch tensor
-    implementation unfinished. Convolution backward and residual CNN code
-    remain unattempted. Preserved 7 Oct Search proof evidence from PR #59.
+    AIMS5702 Part A tests A.1–A.4 were reported passing as of 24 Oct.
+    Convolution backward was a guided implementation; independent 4D
+    slicing/generalisation remains unverified and is deliberately parked
+    until after the 29 Oct assessment. Part B is the active delivery task.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 993a51a0d8acffb18c311d127ca302418431dd66
+    sha: 3dd199047e2d186783c09db546efe46ea8303323
   private_client_graph_canonical_persistence_grill:
     path: lesson_logs/ftec5660/private_client_graph/canonical_persistence_grill_2026_10_07.md
     sha: fa53167cff8d8df6b3edd5cee2691f79b0097c6f
@@ -71,7 +70,7 @@ sources:
     sha: a3e112c0bca4629dcd737b194fc39500cb53841c
   aims5702_assignment3_backprop_20261023:
     path: lesson_logs/aims5702/assignment03_backprop_2026_10_23.md
-    sha: 6633e150510b978f6971688779689eae3d31c426
+    sha: b9c7476d8b09a719f9e4ab42fda267cf0943acc3
   aims5701_hw2_cold_review_20261019:
     path: lesson_logs/aims5701/hw2_bayes_nets_cold_review_2026_10_19.md
     sha: 6b0b3edbeae580c80a2e34826cddb4007742f86e
@@ -493,6 +492,7 @@ topics:
     sources: [assignment1_plan, assignment1_interpolation_bridge, assignment1_completion, state]
     evidence_on: '2026-09-21'
     depends_on: [tensor_operations]
+
   autograd:
     name: Autograd & manual gradient descent
     area: Model building
@@ -501,25 +501,24 @@ topics:
     review: recorded
     action: practice
     evidence: >-
-      On 22–23 Oct the learner independently recovered scalar chain rule,
-      cumulative upstream gradients, ReLU and branching accumulation on
-      changed examples after initial repairs. AIMS5702 Assignment 3 A.1
-      multiplication backward implementation passed supplied tests;
-      A.2 derivation and NumPy implementation were completed but passing
-      tests not reported. Independently derived all gradients of a small
-      two-output linear+ReLU model and recalled batched GW, G^T X, sum(G).
+      On 24 Oct learner reported AIMS5702 Assignment 3 Part A A.1-A.4
+      tests passing, including convolution manual input and parameter
+      gradients. Scalar chain rule, branching accumulation and ReLU were
+      reconstructed, and fixed-window convolution gradients were
+      explained with aligned X/K/G visualisations.
     boundary: >-
-      Same-session repaired work is not delayed cold mastery. The batched
-      NumPy A.3 implementation is unverified; translating computational
-      graphs to matrix notation and shapes remains difficult, especially
-      ReLU masking and choosing @ versus *. A.4 convolution derivatives
-      and implementation are untouched.
+      Tests passed after substantial tutor scaffolding, not independently
+      reconstructed cold. Key remaining fragility is generalising one
+      convolution window to 4D batch/channel and spatial indexing,
+      padding, broadcasting, slice alignment, and sum versus indexed
+      accumulation. Do not infer unassisted mastery.
     next: >-
-      Verify A.2 test, finish A.3 forward/input/parameter methods and
-      tests with input/weight/bias shape checks; then begin A.4 with one
-      small convolution trace and learner-owned implementation.
+      Protect 29 Oct assignment deadline for Part B. Then use a
+      three-tensor slider, changed unseen local gradient examples,
+      shape/loop/reduction planning, and unassisted batched convolution
+      backward reconstruction with changed-shape tests.
     sources: [aims5702_assignment3_backprop_20261023, state, syllabus]
-    evidence_on: '2026-10-23'
+    evidence_on: '2026-10-24'
     depends_on: []
 
   pytorch_training:
@@ -870,22 +869,16 @@ lanes:
 - id: continue
   label: Continue next · AIMS5702
   title: Assignment 3 manual backpropagation -> CNN experiments
-  summary: A.1 verified passing; A.2 implementation awaits test confirmation; A.3 batch NumPy gradients remain unverified; A.4 and Part B not begun. Prioritise passing checks before the 29 Oct deadline.
+  summary: A.1-A.4 tests passed as reported; A.4 remains guided, with independent tensor generalisation parked until after deadline. Part B remains to complete before 29 Oct.
   target: autograd
   tasks:
-  - title: Finish A.3 and validate A.2
-    when: Next workable study block before travel
-    topics: [autograd, tensor_operations]
+  - title: Park independent convolution-gradient reconstruction
+    when: After 29 Oct submission
+    topics: [autograd, cnn, tensor_operations]
     detail: >-
-      First verify A.2, then independently implement A.3 forward/input/parameter
-      methods using ReLU mask plus GW, G^T X and batch sum(G). Test tensor shapes
-      and distinguish @ from elementwise multiplication.
-  - title: Complete convolution backward
-    when: Before full CNN training
-    topics: [cnn, autograd]
-    detail: >-
-      Start with one tiny non-assessed convolution gradient trace, then implement
-      and verify A.4; do not let a difficult index loop hide Part B requirements.
+      Visualise input X, kernel K and upstream G together, trace fresh
+      gradient accumulation, declare result/loop/summation dimensions,
+      then reconstruct 4D NumPy indexing without scaffolding.
   - title: Train Part B CNN variants
     when: Reliable GPU and network available
     topics: [cnn, pytorch_training]
