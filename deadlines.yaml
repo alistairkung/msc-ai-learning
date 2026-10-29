@@ -1,6 +1,6 @@
 # Delivery planning is separate from learning evidence.
 schema_version: 1
-reviewed_on: '2026-10-24'
+reviewed_on: '2026-10-29'
 provenance_note: >-
   Dates below are learner-reported planning constraints unless a stronger source is
   named. They affect workload prioritisation, not learning/mastery evidence.
@@ -84,3 +84,17 @@ deadlines:
     deeper CNNs, residual blocks and 1x1 projection shortcuts with training
     experiments. A.1 tests passed; A.2 implementation drafted (tests not
     confirmed); A.3 in progress; A.4 and Part B unstarted as of 23 Oct.
+
+- id: aims5701_homework_3
+  course: AIMS5701
+  title: Homework 3 — Bayes Nets II
+  due_on: '2026-10-19'
+  status: submitted
+  provenance: learner_report
+  mode: individual
+  note: >-
+    Learner reported submission on 29 Oct after completing all six problems.
+    The uploaded assignment sheet listed 19 Oct, but the user reports
+    a later deadline window; revised official due date not verified. A shared three-day extension allowance exists across
+    five homeworks, but usage is unconfirmed. Keep independent/assisted
+    learning boundaries and original AI transcript receipt obligations.

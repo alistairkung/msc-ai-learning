@@ -1,10 +1,16 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-10-24. Learning evidence through 2026-10-24._
+_Last maintained: 2026-10-29. Learning evidence through 2026-10-29._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
-## Current handover — 24 Oct (evidence through 23 Oct)
+## Current handover — 29 Oct (AIMS5701 HW3 submitted)
+
+**AIMS5701 HW3 — Bayes Nets II:** Learner reported submission on 29 Oct after attempting all six problems and reviewing an eight-page write-up. The assessment exercised variable elimination, fork enumeration, prior/rejection sampling, likelihood weighting/ESS, Gibbs local conditionals versus exact marginalization, and three-step Markov-chain probability propagation. The learner successfully solved changed analogous problems and performed the assignment calculations with targeted tutor checking. **Do not equate successful same-session/scaffolded assessed work with delayed exam mastery.** Recurring fragilities: complementary CPT entries and evidence=0 versus 1, which variable to sum out, stopping at joint numerator instead of conditional normalization, calculator entry errors, plus index/row-vector notation. A few final write-up notation fixes were recommended; corrected upload was not inspected. See `lesson_logs/aims5701/hw3_bayes_nets_ii_2026_10_29.md`.
+
+**Next:** Return priority to AIMS5702 assignment and missed Transformers lecture, while preparing for **AIMS5702 quiz 12 Nov** and **AIMS5701 midterm 18 Nov**. Midterm covers Search, Bayes Nets and HMM/particle filtering, with homework-shaped questions; recognition and same-session guided performance require spaced unseen retrieval. Avoid immediately repeating HW3 end-to-end. The learner reports a **shared three-day extension allowance across five AIMS5701 homeworks**; use remains unconfirmed. The uploaded HW3 sheet listed a 19 Oct deadline inconsistent with the actual submission window, so do not assert an officially verified revised due date.
+
+## Previous handover — 24 Oct (evidence through 23 Oct)
 
 **Continue — AIMS5702 Assignment 3 (due 29 Oct):** Primary task is to finish Part A before the Part B CNN experiments. A.1 multiplication gradients passed the supplied test; A.2 multiplication+ReLU was derived and implemented but a passing test was not reported. In A.3 the learner independently performed scalar and 2-input/2-output linear+ReLU gradient working after scaffolding, then retrieved batched matrix formulas: `G = upstream * (ReLU output > 0)`, input `G @ W`, weights `G.T @ X`, bias `G.sum(axis=0)`. **Actual A.3 batched forward/backward implementation remains unfinished/unverified**: the fragile points are matching mask to preactivation/output, matrix `@` versus elementwise `*`, `W.T` in forward, and input/parameter gradient shape contracts. A.4 convolution backprop and Part B architecture/training are unstarted. See `lesson_logs/aims5702/assignment03_backprop_2026_10_23.md`.
 
