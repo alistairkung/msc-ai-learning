@@ -8,7 +8,7 @@ meta:
   repository: alistairkung/msc-ai-learning
   source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
   review_note: >-
-    AIMS5702 Part A tests A.1–A.4 were reported passing as of 24 Oct.
+    29 Oct Transformer catch-up covered Lecture 6 slides 12–95 with guided QKV numerical transfer; notation-to-operation translation remains fragile. AIMS5702 Part A tests A.1–A.4 were reported passing as of 24 Oct.
     Convolution backward was a guided implementation; independent 4D
     slicing/generalisation remains unverified and is deliberately parked
     until after the 29 Oct assessment. Part B is the active delivery task.
@@ -16,7 +16,10 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: feb856c0f0d63b21ab8dfcbfe4e8e1dd516ac726
+    sha: a05608f73cac56e079c661314ed9aa5cdf8b6bd4
+  aims5702_transformer_catchup_20261029:
+    path: lesson_logs/aims5702/lecture06_transformers_catchup_2026_10_29.md
+    sha: 9a56616ab2823ce4f7e9e9a2d3c355bc74f8605c
   private_client_graph_canonical_persistence_grill:
     path: lesson_logs/ftec5660/private_client_graph/canonical_persistence_grill_2026_10_07.md
     sha: fa53167cff8d8df6b3edd5cee2691f79b0097c6f
@@ -819,6 +822,30 @@ topics:
     evidence_on: '2026-10-23'
     depends_on: []
 
+  transformer_attention:
+    name: Transformer attention and positional encoding
+    area: Model building
+    concept: taught
+    performance: guided
+    review: due
+    action: retrieve
+    evidence: >-
+      29 Oct guided Lecture 6 catch-up: learner explained attention design,
+      Q/K/V roles, multi-head and positional motivations; attempted an unseen
+      two-token QKV calculation from X with several arithmetic/AV repairs.
+      Visual and numeric operations were much easier than compact slide notation.
+    boundary: >-
+      Same-session scaffolded success, not delayed or flawless independent
+      calculation. Summation indices and compressed formulas remain hard to
+      read; RoPE and full layer architecture slides 96–98 not yet covered.
+    next: >-
+      Cold translate o_i = sum_j alpha_ij v_j and the full attention formula
+      into plain language, then perform one changed small calculation using
+      persistent side-by-side matrices. Complete RoPE and FFN overview later.
+    sources: [aims5702_transformer_catchup_20261029, state, syllabus]
+    evidence_on: '2026-10-29'
+    depends_on: [cnn]
+
   rnn:
     <<: *new
     name: Recurrent neural networks
@@ -901,14 +928,14 @@ lanes:
     detail: One changed integrated inference/d-separation check, then HMM/particle-filtering JIT rather than replaying full HW2.
 - id: protect
   label: Protected runway · Transformers
-  title: Missed Transformer lecture and recovery
-  summary: Catch up on queries/keys/values and attention after AIMS5702 deadline if travel permits; preserve a realistic wedding/transpacific travel buffer instead of assuming uninterrupted work.
-  target: cnn
+  title: Consolidate guided Transformer catch-up
+  summary: Lecture 6 slides 12–95 covered on 29 Oct. Preserve recovery after an intensive session; focus next on math-notation translation, delayed QKV retrieval and slides 96–98. Inference lecture attendance not yet verified.
+  target: transformer_attention
   tasks:
-  - title: Rebuild Transformers lecture
-    when: After AIMS5702 implementation is stable
-    topics: [cnn, autograd]
-    detail: Bridge CNNs to attention, scaled dot-product and multi-head attention and positional encoding, with conceptual orientation first.
+  - title: Translate attention notation and retest QKV
+    when: After recovery, ahead of 12 Nov quiz
+    topics: [transformer_attention]
+    detail: Translate slide indices and summations before one changed complete numerical problem using persistent matrix panels; finish RoPE/FFN overview without immediate full re-teaching.
 
 courses:
   AIMS5701:
