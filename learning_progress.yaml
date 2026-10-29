@@ -3,8 +3,8 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-10-24'
-  evidence_through: '2026-10-24'
+  reviewed_on: '2026-10-29'
+  evidence_through: '2026-10-29'
   repository: alistairkung/msc-ai-learning
   source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
   review_note: >-
@@ -16,7 +16,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 3dd199047e2d186783c09db546efe46ea8303323
+    sha: feb856c0f0d63b21ab8dfcbfe4e8e1dd516ac726
   private_client_graph_canonical_persistence_grill:
     path: lesson_logs/ftec5660/private_client_graph/canonical_persistence_grill_2026_10_07.md
     sha: fa53167cff8d8df6b3edd5cee2691f79b0097c6f
