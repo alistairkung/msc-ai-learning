@@ -88,14 +88,13 @@ deadlines:
 - id: aims5701_homework_3
   course: AIMS5701
   title: Homework 3 — Bayes Nets II
-  due_on: '2026-10-29'
+  due_on: '2026-10-19'
   status: submitted
   provenance: learner_report
   mode: individual
   note: >-
     Learner reported submission on 29 Oct after completing all six problems.
-    The uploaded assignment sheet listed 19 Oct; 29 Oct here is a provisional
-    planning date representing the latest confirmed submission, NOT a verified
-    official deadline. A shared three-day extension allowance exists across
+    The uploaded assignment sheet listed 19 Oct, but the user reports
+    a later deadline window; revised official due date not verified. A shared three-day extension allowance exists across
     five homeworks, but usage is unconfirmed. Keep independent/assisted
     learning boundaries and original AI transcript receipt obligations.
