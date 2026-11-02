@@ -1,10 +1,18 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-10-29. Learning evidence through 2026-10-29._
+_Last maintained: 2026-11-02. Learning evidence through 2026-11-02._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
-## Current handover — 29 Oct (AIMS5702 Transformer catch-up)
+## Current handover — 2 Nov (AIMS5701 sampling + HW4 HMM preparation)
+
+**AIMS5701 midterm 18 Nov; HW4 HMM/Particle Filtering due 9 Nov 23:59 (verified in uploaded assignment).** Today: rejection sampling and ESS were independently reconstructed on changed problems; likelihood weighting of two evidence variables across a four-variable network was independently executed and the role of sampled priors explained after conceptual repair. Rejection acceptance-rate denominator was initially confused with posterior denominator; several arithmetic/calculator/transcription slips remain. Prior/likelihood/posterior terminology moved from prompted to articulated, but delayed cold retention remains unverified.
+
+**HMM Q2/Q3 preparation only — neither assessed question attempted/written up.** HMM forward loop now mostly reconstructable: previous updated belief → predict using T → observation likelihood → normalise → repeat. A changed two-step unseen attempt had an off-diagonal matrix-copy swap and observation multiplication error, so accurate independent end-to-end performance is still unproven. For prediction use four **From → To → belief → transition → product** rows, sum by To; then a separate **state → predicted → observation likelihood → product** table, normalise. Check each matrix row and each belief sum to 1. Q3 first-order Markov, observation independence, and d-separation paths were reasoned through, with initial prompts and subsequent independent fork/path reasoning.
+
+**Tuesday 3 Nov:** Tutor Gibbs (full analogous worked example + unseen independent question), then independently attempt and write HW4 Q2 and Q3, checking only after learner attempts. Keep full unedited AI transcript receipts for HW4 assistance. Resume short rotated unseen HW1–HW4 recall through 18 Nov. AIMS5702 quiz 12 Nov and FTEC dates remain parallel priorities. Detailed evidence: `lesson_logs/aims5701/sampling_hmm_midterm_2026_11_02.md`.
+
+## Previous handover — 29 Oct (AIMS5702 Transformer catch-up)
 
 **AIMS5702 Lecture 6 — Transformer:** Guided catch-up covered slides 12–95, including backprop/convolution notation, ResNet, CNN/RNN limitations, Q/K/V and attention, complexity, multi-head attention, and positional encoding. The learner completed an unseen 2×2 QKV pipeline from X with isolated matrix-arithmetic and AV corrections; concepts and architecture were explained in own words, **not** demonstrated with delayed independent retrieval. Key newly isolated obstacle is **translating compact mathematical notation into already-understood numerical operations** (e.g. `o_i = sum_j alpha_ij v_j`); one persistent view of X, projection weights, Q/K/V, scores, softmax, and output was far more useful than hiding earlier steps. Some guided convolution mathematics and partial differentiation now make more sense; unassisted 4D implementation remains unverified. **Slides 96–98 remain to cover**. Lecture 7 inference/quantisation was only skimmed in a short pre-lecture orientation (float32→int8, scaling/round/clip, PTQ vs QAT); evening lecture attendance and understanding not yet confirmed. Learner reported marked fatigue; stop pre-lecture drilling. Next AIMS5702 session: cold translate a few slide equations into plain English, then one small persistent-matrix QKV transfer; close slides 96–98 and revisit inference after actual lecture. Quiz **12 Nov** remains important. Detailed evidence: `lesson_logs/aims5702/lecture06_transformers_catchup_2026_10_29.md`.
 
