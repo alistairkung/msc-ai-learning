@@ -1,6 +1,6 @@
 # Delivery planning is separate from learning evidence.
 schema_version: 1
-reviewed_on: '2026-10-29'
+reviewed_on: '2026-11-02'
 provenance_note: >-
   Dates below are learner-reported planning constraints unless a stronger source is
   named. They affect workload prioritisation, not learning/mastery evidence.
@@ -98,3 +98,17 @@ deadlines:
     a later deadline window; revised official due date not verified. A shared three-day extension allowance exists across
     five homeworks, but usage is unconfirmed. Keep independent/assisted
     learning boundaries and original AI transcript receipt obligations.
+
+- id: aims5701_homework_4
+  course: AIMS5701
+  title: Homework 4 — HMMs and Particle Filtering
+  due_on: '2026-11-09'
+  status: upcoming
+  provenance: course_material
+  mode: individual
+  note: >-
+    Verified from uploaded HW4: deadline 23:59 on 9 Nov 2026, six problems
+    and 14 subquestions. As of 2 Nov, Q2/Q3 had concept preparation only;
+    neither assessed solution nor final write-up confirmed. One PDF required;
+    original full unedited AI interaction transcripts must accompany any
+    problem for which AI assisted conceptual understanding.
