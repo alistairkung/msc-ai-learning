@@ -1,10 +1,18 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-11-02. Learning evidence through 2026-11-02._
+_Last maintained: 2026-11-03. Learning evidence through 2026-11-03._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
-## Current handover — 2 Nov (AIMS5701 sampling + HW4 HMM preparation)
+## Current handover — 3 Nov (AIMS5701 HW4 Q1–Q3 and Gibbs)
+
+**HW4 due Mon 9 Nov, 23:59; midterm Wed 18 Nov.** Learner reports **Q1, Q2 and Q3 written up in a notebook**; handwriting has not been inspected and HW4 is **not submitted**. Q1 Markov propagation and stationary-distribution final answers, and Q2 two-step HMM final answers, were checked as correct. Q3 d-separation reasoning and conditional-independence distinctions were reconstructed, with terminology and general notation prompted; full written Q3(a) has not been checked. An overnight unseen HMM attempt got time 1 correct but reversed N/F starting beliefs in time 2; after repair completed correctly. Keep explicit state labels in From→To tables; do not equate correct final answers with verified submission-quality workings.
+
+**Gibbs was today's new independent success:** after Markov-blanket/co-parent and factorisation tutoring, independently solved a fresh four-variable Gibbs problem (blanket, factors, two candidate weights, normalisation), reported **10/10 without hints**. Delayed cold retrieval still due. Preferred Gibbs method: identify update variable → MB (parents, children, co-parents) → retain CPT factors involving the variable → enumerate 0/1 → multiply → normalise → sample if requested.
+
+**Next:** HW4 Q4–Q6 particle filtering remains to attempt; only table layouts and conceptual links were introduced. Check Q1–Q3 handwritten write-ups before final PDF, preserve original full unedited AI transcripts, and resume daily short unseen retrieval ahead of 18 Nov. Detailed evidence: `lesson_logs/aims5701/hw4_q1_q3_gibbs_2026_11_03.md`.
+
+## Previous handover — 2 Nov (AIMS5701 sampling + HW4 HMM preparation)
 
 **AIMS5701 midterm 18 Nov; HW4 HMM/Particle Filtering due 9 Nov 23:59 (verified in uploaded assignment).** Today: rejection sampling and ESS were independently reconstructed on changed problems; likelihood weighting of two evidence variables across a four-variable network was independently executed and the role of sampled priors explained after conceptual repair. Rejection acceptance-rate denominator was initially confused with posterior denominator; several arithmetic/calculator/transcription slips remain. Prior/likelihood/posterior terminology moved from prompted to articulated, but delayed cold retention remains unverified.
 
