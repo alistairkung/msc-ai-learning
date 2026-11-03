@@ -3,20 +3,22 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-11-02'
-  evidence_through: '2026-11-02'
+  reviewed_on: '2026-11-03'
+  evidence_through: '2026-11-03'
   repository: alistairkung/msc-ai-learning
   source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
   review_note: >-
-    29 Oct Transformer catch-up covered Lecture 6 slides 12–95 with guided QKV numerical transfer; notation-to-operation translation remains fragile. AIMS5702 Part A tests A.1–A.4 were reported passing as of 24 Oct.
-    Convolution backward was a guided implementation; independent 4D
-    slicing/generalisation remains unverified and is deliberately parked
-    until after the 29 Oct assessment. Part B is the active delivery task.
+    3 Nov AIMS5701: Gibbs blanket, factor selection and numerical update independently
+    reconstructed on a fresh unseen network; HMM time 1 returned cold overnight, while
+    time 2 needed state-probability bookkeeping repair. Actual HW4 Q1 and Q2 final
+    numerical answers were correct, and Q3 d-separation reasoning reconstructed;
+    Q1-Q3 notebook write-ups reported complete but uninspected. HW4 Q4-Q6 and a
+    delayed Gibbs check remain; HW4 due 9 Nov, midterm 18 Nov.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 774a2e4bf2a3790e9f2fd641c57ca2f228267df1
+    sha: b28185c627868ee819063722ba30a8c2af5a6802
   aims5702_transformer_catchup_20261029:
     path: lesson_logs/aims5702/lecture06_transformers_catchup_2026_10_29.md
     sha: 9a56616ab2823ce4f7e9e9a2d3c355bc74f8605c
@@ -625,38 +627,52 @@ topics:
     review: recorded
     action: retrieve
     evidence: >-
-      On 19 Oct, independently completed a fresh Q2-style four-node factorization
-      and posterior, plus changed Q3 parameter counting and Q4 path analysis,
-      after occasional repairs. On 21–22 Oct a nine-page actual HW2 draft
-      received focused review: Q1/Q2 broadly sound, Q3 elicitation comparison
-      and labels needed revision, Q5 denominator formula needed correction,
-      and Q6(b) seven independence claims were checked as correct.
+      Earlier HW2/HW3 covered factorisation, marginalisation, d-separation
+      and approximate inference with corrections. On 2 Nov rejection
+      sampling and ESS returned independently and likelihood weighting
+      calculations succeeded in an unseen four-variable example, with an
+      arithmetic slip. On 3 Nov a fresh Gibbs network was solved 10/10
+      independently: Markov blanket, co-parent, proportional local factors,
+      candidate weights and normalisation.
+
     boundary: >-
-      A reviewed homework draft does not prove delayed cold inference mastery
-      or course submission. Q4 bookkeeping and integrated Q5 posterior
-      remain fragile; no independent five-node unseen transfer established.
-      Q6(a) wording required a local-Markov expression. Complete lecture-4
-      variable elimination and sampling remain unverified.
+      This is targeted evidence for sampling subskills, not blanket
+      independent mastery of all Bayesian-network inference, factorisation
+      or d-separation under exam conditions. Gibbs delayed retention remains
+      unverified; assessed homework write-ups have separate authorship and
+      verification boundaries.
+
     next: >-
-      Confirm assessed submission separately. After the deadline, use one
-      fresh integrated BN inference and a bounded d-separation check, then
-      return to HMM/particle filtering when syllabus demand calls for it.
+      Spaced unseen Gibbs and mixed HW1-HW3 probability retrieval before
+      the 18 Nov midterm; focus on CPT row selection, normalisation and
+      written justification. Keep assisted assessment and independent
+      analogues distinct.
+
     sources: [bayes_jit_20260928, probability_bridge, aims5701_bayes_consolidation_20261014, aims5701_hw2_cold_review_20261019, aims5701_hw2_writeup_review_20261022, state, syllabus]
-    evidence_on: '2026-10-22'
+    evidence_on: '2026-11-03'
     depends_on: [bayes]
 
   markov:
     name: Markov chains
     area: Math foundations
-    concept: unknown
-    performance: unknown
-    review: diagnostic
-    action: diagnose
-    evidence: The learner remembers studying this, but the recovered worked trail is incomplete.
-    boundary: Unknown is not failed. Do not infer detailed coverage or stationary-distribution proficiency.
-    next: Diagnose Markov basics before HMM work; rebuild only what does not return.
+    concept: demonstrated
+    performance: guided
+    review: recorded
+    action: maintain
+    evidence: >-
+      On 3 Nov, learner solved a fresh two-state stationary distribution
+      independently by forming pi T = pi and normalization equations, and
+      supplied correct HW4 Q1 one-step/two-step distributions and stationary
+      probabilities. Demonstrated the equilibrium interpretation.
+    boundary: >-
+      Assessed handwritten working was not inspected, and delayed cold
+      stationarity retrieval has not yet been checked. Broader chain theory
+      and convergence proofs are outside this evidence.
+    next: >-
+      Review HW4 Q1 learner-written equations and calculations, then maintain
+      via a short delayed unseen transition/stationarity question.
     sources: [state, syllabus]
-    evidence_on: null
+    evidence_on: '2026-11-03'
     depends_on: []
   poisson:
     name: Poisson material
@@ -750,24 +766,24 @@ topics:
     concept: demonstrated
     performance: guided
     review: recorded
-    action: practice
+    action: maintain
     evidence: >-
-      On 2 Nov, the learner reconstructed predict/observe/normalise across two
-      time steps using a row-oriented marginalisation-style table after full
-      analogous teaching. Following a long break, they independently attempted
-      a changed two-step example and correctly identified the transition-matrix
-      indexing mistake after review.
+      On 3 Nov, an overnight changed HMM attempt produced the correct time-1
+      belief independently; time-2 prediction needed a state-to-belief label
+      correction, after which observation and normalisation were correct.
+      Learner then reported both HW4 Q2 final belief distributions correctly
+      and independently, and reconstructed d-separation relationships in Q3.
     boundary: >-
-      Full independent numerical accuracy is not verified: the cold attempt
-      swapped off-diagonal transition probabilities and included an observation
-      multiplication error. The actual HW4 Q2 was not attempted. A correct
-      delayed unseen complete answer is still needed.
+      Independent accurate end-to-end unseen two-step retrieval remains unverified,
+      since the cold time-2 attempt reversed the starting state probabilities.
+      The assessed HW4 Q2/Q3 notebook write-ups are reported complete but not
+      inspected, and Q3 general notation was initially taught/prompted.
     next: >-
-      Independently attempt HW4 Q2 using From-To transition enumeration and
-      observation-normalisation tables; verify row and belief sums before
-      interpreting results. Keep original AI interaction transcript receipts.
+      Inspect learner-authored HW4 Q2/Q3 written working without authoring it;
+      then use a spaced changed full two-step HMM problem to check bookkeeping
+      and delayed accuracy. Keep From-To labels explicit.
     sources: [state, syllabus]
-    evidence_on: '2026-11-02'
+    evidence_on: '2026-11-03'
     depends_on: [markov, bayes]
   particle_filtering:
     name: Particle filtering
