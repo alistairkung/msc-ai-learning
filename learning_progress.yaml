@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-11-03'
   evidence_through: '2026-11-03'
   repository: alistairkung/msc-ai-learning
-  source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
+  source_ref: ee06629fc40c9ddf54930186a84df528fa0a8be8
   review_note: >-
     3 Nov AIMS5702 CNN: guided rebuilding followed by same-session no-hint
     convolution shape/count, receptive field, U-Net and ResNet retrieval.
