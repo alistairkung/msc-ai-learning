@@ -16,7 +16,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: a05608f73cac56e079c661314ed9aa5cdf8b6bd4
+    sha: 774a2e4bf2a3790e9f2fd641c57ca2f228267df1
   aims5702_transformer_catchup_20261029:
     path: lesson_logs/aims5702/lecture06_transformers_catchup_2026_10_29.md
     sha: 9a56616ab2823ce4f7e9e9a2d3c355bc74f8605c
@@ -828,7 +828,7 @@ topics:
     area: Model building
     concept: taught
     performance: guided
-    review: due
+    review: recorded
     action: retrieve
     evidence: >-
       29 Oct guided Lecture 6 catch-up: learner explained attention design,
