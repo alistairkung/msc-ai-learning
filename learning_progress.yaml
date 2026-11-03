@@ -8,17 +8,23 @@ meta:
   repository: alistairkung/msc-ai-learning
   source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
   review_note: >-
-    3 Nov AIMS5701: Gibbs blanket, factor selection and numerical update independently
-    reconstructed on a fresh unseen network; HMM time 1 returned cold overnight, while
-    time 2 needed state-probability bookkeeping repair. Actual HW4 Q1 and Q2 final
-    numerical answers were correct, and Q3 d-separation reasoning reconstructed;
-    Q1-Q3 notebook write-ups reported complete but uninspected. HW4 Q4-Q6 and a
-    delayed Gibbs check remain; HW4 due 9 Nov, midterm 18 Nov.
+    3 Nov AIMS5702 CNN: guided rebuilding followed by same-session no-hint
+    convolution shape/count, receptive field, U-Net and ResNet retrieval.
+    Remaining floor-rounding, complete tensor-shape and window-index
+    fragility; no delayed mastery or independent 4D convolution backward
+    demonstration. Earlier 3 Nov AIMS5701 HW4/Gibbs evidence and
+    deadlines remain unchanged.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: b28185c627868ee819063722ba30a8c2af5a6802
+    sha: 4b233fa8470c18eded9a01dd28d4ef68b28b1ce6
+  aims5702_cnn_revision_20261103:
+    path: lesson_logs/aims5702/lecture05_cnn_revision_2026_11_03.md
+    sha: 2a75661b988bf3a08f07c0df87d782dd955dde89
+  aims5702_cnn_summary_20261103:
+    path: lesson_logs/aims5702/lecture05_cnn_revision_summary_2026_11_03.md
+    sha: c86d74f487770424435b539fa38cc26f3882b42c
   aims5702_transformer_catchup_20261029:
     path: lesson_logs/aims5702/lecture06_transformers_catchup_2026_10_29.md
     sha: 9a56616ab2823ce4f7e9e9a2d3c355bc74f8605c
@@ -820,23 +826,34 @@ topics:
     concept: taught
     performance: guided
     review: recorded
-    action: practice
+    action: retrieve
     evidence: >-
-      On 15 Oct CNN prelecture preparation the learner worked through
-      convolution and pooling output shapes, channel/filter parameter
-      counting, stride-1 receptive-field growth and U-Net skip-connection
-      intuition. The 23 Oct Assignment 3 review linked these ideas to
-      deeper CNN, residual and 1x1 projection exercises.
+      3 Nov CNN revision recovered convolution and pooling mechanics,
+      input/output channels, Conv2d activation and weight shapes,
+      parameters, stride/padding output sizes, receptive fields and
+      U-Net/ResNet distinctions. Following explanation, independently
+      solved a changed Conv2d K5 case with correct complete tensor
+      shapes and 1216 parameters. In a six-question same-session cold
+      set, parameter count, RF 9x9, U-Net and ResNet were explained
+      correctly; an output-size floor rounding error and incomplete
+      B/C output-shape answers remained. Earlier 24 Oct assignment
+      convolution backward tests were reported passing with guidance.
     boundary: >-
-      This is lecture preparation and architectural reasoning, not verified
-      independent CNN implementation or training. Part B Assignment 3
-      baseline/deep/residual/projection runs have not started.
+      3 Nov retrieval occurred after same-session reteaching and does
+      not establish delayed cold retention. Window indices, floor
+      before +1 and activation-vs-weight shape remain vulnerable.
+      Independent 4D convolution backward implementation/training was
+      not tested. Architecture and filter history were skimmed rather
+      than cold-retrieved; no final assignment submission proof.
     next: >-
-      After the manual backward sections, run the supplied baseline,
-      implement and test deep/residual/projection CNN variations, and
-      preserve observations from the 20-epoch experiments.
-    sources: [aims5702_lecture03_session, aims5702_lecture03_live, aims5702_assignment3_backprop_20261023, state, syllabus]
-    evidence_on: '2026-10-23'
+      Ahead of the 5 Nov lab random question and 12 Nov MCQ quiz,
+      check one changed Conv2d shape/count case with nonintegral
+      stride division and one brief conceptual distinction set.
+      Prioritise Transformer and inference sessions; park batched
+      convolution-gradient reconstruction until assessment scope
+      warrants it.
+    sources: [aims5702_cnn_revision_20261103, aims5702_cnn_summary_20261103, aims5702_assignment3_backprop_20261023, state, syllabus]
+    evidence_on: '2026-11-03'
     depends_on: []
 
   transformer_attention:
