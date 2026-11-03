@@ -144,9 +144,10 @@ def test_new_theory_is_an_explicit_requirement(data):
 
 
 def test_unknown_is_not_failed_and_overview_is_not_a_backlog(data):
-    for key in ['markov', 'poisson']:
-        assert data['topics'][key]['concept'] == 'unknown'
-        assert data['topics'][key]['review'] == 'diagnostic'
+    assert data['topics']['poisson']['concept'] == 'unknown'
+    assert data['topics']['poisson']['review'] == 'diagnostic'
+    assert data['topics']['markov']['concept'] == 'demonstrated'
+    assert data['topics']['markov']['review'] == 'recorded'
     entries = data['courses']['FTEC5660']['weeks']
     assert next(w for w in entries if w['week'] == 'Later')['scope'] == 'overview'
     assert 'search_complexity' in data['courses']['AIMS5701']['weeks'][1]['remaining']
@@ -175,7 +176,7 @@ def test_actual_event_dates_preserved(data):
     assert data['topics']['bfs']['evidence_on'] == '2026-09-06'
     assert data['topics']['prompt_chaining']['evidence_on'] == '2026-09-17'
     assert data['topics']['bayes']['evidence_on'] == '2026-09-28'
-    assert data['topics']['bayesian_networks']['evidence_on'] == '2026-10-22'
+    assert data['topics']['bayesian_networks']['evidence_on'] == '2026-11-03'
     assert data['topics']['bayesian_networks']['performance'] == 'guided'
     assert data['topics']['real_data_classification']['performance'] != 'independent'
 
