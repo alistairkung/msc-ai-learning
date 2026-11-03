@@ -3,8 +3,8 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-10-29'
-  evidence_through: '2026-10-29'
+  reviewed_on: '2026-11-02'
+  evidence_through: '2026-11-02'
   repository: alistairkung/msc-ai-learning
   source_ref: ea18f81c8eebc5e2b6e2944c7e260f88fda4b7de
   review_note: >-
@@ -16,7 +16,7 @@ meta:
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: a05608f73cac56e079c661314ed9aa5cdf8b6bd4
+    sha: 774a2e4bf2a3790e9f2fd641c57ca2f228267df1
   aims5702_transformer_catchup_20261029:
     path: lesson_logs/aims5702/lecture06_transformers_catchup_2026_10_29.md
     sha: 9a56616ab2823ce4f7e9e9a2d3c355bc74f8605c
@@ -747,26 +747,27 @@ topics:
   hmm:
     name: Hidden Markov Models
     area: Model building
-    concept: taught
+    concept: demonstrated
     performance: guided
     review: recorded
-    action: retrieve
+    action: practice
     evidence: >-
-      On 7 Oct the learner received a first-principles guided introduction using
-      hidden weather states and visible umbrella observations. They followed
-      transition versus emission models, exact prediction/update and the basic
-      particle-filter transition/weight/resample loop.
+      On 2 Nov, the learner reconstructed predict/observe/normalise across two
+      time steps using a row-oriented marginalisation-style table after full
+      analogous teaching. Following a long break, they independently attempted
+      a changed two-step example and correctly identified the transition-matrix
+      indexing mistake after review.
     boundary: >-
-      This is same-session guided introductory evidence, not delayed or independent
-      HMM mastery. Filtering became understandable through concrete examples, while
-      decoding/Viterbi was introduced too early and explicitly parked. The learner
-      then reported that the newly released live lecture slides continue Bayes Nets;
-      no live HMM coverage is recorded.
+      Full independent numerical accuracy is not verified: the cold attempt
+      swapped off-diagonal transition probabilities and included an observation
+      multiplication error. The actual HW4 Q2 was not attempted. A correct
+      delayed unseen complete answer is still needed.
     next: >-
-      Keep HMMs as deferred runway. Diagnose Markov-chain recall and return to the
-      transition/emission/filtering foundation when live teaching reaches HMMs.
-    sources: [aims5701_bayes_nets_scope_pivot_20261007, state, syllabus]
-    evidence_on: '2026-10-07'
+      Independently attempt HW4 Q2 using From-To transition enumeration and
+      observation-normalisation tables; verify row and belief sums before
+      interpreting results. Keep original AI interaction transcript receipts.
+    sources: [state, syllabus]
+    evidence_on: '2026-11-02'
     depends_on: [markov, bayes]
   particle_filtering:
     name: Particle filtering
@@ -827,7 +828,7 @@ topics:
     area: Model building
     concept: taught
     performance: guided
-    review: due
+    review: recorded
     action: retrieve
     evidence: >-
       29 Oct guided Lecture 6 catch-up: learner explained attention design,
