@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-11-04'
   evidence_through: '2026-11-04'
   repository: alistairkung/msc-ai-learning
-  source_ref: ee06629fc40c9ddf54930186a84df528fa0a8be8
+  source_ref: 63895547d3482bd8bdc012b991bff524a9228df0
   review_note: >-
     4 Nov AIMS5702 Transformer: concept-first guided reconstruction covered
     tokenisation, contextual states, Q/K/V and value aggregation, positional
