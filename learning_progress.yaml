@@ -3,22 +3,29 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-11-03'
-  evidence_through: '2026-11-03'
+  reviewed_on: '2026-11-04'
+  evidence_through: '2026-11-04'
   repository: alistairkung/msc-ai-learning
-  source_ref: ee06629fc40c9ddf54930186a84df528fa0a8be8
+  source_ref: 63895547d3482bd8bdc012b991bff524a9228df0
   review_note: >-
-    3 Nov AIMS5702 CNN: guided rebuilding followed by same-session no-hint
-    convolution shape/count, receptive field, U-Net and ResNet retrieval.
-    Remaining floor-rounding, complete tensor-shape and window-index
-    fragility; no delayed mastery or independent 4D convolution backward
-    demonstration. Earlier 3 Nov AIMS5701 HW4/Gibbs evidence and
-    deadlines remain unchanged.
+    4 Nov AIMS5702 Transformer: concept-first guided reconstruction covered
+    tokenisation, contextual states, Q/K/V and value aggregation, positional
+    encoding, multi-head attention, N-squared scaling and Week 6 code.
+    Same-session conceptual evidence improved, but full unseen attention
+    calculation required softmax-row correction and final answer assistance.
+    No delayed or independent implementation mastery promoted. AIMS5701
+    midterm practice and FTEC delivery obligations remain protected.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 4b233fa8470c18eded9a01dd28d4ef68b28b1ce6
+    sha: 6a4c0e96c476682adc85714756ec26c4b42b8b85
+  aims5702_transformer_revision_20261104:
+    path: lesson_logs/aims5702/lecture06_transformers_reconstruction_2026_11_04.md
+    sha: 0856f8eb3db5b97ba3f274e156a89fed06da3b73
+  aims5702_transformer_summary_20261104:
+    path: lesson_logs/aims5702/lecture06_transformers_revision_summary_2026_11_04.md
+    sha: 2897b0335e18f64238836b9ad3744b9cd6701312
   aims5702_cnn_revision_20261103:
     path: lesson_logs/aims5702/lecture05_cnn_revision_2026_11_03.md
     sha: 2a75661b988bf3a08f07c0df87d782dd955dde89
@@ -864,20 +871,30 @@ topics:
     review: recorded
     action: retrieve
     evidence: >-
-      29 Oct guided Lecture 6 catch-up: learner explained attention design,
-      Q/K/V roles, multi-head and positional motivations; attempted an unseen
-      two-token QKV calculation from X with several arithmetic/AV repairs.
-      Visual and numeric operations were much easier than compact slide notation.
+      4 Nov concept-first reconstruction explained token ID/embedding
+      distinctions, the receiving token's Q versus contributing K/V,
+      row-wise attention and subsequent contextual hidden states.
+      Learner correctly explained multi-head versus sequential layers,
+      positional encoding motivation and sinusoidal/RoPE contrast,
+      and independently formulated the N-squared comparison factor
+      for tripling a sequence after an initial doubled-length
+      factor error. Week 6 Transformer and BERT workbook APIs
+      were discussed. The 29 Oct QKV example remains guided.
     boundary: >-
-      Same-session scaffolded success, not delayed or flawless independent
-      calculation. Summation indices and compressed formulas remain hard to
-      read; RoPE and full layer architecture slides 96–98 not yet covered.
+      This was same-session conceptual teaching, not delayed independent
+      mastery. In an unseen two-token attention problem the learner
+      reproduced a correct first softmax row but copied it to the second
+      and requested the final matrix product after correction.
+      Full numerical QKV reconstruction, independent PyTorch code,
+      detailed RoPE mathematics and complete FFN/norm architecture
+      were not cold-verified.
     next: >-
-      Cold translate o_i = sum_j alpha_ij v_j and the full attention formula
-      into plain language, then perform one changed small calculation using
-      persistent side-by-side matrices. Complete RoPE and FFN overview later.
-    sources: [aims5702_transformer_catchup_20261029, state, syllabus]
-    evidence_on: '2026-10-29'
+      After the 5 Nov random MCQ/inference lab, cold-retrieve one
+      short row-wise attention and matrix-shape example plus Week 6
+      code recognition ahead of 12 Nov coding quiz; prioritise
+      cumulative slides/workbooks and preserve AIMS5701 practice.
+    sources: [aims5702_transformer_revision_20261104, aims5702_transformer_summary_20261104, aims5702_transformer_catchup_20261029, state, syllabus]
+    evidence_on: '2026-11-04'
     depends_on: [cnn]
 
   rnn:
@@ -929,47 +946,63 @@ topics:
 lanes:
 - id: continue
   label: Continue next · AIMS5702
-  title: Assignment 3 manual backpropagation -> CNN experiments
-  summary: A.1-A.4 tests passed as reported; A.4 remains guided, with independent tensor generalisation parked until after deadline. Part B remains to complete before 29 Oct.
-  target: autograd
-  tasks:
-  - title: Park independent convolution-gradient reconstruction
-    when: After 29 Oct submission
-    topics: [autograd, cnn, tensor_operations]
-    detail: >-
-      Visualise input X, kernel K and upstream G together, trace fresh
-      gradient accumulation, declare result/loop/summation dimensions,
-      then reconstruct 4D NumPy indexing without scaffolding.
-  - title: Train Part B CNN variants
-    when: Reliable GPU and network available
-    topics: [cnn, pytorch_training]
-    detail: >-
-      Run provided baseline, then deeper, residual and projection CNN training
-      with required epochs and comparison; reserve final day for export and submission.
-- id: parallel
-  label: Parallel block · AIMS5701
-  title: HW2 assessed write-up verification and later HMM runway
-  summary: Nine-page HW2 draft reviewed 21–22 Oct and final submission not confirmed. Due date extended to 23 Oct. Avoid equating review with completion; HMM and particle filtering remain later course-facing material.
-  target: bayesian_networks
-  tasks:
-  - title: Confirm HW2 course submission
-    when: After the 23 Oct deadline
-    topics: [bayesian_networks]
-    detail: Confirm Blackboard status and required AI acknowledgement receipt; do not infer submission from reviewed draft.
-  - title: Maintain BN and revisit HMM later
-    when: After AIMS5702 deadline, if course demand warrants
-    topics: [bayesian_networks, hmm, particle_filtering]
-    detail: One changed integrated inference/d-separation check, then HMM/particle-filtering JIT rather than replaying full HW2.
-- id: protect
-  label: Protected runway · Transformers
-  title: Consolidate guided Transformer catch-up
-  summary: Lecture 6 slides 12–95 covered on 29 Oct. Preserve recovery after an intensive session; focus next on math-notation translation, delayed QKV retrieval and slides 96–98. Inference lecture attendance not yet verified.
+  title: 5 Nov assessed lab and 12 Nov cumulative quiz
+  summary: >-
+    CNN and Transformer revision covered conceptually; 5 Nov inference
+    and mixed MCQ remain. For 12 Nov, prioritise slides and lecture
+    workbooks before selected assignment patterns, with paper-based
+    code recognition and small calculations.
   target: transformer_attention
   tasks:
-  - title: Translate attention notation and retest QKV
-    when: After recovery, ahead of 12 Nov quiz
-    topics: [transformer_attention]
-    detail: Translate slide indices and summations before one changed complete numerical problem using persistent matrix panels; finish RoPE/FFN overview without immediate full re-teaching.
+  - title: Finish inference and mixed recognition
+    when: 5 Nov before 8 percent lab and 2 percent random question
+    topics: [cnn, transformer_attention]
+    detail: >-
+      Cover model inference and quantisation, then short mixed
+      conceptual and code questions; do not repeat long derivations.
+  - title: Cumulative slides and workbook practice
+    when: 7-11 Nov ahead of paper-based 12 Nov quiz
+    topics: [tensor_operations, autograd, cnn, transformer_attention, pytorch_training]
+    detail: >-
+      Revisit earlier tensor/MLP/backprop and recent CNN/Transformer/inference
+      material using unfamiliar MCQs, shapes, PyTorch APIs and short code
+      completion. Use HW3 and TDD only after broad lecture coverage.
+- id: parallel
+  label: Parallel block · AIMS5701
+  title: HW4 completion and written midterm maintenance
+  summary: >-
+    HW4 due 9 Nov and written midterm 18 Nov. Keep 60-90 minutes
+    of independent written retrieval on most days, with assessment-day
+    exceptions. Q4-Q6/submission status require verification.
+  target: hmm
+  tasks:
+  - title: Finish and verify HW4 submission
+    when: Aim for 6 Nov; formal due date 9 Nov
+    topics: [hmm, particle_filtering]
+    detail: >-
+      Review remaining particle-filtering questions and written workings;
+      do not infer Blackboard submission from notebook completion.
+  - title: Preserve midterm recall
+    when: 7-11 Nov, daily where feasible
+    topics: [astar, bayesian_networks, hmm, particle_filtering]
+    detail: >-
+      Rotate search, Bayesian networks, sampling, Gibbs, HMM and particle
+      filtering with full written working and targeted corrections.
+- id: protect
+  label: Protect delivery · FTEC5660
+  title: HW3 and reproducibility project obligations
+  summary: >-
+    FTEC HW3 due 13 Nov and A-MEM reproduction due 16 Nov.
+    Engineering and presentation work require real scheduled time;
+    latest status must be checked, not assumed complete.
+  target: prompt_chaining
+  tasks:
+  - title: Preserve project deliverables
+    when: 6-12 Nov around assessment blocks
+    topics: [prompt_chaining]
+    detail: >-
+      Verify outstanding implementation, reflection, presentation and
+      submission steps before claiming completion.
 
 courses:
   AIMS5701:
