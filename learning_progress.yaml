@@ -3,23 +3,24 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-11-04'
-  evidence_through: '2026-11-04'
+  reviewed_on: '2026-11-09'
+  evidence_through: '2026-11-09'
   repository: alistairkung/msc-ai-learning
-  source_ref: 63895547d3482bd8bdc012b991bff524a9228df0
+  source_ref: 7f4430da58e475ea9cd91e74a6ecce3cdd9e2e7d
   review_note: >-
-    4 Nov AIMS5702 Transformer: concept-first guided reconstruction covered
-    tokenisation, contextual states, Q/K/V and value aggregation, positional
-    encoding, multi-head attention, N-squared scaling and Week 6 code.
-    Same-session conceptual evidence improved, but full unseen attention
-    calculation required softmax-row correction and final answer assistance.
-    No delayed or independent implementation mastery promoted. AIMS5701
-    midterm practice and FTEC delivery obligations remain protected.
+    9 Nov AIMS5701 research brainstorming: learner independently connected
+    Markov-blanket intuition and sequential Monte Carlo to professional
+    strangler-migration risks; developed a hypothetical particle-filter
+    weighted-rollout/outbox risk experiment and parked transformer-based
+    undocumented-contract learning for future exploration. Conceptual synthesis,
+    not a trained model, completed project, validated inference or new mastery.
+    Existing Continue/Parallel/Protect lanes and topic statuses were reviewed
+    without promotion; protect 12 Nov AIMS5702 quiz and 18 Nov AIMS5701 midterm.
   stale_after_days: 21
 sources:
   state:
     path: LEARNING_STATE.md
-    sha: 6a4c0e96c476682adc85714756ec26c4b42b8b85
+    sha: da4e991a25f4816ed1703f4b436c5b08fa1187e1
   aims5702_transformer_revision_20261104:
     path: lesson_logs/aims5702/lecture06_transformers_reconstruction_2026_11_04.md
     sha: 0856f8eb3db5b97ba3f274e156a89fed06da3b73
@@ -1353,6 +1354,13 @@ paths:
   topics: [numpy, tensor_operations, tensor_interpolation]
   note: Move from shape/broadcasting fluency into advanced indexed gathering and interpolation for the current AIMS5702 assignment; assignment completion is not automatically durable mastery.
 timeline:
+- label: 9 November · AIMS5701 research brainstorming
+  detail: >-
+    Learner-led transfer of Markov-blanket and particle-filter concepts into
+    software delivery: proposed bounded counterfactual outbox capacity risk
+    model for Istio weighted Ruby-to-Java strangler rollout. Transformer-based
+    legacy behavioural compatibility parked for possible future industry study.
+    No implementation or independent algorithm mastery demonstrated.
 - label: 23 October · AIMS5702
   detail: >-
     Assignment 3: A.1 multiplication backward tests passed, A.2 implementation
