@@ -1,10 +1,18 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-11-04. Learning evidence through 2026-11-04._
+_Last maintained: 2026-11-09. Learning evidence through 2026-11-09._
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 
-## Current handover — 4 Nov (AIMS5702 Transformer reconstruction)
+## Current handover — 9 Nov (AIMS5701 applied probabilistic inference research brainstorming)
+
+**Research synthesis, not implementation:** Connected prior Ruby→Java beneficiary-service strangler migration (Istio shadow validation with **no writes or downstream side effects**, followed by weighted live traffic splits) to an AIMS5701 project idea: use particle filtering to estimate hidden outbox publisher capacity during a *simulated* live rollout and forecast SLO breach risk at candidate routing weights. The historical Java shadow path did not operate an outbox; this is a proposed illustrative experimental subsystem. The learner also independently applied Markov-blanket/conditional-independence intuition to the idea of learning local distributed-service dependencies, and refined an initial transformer-based network-traffic test-generation concept into counterfactual prediction of downstream behaviour under changes to neighbours. That transformer/legacy behavioural-compatibility direction is **parked as a future project idea**.
+
+**Evidence boundary:** Strong learner-led interdisciplinary problem formulation and qualitative conceptual transfer; **not** independently tested particle-filter mathematics, implementation, calibrated risk forecasting, causal identification, or delayed recall. Project plan and research hypotheses are proposals, not findings. Proposed particle-filter project may replace original **XJ10 AIMS5701** plan; replacement/submission is not confirmed. Detailed record: `lesson_logs/aims5701/research_brainstorming_2026_11_09.md`. Separate draft plan: `lesson_logs/aims5701/projects/particle_filter_rollout_risk_plan.md`.
+
+**Continue / Parallel / Protect:** Continue AIMS5701 HW4 submission verification and written midterm revision (**18 Nov**). Parallel: light, timeboxed project design only; AIMS5702 cumulative quiz (**12 Nov**), subsequently unannounced AIMS5702 final project and FTEC5660 PCG final iteration. Protect deadlines and independent exam recall. **Next:** freeze queue dynamics, observation model, fault scenarios, counterfactual-risk target and fair baselines, then delegate a minimal simulator after midterm preparation permits. Do not advance Atlas mastery states based on this planning conversation.
+
+## Previous handover — 4 Nov (AIMS5702 Transformer reconstruction)
 
 **AIMS5702 Lecture 6 substantially reviewed ahead of the 5 Nov 8% lab + 2% random MCQ and 12 Nov cumulative coding quiz.** Started with a fresh conceptual reconstruction rather than cold questioning: tokenisation → embeddings → Q/K/V, query–key compatibility, row-wise softmax and weighted value aggregation → contextual hidden states passed through successive Transformer layers. Learner independently clarified that a receiving token's weights apply to the contributing tokens' **value vectors**, not solely its own value vector, and explained the layer-to-layer flow. Positional encoding criteria and distinctions (raw indices, sine/cosine, RoPE rotation) were restated; multi-head vs sequential layers was answered correctly (3 layers with 4 heads each). N² pair-comparison growth was understood after initially mistaking 20² for the relative change, then independently constructing 60²/20² for a tripled sequence. Reviewed Week 6 workbook code: autograd; `nn.TransformerEncoderLayer` and heads; `AutoTokenizer`, `AutoModel`, `model(**inputs)`, BERT `last_hidden_state` shape `(B,N,768)`.
 
