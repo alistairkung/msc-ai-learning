@@ -36,7 +36,10 @@ def test_deadline_schema(data, deadlines):
         ('aims5701_homework_2', '2026-10-23'),
         ('aims5702_assignment_3', '2026-10-29'),
         ('aims5701_homework_3', '2026-10-19'),
-        ('aims5701_homework_4', '2026-11-09')]
+        ('aims5701_homework_4', '2026-11-09'),
+        ('aims5701_midterm_2026', '2026-11-18'),
+        ('aims5701_final_project_2026', '2026-12-24'),
+        ('aims5702_coding_quiz_2026', '2026-11-12')]
     assert deadlines['deadlines'][0]['provenance'] == 'course_material'
     assert deadlines['deadlines'][0]['status'] == 'submitted'
     assert deadlines['deadlines'][1]['status'] == 'submitted'

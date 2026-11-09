@@ -1,6 +1,6 @@
 # Delivery planning is separate from learning evidence.
 schema_version: 1
-reviewed_on: '2026-11-02'
+reviewed_on: '2026-11-09'
 provenance_note: >-
   Dates below are learner-reported planning constraints unless a stronger source is
   named. They affect workload prioritisation, not learning/mastery evidence.
@@ -112,3 +112,39 @@ deadlines:
     neither assessed solution nor final write-up confirmed. One PDF required;
     original full unedited AI interaction transcripts must accompany any
     problem for which AI assisted conceptual understanding.
+
+- id: aims5701_midterm_2026
+  course: AIMS5701
+  title: Written midterm — Search, Bayesian networks, HMM and particle filtering
+  due_on: '2026-11-18'
+  status: upcoming
+  provenance: learner_report
+  mode: individual
+  note: >-
+    Protect written retrieval and examination preparation. This constraint
+    takes priority over exploratory final-project engineering.
+
+- id: aims5701_final_project_2026
+  course: AIMS5701
+  title: Final project — proposed particle-filter progressive-rollout study
+  due_on: '2026-12-24'
+  status: upcoming
+  provenance: learner_report
+  mode: individual
+  note: >-
+    Learner is considering replacing the previously selected XJ10 proposal
+    with a simulated outbox-capacity and weighted-rollout risk experiment.
+    Not yet confirmed as an official topic change or submission. Coursework
+    competes with an unannounced AIMS5702 final project and the final FTEC5660
+    Private Client Graph iteration.
+
+- id: aims5702_coding_quiz_2026
+  course: AIMS5702
+  title: Cumulative coding quiz
+  due_on: '2026-11-12'
+  status: upcoming
+  provenance: learner_report
+  mode: individual
+  note: >-
+    Preserve quiz preparation and avoid expanding AIMS5701 project
+    infrastructure in the days immediately before assessment.
