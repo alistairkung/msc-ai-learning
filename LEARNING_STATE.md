@@ -1,6 +1,18 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-11-09. Learning evidence through 2026-11-09._
+_Last maintained: 2026-11-15. Learning evidence through 2026-11-15._
+
+Read `SESSION_WORKFLOW.md` and `TUTORING_CALIBRATION.md`. `learning_progress.yaml` is the structured projection, not a transcript. Midterm evidence: `lesson_logs/aims5701/midterm_revision_2026_11_14_15.md`. **Exact new-chat tutoring instructions:** `lesson_logs/aims5701/tutoring_handover_2026_11_15.md`.
+
+## Current handover — 15 Nov (AIMS5701 midterm revision)
+
+**Wednesday 18 Nov written exam, HW1–HW4.** Today's learner-led HW1 state-space cold pass: directional cleaning robot `s=(m,n,d,w,C)`, `|S|=4MN(W+1)2^K`, numerical 1920. BFS and DFS independent passes; UCS expansion order right, path error after visually missing B→A edge; A* independent pass. Finite graph admissibility, consistency and general admissibility counterexample independent passes. General admissibility lower-bound and general consistency proofs improved after correction/scaffolding, **not cold secured**: don't assume exact cost when only lower bound justified, distinguish edge cost `=k` vs `≥k`, and explain shortest-route distance inequality. Retest general consistency cold before exam.
+
+**Learner's HW2–HW4 confidence:** 9 of 18 self-rated confident; needs review HW2 Q2/Q3/Q5/Q6, HW3 Q1/Q2/Q4/Q5, HW4 Q3. HW4 HMM/PF calculations largely maintenance. Critical weaknesses: VE final remaining factor multiplication; enumeration CPT row alignment; ESS independent computation; Gibbs normalization; exhaustive d-separation and general HMM independence notation. These are *self-ratings plus session evidence*, not dashboard mastery claims.
+
+**Exact resume:** HW2 Q2: fresh graph `T→A→D`, `A→V`. Ask learner to factorise `P(T,A,D,V)` **without revealing answer**; then provide CPTs and continue marginalisation stepwise in tabular format. Preserve tutor representation contracts in the dedicated handover file. Session pace: 4h HW1 + 4h HW2–HW4 originally planned, late start means focus on valuable gaps rather than catching up hours.
+
+---
 
 Read `SESSION_WORKFLOW.md` for tutoring rules. `learning_progress.yaml` is the structured learning-evidence projection; `deadlines.yaml` is the separate delivery-planning record used for explicit workload constraints. Focused lesson/course notes remain the detailed evidence source. Do not infer mastery from code presence or deadline urgency.
 

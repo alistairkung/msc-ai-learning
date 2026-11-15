@@ -43,8 +43,11 @@ def check(site: Path, screenshots: Path | None = None) -> None:
         count = page.locator('#topic-rows tr').count()
         assert page.locator('#topic-rows tr:visible').count() == count
         page.locator('#kind').select_option('independent')
-        assert page.locator('#topic-rows tr:visible').count() == 1
-        trigger = page.locator('#topic-rows [data-open="bfs"]').first
+        # More than one topic may have independent evidence as learning progresses.
+        # Verify the filter retains at least one matching row and a known example.
+        assert page.locator('#topic-rows tr:visible').count() > 0
+        trigger = page.locator('#topic-rows [data-open="bfs"]:visible').first
+        expect(trigger).to_be_visible()
         trigger.click()
         expect(page.locator('#detail')).to_be_visible()
         expect(page.locator('#detail-title')).to_have_text('BFS')
