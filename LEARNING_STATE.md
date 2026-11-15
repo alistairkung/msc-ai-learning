@@ -10,7 +10,7 @@ Read `SESSION_WORKFLOW.md` and `TUTORING_CALIBRATION.md`. `learning_progress.yam
 
 **Learner's HW2–HW4 confidence:** 9 of 18 self-rated confident; needs review HW2 Q2/Q3/Q5/Q6, HW3 Q1/Q2/Q4/Q5, HW4 Q3. HW4 HMM/PF calculations largely maintenance. Critical weaknesses: VE final remaining factor multiplication; enumeration CPT row alignment; ESS independent computation; Gibbs normalization; exhaustive d-separation and general HMM independence notation. These are *self-ratings plus session evidence*, not dashboard mastery claims.
 
-**Exact resume:** HW2 Q2: fresh graph `T→A→D`, `A→V`. Ask learner to factorise `P(T,A,D,V)` **without revealing answer**; then provide CPTs and continue marginalisation stepwise in tabular format. Preserve tutor representation contracts in the dedicated handover file. Session pace: 4h HW1 + 4h HW2–HW4 originally planned, late start means focus on valuable gaps rather than catching up hours.
+**HW2 Q5 — to review (15 Nov, telescope practice, part b).** Learner correctly set up the posterior numerator with `M=1`, summed over `W,D`, and identified that the denominator includes both values of `M`. They also proposed one eight-row table ordered `W,D,M`. Learner reported copying `P(W=1)=0.08` as `0.8` and carrying it through the products. Revisit with a fresh complete question to check accurate execution. Q2 bridge posterior and Q3 parameter counting were already practised in this session. Use complete homework-analogous questions for consolidation and review the learner’s workings after their attempt.
 
 ---
 
