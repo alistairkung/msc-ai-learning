@@ -3,24 +3,26 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-11-09'
-  evidence_through: '2026-11-09'
+  reviewed_on: '2026-11-15'
+  evidence_through: '2026-11-15'
   repository: alistairkung/msc-ai-learning
   source_ref: 7f4430da58e475ea9cd91e74a6ecce3cdd9e2e7d
   review_note: >-
-    9 Nov AIMS5701 research brainstorming: learner independently connected
-    Markov-blanket intuition and sequential Monte Carlo to professional
-    strangler-migration risks; developed a hypothetical particle-filter
-    weighted-rollout/outbox risk experiment and parked transformer-based
-    undocumented-contract learning for future exploration. Conceptual synthesis,
-    not a trained model, completed project, validated inference or new mastery.
-    Existing Continue/Parallel/Protect lanes and topic statuses were reviewed
-    without promotion; protect 12 Nov AIMS5702 quiz and 18 Nov AIMS5701 midterm.
+    15 Nov AIMS5701 exam revision: delayed changed-example search and
+    Markov/HMM/particle-filter retrieval improved, with independently correct
+    state-space, BFS/DFS/A*, finite-graph admissibility/consistency and
+    counterexample work. General consistency proof remains fragile around
+    inequalities and justification. Learner self-rates 9/18 HW2-HW4 topics
+    confident, 9 needing further practice; do not promote all to mastery.
+    See lesson_logs/aims5701/midterm_revision_2026_11_14_15.md.
   stale_after_days: 21
 sources:
+  aims5701_midterm_revision_20261115:
+    path: lesson_logs/aims5701/midterm_revision_2026_11_14_15.md
+    sha: c1bf339dee98c834c26ec17f913d9d9fdf18e54b
   state:
     path: LEARNING_STATE.md
-    sha: da4e991a25f4816ed1703f4b436c5b08fa1187e1
+    sha: baf62459c2d2e98025ed231dc9280c44fd4a3cf0
   aims5702_transformer_revision_20261104:
     path: lesson_logs/aims5702/lecture06_transformers_reconstruction_2026_11_04.md
     sha: 0856f8eb3db5b97ba3f274e156a89fed06da3b73
@@ -243,6 +245,9 @@ topics:
     review: recorded
     action: retrieve
     evidence: >-
+      On 15 Nov changed graph UCS expansion sequence correct; result path
+      wrong because a visually unclear B→A edge was missed. Revisited cheaper
+      path/parent update, but do not call this a full cold path pass. Previously:
       On 9 Oct the learner supplied a handwritten UCS frontier trace on the actual
       HW1 graph, including cheaper-path cost/parent updates, and independently
       stated why the goal is only safe to accept when popped.
@@ -257,8 +262,8 @@ topics:
       text-only working-memory load as a UCS conceptual failure. Exact theorem assumptions
       still deserve spaced retrieval.
     next: Maintain goal-popped termination and correct parent/cost updates through a later changed-graph spot check; implementation fluency remains separately unproven.
-    sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, aims5701_hw1_recall_20261006, aims5701_hw1_attempt_20261009, state]
-    evidence_on: '2026-10-09'
+    sources: [aims5701_midterm_revision_20261115, search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, aims5701_hw1_recall_20261006, aims5701_hw1_attempt_20261009, state]
+    evidence_on: '2026-11-15'
     depends_on: [bfs]
   astar:
     name: A* search
@@ -268,6 +273,9 @@ topics:
     review: recorded
     action: maintain
     evidence: >-
+      On 15 Nov learner cold-solved changed graph A* expansion order, path
+      and cost correctly; independent finite-graph admissibility/consistency
+      checks and admissibility counterexample also succeeded. Previously:
       On 9 Oct paper A* tracing and Q4 admissibility/consistency calculations were
       successful after review. The learner constructed a valid four-node
       admissible-but-inconsistent closed-set counterexample after correcting
@@ -280,6 +288,9 @@ topics:
       also understood that an admissible-but-inconsistent heuristic can make f decrease
       along an edge and require reopening a closed node after a cheaper g is found.
     boundary: >-
+      General consistency proofs needed scaffolding, especially c=k versus
+      c>=k and explaining distance inequality; reopening with inconsistent
+      heuristics was not revisited. Previously:
       The 9 Oct HW1 no-reopening counterexample was completed with iterative tutor
       corrections of goal g/parent values and frontier membership. This is guided
       same-session evidence rather than independent theorem mastery.
@@ -292,8 +303,8 @@ topics:
       check frontier-versus-rejected-candidate status, parent/g updates, cumulative
       closed-set tracing, and why inconsistent heuristics require reopening. Retest
       consistency => nondecreasing f without using the assessed graph.
-    sources: [search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, aims5701_hw1_recall_20261006, aims5701_hw1_attempt_20261009, state]
-    evidence_on: '2026-10-09'
+    sources: [aims5701_midterm_revision_20261115, search_lesson33, search_guarantees_20260923, aims5701_prelecture_20260930, aims5701_hw1_recall_20261006, aims5701_hw1_attempt_20261009, state]
+    evidence_on: '2026-11-15'
     depends_on: [ucs]
   prompt_chaining:
     name: Prompt chaining
@@ -778,49 +789,66 @@ topics:
     name: Hidden Markov Models
     area: Model building
     concept: demonstrated
-    performance: guided
+    performance: independent
     review: recorded
     action: maintain
     evidence: >-
+      On 13-14 Nov learner independently reported correct two-step changed HMM
+      filtering with explicit prediction and observation normalisation, including
+      B1=(0.2377,0.7623) and B2=(0.7854,0.2146). Previously:
       On 3 Nov, an overnight changed HMM attempt produced the correct time-1
       belief independently; time-2 prediction needed a state-to-belief label
       correction, after which observation and normalisation were correct.
       Learner then reported both HW4 Q2 final belief distributions correctly
       and independently, and reconstructed d-separation relationships in Q3.
     boundary: >-
+      Full changed numerical filtering is now supported by later independent
+      checked attempts; generic conditional-independence notation remains
+      in review, so do not extend the result to all HMM topics. Previously:
       Independent accurate end-to-end unseen two-step retrieval remains unverified,
       since the cold time-2 attempt reversed the starting state probabilities.
       The assessed HW4 Q2/Q3 notebook write-ups are reported complete but not
       inspected, and Q3 general notation was initially taught/prompted.
     next: >-
+      Maintain full HMM filtering; cold-test exact first-order Markov and
+      observation-independence statements and d-separation. Previously:
       Inspect learner-authored HW4 Q2/Q3 written working without authoring it;
       then use a spaced changed full two-step HMM problem to check bookkeeping
       and delayed accuracy. Keep From-To labels explicit.
-    sources: [state, syllabus]
-    evidence_on: '2026-11-03'
+    sources: [state, syllabus, aims5701_midterm_revision_20261115]
+    evidence_on: '2026-11-14'
     depends_on: [markov, bayes]
   particle_filtering:
     name: Particle filtering
     area: Model building
-    concept: taught
-    performance: guided
+    concept: demonstrated
+    performance: independent
     review: recorded
     action: retrieve
     evidence: >-
+      On 13-14 Nov learner independently solved new PF elapse, observation
+      weighting, grouping and resampling problems; later reported an entire
+      fresh 12-particle problem correct against the worked key, and explained
+      approximate belief as equal-weight particle frequency. Previously:
       The 7 Oct guided introduction connected particle filtering to the exact
       filtering loop: transition particles, weight them by observation likelihood,
       then resample. The learner understood that the population approximates a
       probability distribution and that more particles generally reduce sampling
       noise.
     boundary: >-
+      Table-based paper computations demonstrated; this does not establish
+      particle-filter code implementation, stochastic simulation, or permanent
+      delayed retention. Previously:
       This is same-session guided introductory evidence, not independent
       implementation or durable cold recall. Particle-filter details beyond the
       basic loop remain new, and live course coverage has not been established.
     next: >-
+      Maintain by brief mixed recall; prioritise HW2/HW3 numerical inference
+      and HW4 HMM conditional independence before 18 Nov. Previously:
       Park after the basic loop. Revisit with changed examples when HMM/particle
       filtering becomes the live course demand.
-    sources: [aims5701_bayes_nets_scope_pivot_20261007, state, syllabus]
-    evidence_on: '2026-10-07'
+    sources: [aims5701_bayes_nets_scope_pivot_20261007, state, syllabus, aims5701_midterm_revision_20261115]
+    evidence_on: '2026-11-14'
     depends_on: [hmm]
   neural_regression:
     <<: *new
