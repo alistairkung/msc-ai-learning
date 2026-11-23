@@ -1,6 +1,6 @@
 # Quiz 2 — Syllabus coverage and code pattern matrix
 
-**Sources and labels:** see [SOURCE_MANIFEST.md](SOURCE_MANIFEST.md). These 45 families group **699 source-level entries** in the unified audit; this is *planning coverage*, not independent mastery. A day marked 'primary' means it must teach or test representative atomic targets; it does not imply every entry in that family was tested. Daily 27 Nov–3 Dec MCQs sample all families from a fixed blueprint with fresh atomic targets.
+**Sources and labels:** see [SOURCE_MANIFEST.md](SOURCE_MANIFEST.md). These 45 families group **699 source-level entries** in the unified audit; this is *planning coverage*, not independent mastery. A day marked 'primary' means it must teach or test representative atomic targets; it does not imply every entry in that family was tested. Daily 27 Nov–3 Dec **30-question** MCQs rotate all families with different atomic targets. **24 Nov Window A** assesses only L02/L03 (24 MCQs + eight open); **24 Nov Window B** is a separate tensor coding workshop.
 
 ## Every audited competency family
 
@@ -24,23 +24,23 @@
 | T03 | Activations/norm/dropout | 24 Nov survey | 28–29 Nov |
 | T04 | Softmax/cross-entropy/stability | 24 Nov survey | 28 Nov coding |
 | T05 | Optimization/training/evaluation | 24 Nov survey | 28 Nov coding |
-| C01 | Convolution params | 24 Nov survey | 26 Nov coding |
-| C02 | CNN padding/stride/output shape | 24 Nov survey | 26 Nov coding |
-| C03 | Pooling | 24 Nov survey | 26 Nov coding |
-| C04 | Receptive field/U-Net/segmentation | 24 Nov survey | 26 Nov coding |
-| C05 | ResNet/architecture design | 24 Nov survey | 26 Nov coding |
-| G01 | Autograd/elemental backward | 24 Nov survey | 26 Nov coding |
-| G02 | Manual linear gradients | 24 Nov survey | 26 Nov coding |
-| G03 | Manual convolution gradients | 24 Nov survey | 26 Nov components + 29 Nov buffer |
-| R01 | QKV/attention | 24 Nov survey | 27 Nov coding |
-| R02 | Multi-head shapes/modules | 24 Nov survey | 27 Nov coding |
-| R03 | Positional encodings/RoPE | 24 Nov survey | 27 Nov coding |
-| R04 | Patch/CLS/text application | 24 Nov survey | 27 Nov components + 29 Nov buffer |
-| R05 | Causal masks/decoding | 24 Nov survey | 29 Nov components |
-| I01 | Inference/training differences | 24 Nov survey | 29 Nov |
-| I02 | Quantization/fusion | 24 Nov survey | 29 Nov |
-| I03 | ONNX/IR | 24 Nov survey | 29 Nov |
-| I04 | Annotation/augmentation | 24 Nov survey | 29 Nov |
+| C01 | Convolution params | 27 Nov–3 Dec concepts rotation | 26 Nov coding |
+| C02 | CNN padding/stride/output shape | 27 Nov–3 Dec concepts rotation | 26 Nov coding |
+| C03 | Pooling | 27 Nov–3 Dec concepts rotation | 26 Nov coding |
+| C04 | Receptive field/U-Net/segmentation | 27 Nov–3 Dec concepts rotation | 26 Nov coding |
+| C05 | ResNet/architecture design | 27 Nov–3 Dec concepts rotation | 26 Nov coding |
+| G01 | Autograd/elemental backward | 27 Nov–3 Dec concepts rotation | 26 Nov coding |
+| G02 | Manual linear gradients | 27 Nov–3 Dec concepts rotation | 26 Nov coding |
+| G03 | Manual convolution gradients | 27 Nov–3 Dec concepts rotation | 26 Nov components + 29 Nov buffer |
+| R01 | QKV/attention | 27 Nov–3 Dec concepts rotation | 27 Nov coding |
+| R02 | Multi-head shapes/modules | 27 Nov–3 Dec concepts rotation | 27 Nov coding |
+| R03 | Positional encodings/RoPE | 27 Nov–3 Dec concepts rotation | 27 Nov coding |
+| R04 | Patch/CLS/text application | 27 Nov–3 Dec concepts rotation | 27 Nov components + 29 Nov buffer |
+| R05 | Causal masks/decoding | 27 Nov–3 Dec concepts rotation | 29 Nov components |
+| I01 | Inference/training differences | 27 Nov–3 Dec concepts rotation | 29 Nov |
+| I02 | Quantization/fusion | 27 Nov–3 Dec concepts rotation | 29 Nov |
+| I03 | ONNX/IR | 27 Nov–3 Dec concepts rotation | 29 Nov |
+| I04 | Annotation/augmentation | 27 Nov–3 Dec concepts rotation | 29 Nov |
 | E01 | AI governance frameworks | 27 Nov teaching | 27 Nov–3 Dec mixed MCQs |
 | E02 | Synthetic content/copyright/provenance | 27 Nov teaching | 27 Nov–3 Dec mixed MCQs |
 | E03 | Human-centred ethics/dependency | 27 Nov teaching | 27 Nov–3 Dec mixed MCQs |
@@ -97,3 +97,10 @@
 - **L07 ethics:** distinguish lecturer's example classifications from authoritative legal guidance; assess the lecturer's taught framework without asserting all simplified legal claims as facts.
 
 The source-level TSV and three audited reports are not duplicated inside this PR; they remain separate Project documents. A new tutor should retrieve them when exact atomic ID wording is needed, or flag that the evidence is unavailable instead of fabricating it.
+
+## Independent conceptual and coding assessments
+
+- **Tuesday 24 Nov Window A:** **L02 12 MCQs + 4 open, L03 12 MCQs + 4 open**, 120 min maximum, with MCQ depth **8 precise / 10 applied / 6 multistep**. The 8 open questions require constructed solutions (memory/precision, broadcasting, storage offsets/contiguity, reductions/einsum, affine layer/parameters, softmax/loss, gradient step, training/validation diagnosis). See [the daily locked blueprint](2026-11-24.md). **No C/G/R/I/E/U questions.**
+- **Tuesday 24 Nov Window B:** CP01–03 essential code tutoring → cold reproduction → new transfer, CP04 scaffold-level interpolation. Results stay separate from Window A.
+- **27 Nov–3 Dec Window A:** 30 full-syllabus MCQs daily, **F4 T4 C/G5 R5 I4 E4 U4**, with depth **12 recall / 12 applied / 6 multistep**. Track tested and untested original atomic IDs; do not infer mastery of an untested atom from its family.
+- **Window B on other days:** dedicated 3h coding workshops as dated, maintaining tutorial → guided construction → unhinted cold completion → changed transfer. MCQ success never marks a CP mastered.
