@@ -22,7 +22,7 @@ sources:
     sha: c1bf339dee98c834c26ec17f913d9d9fdf18e54b
   state:
     path: LEARNING_STATE.md
-    sha: baf62459c2d2e98025ed231dc9280c44fd4a3cf0
+    sha: 0cf05445ad517f27e59d93303cb4d5e41e4d9a1c
   aims5702_transformer_revision_20261104:
     path: lesson_logs/aims5702/lecture06_transformers_reconstruction_2026_11_04.md
     sha: 0856f8eb3db5b97ba3f274e156a89fed06da3b73
