@@ -1,10 +1,22 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-11-15. Learning evidence through 2026-11-15._
+_Last maintained: 2026-11-24. Learning evidence through 2026-11-24._
 
 Read `SESSION_WORKFLOW.md` and `TUTORING_CALIBRATION.md`. `learning_progress.yaml` is the structured projection, not a transcript. Midterm evidence: `lesson_logs/aims5701/midterm_revision_2026_11_14_15.md`. **Exact new-chat tutoring instructions:** `lesson_logs/aims5701/tutoring_handover_2026_11_15.md`.
 
-## Current handover — 15 Nov (AIMS5701 midterm revision)
+## Current handover — 24 Nov (AIMS5702 Quiz 2 concepts L02/L03)
+
+**Concepts Window A:** learner reports all **24 cold MCQs completed** on Lecture 02 (8/12) and Lecture 03 (7/12), **15/24 total**, with the planned 8 recall / 10 application / 6 numerical mix. **Nine misses were taught/reviewed**; changed follow-ups showed partial-to-good *same-session* reconstruction, **not delayed recall**. **Eight open questions O1–O8 unattempted** (O1 viewed but unanswered); resume the unchanged original blueprint in a separate concepts window with **fresh O1 numbers, one question at a time**. Complete softmax→cross-entropy, fully shown storage-offset/flat indexing, and uncued bytes→MiB mixed-dtype memory need deliberate delayed checks. Other cold errors included reduction axis, RGB feature count, one-hot true label, input-first versus PyTorch stored weight orientation, and entropy versus cross-entropy. Detailed evidence and all M01–M24 results: `lesson_logs/aims5702/quiz2_concepts_l02_l03_2026_11_24.md`. This is a **source-anchored learner handover**, not a new independent slide audit.
+
+**No coding mastery from this session.** The Tuesday CP01–CP04 three-hour tensor workshop was **not reported completed and remains deferred**. Do not credit MCQ recognition as executable implementation, or score O1–O8 as incorrect when they were not attempted.
+
+**Near-term coordination:** the proposed 25 Nov **morning** café L05/L06/L07 MCQ set is in study-plan PR #77; 25 Nov **afternoon** is reserved for AIMS5701 particle-filter simulator kickoff. Keep L02/L03 open responses for a later free conceptual slot rather than pushing them into that protected afternoon. Subsequent GPU/CNN/Transformer practice remains syllabus-driven, with capped targeted repair rather than repeatedly testing only these nine misses. FTEC5660 HW4 is due 1 Dec; a four-milestone Codex implementation/review plan is proposed, not recorded as completed. Preserve the AIMS5702 Quiz 2 working date 3 Dec and separate concepts/coding handovers.
+
+**Learning projection:** review evidence recorded; do not promote topic mastery from same-session repairs, numerical scores or unattempted questions.
+
+---
+
+## Previous handover — 15 Nov (AIMS5701 midterm revision)
 
 **Wednesday 18 Nov written exam, HW1–HW4.** Today's learner-led HW1 state-space cold pass: directional cleaning robot `s=(m,n,d,w,C)`, `|S|=4MN(W+1)2^K`, numerical 1920. BFS and DFS independent passes; UCS expansion order right, path error after visually missing B→A edge; A* independent pass. Finite graph admissibility, consistency and general admissibility counterexample independent passes. General admissibility lower-bound and general consistency proofs improved after correction/scaffolding, **not cold secured**: don't assume exact cost when only lower bound justified, distinguish edge cost `=k` vs `≥k`, and explain shortest-route distance inequality. Retest general consistency cold before exam.
 

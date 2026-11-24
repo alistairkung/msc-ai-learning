@@ -3,18 +3,21 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-11-15'
-  evidence_through: '2026-11-15'
+  reviewed_on: '2026-11-24'
+  evidence_through: '2026-11-24'
   repository: alistairkung/msc-ai-learning
   source_ref: 7f4430da58e475ea9cd91e74a6ecce3cdd9e2e7d
   review_note: >-
-    15 Nov AIMS5701 exam revision: delayed changed-example search and
-    Markov/HMM/particle-filter retrieval improved, with independently correct
-    state-space, BFS/DFS/A*, finite-graph admissibility/consistency and
-    counterexample work. General consistency proof remains fragile around
-    inequalities and justification. Learner self-rates 9/18 HW2-HW4 topics
-    confident, 9 needing further practice; do not promote all to mastery.
-    See lesson_logs/aims5701/midterm_revision_2026_11_14_15.md.
+    24 Nov AIMS5702 Lecture 02/03 concepts: 24 unseen MCQs completed, 15/24
+    cold (L02 8/12, L03 7/12). All nine missed items were reviewed, with
+    some same-session independent changed-example success; do not infer
+    delayed mastery. Eight planned open questions O1-O8 remain unattempted
+    (O1 viewed but unanswered), and the separate tensor coding workshop
+    remains unverified. New evidence only informs the tactical handover;
+    existing topic statuses are intentionally not promoted. See
+    lesson_logs/aims5702/quiz2_concepts_l02_l03_2026_11_24.md.
+    Prior 15 Nov AIMS5701 search/HMM/PF evidence and limitations persist
+    in lesson_logs/aims5701/midterm_revision_2026_11_14_15.md.
   stale_after_days: 21
 sources:
   aims5701_midterm_revision_20261115:
@@ -22,7 +25,10 @@ sources:
     sha: c1bf339dee98c834c26ec17f913d9d9fdf18e54b
   state:
     path: LEARNING_STATE.md
-    sha: 0cf05445ad517f27e59d93303cb4d5e41e4d9a1c
+    sha: 8fc578ce62afc595620bb802688b5eb5956b0bba
+  aims5702_quiz2_concepts_20261124:
+    path: lesson_logs/aims5702/quiz2_concepts_l02_l03_2026_11_24.md
+    sha: bf7477b59ef31278fb4eba0d9e591649e2b61894
   aims5702_transformer_revision_20261104:
     path: lesson_logs/aims5702/lecture06_transformers_reconstruction_2026_11_04.md
     sha: 0856f8eb3db5b97ba3f274e156a89fed06da3b73
