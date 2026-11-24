@@ -1,6 +1,6 @@
 # Quiz 2 — Syllabus coverage and code pattern matrix
 
-**Sources and labels:** see [SOURCE_MANIFEST.md](SOURCE_MANIFEST.md). These 45 families group **699 source-level entries** in the unified audit; this is *planning coverage*, not independent mastery. A day marked 'primary' means it must teach or test representative atomic targets; it does not imply every entry in that family was tested. Daily 27 Nov–3 Dec **30-question** MCQs rotate all families with different atomic targets. **24 Nov Window A** assesses only L02/L03 (24 MCQs + eight open); **24 Nov Window B** is a separate tensor coding workshop.
+**Sources and labels:** see [SOURCE_MANIFEST.md](SOURCE_MANIFEST.md). These 45 families group **699 source-level entries** in the unified audit; this is *planning coverage*, not independent mastery. A day marked 'primary' means it must teach or test representative atomic targets; it does not imply every entry in that family was tested. Daily 27 Nov–3 Dec **30-question** MCQs rotate all families with different atomic targets. **24 Nov Window A** assesses only L02/L03 (24 MCQs + eight open); **24 Nov Window B** is a separate tensor coding workshop. **25 Nov adds a one-off 90-minute morning L05/L06/L07-inference MCQ diagnostic**; afternoon stays protected for AIMS5701 and no 5702 coding is scheduled.
 
 ## Every audited competency family
 
@@ -80,7 +80,7 @@
 | CP22 | Online softmax/FlashAttention | 1 Dec | B/C: numerical/explanation |
 | CP23 | Ethics case distinctions (non-code) | 27 Nov | MCQ case reasoning |
 
-## Explicit scope reductions for the 25 Nov AIMS5701 kickoff
+## Explicit scope reductions while protecting 25 Nov afternoon AIMS5701 kickoff
 
 - Preserve a *first independent cold completion* of CP01–03, CP05, CP07–09, CP12–13, CP17–19. These are high-priority, not claims of examiner weighting.
 - Reduce CP04, CP06, CP10–11, CP14–16 and CP20 to **component-level** cold checks; keep individual maths, indices and code operations eligible for quiz items. CP21–23 are numerical/interpretation/ethics, not blank-file app builds.
@@ -102,5 +102,6 @@ The source-level TSV and three audited reports are not duplicated inside this PR
 
 - **Tuesday 24 Nov Window A:** **L02 12 MCQs + 4 open, L03 12 MCQs + 4 open**, 120 min maximum, with MCQ depth **8 precise / 10 applied / 6 multistep**. The 8 open questions require constructed solutions (memory/precision, broadcasting, storage offsets/contiguity, reductions/einsum, affine layer/parameters, softmax/loss, gradient step, training/validation diagnosis). See [the daily locked blueprint](2026-11-24.md). **No C/G/R/I/E/U questions.**
 - **Tuesday 24 Nov Window B:** CP01–03 essential code tutoring → cold reproduction → new transfer, CP04 scaffold-level interpolation. Results stay separate from Window A.
+- **25 Nov Window A (one-off):** 30 unseen MCQs = **10 CNN L05, 10 Transformer L06, 10 Model Inference L07 (inference portion only)**; **12 recall, 12 applied, 6 multistep**; 60 min cold + 20 review + 10 handover, then **afternoon AIMS5701**. No CP implementation or ethics/GPU topics in this morning diagnostic. This is *additional exposure* to C/G/R/I concepts, not assurance that every atomic skill has been covered; original scheduled MCQs from 27 Nov onward remain in place.
 - **27 Nov–3 Dec Window A:** 30 full-syllabus MCQs daily, **F4 T4 C/G5 R5 I4 E4 U4**, with depth **12 recall / 12 applied / 6 multistep**. Track tested and untested original atomic IDs; do not infer mastery of an untested atom from its family.
 - **Window B on other days:** dedicated 3h coding workshops as dated, maintaining tutorial → guided construction → unhinted cold completion → changed transfer. MCQ success never marks a CP mastered.

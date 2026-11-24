@@ -15,7 +15,7 @@
 |---|---|---|---|
 | 2026-11-23 | Light diagnostic | Short tensor warm-up | [Monday](2026-11-23.md) |
 | 2026-11-24 | **L02/L03 exclusively:** 24 MCQs + 8 open, 120-min concepts window | Separate 3h tensor workshop: CP01–03 cold + transfer; CP04 key components | [Tuesday](2026-11-24.md) |
-| 2026-11-25 | AIMS5701 kickoff | No 5702 | [Wednesday](2026-11-25.md) |
+| 2026-11-25 | **Morning café: 90-min L05 CNN + L06 Transformer + L07 Inference MCQs (10 each)**; **afternoon onward AIMS5701 kickoff** | **No 5702 coding** | [Wednesday](2026-11-25.md) |
 | 2026-11-26 | GPU foundational teaching | CP08 Conv2d weight/activation/output shapes, padding/stride/pooling/receptive field; CP09 add/multiply/ReLU and affine backward (upstream gradient, dX/dW/db); CP10 manual 2D convolution gradients as supplied-scaffold components; CP11 x+F(x) and 1×1 projection as code interpretation/component blanks. | [Thursday](2026-11-26.md) |
 | 2026-11-27 | One hour full-syllabus MCQ + ethics teaching | CP12 Q/K/V projection, QK^T/sqrt(dk), key-axis softmax, attention@V, multihead split/concat; CP13 sinusoidal even/odd sin/cos and RoPE pair rotation; CP14 patch embedding/CLS sequence and ViT scaffold (component-level). | [Friday](2026-11-27.md) |
 | 2026-11-28 | One hour full-syllabus MCQ | CP05 naive versus max-shift stable softmax and axis; CP06 dataset transforms, batching, DataLoader iteration and shape; CP07 nn.Module/Sequential, forward, loss, backward, optimizer.step/zero_grad, train/eval/no_grad, accuracy. Include inference-related normalization/dropout behavior as interpretive blanks. | [Saturday](2026-11-28.md) |
@@ -29,7 +29,7 @@
 
 - Lecturer's revision slide lists 16 MCQs (24 marks = 48%) and 26 marks (52%) of code/comment/numerical blanks in 60 minutes. No lecturer-approved per-topic distribution is available.
 - **Thu 3 Dec** is our working exam date based on class timetable and conversation; verify against the official assessment notice.
-- **Wed 25 Nov is entirely reserved for AIMS5701 project kickoff.** 23 Nov is light. Never make up fictional work performed on those dates.
+- **Wed 25 Nov is a one-off morning exception:** exactly one **90-minute concepts-only** L05/L06/L07 MCQ assessment in the café between school drop-off and pickup. **Afternoon onward is protected for AIMS5701 project kickoff.** No 5702 coding or cross-course catch-up that day. 23 Nov remains a light session. Never invent completed work.
 - **24 Nov is L02 and L03 only in the concepts window** (12 MCQs + 4 open per original lecture). Do not import CNN/Transformers/Inference/GPU/Ethics questions from the old plan; their coverage starts later.
 - **24 Nov coding is a separate three-hour window**, not a continuation of the conceptual questions. It can use Assignment 1/2 implementations.
 - 27 Nov–3 Dec retains daily full-syllabus MCQs, with its own rotating atom-level coverage ledger.
@@ -44,5 +44,6 @@ Each **concepts** window returns assessed atomic skill IDs and MCQ/open-question
 ## Locked conceptual assessment depth
 
 - **Tuesday 24 Nov:** 24 MCQs (12 L02, 12 L03) plus **8 short open questions** (4 per lecture), **120 min maximum**. MCQ levels: **8 recall, 10 application/edge case, 6 numerical/multistep**. Blueprint in [2026-11-24.md](2026-11-24.md).
+- **Wednesday 25 Nov:** **30 unseen MCQs, 10 each L05 CNN, L06 Transformer, L07 Inference**, with depth 12 recall / 12 applied / 6 numeric or multistep, capped at 90 minutes (60 cold + 20 review + 10 handover). The inference part excludes the L07 Ethics section; see [Wednesday's day file](2026-11-25.md).
 - **Friday 27 Nov to Thursday 3 Dec:** **30 unseen full-syllabus MCQs daily**, normally ~45–50 min answering and 10–15 min review; **12 precise distinctions, 12 applied questions, 6 calculations/multistep**. Domain allocation **4 F, 4 T, 5 C/G, 5 R, 4 I, 4 E, 4 U**. This is a practice rotation, **not the lecturer's weighting**. The quiz-day set may be shortened for fatigue.
 - **Syllabus accounting:** every assessment question identifies an exact source atom/slide or clearly flags missing evidence; explicitly list scheduled but untested items. Answering one item never covers its entire competency family.

@@ -19,8 +19,12 @@ This folder is a *study plan*, not a new learning-state authority. First read re
 - **23 Nov:** 45–60 min ease-in, not a full five-hour day.
 - **24 Nov Window A:** **Lectures 02 and 03 only**, up to 120 min, **24 MCQs + eight open responses**, with an explicit per-lecture source audit. Do **not** assess L05–L07 or Ethics/GPU in this window.
 - **24 Nov Window B:** after a break, a *separate* 180-minute tensor coding workshop CP01–04 with tutorial → guided construction → cold completion → changed transfer.
-- **25 Nov:** completely protected for **AIMS5701 project kickoff**; no AIMS5702 work.
+- **25 Nov one-off exception:** **morning 90-minute concepts-only Window A** between school drop-off and pickup (30 unseen MCQs: L05 CNN 10, L06 Transformer 10, L07 Inference **excluding ethics** 10; 12 recall + 12 applied + 6 multistep; 60 min cold + 20 review + 10 handover). **Afternoon onward strictly protected for AIMS5701 project kickoff. No AIMS5702 coding that day.** Tuesday's deferred coding is not silently considered completed.
 - **26 Nov:** 90–120 min *new* GPU concept teaching, then 3h CNN/backprop code.
+
+## Wednesday 25 Nov café-only exception
+
+The [25 Nov day plan](2026-11-25.md) supersedes the earlier *all-day* AIMS5701 reservation **only for the morning 90-minute café interval**. It is an **L05/L06/L07 (inference only)** test, ten questions per source, with 12 recall / 12 applied / 6 numerical. Select atomic targets before any answers, give no intermediate tutoring, and finish with source-specific assessed/untested handover. Strict 60 + 20 + 10 minutes. Afternoon onward remains AIMS5701 work; do not add a coding workshop or take overflow time.
 
 ## Daily MCQs, 27 Nov–3 Dec
 
