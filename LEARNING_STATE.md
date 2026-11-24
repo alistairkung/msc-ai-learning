@@ -4,6 +4,14 @@ _Last maintained: 2026-11-24. Learning evidence through 2026-11-24._
 
 Read `SESSION_WORKFLOW.md` and `TUTORING_CALIBRATION.md`. `learning_progress.yaml` is the structured projection, not a transcript. Midterm evidence: `lesson_logs/aims5701/midterm_revision_2026_11_14_15.md`. **Exact new-chat tutoring instructions:** `lesson_logs/aims5701/tutoring_handover_2026_11_15.md`.
 
+## Coding supplement — 24 Nov (AIMS5702 Quiz 2 tensor warm-up)
+
+**Window B was a 60-minute *partial* coding workshop**, not the full 180-minute CP01–CP04 session. **CP01 partial cold:** correct typed `torch.arange`, `.shape`, `.dtype`; needed prompts for `reshape`, `numel`, byte calculation and exact `torch.Size` answer format. **CP02 cold success on the tested subset:** basic stepped view, integer-list advanced-index copy, contiguity check; an unseen `offsets.unsqueeze(1)` broadcasting problem also passed after earlier guided instruction. **CP03 mixed:** correct cold pairwise-row-dot `einsum`, but `amax()` lost the requested axis/index and the unseen total used `max` rather than `sum`; operator/axis selection unproven cold. **CP04 bilinear interpolation fully deferred**. No code execution/test results beyond the tutor's reported walkthrough. Full evidence: `lesson_logs/aims5702/quiz2_coding_tensor_window_2026_11_24.md`.
+
+**Next cold coding checks:** fresh typed construction + `numel/element_size` byte calculation + exact printed shape, and a fresh batched **sum vs max-with-index**, both with independently chosen axes. Still untested CP02 transpose/stride/offset, `.contiguous()`, `None`, reshape storage, plus loop/broadcast dot alternatives and CP04. Keep 25 Nov afternoon protected for AIMS5701; do not fill it with catch-up. Conceptual MCQ successes do not promote coding mastery, nor does guided syntax repair demonstrate delayed retention.
+
+---
+
 ## Current handover — 24 Nov (AIMS5702 Quiz 2 concepts L02/L03)
 
 **Concepts Window A:** learner reports all **24 cold MCQs completed** on Lecture 02 (8/12) and Lecture 03 (7/12), **15/24 total**, with the planned 8 recall / 10 application / 6 numerical mix. **Nine misses were taught/reviewed**; changed follow-ups showed partial-to-good *same-session* reconstruction, **not delayed recall**. **Eight open questions O1–O8 unattempted** (O1 viewed but unanswered); resume the unchanged original blueprint in a separate concepts window with **fresh O1 numbers, one question at a time**. Complete softmax→cross-entropy, fully shown storage-offset/flat indexing, and uncued bytes→MiB mixed-dtype memory need deliberate delayed checks. Other cold errors included reduction axis, RGB feature count, one-hot true label, input-first versus PyTorch stored weight orientation, and entropy versus cross-entropy. Detailed evidence and all M01–M24 results: `lesson_logs/aims5702/quiz2_concepts_l02_l03_2026_11_24.md`. This is a **source-anchored learner handover**, not a new independent slide audit.

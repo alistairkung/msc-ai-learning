@@ -12,10 +12,14 @@ meta:
     cold (L02 8/12, L03 7/12). All nine missed items were reviewed, with
     some same-session independent changed-example success; do not infer
     delayed mastery. Eight planned open questions O1-O8 remain unattempted
-    (O1 viewed but unanswered), and the separate tensor coding workshop
-    remains unverified. New evidence only informs the tactical handover;
+    (O1 viewed but unanswered). A separate 60-minute **partial** tensor
+    coding window demonstrated basic CP02 indexing and a fresh broadcasting
+    transfer, plus einsum expression; CP01 metadata/memory APIs and CP03
+    reduction operator/axis selection remain fragile, with all CP04
+    interpolation deferred. New evidence informs the handover;
     existing topic statuses are intentionally not promoted. See
-    lesson_logs/aims5702/quiz2_concepts_l02_l03_2026_11_24.md.
+    lesson_logs/aims5702/quiz2_concepts_l02_l03_2026_11_24.md and
+    lesson_logs/aims5702/quiz2_coding_tensor_window_2026_11_24.md.
     Prior 15 Nov AIMS5701 search/HMM/PF evidence and limitations persist
     in lesson_logs/aims5701/midterm_revision_2026_11_14_15.md.
   stale_after_days: 21
@@ -25,7 +29,10 @@ sources:
     sha: c1bf339dee98c834c26ec17f913d9d9fdf18e54b
   state:
     path: LEARNING_STATE.md
-    sha: 8fc578ce62afc595620bb802688b5eb5956b0bba
+    sha: c1a2487007a8cf12537f8344a8170c970da9d553
+  aims5702_quiz2_coding_20261124:
+    path: lesson_logs/aims5702/quiz2_coding_tensor_window_2026_11_24.md
+    sha: 93442948b21c7971a787f3021528dd4e81ae3afe
   aims5702_quiz2_concepts_20261124:
     path: lesson_logs/aims5702/quiz2_concepts_l02_l03_2026_11_24.md
     sha: bf7477b59ef31278fb4eba0d9e591649e2b61894
