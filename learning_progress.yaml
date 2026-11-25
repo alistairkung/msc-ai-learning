@@ -3,29 +3,26 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-11-24'
-  evidence_through: '2026-11-24'
+  reviewed_on: '2026-11-25'
+  evidence_through: '2026-11-25'
   repository: alistairkung/msc-ai-learning
-  source_ref: 7f4430da58e475ea9cd91e74a6ecce3cdd9e2e7d
+  source_ref: d1ea83e26b05bbcfac879112c8c2035dd9268203
   review_note: >-
-    24 Nov AIMS5702 Lecture 02/03 concepts: 24 unseen MCQs completed, 15/24
-    cold (L02 8/12, L03 7/12). All nine missed items were reviewed, with
-    some same-session independent changed-example success; do not infer
-    delayed mastery. Eight planned open questions O1-O8 remain unattempted
-    (O1 viewed but unanswered), and the separate tensor coding workshop
-    remains unverified. New evidence only informs the tactical handover;
-    existing topic statuses are intentionally not promoted. See
-    lesson_logs/aims5702/quiz2_concepts_l02_l03_2026_11_24.md.
-    Prior 15 Nov AIMS5701 search/HMM/PF evidence and limitations persist
-    in lesson_logs/aims5701/midterm_revision_2026_11_14_15.md.
+    25 Nov AIMS5701 research closeout recorded the feasibility GO and
+    outbox telemetry READY evidence, alongside unresolved within-condition
+    and temporal discrimination. Personal PF mastery remains at the previous
+    paper-based evidence boundary. AIMS5702 study evidence is preserved.
   stale_after_days: 21
 sources:
+  aims5701_readiness_20261125:
+    path: lesson_logs/aims5701/projects/simulator_readiness_2026_11_25.md
+    sha: 8d7449db8471adc484d4dd99cf58b18f7208c656
   aims5701_midterm_revision_20261115:
     path: lesson_logs/aims5701/midterm_revision_2026_11_14_15.md
-    sha: c1bf339dee98c834c26ec17f913d9d9fdf18e54b
+    sha: 56eb618feba0a821648b4530429d0ef3287f5771
   state:
     path: LEARNING_STATE.md
-    sha: 8fc578ce62afc595620bb802688b5eb5956b0bba
+    sha: 8d08dd47c9edd52186c173306e303c13bf10f44f
   aims5702_quiz2_concepts_20261124:
     path: lesson_logs/aims5702/quiz2_concepts_l02_l03_2026_11_24.md
     sha: bf7477b59ef31278fb4eba0d9e591649e2b61894
@@ -849,11 +846,10 @@ topics:
       implementation or durable cold recall. Particle-filter details beyond the
       basic loop remain new, and live course coverage has not been established.
     next: >-
-      Maintain by brief mixed recall; prioritise HW2/HW3 numerical inference
-      and HW4 HMM conditional independence before 18 Nov. Previously:
-      Park after the basic loop. Revisit with changed examples when HMM/particle
-      filtering becomes the live course demand.
-    sources: [aims5701_bayes_nets_scope_pivot_20261007, state, syllabus, aims5701_midterm_revision_20261115]
+      Maintain paper-based retrieval. The separate research milestone
+      will compare particle filtering with existing action-risk baselines
+      using fresh protected roots after simulator review.
+    sources: [aims5701_bayes_nets_scope_pivot_20261007, state, syllabus, aims5701_midterm_revision_20261115, aims5701_readiness_20261125]
     evidence_on: '2026-11-14'
     depends_on: [hmm]
   neural_regression:
@@ -1004,25 +1000,19 @@ lanes:
       completion. Use HW3 and TDD only after broad lecture coverage.
 - id: parallel
   label: Parallel block · AIMS5701
-  title: HW4 completion and written midterm maintenance
+  title: Final-project simulator readiness and research handover
   summary: >-
-    HW4 due 9 Nov and written midterm 18 Nov. Keep 60-90 minutes
-    of independent written retrieval on most days, with assessment-day
-    exceptions. Q4-Q6/submission status require verification.
-  target: hmm
+    Feasibility GO and outbox telemetry READY are independently verified.
+    Review the Parquet evidence and simulator promotion before forecasting.
+  target: particle_filtering
   tasks:
-  - title: Finish and verify HW4 submission
-    when: Aim for 6 Nov; formal due date 9 Nov
+  - title: Compare particle filtering with the simple baselines
+    when: After simulator review, ahead of 24 December
     topics: [hmm, particle_filtering]
     detail: >-
-      Review remaining particle-filtering questions and written workings;
-      do not infer Blackboard submission from notebook completion.
-  - title: Preserve midterm recall
-    when: 7-11 Nov, daily where feasible
-    topics: [astar, bayesian_networks, hmm, particle_filtering]
-    detail: >-
-      Rotate search, Bayesian networks, sampling, Gibbs, HMM and particle
-      filtering with full written working and targeted corrections.
+      Preserve the hidden-state and two-action risk targets. Use fresh
+      protected root families. Added temporal value for incremental risk
+      remains unresolved.
 - id: protect
   label: Protect delivery · FTEC5660
   title: HW3 and reproducibility project obligations
@@ -1489,3 +1479,10 @@ timeline:
     checks were reviewed; Euclidean-counterexample coordinates needed explicit
     translation; an admissible-but-inconsistent no-reopen graph was constructed
     with guided frontier/parent repairs. Q5 and Q6(a) remain unobserved here.
+
+- label: 25 November · AIMS5701
+  detail: >-
+    The feasibility pilot reached GO and telemetry sufficiency reached READY.
+    Between-condition signal dominated and temporal gains for incremental
+    risk remained inconclusive. This is project evidence from an independently
+    audited simulator; learner-level implementation was not assessed.
