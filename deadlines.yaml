@@ -1,6 +1,6 @@
 # Delivery planning is separate from learning evidence.
 schema_version: 1
-reviewed_on: '2026-11-09'
+reviewed_on: '2026-11-25'
 provenance_note: >-
   Dates below are learner-reported planning constraints unless a stronger source is
   named. They affect workload prioritisation, not learning/mastery evidence.
@@ -126,17 +126,15 @@ deadlines:
 
 - id: aims5701_final_project_2026
   course: AIMS5701
-  title: Final project — proposed particle-filter progressive-rollout study
+  title: Final project — particle-filter progressive-rollout study
   due_on: '2026-12-24'
   status: upcoming
   provenance: learner_report
   mode: individual
   note: >-
-    Learner is considering replacing the previously selected XJ10 proposal
-    with a simulated outbox-capacity and weighted-rollout risk experiment.
-    Not yet confirmed as an official topic change or submission. Coursework
-    competes with an unannounced AIMS5702 final project and the final FTEC5660
-    Private Client Graph iteration.
+    Feasibility GO and telemetry sufficiency READY completed in the research
+    repository. Review the evidence migration and simulator freeze before the
+    particle-filter and baseline comparisons. Course submission remains pending.
 
 - id: aims5702_coding_quiz_2026
   course: AIMS5702

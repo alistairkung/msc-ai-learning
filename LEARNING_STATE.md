@@ -1,10 +1,16 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-11-24. Learning evidence through 2026-11-24._
+_Last maintained: 2026-11-25. Learning evidence through 2026-11-25._
 
 Read `SESSION_WORKFLOW.md` and `TUTORING_CALIBRATION.md`. `learning_progress.yaml` is the structured projection, not a transcript. Midterm evidence: `lesson_logs/aims5701/midterm_revision_2026_11_14_15.md`. **Exact new-chat tutoring instructions:** `lesson_logs/aims5701/tutoring_handover_2026_11_15.md`.
 
-## Current handover — 24 Nov (AIMS5702 Quiz 2 concepts L02/L03)
+## Current handover — 25 Nov (AIMS5701 final project)
+
+The feasibility pilot reached GO and the telemetry sufficiency study reached READY for controlled experiments. Outbox history carried information about realised demand and incremental promotion risk across the synthetic conditions. Within-condition prediction was weak, and the incremental-risk benefit of history over the complete latest reading remained inconclusive. The independent reconstruction and scientific limitations are recorded in the [project evidence log](lesson_logs/aims5701/projects/simulator_readiness_2026_11_25.md).
+
+The next research milestone is particle filtering against existing baselines on fresh protected roots after the storage review and simulator promotion. The deadline is **24 December 2026**. Keep Quiz 2 preparation and FTEC delivery in their existing lanes. This engineering milestone contributes project evidence; individual particle-filter implementation and spaced retrieval still need their own assessment.
+
+## Previous handover — 24 Nov (AIMS5702 Quiz 2 concepts L02/L03)
 
 **Concepts Window A:** learner reports all **24 cold MCQs completed** on Lecture 02 (8/12) and Lecture 03 (7/12), **15/24 total**, with the planned 8 recall / 10 application / 6 numerical mix. **Nine misses were taught/reviewed**; changed follow-ups showed partial-to-good *same-session* reconstruction, **not delayed recall**. **Eight open questions O1–O8 unattempted** (O1 viewed but unanswered); resume the unchanged original blueprint in a separate concepts window with **fresh O1 numbers, one question at a time**. Complete softmax→cross-entropy, fully shown storage-offset/flat indexing, and uncued bytes→MiB mixed-dtype memory need deliberate delayed checks. Other cold errors included reduction axis, RGB feature count, one-hot true label, input-first versus PyTorch stored weight orientation, and entropy versus cross-entropy. Detailed evidence and all M01–M24 results: `lesson_logs/aims5702/quiz2_concepts_l02_l03_2026_11_24.md`. This is a **source-anchored learner handover**, not a new independent slide audit.
 
