@@ -33,17 +33,17 @@ The historical motivation is a beneficiary-service migration with validation-onl
 
 **Reason.** Functional contract equivalence does not imply operational equivalence: Active Record, JPQL, Hibernate and custom SQL can express the same beneficiary behaviour with different query plans, N+1 access, result sizes and transaction boundaries. Neither language is inherently slower. The selected values are synthetic intervention parameters, not measurements from the historical rewrite.
 
-With total write rate (lambda), Java share (r), mean synchronous costs (d_R,d_J), common relay work (d_P) and background offered work (b):
+With total write rate \(\lambda\), Java share \(r\), mean synchronous costs \(d_R,d_J\), common relay work \(d_P\) and background offered work \(b\):
 
-[
-ho(r)=b+lambda[(1-r)d_R+rd_J+d_P].
-]
+\[
+\rho(r)=b+\lambda[(1-r)d_R+rd_J+d_P].
+\]
 
-Hence, holding total offered traffic constant, changing share from (r_0) to (r_1) changes expected work by
+Hence, holding total offered traffic constant, changing share from \(r_0\) to \(r_1\) changes expected work by
 
-[
-Deltaho=lambda(r_1-r_0)(d_J-d_R).
-]
+\[
+\Delta\rho=\lambda(r_1-r_0)(d_J-d_R).
+\]
 
 At 40 writes/s, raising Java from 25% to 60% adds **0.056 work-seconds per elapsed second**, i.e. 5.6 percentage points of normalised capacity. This is *offered work*, not observed utilisation or a linear prediction of latency.
 
@@ -67,11 +67,11 @@ At 40 writes/s, raising Java from 25% to 60% adds **0.056 work-seconds per elaps
 
 **Reason.** Two unrelated future simulations could differ because of random background jobs rather than the intervention. Matched continuations reduce that noise and isolate the effect of changing the share within the defined stochastic coupling.
 
-For each root, (Y_{	ext{hold}}) and (Y_{	ext{promote}}) are binary future write-SLO breach outcomes. The signed paired result is
+For each root, \(Y_{\mathrm{hold}}\) and \(Y_{\mathrm{promote}}\) are binary future write-SLO breach outcomes. The signed paired result is
 
-[
-D=Y_{	ext{promote}}-Y_{	ext{hold}}in{-1,0,+1}.
-]
+\[
+D=Y_{\mathrm{promote}}-Y_{\mathrm{hold}}\in\{-1,0,+1\}.
+\]
 
 A promote-only breach contributes +1; hold-only contributes -1; both-breach and neither-breach contribute zero. Averaging (D) estimates the **population incremental risk**. It is not valid to interpret one future pair as the exact conditional risk for that root.
 
@@ -83,9 +83,9 @@ A promote-only breach contributes +1; hold-only contributes -1; both-breach and 
 
 **Decision and distinction.** The telemetry-sufficiency study's primary *physical estimation target* is realised exogenous background DB work offered per second **over the last 30 seconds before the decision**:
 
-[
-X_t^{(30)}=rac{sum_{	ext{background arrivals in final 30 s}}	ext{requested DB service seconds}}{30	ext{ s}}.
-]
+\[
+X_t^{(30)}=\frac{\sum_{\text{background arrivals in final 30 s}}\text{requested DB service seconds}}{30\text{ s}}.
+\]
 
 For example, 6 seconds of requested query work in 30 seconds yields 0.20 work-seconds per second.
 
@@ -104,16 +104,16 @@ Keep separate:
 
 **Decision.** Evaluate physical-state estimation, absolute future breach risk and incremental promotion risk as **different claims**.
 
-For a permitted history (H):
+For a permitted history \(H\):
 
-[
-R_{mathrm{hold}}(H)=P(Y_{mathrm{hold}}=1mid H),qquad
-R_{mathrm{promote}}(H)=P(Y_{mathrm{promote}}=1mid H)
-]
+\[
+R_{\mathrm{hold}}(H)=P(Y_{\mathrm{hold}}=1\mid H),\qquad
+R_{\mathrm{promote}}(H)=P(Y_{\mathrm{promote}}=1\mid H)
+\]
 
-[
-Delta R(H)=R_{mathrm{promote}}(H)-R_{mathrm{hold}}(H).
-]
+\[
+\Delta R(H)=R_{\mathrm{promote}}(H)-R_{\mathrm{hold}}(H).
+\]
 
 **Reason.** If both choices are almost certainly unsafe because the DB is already overloaded, an accurate estimate of high contention may predict a breach but say little about whether holding *helps*. Conversely, a moderately loaded system near the capacity knee may be safe at 25% and unsafe at 60%. Accurate state estimation is useful only insofar as it supports a discriminating forecast of the action contrast.
 
@@ -123,22 +123,22 @@ Delta R(H)=R_{mathrm{promote}}(H)-R_{mathrm{hold}}(H).
 
 ## 7. How a particle filter would update beliefs and produce forecasts
 
-**Status: proposed algorithm, not yet an empirical result.** A bootstrap particle filter represents uncertainty over a chosen hidden operational state using weighted particles ({x_t^{(i)},w_t^{(i)}}_{i=1}^N). The transition and likelihood must be specified and calibrated without reading the evaluator's true queue or future outcomes.
+**Status: proposed algorithm, not yet an empirical result.** A bootstrap particle filter represents uncertainty over a chosen hidden operational state using weighted particles \(\{x_t^{(i)},w_t^{(i)}\}_{i=1}^N\). The transition and likelihood must be specified and calibrated without reading the evaluator's true queue or future outcomes.
 
 1. **Predict:** Sample a new candidate hidden state from the assumed transition model for each particle; include sufficient queue/publisher memory or an explicitly stated surrogate.
-2. **Weight:** Compare each particle's predicted observation with the newly *available* joint outbox measurement, using a likelihood (p(y_tmid x_t^{(i)},	ext{history})). Count, age, throughput and delay share event histories, so blindly multiplying independent marginal likelihoods is not justified.
+2. **Weight:** Compare each particle's predicted observation with the newly *available* joint outbox measurement, using a likelihood \(p(y_t\mid x_t^{(i)},\text{history})\). Count, age, throughput and delay share event histories, so blindly multiplying independent marginal likelihoods is not justified.
 3. **Normalise:** Set weights to sum to one.
-4. **Diagnose degeneracy:** Calculate effective sample size, (mathrm{ESS}=1/sum_i(w_t^{(i)})^2).
+4. **Diagnose degeneracy:** Calculate effective sample size, \(\mathrm{ESS}=1/\sum_i(w_t^{(i)})^2\).
 5. **Resample if needed:** Use a predeclared rule such as systematic resampling below an ESS threshold. Resampling concentrates computation on plausible states; it does not create new observational information.
 6. **Forecast both actions:** For each weighted plausible state, use a specified *future workload and queue forecast model*, with fresh future randomness, to estimate breach risk under 25% and 60% Java. Average risks across particles, then subtract the two action risks.
 
-Formally, for candidate action (a):
+Formally, for candidate action \(a\):
 
-[
-widehat R(a)approxsum_{i=1}^N w_t^{(i)}widehat P(Y_a=1mid x_t^{(i)},a,M).
-]
+\[
+\widehat R(a)\approx\sum_{i=1}^N w_t^{(i)}\widehat P(Y_a=1\mid x_t^{(i)},a,M).
+\]
 
-(M) includes capacity, known service assumptions and the future-workload law. The particle filter updates beliefs; **it does not by itself supply a valid breach-risk forecaster**. A future independent abrupt shock cannot be predicted from identical pre-decision histories beyond its assumed hazard.
+\(M\) includes capacity, known service assumptions and the future-workload law. The particle filter updates beliefs; **it does not by itself supply a valid breach-risk forecaster**. A future independent abrupt shock cannot be predicted from identical pre-decision histories beyond its assumed hazard.
 
 **Required comparisons.** Prior/current outbox/history diagnostics, a queue-based prediction baseline, and an appropriate same-model finite-state or grid check for filtering correctness if practical. Use fresh independent protected roots: previously inspected telemetry-sufficiency protected data are historical evidence, not an untouched test set for the PF.
 
