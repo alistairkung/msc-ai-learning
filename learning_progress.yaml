@@ -6,7 +6,7 @@ meta:
   reviewed_on: '2026-11-25'
   evidence_through: '2026-11-25'
   repository: alistairkung/msc-ai-learning
-  source_ref: d1ea83e26b05bbcfac879112c8c2035dd9268203
+  source_ref: 990ac3d2e8c5f458b49bac445cb5c30c0c0274b1
   review_note: >-
     25 Nov AIMS5701 research closeout recorded the feasibility GO and
     outbox telemetry READY evidence, alongside unresolved within-condition
@@ -16,7 +16,7 @@ meta:
 sources:
   aims5701_readiness_20261125:
     path: lesson_logs/aims5701/projects/simulator_readiness_2026_11_25.md
-    sha: 8d7449db8471adc484d4dd99cf58b18f7208c656
+    sha: bacf2976e509392c07bce941964813af5f162647
   aims5701_midterm_revision_20261115:
     path: lesson_logs/aims5701/midterm_revision_2026_11_14_15.md
     sha: 56eb618feba0a821648b4530429d0ef3287f5771
