@@ -1,49 +1,37 @@
-# AIMS5702 Coding Quiz 2 — Daily study plan (23 Nov–3 Dec 2026)
+# AIMS5702 Coding Quiz 2 — revised seven-day plan (27 November – 3 December 2026)
 
-**Purpose:** launch one fresh tutoring chat per **track and day**, without losing the syllabus. **Conceptual assessment** and **coding reproduction** use independent windows, grades and handovers. This is a prospective schedule, **not a record of completed learning**.
+**Main rule:** use a fresh **Window B coding** chat and separate **Window A conceptual MCQ/ethics** chat. This study plan incorporates the lecturer's 26 Nov quiz hints and the user's wish to become *independently comfortable with fundamentals*. It supersedes the obsolete 30-question **equal-full-syllabus** daily allocation from earlier planning. The past sessions 23–26 Nov remain historical, not retroactively completed.
 
-## Entry point for each new window
+## Source-first entry point
 
-1. Read repo `SESSION_WORKFLOW.md`, `TUTORING_CALIBRATION.md`, `LEARNING_STATE.md` (and `ARCHITECTURE.md` only on first encounter).
-2. Choose **Window A (concepts/MCQs/open reasoning)** or **Window B (coding/tutorial/cold completion)**. Read [WORKFLOW.md](WORKFLOW.md), [COVERAGE_MATRIX.md](COVERAGE_MATRIX.md), [SOURCE_MANIFEST.md](SOURCE_MANIFEST.md) and the requested **single day file**. Do not load unrelated days.
-3. Open the primary original source slides/pages required by that day. Treat revision slides and transcripts as supplementary. Use the Project's unified syllabus/TSV when available for exact atomic source ID selection.
-4. Begin with the agreed day's task immediately, **one learner-owned exercise at a time**. Do not conduct a new broad planning interview. Collect evidence and hand back concise results rather than reciting the plan.
+Read repository `SESSION_WORKFLOW.md`, `TUTORING_CALIBRATION.md`, `LEARNING_STATE.md`; then [WORKFLOW.md](WORKFLOW.md), [COVERAGE_MATRIX.md](COVERAGE_MATRIX.md), this date's file, and the minimal required original slides/assignments. For MCQs load [TECHNICAL_ATTENDANCE_BANK.md](TECHNICAL_ATTENDANCE_BANK.md) and [ETHICS_EXAM_SCOPE.md](ETHICS_EXAM_SCOPE.md). Use the Project's full audited syllabus/TSV for atomic ID selection when available; never invent IDs.
 
-## Schedule and two-track separation
+## Lecturer-reported assessment contract (26 Nov revision)
 
-| Date | Knowledge track | Coding track | Link |
-|---|---|---|---|
-| 2026-11-23 | Light diagnostic | Short tensor warm-up | [Monday](2026-11-23.md) |
-| 2026-11-24 | **L02/L03 exclusively:** 24 MCQs + 8 open, 120-min concepts window | Separate 3h tensor workshop: CP01–03 cold + transfer; CP04 key components | [Tuesday](2026-11-24.md) |
-| 2026-11-25 | **Morning café: 90-min L05 CNN + L06 Transformer + L07 Inference MCQs (10 each)**; **afternoon onward AIMS5701 kickoff** | **No 5702 coding** | [Wednesday](2026-11-25.md) |
-| 2026-11-26 | GPU foundational teaching | CP08 Conv2d weight/activation/output shapes, padding/stride/pooling/receptive field; CP09 add/multiply/ReLU and affine backward (upstream gradient, dX/dW/db); CP10 manual 2D convolution gradients as supplied-scaffold components; CP11 x+F(x) and 1×1 projection as code interpretation/component blanks. | [Thursday](2026-11-26.md) |
-| 2026-11-27 | One hour full-syllabus MCQ + ethics teaching | CP12 Q/K/V projection, QK^T/sqrt(dk), key-axis softmax, attention@V, multihead split/concat; CP13 sinusoidal even/odd sin/cos and RoPE pair rotation; CP14 patch embedding/CLS sequence and ViT scaffold (component-level). | [Friday](2026-11-27.md) |
-| 2026-11-28 | One hour full-syllabus MCQ | CP05 naive versus max-shift stable softmax and axis; CP06 dataset transforms, batching, DataLoader iteration and shape; CP07 nn.Module/Sequential, forward, loss, backward, optimizer.step/zero_grad, train/eval/no_grad, accuracy. Include inference-related normalization/dropout behavior as interpretive blanks. | [Saturday](2026-11-28.md) |
-| 2026-11-29 | One hour full-syllabus MCQ | CP15 causal mask and LayerNorm eps/dropout train-eval semantics; CP16 quantize/dequantize/clip, fused linear expression, read ONNX model graph/export scaffolds; CP04 bilinear four-corner gather cold retry; finish any *unassessed* CP10/11/14 components before adding elaborate new applications. | [Sunday](2026-11-29.md) |
-| 2026-11-30 | One hour full-syllabus MCQ | CP17 1D kernel index = blockIdx.x*blockDim.x+threadIdx.x, guard idx<n, SourceModule C string, get_function, np.float32 scalars, correct ceil number of blocks; CP18 2D x/y grid, row*width+col, guard each dimension, flattened buffer and PyCUDA wrapper with grid/block. | [Monday](2026-11-30.md) |
-| 2026-12-01 | One hour full-syllabus MCQ | CP19 @triton.jit, tl.program_id, tl.arange, offset broadcast, tl.load/tl.store mask and host launch; CP20 2D tiled operands, broadcasting and tl.sum full reduction GEMM (key blank expressions); CP22 online-softmax running-max correction and tile-merge explanation. CP21 GPU fusion/memory traffic as concept+numerical, not a long kernel. | [Tuesday](2026-12-01.md) |
-| 2026-12-02 | One hour full-syllabus MCQ | CP01–CP22 mixed unseen transfer from the preselected exam-like blueprint; CP23 ethics reasoning in MCQs. Include short exact-output/torch.Size and gradient/attention/CUDA/Triton blanks; never recycle examples already solved. | [Wednesday](2026-12-02.md) |
-| 2026-12-03 | Final full-syllabus MCQ, if useful | Brief familiar code recall | [Thursday](2026-12-03.md) |
+- **16 MCQs / 24 marks**: **eight AI ethics**; **eight technical**, **at least six** variants of 20 in-class screenshot questions from the last two attendance sessions. Lecturer says the **A–D options remain the same**, but the stems will change.
+- **26 further marks** in code/comment/numerical blanks, total 50 marks in 60 minutes. Lecturer explicitly emphasised FC versus CNN weight shapes and parameter counting, CNN output sizes, PyCUDA kernel strings/global indices, Triton decorators/offsets/masks, and ONNX. Exact positions Q3/Q4/Q5 were reported as ONNX/PyCUDA/Triton respectively; treat these as **guidance**, not guaranteed official prepublished questions.
+- **Explicitly not on quiz, per lecturer:** `einsum`, SIMD, convolution **stride** calculations. **Shallow** FlashAttention knowledge still useful because tiling and global-memory IO appeared in attendance questions; no full kernel build. LSTM **tanh** recognition is in scope.
 
-## Exam / feasibility boundaries
+## Coding sequence — chronological prerequisites
 
-- Lecturer's revision slide lists 16 MCQs (24 marks = 48%) and 26 marks (52%) of code/comment/numerical blanks in 60 minutes. No lecturer-approved per-topic distribution is available.
-- **Thu 3 Dec** is our working exam date based on class timetable and conversation; verify against the official assessment notice.
-- **Wed 25 Nov is a one-off morning exception:** exactly one **90-minute concepts-only** L05/L06/L07 MCQ assessment in the café between school drop-off and pickup. **Afternoon onward is protected for AIMS5701 project kickoff.** No 5702 coding or cross-course catch-up that day. 23 Nov remains a light session. Never invent completed work.
-- **24 Nov is L02 and L03 only in the concepts window** (12 MCQs + 4 open per original lecture). Do not import CNN/Transformers/Inference/GPU/Ethics questions from the old plan; their coverage starts later.
-- **24 Nov coding is a separate three-hour window**, not a continuation of the conceptual questions. It can use Assignment 1/2 implementations.
-- 27 Nov–3 Dec retains daily full-syllabus MCQs, with its own rotating atom-level coverage ledger.
-- Coding gets explicit tutoring and **unhinted cold completion**, then unseen transfer. Optional assignment problems stay within the source inventory but are time-compressed, never silently excluded.
-- AI Ethics and GPU require actual teaching rather than assuming prior knowledge.
-- `COVERAGE_MATRIX.md` contains *all 45 competency families and 23 CP families* with a primary scheduling obligation. This PR changes planning documentation only; it must not mark `learning_progress.yaml` or `LEARNING_STATE.md` as if sessions occurred.
+| Date | Window B: coding and mathematical production | Window A: ethics + technical MCQs |
+|---|---|---|
+| [Fri 27 Nov](2026-11-27.md) | **CP01–04** typed tensors/shape/storage/reductions; scoped interpolation | **Teach** lecture ethics risk levels + examples; learn attendance bank |
+| [Sat 28 Nov](2026-11-28.md) | **CP05–07**, stable softmax/MLP/train loop; **mandatory FC whole-network parameters** | First **8 ethics + 8 technical** set |
+| [Sun 29 Nov](2026-11-29.md) | **CP08–11**, **mandatory Conv → Pool → Flatten → FC** shape/parameter tables, backprop basics | 16-question lecturer-style variants |
+| [Mon 30 Nov](2026-11-30.md) | **CP12–16**, attention/ViT/causal masks, inference and **ONNX**; CUDA preview | 16-question variants + ethics examples |
+| [Tue 1 Dec](2026-12-01.md) | **CP17–20**, **PyCUDA + Triton**: exact indices, masks, host grid/block; tiles scaffold | 16-question variants, GPU code-reading |
+| [Wed 2 Dec](2026-12-02.md) | **60-minute exam-shaped mock**, targeted error repair; no long new kernel | Ethics risk table + bank recall only; **5701 poster discussion** |
+| [Thu 3 Dec](2026-12-03.md) | 20–30 min familiar cold fragments if helpful; **evening quiz** | Light optional review, no new 30-MCQ quiz |
 
-## Outcome contract
+### Two non-negotiable foundations
 
-Each **concepts** window returns assessed atomic skill IDs and MCQ/open-question results, clearly separating original cold attempts from repaired attempts and untested material. Each **coding** window separately returns CP IDs, worked/guided/cold/transfer results and deferred implementation patterns. Neither track may claim the other's mastery. Only after a substantive real session should the normal repo workflow update the lesson log and current learning state through a separate change.
+**Fully connected:** calculate `d_in × d_out + d_out` (when bias); distinguish **lecture input-first** W shape `(in,out)` from **PyTorch stored** `(out,in)`. **CNN:** calculate `C_out × (C_in × K_h × K_w + 1)` for standard ungrouped bias Conv2d, propagate spatial output, pool, flatten, then parameterize FC. Two complete **unseen** networks on 28 and 29 Nov; later spaced retrieval. The tutor must make the student write every intermediate activation/weight/parameter count, not answer a recognition MCQ.
 
-## Locked conceptual assessment depth
+## Time and wellbeing boundaries
 
-- **Tuesday 24 Nov:** 24 MCQs (12 L02, 12 L03) plus **8 short open questions** (4 per lecture), **120 min maximum**. MCQ levels: **8 recall, 10 application/edge case, 6 numerical/multistep**. Blueprint in [2026-11-24.md](2026-11-24.md).
-- **Wednesday 25 Nov:** **30 unseen MCQs, 10 each L05 CNN, L06 Transformer, L07 Inference**, with depth 12 recall / 12 applied / 6 numeric or multistep, capped at 90 minutes (60 cold + 20 review + 10 handover). The inference part excludes the L07 Ethics section; see [Wednesday's day file](2026-11-25.md).
-- **Friday 27 Nov to Thursday 3 Dec:** **30 unseen full-syllabus MCQs daily**, normally ~45–50 min answering and 10–15 min review; **12 precise distinctions, 12 applied questions, 6 calculations/multistep**. Domain allocation **4 F, 4 T, 5 C/G, 5 R, 4 I, 4 E, 4 U**. This is a practice rotation, **not the lecturer's weighting**. The quiz-day set may be shortened for fatigue.
-- **Syllabus accounting:** every assessment question identifies an exact source atom/slide or clearly flags missing evidence; explicitly list scheduled but untested items. Answering one item never covers its entire competency family.
+Coding 2–3h is an **upper target when capacity permits**, not a compulsory daily quota. Concept windows generally 30–60min; Friday ethics teaching 45–60min. 2 Dec is intentionally lighter because the 5701 poster must be displayed. PCG work runs separately with short bounded human review. Do not make up missed hours by stacking tasks onto the next day.
+
+## Session outcomes
+
+Return a concise **cold-versus-guided** handover per window with exact CP/atomic IDs and sources, correct syntax, unseen transfer, untested operations, and only the most useful delayed retrieval. Update `LEARNING_STATE.md` only after study actually happens. Previous 24 Nov MCQ/open-question and coding records remain valid but are not newly mastered by this schedule.

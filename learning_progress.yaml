@@ -22,7 +22,16 @@ sources:
     sha: 56eb618feba0a821648b4530429d0ef3287f5771
   state:
     path: LEARNING_STATE.md
-    sha: 8d08dd47c9edd52186c173306e303c13bf10f44f
+    sha: 5d748ee1540fb6f1a3a1e698739f5babc0ee6fa0
+  aims5702_coding_20261124:
+    path: lesson_logs/aims5702/quiz2_coding_tensor_window_2026_11_24.md
+    sha: 93442948b21c7971a787f3021528dd4e81ae3afe
+  aims5701_pf_science_20261125:
+    path: lesson_logs/aims5701/particle_filter_scientific_decisions_2026_11_25.md
+    sha: aca464b384be580f93b69213db5ad93039848dbe
+  aims5701_pf_development_20261125:
+    path: lesson_logs/aims5701/projects/particle_filter_development_findings_2026_11_25.md
+    sha: f2784eb7be1bcc724956c30e36ad4473679506d1
   aims5702_quiz2_concepts_20261124:
     path: lesson_logs/aims5702/quiz2_concepts_l02_l03_2026_11_24.md
     sha: bf7477b59ef31278fb4eba0d9e591649e2b61894
