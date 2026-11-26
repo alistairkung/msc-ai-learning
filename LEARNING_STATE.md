@@ -10,6 +10,14 @@ The feasibility pilot reached GO and the telemetry sufficiency study reached REA
 
 The next research milestone is particle filtering against existing baselines on fresh protected roots after the storage review and simulator promotion. The deadline is **24 December 2026**. Keep Quiz 2 preparation and FTEC delivery in their existing lanes. This engineering milestone contributes project evidence; individual particle-filter implementation and spaced retrieval still need their own assessment.
 
+## Coding supplement — 24 Nov AIMS5702 tensor practice (recovered from PR #79)
+
+A **60-minute partial** Window B taught CP01–CP03; it did **not** complete the planned full tensor workshop. **CP01 cold partial:** typed `torch.arange`, shape/dtype succeeded; `reshape`, `numel`, byte accounting and exact `torch.Size` formatting needed prompts. **CP02 cold on tested subset:** stepped view, advanced-index copy, `.is_contiguous()`, plus a changed `offsets.unsqueeze(1)` broadcast transfer. **CP03 mixed:** independent row-dot `einsum` succeeded, but required `sum` versus `max` and axis-plus-index selection remained fragile. **CP04 interpolation fully unattempted**. Detailed receipt: `lesson_logs/aims5702/quiz2_coding_tensor_window_2026_11_24.md`. These are genuine study observations, **not CP-wide or delayed mastery**. Lecturer later explicitly excluded `einsum` from Quiz 2, so no dedicated further drills.
+
+**Near-term exam routing:** use the updated `lesson_logs/aims5702/coding_quiz_2_2026/README.md` for 27 Nov–3 Dec. Mandatory FC/CNN layer-shape/parameter checkpoints 28–29 Nov; ethically grounded risk-table recall; attendance-question options preserved; ONNX/PyCUDA/Triton code blanks prior to the 3 Dec quiz. Do not transfer planned rehearsal into the learning-status projection.
+
+---
+
 ## Previous handover — 24 Nov (AIMS5702 Quiz 2 concepts L02/L03)
 
 **Concepts Window A:** learner reports all **24 cold MCQs completed** on Lecture 02 (8/12) and Lecture 03 (7/12), **15/24 total**, with the planned 8 recall / 10 application / 6 numerical mix. **Nine misses were taught/reviewed**; changed follow-ups showed partial-to-good *same-session* reconstruction, **not delayed recall**. **Eight open questions O1–O8 unattempted** (O1 viewed but unanswered); resume the unchanged original blueprint in a separate concepts window with **fresh O1 numbers, one question at a time**. Complete softmax→cross-entropy, fully shown storage-offset/flat indexing, and uncued bytes→MiB mixed-dtype memory need deliberate delayed checks. Other cold errors included reduction axis, RGB feature count, one-hot true label, input-first versus PyTorch stored weight orientation, and entropy versus cross-entropy. Detailed evidence and all M01–M24 results: `lesson_logs/aims5702/quiz2_concepts_l02_l03_2026_11_24.md`. This is a **source-anchored learner handover**, not a new independent slide audit.
