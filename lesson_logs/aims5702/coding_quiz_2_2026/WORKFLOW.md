@@ -1,71 +1,65 @@
-# AIMS5702 Quiz 2 — Daily tutoring and assessment contract
+# AIMS5702 Quiz 2 — tutor operating contract, revised after lecturer guidance
 
-This folder is a *study plan*, not a new learning-state authority. First read repo `SESSION_WORKFLOW.md`, `TUTORING_CALIBRATION.md`, and `LEARNING_STATE.md`; then this folder's `README.md`, `COVERAGE_MATRIX.md`, the selected day file and the smallest relevant lecture/assignment source. **Don't load every daily file into each tutoring window.** Select **Window A concepts** or **Window B coding** before asking any question; each uses its own assessment protocol and handover. The exact daily file governs that session's scope.
+This file is a **task-specific supplement** to the repository's `SESSION_WORKFLOW.md` and `TUTORING_CALIBRATION.md`. The current [README](README.md), [coverage matrix](COVERAGE_MATRIX.md), and one selected daily file override earlier plans where they differ. Prior 23–26 Nov daily notes are historical; do not report them as completed because a new schedule exists.
 
-## Fixed rules
+## Separate windows, separate evidence
 
-1. **Separate assessment windows.** Window A uses conceptual MCQs, written reasoning, calculations and diagram/code *interpretation*, but no code-completion tutoring. Window B uses worked code tutorials, guided reconstruction, unhinted coding and unseen code transfer, but no broad conceptual MCQ sets. Both may explain prerequisite ideas; neither can claim the other track's competence. Preserve separate results.
-2. **Syllabus-driven assessments.** Select the day's cold questions before seeing the learner's performance. The 45 family IDs F01–U07 navigate the 699 original atomic IDs. Questions should sample *atomic targets* within a family; a passed question never upgrades a whole family or all linked skills automatically.
-3. **Coding is always tutorial → guided reconstruction → cold completion → unseen variation → later cold recall.** Teach using a *different complete worked example*, then give the learner a scaffold/requirements to implement. Don't write the assessed target solution before the learner attempts it. Hints only after the attempt, with support labelled. A passing supplied test or copied code is not independent recall.
-4. **Study depth:** A = full essential code or numerical pattern reconstructed cold and changed; B = key expressions and components reconstructed within a supplied scaffold; C = independently interpret code, outputs, formulas, limitations and numerical results. A lower depth never means outside the quiz.
-5. **Cold means** no notes, no answer exposure, no hints, no copied prior implementation. A fresh changed input or task tests transfer. Repetition of a known scaffold without change is not transfer.
-6. **Record evidence honestly:** not encountered / taught / guided / cold-completed / transferred / delayed-retained. Mark *not tested* where no attempt occurred. Record syntax, representation-translation, numerical, time-pressure, source-error and conceptual errors separately.
-7. **New material:** Ethics and GPU concepts get actual instruction before being judged. Early MCQs may sample them to show the eventual whole-syllabus distribution, but label those misses *not yet taught*, not evidence of regression.
-8. **Respect source boundaries.** Original PDFs/assignments primary; revision/transcripts supplementary. Do not treat known incorrect source formula or an unpassed completed notebook cell as the answer key. Lecture 01 is an unresolved source gap.
-9. **Minimal coordinator handover:** today's assessed skill IDs and question types, unprompted results, hints used, transfer results, deferred untested IDs, specific next-day recall. Write a course lesson log and update `LEARNING_STATE.md` after an actual substantive session under the repository workflow. Do not pre-fill progress YAML or mastery from this plan.
+**Window B (coding):** teach essential math and syntax with a fully visible worked *analogue* → learner constructs guided variation → learner independently fills fresh code/shape/number blanks without cues → unseen transfer → delayed retrieval. One question/implementation task at a time. Do not provide the assessed answer until a learner attempt. Track actual Python/CUDA/Triton syntax separately from whether conceptual mechanism was understood.
 
-## First three days and protected cross-course time
+**Window A (concepts):** lecturer-grounded AI ethics **eight questions**, technical attendance **eight questions**, including **at least six** valid changed stems selected from [technical bank](TECHNICAL_ATTENDANCE_BANK.md) using **unchanged answer-option text**. Never use screenshot options mechanically if a variant has multiple valid responses. Present one item at a time; collect cold response, give feedback, and keep timeboxed. No coding tutorials here.
 
-- **23 Nov:** 45–60 min ease-in, not a full five-hour day.
-- **24 Nov Window A:** **Lectures 02 and 03 only**, up to 120 min, **24 MCQs + eight open responses**, with an explicit per-lecture source audit. Do **not** assess L05–L07 or Ethics/GPU in this window.
-- **24 Nov Window B:** after a break, a *separate* 180-minute tensor coding workshop CP01–04 with tutorial → guided construction → cold completion → changed transfer.
-- **25 Nov one-off exception:** **morning 90-minute concepts-only Window A** between school drop-off and pickup (30 unseen MCQs: L05 CNN 10, L06 Transformer 10, L07 Inference **excluding ethics** 10; 12 recall + 12 applied + 6 multistep; 60 min cold + 20 review + 10 handover). **Afternoon onward strictly protected for AIMS5701 project kickoff. No AIMS5702 coding that day.** Tuesday's deferred coding is not silently considered completed.
-- **26 Nov:** 90–120 min *new* GPU concept teaching, then 3h CNN/backprop code.
+**Exam-shaped mock (2 Dec):** 16 MCQs / 24 marks + 26 marks coding/comment/numeric blanks in 60 minutes. Original 26-mark coding distribution not independently known; use lecturer-signalled patterns, do not invent official marks by topic.
 
-## Wednesday 25 Nov café-only exception
+## Ethics syllabus boundary
 
-The [25 Nov day plan](2026-11-25.md) supersedes the earlier *all-day* AIMS5701 reservation **only for the morning 90-minute café interval**. It is an **L05/L06/L07 (inference only)** test, ten questions per source, with 12 recall / 12 applied / 6 numerical. Select atomic targets before any answers, give no intermediate tutoring, and finish with source-specific assessed/untested handover. Strict 60 + 20 + 10 minutes. Afternoon onward remains AIMS5701 work; do not add a coding workshop or take overflow time.
+Use **L07 slides 67–90**, `Inference and Ethics Transcript.rtf`, especially ~2:07–2:13, and lecturer-linked EU and HK references. Memorize **EU unacceptable/prohibited, high/conformity assessment, limited/transparency, minimal/code of conduct** and lecturer examples; HK internal Government ethical AI framework, China three laws/modular/scenario-specific and examples. Use the original lecturer's level and categories without injecting untaught legal subclauses. For changed examples, teach only distinctions that the sources actually support. See [ETHICS_EXAM_SCOPE.md](ETHICS_EXAM_SCOPE.md).
 
-## Daily MCQs, 27 Nov–3 Dec
+## Coding requirements by level
 
-One hour of **full-syllabus** MCQs daily **in Window A only**. Baseline blueprint: **30 unseen questions** (45–50 min answers + 10–15 min review), distributed **4 F numeric/tensor, 4 T training, 5 C/G CNN/backprop, 5 R transformers, 4 I inference, 4 E ethics, 4 U GPU**. Aim for **12 recall/distinction, 12 application/edge-case and 6 multistep/numerical** items. These quotas do **not** apply to 24 Nov's separate L02/L03 assessment. These are practice quotas, **not a forecast** of exam topic weighting. Within each quota, preselect changing original atomic IDs and include code-reading/shape/numeric MCQs, not just definition recognition. Do not reuse items across days. At least one explicit source-coverage check each day: which targeted atomic IDs were actually tested, which remain untested? Any untrained 27 Nov ethics/GPU content receives a teaching label, not an incorrect-mastery label. On exam morning, reduce or stop if fatigue would worsen performance.
+**A, independent full:** 
+- CP01–03 core tensor creation/dtype/shape, memory, view/copy, broadcasting, `sum`/max-with-index axes. **No dedicated `einsum` drills** (explicit exclusion).
+- CP05 stable softmax and CP07 minimal MLP/train loop.
+- FC and CNN **whole-network shape/weight/bias/parameter counting**, with two unseen examples each and later changed retrieval.
+- CP17–19 PyCUDA/Triton essential kernels with exact index/masks and host launch.
+  
+**B, key code blanks:** CP04 interpolation, CP06 dataset batches, CP09/10 gradients, CP11 residual, CP12–16 transformer/ONNX/inference, CP20 tiled GEMM elements.
 
-## Tuesday 24 Nov — fixed conceptual assessment (Window A only)
+**C, concept/math:** CP21 memory fusion, CP22 FlashAttention tiled softmax/IO; CP23 ethics. Lower depth = reduced time, **not automatic exclusion**.
 
-**L02 (all 83 original slides):** 12 MCQs and four open problems. Test number formats and memory; broadcasting compatibility including failure; basic versus advanced/boolean slicing; strides, offsets, view/copy and contiguity; transpose/reshape/concat; reductions with `keepdim`, `max`/`argmax`, `einsum`; code conventions and reproducibility. Avoid multiple questions on the same easy subskill.
+## Mandatory shape / parameter worksheet
 
-**L03 (all 93 original slides):** 12 MCQs and four open problems. Test image/label representations and normalization, perceptron/MLP weight shapes and bias, activations/classifier predictions, softmax and cross-entropy, gradient descent and learning rate, batches/epochs, loss curves, overfitting, and training/evaluation semantics.
+For each unseen model show this table (learner populates all cells):
 
-**Depth:** among 24 MCQs, **8 precise recall, 10 applied/edge cases, 6 numerical/multistep**. Eight open tasks independently construct L02 (memory/precision, broadcasting, storage/flat offset, reductions/einsum) and L03 (linear outputs/parameter count, complete softmax/loss, gradient update, loss-curve/training interpretation).
+| Layer | Input activation | Weight tensor (lecture vs PyTorch where relevant) | Bias shape | Output activation | Trainable parameter count |
+|---|---|---|---|---|---|
 
-**Timebox:** 35 min MCQs + 50 min open responses + 25 min targeted repair and fresh verification + 10 min coverage ledger/handover = 120 min. Select exact atomic targets with slide references in advance, record whether each was independently correct or required help, and explicitly list untested atomic skills. Keep the 23 Nov C02 CNN and I02 quantization preview questions deferred to a later date; they are not part of L02/L03.
+- `nn.Linear(d_in,d_out)` with bias: `(B,d_in) → (B,d_out)`; lecture input-first `(d_in,d_out)`; stored `(d_out,d_in)`; params `d_in*d_out+d_out`.
+- `nn.Conv2d(C_in,C_out,(K_h,K_w))` with bias, ungrouped: stored `(C_out,C_in,K_h,K_w)`; output `(B,C_out,H_out,W_out)`; params `C_out*(C_in*K_h*K_w+1)`. Image H/W affect activations but **not conv trainable weight count**.
+- `MaxPool2d` vs `AvgPool2d`: no learned weights; maximum vs mean of each window. `Flatten` yields `(B,C*H*W)`. ReLU, tanh, softmax as used here add no trainable weights.
+- Practice **stride-one** convolution output size; the lecturer stated convolution stride calculation is not on the next quiz.
+- Never accept a lone total with no intermediate shapes as a fully demonstrated cold pass. On 28–29 Nov require **two distinct unseen networks** and an altered example on a later day.
 
-## Standard three-hour coding workshop
+## Lecturer hint precedence and ambiguities
 
-- 45 min full *worked analogue*, tutor explains math, dims, syntax and failure modes, one connected example rather than hiding context.
-- 30 min guided learner reconstruction of a different example, hints in increasing specificity.
-- 45 min closed-book, unhinted completion of a preselected scaffold (mark when hints begin).
-- 40 min unseen input/shape/task transfer under time pressure.
-- 20 min feedback, evidence capture and handover. Insert a brief break inside the three hours as needed (time allocations approximate).
+- Explicit exclusions: `einsum`, SIMD, convolution stride calculations. Don't delete historical evidence; simply reduce current quiz drill priority.
+- Explicit emphasis: LSTM **tanh**, FC vs convolution W sizes, mean/max pooling, output size, CUDA `int i = blockIdx.x * blockDim.x + threadIdx.x;`, grid/block, Triton `@triton.jit`, offset calculation and `tl.load/tl.store(mask=...)`, ONNX.
+- FlashAttention deep implementation *unlikely*, but two screenshot questions cover IO/tiled softmax: assess concept, not kernel from scratch.
+- Bank screenshots contain an ambiguous single-answer broadcasting original (AQ01 both A/B valid), and a BatchNorm-specific train/eval shorthand (AQ09). Flag rather than teaching wrong absolutes.
+- When evidence sources disagree, stay faithful to lecturer's exam framing while clearly labeling an ambiguous/invalid question. Never invent a new legal rule or "official answer" that the lecturer did not provide.
 
-Rotate previously studied CP patterns for delayed recall for ~10–15 minutes within workshops, without displacing the new daily Tier A targets. If time runs short, cut additional worked examples or optional extension implementations, **not** the first independent cold assessment of a core code family.
-
-## Pre-quiz evaluation
-
-2 Dec includes **one separate 60-minute exam-shaped mock**: 16 MCQs/24 marks and 26 marks of code/comment/numerical blanks, in addition to (or replacing part of, if tired) the daily full-syllabus MCQ rotation. Keep a predetermined question blueprint and unseen values/variables. Use 3 Dec only for familiar recall, not new material.
-
-## Handover template (copy after study)
+## End-of-window handover
 
 ```md
-### AIMS5702 Quiz 2 — YYYY-MM-DD Window A concepts / Window B coding
-Sources consulted (exact lecture slides and assignment pages):
-Predetermined original skill IDs / CP IDs and question types:
-Independent cold results (correct / partial / incorrect / not attempted):
-Guided explanations/repair (not counted as initial cold success):
-Fresh verification or changed coding-transfer results:
-Errors by type (concept / syntax / shape / arithmetic / representation / time / answer format):
-**Scheduled atomic skills that remained untested:**
-Source discrepancies encountered:
-Next delayed recall:
-Recommended lesson log / LEARNING_STATE.md updates after actual study:
+Date / window / actual duration:
+Original source slides and attendance AQ ID(s):
+Preselected atomic or CP targets (not mastery):
+Unhinted code/calculation or cold MCQ answers:
+Tutorial/guided corrections (separate):
+Unseen transfer (fresh, not recycled):
+FC/CNN per-layer worksheet evidence (when assigned):
+Not yet tested or deferred skills:
+Top 1–3 delayed retrieval prompts:
+Any ambiguous source question or exact-answer-format error:
 ```
+
+**No actual study → no lesson evidence.** A planned workshop never updates `LEARNING_STATE.md` or `learning_progress.yaml` by itself.
