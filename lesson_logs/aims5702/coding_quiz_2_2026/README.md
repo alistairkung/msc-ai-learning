@@ -1,37 +1,45 @@
-# AIMS5702 Coding Quiz 2 — revised seven-day plan (27 November – 3 December 2026)
+# AIMS5702 Coding Quiz 2 — front-loaded exam-focus plan (27 Nov–3 Dec 2026)
 
-**Main rule:** use a fresh **Window B coding** chat and separate **Window A conceptual MCQ/ethics** chat. This study plan incorporates the lecturer's 26 Nov quiz hints and the user's wish to become *independently comfortable with fundamentals*. It supersedes the obsolete 30-question **equal-full-syllabus** daily allocation from earlier planning. The past sessions 23–26 Nov remain historical, not retroactively completed.
+**Latest coordinator revision, 27 Nov:** front-load the **three lecturer-signalled coding areas (ONNX, PyCUDA, Triton)** into **Sat 28–Sun 29 Nov**. Change the old sequential plan: fully connected/CNN mathematical foundations are **not removed**, but move to Mon 30 Nov, with short cold retrieval on Tue 1 Dec and in the mock. AIMS5702 Quiz 2 is **Thu 3 Dec**.
 
-## Source-first entry point
+## Assessment framing — lecturer hints, not an official question paper
 
-Read repository `SESSION_WORKFLOW.md`, `TUTORING_CALIBRATION.md`, `LEARNING_STATE.md`; then [WORKFLOW.md](WORKFLOW.md), [COVERAGE_MATRIX.md](COVERAGE_MATRIX.md), this date's file, and the minimal required original slides/assignments. For MCQs load [TECHNICAL_ATTENDANCE_BANK.md](TECHNICAL_ATTENDANCE_BANK.md) and [ETHICS_EXAM_SCOPE.md](ETHICS_EXAM_SCOPE.md). Use the Project's full audited syllabus/TSV for atomic ID selection when available; never invent IDs.
+- **50 marks / 60 min**: **16 MCQs worth 24 marks** and **26 marks code/comment/numeric blanks**.
+- Lecturer indicated **8 ethics MCQs + 8 technical MCQs**. Reportedly **at least six of those eight technical MCQs** will vary the last two lectures' attendance questions **while keeping their A–D options unchanged**. For robust training, *practise all eight technical questions daily as variations from* [the attendance bank](TECHNICAL_ATTENDANCE_BANK.md), but do **not** present all eight as guaranteed by the lecturer. Rotate **all 18 distinct stems from 20 uploaded screenshots**. Occasionally replace two technical drills with fresh source-grounded items to cover the non-guaranteed remainder.
+- Lecturer strongly pointed to **ONNX, PyCUDA, Triton** as coding-blank areas (reported Q3, Q4, Q5 of five coding questions). This is the reason for prioritising their independent reproduction **by Sunday 29 Nov**; numbering and actual contents are not guaranteed.
+- The lecturer also emphasised FC/CNN weight sizes, layer output shapes, parameter counting, pooling, CNN transfer learning, CUDA thread index/block/grid, Triton masked loads/stores, and LSTM tanh. Avoid dedicated `einsum`, SIMD or convolutions with nontrivial stride calculations; bilinear interpolation is deprioritised; FlashAttention deep kernel implementation is not a priority.
 
-## Lecturer-reported assessment contract (26 Nov revision)
+## Daily coordinator schedule
 
-- **16 MCQs / 24 marks**: **eight AI ethics**; **eight technical**, **at least six** variants of 20 in-class screenshot questions from the last two attendance sessions. Lecturer says the **A–D options remain the same**, but the stems will change.
-- **26 further marks** in code/comment/numerical blanks, total 50 marks in 60 minutes. Lecturer explicitly emphasised FC versus CNN weight shapes and parameter counting, CNN output sizes, PyCUDA kernel strings/global indices, Triton decorators/offsets/masks, and ONNX. Exact positions Q3/Q4/Q5 were reported as ONNX/PyCUDA/Triton respectively; treat these as **guidance**, not guaranteed official prepublished questions.
-- **Explicitly not on quiz, per lecturer:** `einsum`, SIMD, convolution **stride** calculations. **Shallow** FlashAttention knowledge still useful because tiling and global-memory IO appeared in attendance questions; no full kernel build. LSTM **tanh** recognition is in scope.
-
-## Coding sequence — chronological prerequisites
-
-| Date | Window B: coding and mathematical production | Window A: ethics + technical MCQs |
+| Date | Coding Window B | Concepts Window A |
 |---|---|---|
-| [Fri 27 Nov](2026-11-27.md) | **CP01–04** typed tensors/shape/storage/reductions; scoped interpolation | **Teach** lecture ethics risk levels + examples; learn attendance bank |
-| [Sat 28 Nov](2026-11-28.md) | **CP05–07**, stable softmax/MLP/train loop; **mandatory FC whole-network parameters** | First **8 ethics + 8 technical** set |
-| [Sun 29 Nov](2026-11-29.md) | **CP08–11**, **mandatory Conv → Pool → Flatten → FC** shape/parameter tables, backprop basics | 16-question lecturer-style variants |
-| [Mon 30 Nov](2026-11-30.md) | **CP12–16**, attention/ViT/causal masks, inference and **ONNX**; CUDA preview | 16-question variants + ethics examples |
-| [Tue 1 Dec](2026-12-01.md) | **CP17–20**, **PyCUDA + Triton**: exact indices, masks, host grid/block; tiles scaffold | 16-question variants, GPU code-reading |
-| [Wed 2 Dec](2026-12-02.md) | **60-minute exam-shaped mock**, targeted error repair; no long new kernel | Ethics risk table + bank recall only; **5701 poster discussion** |
-| [Thu 3 Dec](2026-12-03.md) | 20–30 min familiar cold fragments if helpful; **evening quiz** | Light optional review, no new 30-MCQ quiz |
+| [Fri 27 Nov](2026-11-27.md) | **CP01–03 tensor consolidation already reported completed**; no additional full tensor workshop. Ethics preparation priority for the remainder. | Teach L07 ethics risk-level table and examples + **8 changed attendance-bank technical questions**; 8 taught ethics questions if time |
+| [Sat 28 Nov](2026-11-28.md) | **ONNX (CP16) and PyCUDA (CP17/18)** full examples → guided → **cold code blanks**, kernel index/grid/bounds/wrapper. | **8 ethics + 8 attendance-based technical variants**, original A–D option texts |
+| [Sun 29 Nov](2026-11-29.md) | **Triton (CP19, part of CP20)** index/offset/mask/load/store/launch; then **cold ONNX + PyCUDA + Triton triad assessment**. | **8 ethics + 8 attendance-based technical variants** |
+| [Mon 30 Nov](2026-11-30.md) | **FC and CNN essential maths**: two unfamiliar FC models + two unfamiliar CNN→Pool→Flatten→FC models; stable softmax/training loop if time. | **8 ethics + 8 attendance-based technical variants** |
+| [Tue 1 Dec](2026-12-01.md) | **Attention/Transformer and inference** essentials; bounded backprop/training gaps; **delayed cold ONNX/PyCUDA/Triton + FC/CNN retrieval**. | **8 ethics + 8 attendance-based technical variants** |
+| [Wed 2 Dec](2026-12-02.md) | **60-minute exam-shaped mock** with 16 MCQs and 26 code/numerical marks; targeted repair only. AIMS5701 poster discussion. | Mock replaces separate daily MCQ practice |
+| [Thu 3 Dec](2026-12-03.md) | Brief familiar code/shape/ethics recall, not new lessons; evening Quiz 2. | Optional short recall only |
 
-### Two non-negotiable foundations
+## Sunday night milestone — evidence, not intuition
 
-**Fully connected:** calculate `d_in × d_out + d_out` (when bias); distinguish **lecture input-first** W shape `(in,out)` from **PyTorch stored** `(out,in)`. **CNN:** calculate `C_out × (C_in × K_h × K_w + 1)` for standard ungrouped bias Conv2d, propagate spatial output, pool, flatten, then parameterize FC. Two complete **unseen** networks on 28 and 29 Nov; later spaced retrieval. The tutor must make the student write every intermediate activation/weight/parameter count, not answer a recognition MCQ.
+- **ONNX:** unhinted completion of a model export + numerical output comparison scaffold, correctly identifying important export / inference / comparison lines.
+- **PyCUDA:** unhinted `SourceModule` C kernel string (global index, guard, operation), host function and shape-correct block/grid launch; one changed problem.
+- **Triton:** unhinted `@triton.jit`, `tl.program_id`, `tl.arange` offsets, mask, `tl.load`/`tl.store`, grid and launch on a changed operation.
+- Mark **demonstrated cold**, **guided**, **not attempted**, and **still incorrect** separately. Exposure alone is not mastery. Any gaps get **targeted Tue 1 Dec repair**, not an entire lost day.
 
-## Time and wellbeing boundaries
+## Daily MCQ method — vary wording, not answers by rote
 
-Coding 2–3h is an **upper target when capacity permits**, not a compulsory daily quota. Concept windows generally 30–60min; Friday ethics teaching 45–60min. 2 Dec is intentionally lighter because the 5701 poster must be displayed. PCG work runs separately with short bounded human review. Do not make up missed hours by stacking tasks onto the next day.
+The 20 screenshot images contain **18 distinct question themes** and two repeated captures. Each day's 8 technical MCQs should draw from the [bank](TECHNICAL_ATTENDANCE_BANK.md) with **unchanged A–D texts**, new *valid* stems and checked single correct answers. Record the bank ID and changed premise; spaced retrieval should adapt the reasoning, not simply memorise answer letters. AQ01 original broadcasting problem has two valid choices; AQ09's BatchNorm/eval shorthand is not true for LayerNorm: apply the bank's quality safeguards.
 
-## Session outcomes
+Ethics: eight questions use the L07 slides/transcript, with original **EU risk-level tables and examples**, HK Government framework and mainland China distinctions; [ETHICS_EXAM_SCOPE.md](ETHICS_EXAM_SCOPE.md) sets the taught boundary. The source hierarchy is **lecture content first**, lecturer-linked EU/HK pages supporting, no untaught legal nuance.
 
-Return a concise **cold-versus-guided** handover per window with exact CP/atomic IDs and sources, correct syntax, unseen transfer, untested operations, and only the most useful delayed retrieval. Update `LEARNING_STATE.md` only after study actually happens. Previous 24 Nov MCQ/open-question and coding records remain valid but are not newly mastered by this schedule.
+## Study style and scope boundaries
+
+Two separate windows: coding is worked full example → guided variation → **cold independent** answer → changed transfer; MCQs require a genuinely cold first answer then a reasoned review. **Full explanations** after mistakes; don't advance until the student understands the correction. The user reports repo `AGENTS.md`-driven tutor behaviour was too terse; new tutor handovers should **explicitly provide this teaching style** and can use only the required source PDFs/plan, not inherit irrelevant agent rules.
+
+Workshops may be split; coding **2–3h maximum target if capacity permits**, concepts 30–60min. Weekend triad has first priority; remaining coursework commitments (FTEC HW4 due 1 Dec, AIMS5701 poster display 2 Dec) remain bounded. No missed-time debt.
+
+Historical evidence: Tue 24 Nov partial tensor workshop; **Fri 27 Nov user's handover** reports new independent CP01–03 improvements and **4/5 independently correct steps** on mixed transfer, with final `argmax` corrected after explanation. This reported handover has not yet been independently entered into `LEARNING_STATE.md`; do not silently promote to durable mastery. See dated [27 Nov file](2026-11-27.md).
+
+Tutor source selection: repository `SESSION_WORKFLOW.md` and `TUTORING_CALIBRATION.md` provide bookkeeping conventions, but **the user prefers longer worked explanations**. If a new tutor is not doing GitHub bookkeeping, the coordinator can provide a direct handover without loading the whole repo. Coverage ledger: [COVERAGE_MATRIX.md](COVERAGE_MATRIX.md).
