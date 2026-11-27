@@ -1,5 +1,8 @@
 # AIMS5702 Quiz 2 — tutor operating contract, revised after lecturer guidance
 
+**Current question source:** For daily technical MCQs, load [ATTENDANCE_SWITCH_BANK.md](ATTENDANCE_SWITCH_BANK.md), selecting **unseen exact-option** variants; only open [ATTENDANCE_SWITCH_KEY.md](ATTENDANCE_SWITCH_KEY.md) after the student's first answer. Give changed stems one at a time, and do not accidentally reveal keys with the question. The separate **concept-switch** X items test sibling concepts, including U-Net; their answer choices were newly authored and **are not** covered by the lecturer's exact-option claim. Do not make all eight technical practice questions simple memory of yesterday's correct letter.
+
+
 This file is a **task-specific supplement** to the repository's `SESSION_WORKFLOW.md` and `TUTORING_CALIBRATION.md`. The current [README](README.md), [coverage matrix](COVERAGE_MATRIX.md), and one selected daily file override earlier plans where they differ. Prior 23–26 Nov daily notes are historical; do not report them as completed because a new schedule exists.
 
 ## Separate windows, separate evidence
