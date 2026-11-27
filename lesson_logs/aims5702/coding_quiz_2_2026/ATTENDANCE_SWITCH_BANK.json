@@ -1,0 +1,1115 @@
+{
+  "schema": "aims5702-attendance-option-inversion-2026-11-27",
+  "source_screenshots": 20,
+  "unique_original_questions": 18,
+  "questions": [
+    {
+      "id": "AQ01-V01",
+      "family": "AQ01",
+      "stem": "Which broadcastable pair produces result shape (5,6,4)?",
+      "choices": {
+        "A": "(5,1,4) and (6,4)",
+        "B": "(2,4,1) and (4,2)",
+        "C": "(4,3) and (3,4)",
+        "D": "(5,3,4) and (5,4)"
+      },
+      "key": "A",
+      "mode": "exam",
+      "explanation": "A aligns (6,4) with (5,1,4) to yield (5,6,4).",
+      "source_screenshot": "IMG_7068(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ01-V02",
+      "family": "AQ01",
+      "stem": "Which broadcastable pair produces result shape (2,4,2)?",
+      "choices": {
+        "A": "(5,1,4) and (6,4)",
+        "B": "(2,4,1) and (4,2)",
+        "C": "(4,3) and (3,4)",
+        "D": "(5,3,4) and (5,4)"
+      },
+      "key": "B",
+      "mode": "switch",
+      "explanation": "B aligns (2,4,1) with (4,2), giving (2,4,2).",
+      "source_screenshot": "IMG_7068(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ02-V01",
+      "family": "AQ02",
+      "stem": "Two adjacent operations are fused so an intermediate tensor is no longer written to GPU global memory. What benefit results?",
+      "choices": {
+        "A": "Disable GPU execution providers",
+        "B": "Replace dynamic shapes with loops",
+        "C": "Increase total floating-point operations",
+        "D": "Reduce memory read/write traffic"
+      },
+      "key": "D",
+      "mode": "exam",
+      "explanation": "Fusion saves intermediate reads and writes.",
+      "source_screenshot": "IMG_7069(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ02-V02",
+      "family": "AQ02",
+      "stem": "An inefficient rewrite duplicates matrix multiplications. Which listed change increases arithmetic work?",
+      "choices": {
+        "A": "Disable GPU execution providers",
+        "B": "Replace dynamic shapes with loops",
+        "C": "Increase total floating-point operations",
+        "D": "Reduce memory read/write traffic"
+      },
+      "key": "C",
+      "mode": "switch",
+      "explanation": "Duplicated math increases total FLOPs.",
+      "source_screenshot": "IMG_7069(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ02-V03",
+      "family": "AQ02",
+      "stem": "Which listed change affects GPU execution-provider availability rather than operation fusion?",
+      "choices": {
+        "A": "Disable GPU execution providers",
+        "B": "Replace dynamic shapes with loops",
+        "C": "Increase total floating-point operations",
+        "D": "Reduce memory read/write traffic"
+      },
+      "key": "A",
+      "mode": "switch",
+      "explanation": "Disabling a GPU execution provider changes execution configuration.",
+      "source_screenshot": "IMG_7069(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ03-V01",
+      "family": "AQ03",
+      "stem": "A GPU attention kernel no longer materialises a full attention score matrix in HBM. Which outcome is it seeking?",
+      "choices": {
+        "A": "Avoids large global memory reads/writes",
+        "B": "Changes exact softmax into linear sum",
+        "C": "Limits sequence length to one token",
+        "D": "Removes the need for query projections"
+      },
+      "key": "A",
+      "mode": "exam",
+      "explanation": "Tiling on-chip reduces HBM/global-memory traffic.",
+      "source_screenshot": "IMG_7070(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ03-V02",
+      "family": "AQ03",
+      "stem": "FlashAttention keeps K/V tiles on chip between fused computations. What explains the IO improvement?",
+      "choices": {
+        "A": "Avoids large global memory reads/writes",
+        "B": "Changes exact softmax into linear sum",
+        "C": "Limits sequence length to one token",
+        "D": "Removes the need for query projections"
+      },
+      "key": "A",
+      "mode": "exam",
+      "explanation": "The on-chip strategy avoids large global memory reads/writes.",
+      "source_screenshot": "IMG_7070(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ04-V01",
+      "family": "AQ04",
+      "stem": "The input is still RGB but the pretrained ImageNet CNN must emit logits for 12 rather than 1000 classes. Which change fits?",
+      "choices": {
+        "A": "Removing the softmax activation from nn.CrossEntropyLoss because PyTorch requires one-hot targets",
+        "B": "Changing the input channel count of the first convolutional layer to 12 to match the number of character classes",
+        "C": "Replacing the final classification layer so its output dimension matches 12 classes instead of 1,000 ImageNet classes",
+        "D": "Removing all batch normalization layers so the model can be exported to ONNX format"
+      },
+      "key": "C",
+      "mode": "exam",
+      "explanation": "Replace the final classification layer to emit 12 outputs.",
+      "source_screenshot": "IMG_7071(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ04-V02",
+      "family": "AQ04",
+      "stem": "Which proposal wrongly equates the number of input image channels with the number of output classes?",
+      "choices": {
+        "A": "Removing the softmax activation from nn.CrossEntropyLoss because PyTorch requires one-hot targets",
+        "B": "Changing the input channel count of the first convolutional layer to 12 to match the number of character classes",
+        "C": "Replacing the final classification layer so its output dimension matches 12 classes instead of 1,000 ImageNet classes",
+        "D": "Removing all batch normalization layers so the model can be exported to ONNX format"
+      },
+      "key": "B",
+      "mode": "diagnostic",
+      "explanation": "B confuses the first Conv input channel count with class count.",
+      "source_screenshot": "IMG_7071(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ04-V03",
+      "family": "AQ04",
+      "stem": "Which proposal incorrectly treats deleting all BatchNorm layers as mandatory for ONNX export?",
+      "choices": {
+        "A": "Removing the softmax activation from nn.CrossEntropyLoss because PyTorch requires one-hot targets",
+        "B": "Changing the input channel count of the first convolutional layer to 12 to match the number of character classes",
+        "C": "Replacing the final classification layer so its output dimension matches 12 classes instead of 1,000 ImageNet classes",
+        "D": "Removing all batch normalization layers so the model can be exported to ONNX format"
+      },
+      "key": "D",
+      "mode": "diagnostic",
+      "explanation": "D is a false claim; BatchNorm is exportable.",
+      "source_screenshot": "IMG_7071(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ05-V01",
+      "family": "AQ05",
+      "stem": "A deep residual network uses y=F(x)+x. Which listed explanation most directly accounts for easier optimisation?",
+      "choices": {
+        "A": "Identity branches double channels",
+        "B": "Residual paths replace softmax",
+        "C": "Skip connections eliminate activations",
+        "D": "Identity paths preserve gradients"
+      },
+      "key": "D",
+      "mode": "exam",
+      "explanation": "The additive identity path supports gradient propagation.",
+      "source_screenshot": "IMG_7074(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ05-V02",
+      "family": "AQ05",
+      "stem": "Which listed statement falsely assumes an identity skip connection necessarily doubles the channel dimension?",
+      "choices": {
+        "A": "Identity branches double channels",
+        "B": "Residual paths replace softmax",
+        "C": "Skip connections eliminate activations",
+        "D": "Identity paths preserve gradients"
+      },
+      "key": "A",
+      "mode": "diagnostic",
+      "explanation": "ResNet identity addition requires compatible shapes, not channel doubling.",
+      "source_screenshot": "IMG_7074(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ06-V01",
+      "family": "AQ06",
+      "stem": "Reordering input tokens in attention without masks or positional encodings should cause which change in the attention weights?",
+      "choices": {
+        "A": "Weights permute with inputs",
+        "B": "Weights zero out future tokens",
+        "C": "Weights become uniform constants",
+        "D": "Weights remain identical in order"
+      },
+      "key": "A",
+      "mode": "exam",
+      "explanation": "Unmasked self-attention without position is permutation equivariant.",
+      "source_screenshot": "IMG_7075(2).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ06-V02",
+      "family": "AQ06",
+      "stem": "After adding a causal future-token mask to attention, what happens at forbidden future positions?",
+      "choices": {
+        "A": "Weights permute with inputs",
+        "B": "Weights zero out future tokens",
+        "C": "Weights become uniform constants",
+        "D": "Weights remain identical in order"
+      },
+      "key": "B",
+      "mode": "switch",
+      "explanation": "Softmax weights of masked future positions are zero.",
+      "source_screenshot": "IMG_7075(2).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ06-V03",
+      "family": "AQ06",
+      "stem": "If all permitted attention logits for a query are equal, what do the resulting softmax probabilities look like?",
+      "choices": {
+        "A": "Weights permute with inputs",
+        "B": "Weights zero out future tokens",
+        "C": "Weights become uniform constants",
+        "D": "Weights remain identical in order"
+      },
+      "key": "C",
+      "mode": "switch",
+      "explanation": "Equal logits give uniform attention weights.",
+      "source_screenshot": "IMG_7075(2).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ07-V01",
+      "family": "AQ07",
+      "stem": "An autoregressive decoder masks the upper triangle of its attention scores. What leakage does this prevent?",
+      "choices": {
+        "A": "Eliminate positional embeddings",
+        "B": "Prevent attending to future tokens",
+        "C": "Replace softmax normalization",
+        "D": "Reduce hidden dimension size"
+      },
+      "key": "B",
+      "mode": "exam",
+      "explanation": "The query must not see later tokens.",
+      "source_screenshot": "IMG_7076(2).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ07-V02",
+      "family": "AQ07",
+      "stem": "Which claim incorrectly confuses causal masking with removing positional embeddings?",
+      "choices": {
+        "A": "Eliminate positional embeddings",
+        "B": "Prevent attending to future tokens",
+        "C": "Replace softmax normalization",
+        "D": "Reduce hidden dimension size"
+      },
+      "key": "A",
+      "mode": "diagnostic",
+      "explanation": "Causal masking changes access, not the existence of positional encodings.",
+      "source_screenshot": "IMG_7076(2).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ08-V01",
+      "family": "AQ08",
+      "stem": "A ViT appends a learnable global token whose final representation serves classification. Which option describes this?",
+      "choices": {
+        "A": "Using causal triangular masks",
+        "B": "Using 2×2 max pooling",
+        "C": "Using a learnable CLS token",
+        "D": "Using fixed int8 lookup tables"
+      },
+      "key": "C",
+      "mode": "exam",
+      "explanation": "A learnable CLS token is the ViT classification representative.",
+      "source_screenshot": "IMG_7077(2).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ08-V02",
+      "family": "AQ08",
+      "stem": "An autoregressive text model hides tokens to the right. Which listed technique is used?",
+      "choices": {
+        "A": "Using causal triangular masks",
+        "B": "Using 2×2 max pooling",
+        "C": "Using a learnable CLS token",
+        "D": "Using fixed int8 lookup tables"
+      },
+      "key": "A",
+      "mode": "switch",
+      "explanation": "Causal triangular masking blocks future attention.",
+      "source_screenshot": "IMG_7077(2).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ08-V03",
+      "family": "AQ08",
+      "stem": "A convolutional network reduces each 2-by-2 region to its single largest activation. Which operation matches?",
+      "choices": {
+        "A": "Using causal triangular masks",
+        "B": "Using 2×2 max pooling",
+        "C": "Using a learnable CLS token",
+        "D": "Using fixed int8 lookup tables"
+      },
+      "key": "B",
+      "mode": "switch",
+      "explanation": "This is local 2×2 max pooling.",
+      "source_screenshot": "IMG_7077(2).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ09-V01",
+      "family": "AQ09",
+      "stem": "A network containing BatchNorm with tracked running statistics and Dropout switches to eval(). What is expected?",
+      "choices": {
+        "A": "Batch stats and no normalization",
+        "B": "Frozen stats and no dropout",
+        "C": "Batch stats and higher dropout",
+        "D": "Running stats and zeroed weights"
+      },
+      "key": "B",
+      "mode": "exam",
+      "explanation": "BatchNorm uses running statistics and Dropout stops random masking.",
+      "source_screenshot": "IMG_7078(3).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ09-V02",
+      "family": "AQ09",
+      "stem": "Which listed option falsely claims that entering eval() increases dropout?",
+      "choices": {
+        "A": "Batch stats and no normalization",
+        "B": "Frozen stats and no dropout",
+        "C": "Batch stats and higher dropout",
+        "D": "Running stats and zeroed weights"
+      },
+      "key": "C",
+      "mode": "diagnostic",
+      "explanation": "Dropout is disabled during inference, not increased.",
+      "source_screenshot": "IMG_7078(3).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ10-V01",
+      "family": "AQ10",
+      "stem": "A trained CNN is exported for a runtime outside PyTorch and then its predictions are compared. What is the purpose?",
+      "choices": {
+        "A": "To compress the handwritten character dataset into a single lossless .zip archive",
+        "B": "To serialize the model into a framework-agnostic computation graph and confirm its numerical outputs match PyTorch",
+        "C": "To automatically search for optimal learning rates and batch sizes during training",
+        "D": "To convert convolutional layers into Triton online softmax kernels"
+      },
+      "key": "B",
+      "mode": "exam",
+      "explanation": "ONNX provides a portable graph and output verification checks agreement.",
+      "source_screenshot": "IMG_7081(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ10-V02",
+      "family": "AQ10",
+      "stem": "Which option describes tuning batch size and learning rate rather than model export?",
+      "choices": {
+        "A": "To compress the handwritten character dataset into a single lossless .zip archive",
+        "B": "To serialize the model into a framework-agnostic computation graph and confirm its numerical outputs match PyTorch",
+        "C": "To automatically search for optimal learning rates and batch sizes during training",
+        "D": "To convert convolutional layers into Triton online softmax kernels"
+      },
+      "key": "C",
+      "mode": "diagnostic",
+      "explanation": "C describes hyperparameter tuning, not ONNX.",
+      "source_screenshot": "IMG_7081(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ11-V01",
+      "family": "AQ11",
+      "stem": "For a multiclass classifier with class labels and probability scores but no real-valued regression targets, which metric set fits?",
+      "choices": {
+        "A": "(I) and (II) only",
+        "B": "(I) and (III) only",
+        "C": "(II) and (III) only",
+        "D": "(I), (II) and (III)"
+      },
+      "key": "A",
+      "mode": "exam",
+      "explanation": "F1 and suitably configured ROC AUC assess classes; RMSE is for regression.",
+      "source_screenshot": "IMG_7083(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ11-V02",
+      "family": "AQ11",
+      "stem": "A grading contract explicitly requires F1 on hard class predictions and RMSE on a numeric prediction, excluding rank metrics. Which set?",
+      "choices": {
+        "A": "(I) and (II) only",
+        "B": "(I) and (III) only",
+        "C": "(II) and (III) only",
+        "D": "(I), (II) and (III)"
+      },
+      "key": "B",
+      "mode": "switch",
+      "explanation": "I and III correspond to F1 and RMSE.",
+      "source_screenshot": "IMG_7083(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ11-V03",
+      "family": "AQ11",
+      "stem": "A model outputs binary classification scores and real-valued regression predictions, but no hard classification threshold is chosen. Which metrics can be computed directly?",
+      "choices": {
+        "A": "(I) and (II) only",
+        "B": "(I) and (III) only",
+        "C": "(II) and (III) only",
+        "D": "(I), (II) and (III)"
+      },
+      "key": "C",
+      "mode": "switch",
+      "explanation": "ROC AUC uses scores and RMSE uses real values; F1 needs hard decisions.",
+      "source_screenshot": "IMG_7083(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ11-V04",
+      "family": "AQ11",
+      "stem": "A multi-task model has a scored classifier and a regressor. Which of the three metrics could be useful across both tasks?",
+      "choices": {
+        "A": "(I) and (II) only",
+        "B": "(I) and (III) only",
+        "C": "(II) and (III) only",
+        "D": "(I), (II) and (III)"
+      },
+      "key": "D",
+      "mode": "switch",
+      "explanation": "All three may apply across classification and regression outputs.",
+      "source_screenshot": "IMG_7083(1).jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ12-V01",
+      "family": "AQ12",
+      "stem": "Within a warp, threads choose both sides of a conditional. Which execution mechanism is described in the GPU lecture?",
+      "choices": {
+        "A": "By dynamically splitting the warp into independent hardware cores instantly",
+        "B": "Via execution masking by the compiler, serializing the execution of both branches",
+        "C": "By running branches concurrently on separate L2 caches",
+        "D": "Branching has zero performance penalty on modern GPUs"
+      },
+      "key": "B",
+      "mode": "exam",
+      "explanation": "Warp divergence uses execution masks to process branch paths.",
+      "source_screenshot": "IMG_6996.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ12-V02",
+      "family": "AQ12",
+      "stem": "Which option wrongly claims conditional divergence carries no performance penalty on modern GPUs?",
+      "choices": {
+        "A": "By dynamically splitting the warp into independent hardware cores instantly",
+        "B": "Via execution masking by the compiler, serializing the execution of both branches",
+        "C": "By running branches concurrently on separate L2 caches",
+        "D": "Branching has zero performance penalty on modern GPUs"
+      },
+      "key": "D",
+      "mode": "diagnostic",
+      "explanation": "D is an over-absolute and false description.",
+      "source_screenshot": "IMG_6996.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ13-V01",
+      "family": "AQ13",
+      "stem": "A standard NVIDIA warp has how many threads?",
+      "choices": {
+        "A": "4 threads",
+        "B": "16 threads",
+        "C": "32 threads",
+        "D": "64 threads"
+      },
+      "key": "C",
+      "mode": "exam",
+      "explanation": "One warp contains 32 threads.",
+      "source_screenshot": "IMG_6995.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ13-V02",
+      "family": "AQ13",
+      "stem": "If one warp's 32 threads are partitioned into eight equal groups, how many threads per group?",
+      "choices": {
+        "A": "4 threads",
+        "B": "16 threads",
+        "C": "32 threads",
+        "D": "64 threads"
+      },
+      "key": "A",
+      "mode": "switch",
+      "explanation": "32/8 = 4 threads.",
+      "source_screenshot": "IMG_6995.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ13-V03",
+      "family": "AQ13",
+      "stem": "How many threads belong to half of a standard NVIDIA warp?",
+      "choices": {
+        "A": "4 threads",
+        "B": "16 threads",
+        "C": "32 threads",
+        "D": "64 threads"
+      },
+      "key": "B",
+      "mode": "switch",
+      "explanation": "32/2 = 16 threads.",
+      "source_screenshot": "IMG_6995.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ13-V04",
+      "family": "AQ13",
+      "stem": "How many threads are contained in two full NVIDIA warps?",
+      "choices": {
+        "A": "4 threads",
+        "B": "16 threads",
+        "C": "32 threads",
+        "D": "64 threads"
+      },
+      "key": "D",
+      "mode": "switch",
+      "explanation": "2*32 = 64 threads.",
+      "source_screenshot": "IMG_6995.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ14-V01",
+      "family": "AQ14",
+      "stem": "A GPU uses a separate softmax denominator for every tile. Why cannot the separately normalized tile results just be concatenated?",
+      "choices": {
+        "A": "Softmax has a negative derivative everywhere.",
+        "B": "Softmax is not an associative property",
+        "C": "Softmax cannot be evaluated using floating-point numbers.",
+        "D": "Exponential terms may encounter division by zero on GPU accelerators."
+      },
+      "key": "B",
+      "mode": "exam",
+      "explanation": "Tilewise normalized attention lacks one common denominator.",
+      "source_screenshot": "IMG_6994.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ14-V02",
+      "family": "AQ14",
+      "stem": "FlashAttention-style exact tiled softmax tracks a running max and denominator. What conceptual challenge motivates the correction?",
+      "choices": {
+        "A": "Softmax has a negative derivative everywhere.",
+        "B": "Softmax is not an associative property",
+        "C": "Softmax cannot be evaluated using floating-point numbers.",
+        "D": "Exponential terms may encounter division by zero on GPU accelerators."
+      },
+      "key": "B",
+      "mode": "exam",
+      "explanation": "Softmax does not simply compose from independently normalised blocks.",
+      "source_screenshot": "IMG_6994.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ15-V01",
+      "family": "AQ15",
+      "stem": "A CUDA kernel uses 48 threads per block, underfilling its last warp. Why might a multiple-of-32 block size help?",
+      "choices": {
+        "A": "To prevent wasted threads within warps",
+        "B": "To bypass global memory capacity limits",
+        "C": "Because the maximum grid dimensionality is strictly 32",
+        "D": "To force the compiler to compile using PyCUDA instead of NVCC"
+      },
+      "key": "A",
+      "mode": "exam",
+      "explanation": "A multiple of warp width avoids a partly populated final warp.",
+      "source_screenshot": "IMG_6999.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ15-V02",
+      "family": "AQ15",
+      "stem": "Which proposed reason incorrectly says CUDA's maximum grid dimensionality must be 32?",
+      "choices": {
+        "A": "To prevent wasted threads within warps",
+        "B": "To bypass global memory capacity limits",
+        "C": "Because the maximum grid dimensionality is strictly 32",
+        "D": "To force the compiler to compile using PyCUDA instead of NVCC"
+      },
+      "key": "C",
+      "mode": "diagnostic",
+      "explanation": "This confuses 32-thread warp size with grid dimensionality.",
+      "source_screenshot": "IMG_6999.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ16-V01",
+      "family": "AQ16",
+      "stem": "A Triton vector tile has offsets beyond a length N in its last program. Why mask the load and store?",
+      "choices": {
+        "A": "To prevent out-of-bounds memory errors.",
+        "B": "To encrypt the data stream passing through the L2 cache.",
+        "C": "To switch between FP32 and FP64 precision automatically.",
+        "D": "To satisfy Python syntax requirements for loop unrolling."
+      },
+      "key": "A",
+      "mode": "exam",
+      "explanation": "Masking prevents out-of-bounds memory access.",
+      "source_screenshot": "IMG_7001.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ16-V02",
+      "family": "AQ16",
+      "stem": "Which option incorrectly asserts that an explicit load/store mask converts FP32 into FP64?",
+      "choices": {
+        "A": "To prevent out-of-bounds memory errors.",
+        "B": "To encrypt the data stream passing through the L2 cache.",
+        "C": "To switch between FP32 and FP64 precision automatically.",
+        "D": "To satisfy Python syntax requirements for loop unrolling."
+      },
+      "key": "C",
+      "mode": "diagnostic",
+      "explanation": "A mask controls participation in memory access, not precision.",
+      "source_screenshot": "IMG_7001.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ17-V01",
+      "family": "AQ17",
+      "stem": "Which 1D CUDA indexing formula is correct for multiple blocks of arbitrary block width?",
+      "choices": {
+        "A": "int i = blockIdx.x + threadIdx.x;",
+        "B": "int i = threadIdx.x * blockDim.x + blockIdx.x;",
+        "C": "int i = blockIdx.x * blockDim.x + threadIdx.x;",
+        "D": "int i = gridDim.x * blockIdx.x + threadIdx.x;"
+      },
+      "key": "C",
+      "mode": "exam",
+      "explanation": "Global index = blockIdx.x*blockDim.x+threadIdx.x.",
+      "source_screenshot": "IMG_6998.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ17-V02",
+      "family": "AQ17",
+      "stem": "Which buggy formula simply adds block index to local thread index, ignoring block width?",
+      "choices": {
+        "A": "int i = blockIdx.x + threadIdx.x;",
+        "B": "int i = threadIdx.x * blockDim.x + blockIdx.x;",
+        "C": "int i = blockIdx.x * blockDim.x + threadIdx.x;",
+        "D": "int i = gridDim.x * blockIdx.x + threadIdx.x;"
+      },
+      "key": "A",
+      "mode": "diagnostic",
+      "explanation": "A neglects the per-block stride.",
+      "source_screenshot": "IMG_6998.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ17-V03",
+      "family": "AQ17",
+      "stem": "Which buggy formula incorrectly multiplies the local thread index by block width before adding block index?",
+      "choices": {
+        "A": "int i = blockIdx.x + threadIdx.x;",
+        "B": "int i = threadIdx.x * blockDim.x + blockIdx.x;",
+        "C": "int i = blockIdx.x * blockDim.x + threadIdx.x;",
+        "D": "int i = gridDim.x * blockIdx.x + threadIdx.x;"
+      },
+      "key": "B",
+      "mode": "diagnostic",
+      "explanation": "B swaps the terms.",
+      "source_screenshot": "IMG_6998.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ17-V04",
+      "family": "AQ17",
+      "stem": "Which candidate incorrectly substitutes gridDim.x for blockDim.x in the block stride?",
+      "choices": {
+        "A": "int i = blockIdx.x + threadIdx.x;",
+        "B": "int i = threadIdx.x * blockDim.x + blockIdx.x;",
+        "C": "int i = blockIdx.x * blockDim.x + threadIdx.x;",
+        "D": "int i = gridDim.x * blockIdx.x + threadIdx.x;"
+      },
+      "key": "D",
+      "mode": "diagnostic",
+      "explanation": "D uses number of blocks rather than threads per block.",
+      "source_screenshot": "IMG_6998.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ18-V01",
+      "family": "AQ18",
+      "stem": "Which SM unit is specialised for fast matrix multiplication?",
+      "choices": {
+        "A": "Arithmetic Logic Unit (ALU)",
+        "B": "Warp Scheduler",
+        "C": "Tensor Core",
+        "D": "Threads"
+      },
+      "key": "C",
+      "mode": "exam",
+      "explanation": "Tensor Cores accelerate matrix calculations.",
+      "source_screenshot": "IMG_6997.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ18-V02",
+      "family": "AQ18",
+      "stem": "Which listed SM component selects and schedules ready warps?",
+      "choices": {
+        "A": "Arithmetic Logic Unit (ALU)",
+        "B": "Warp Scheduler",
+        "C": "Tensor Core",
+        "D": "Threads"
+      },
+      "key": "B",
+      "mode": "switch",
+      "explanation": "A warp scheduler issues ready warp instructions.",
+      "source_screenshot": "IMG_6997.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ18-V03",
+      "family": "AQ18",
+      "stem": "Which listed item is a general arithmetic/logic circuit rather than a tensor specialised unit?",
+      "choices": {
+        "A": "Arithmetic Logic Unit (ALU)",
+        "B": "Warp Scheduler",
+        "C": "Tensor Core",
+        "D": "Threads"
+      },
+      "key": "A",
+      "mode": "switch",
+      "explanation": "An ALU performs general arithmetic and logic.",
+      "source_screenshot": "IMG_6997.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "AQ18-V04",
+      "family": "AQ18",
+      "stem": "Which listed item is a software execution entity, not a dedicated arithmetic circuit?",
+      "choices": {
+        "A": "Arithmetic Logic Unit (ALU)",
+        "B": "Warp Scheduler",
+        "C": "Tensor Core",
+        "D": "Threads"
+      },
+      "key": "D",
+      "mode": "switch",
+      "explanation": "Threads describe execution entities, not a physical ALU/Tensor Core.",
+      "source_screenshot": "IMG_6997.jpeg",
+      "options_unchanged": true
+    },
+    {
+      "id": "X01",
+      "family": "AQ05",
+      "topic": "U-Net role",
+      "stem": "A segmentation architecture downsamples feature maps and then upsamples while reusing high-resolution encoder features. Which architecture?",
+      "choices": {
+        "A": "ResNet",
+        "B": "U-Net",
+        "C": "ONNX",
+        "D": "FlashAttention"
+      },
+      "key": "B",
+      "mode": "concept-switch",
+      "explanation": "U-Net encoder/decoder and feature recombination provide fine spatial detail.",
+      "anchor": "L05 CNN slides 95–97",
+      "options_unchanged": false
+    },
+    {
+      "id": "X02",
+      "family": "AQ05",
+      "topic": "ResNet versus U-Net",
+      "stem": "Which distinction matches the two architectures as presented in the CNN/Transformer lectures?",
+      "choices": {
+        "A": "ResNet uses additive identity residuals; U-Net upsamples and combines encoder details",
+        "B": "ResNet uses only a contracting path; U-Net deletes all high-resolution features",
+        "C": "Both networks are defined by causal attention masking",
+        "D": "Both architectures are model-export graph formats"
+      },
+      "key": "A",
+      "mode": "concept-switch",
+      "explanation": "U-Net restores resolution for segmentation; ResNet identity skips support deep optimisation.",
+      "anchor": "L05 CNN slides 95–97,108; L06 slide 34",
+      "options_unchanged": false
+    },
+    {
+      "id": "X03",
+      "family": "AQ04",
+      "topic": "Output classes versus channels",
+      "stem": "An RGB pretrained CNN changes from 1000 ImageNet classes to 12 categories. Which network dimension must change?",
+      "choices": {
+        "A": "The first convolution input channels",
+        "B": "The final classifier output dimension",
+        "C": "The number of input spatial channels and classes must always match",
+        "D": "The image width must become 12"
+      },
+      "key": "B",
+      "mode": "concept-switch",
+      "explanation": "Output class count sets final logits; image channels remain RGB.",
+      "anchor": "Original AQ04 and L05 CNN",
+      "options_unchanged": false
+    },
+    {
+      "id": "X04",
+      "family": "AQ04",
+      "topic": "Input channels versus classes",
+      "stem": "A pretrained CNN's first convolution expects 3 input channels, but a new sensor produces 5. Labels are unchanged. Which dimension changes?",
+      "choices": {
+        "A": "Final classifier number of classes",
+        "B": "Pooling stride",
+        "C": "First convolution input channels",
+        "D": "Softmax temperature"
+      },
+      "key": "C",
+      "mode": "concept-switch",
+      "explanation": "The data channel count determines in_channels of first Conv.",
+      "anchor": "L05 CNN shapes",
+      "options_unchanged": false
+    },
+    {
+      "id": "X05",
+      "family": "AQ04",
+      "topic": "CrossEntropyLoss API",
+      "stem": "For standard PyTorch CrossEntropyLoss with integer class targets, what should the classifier produce?",
+      "choices": {
+        "A": "Raw logits (B,C) and integer target class indices",
+        "B": "Softmax probabilities and mandatory one-hot target matrices",
+        "C": "A single regression scalar and a continuous target",
+        "D": "A fully exported ONNX graph as the loss input"
+      },
+      "key": "A",
+      "mode": "concept-switch",
+      "explanation": "CrossEntropyLoss accepts logits directly and normally integer indices.",
+      "anchor": "L03 DL basics; AQ04 distractor A",
+      "options_unchanged": false
+    },
+    {
+      "id": "X06",
+      "family": "AQ06",
+      "topic": "Causal versus permutation",
+      "stem": "Without positional information self-attention is permutation equivariant. Which *additional* mechanism forbids a decoder attending to later tokens?",
+      "choices": {
+        "A": "Reordering token vectors",
+        "B": "A causal future-position mask",
+        "C": "Increasing embedding width",
+        "D": "Adding a CLS token"
+      },
+      "key": "B",
+      "mode": "concept-switch",
+      "explanation": "Causal mask blocks future keys; permutation is a separate property.",
+      "anchor": "L06 attention and AQ06/07",
+      "options_unchanged": false
+    },
+    {
+      "id": "X07",
+      "family": "AQ07",
+      "topic": "Positional encoding versus mask",
+      "stem": "How do positional information and causal masking differ in their function?",
+      "choices": {
+        "A": "Position encodings convey order; causal masks hide future-token access",
+        "B": "Both remove the need for Q/K projections",
+        "C": "Both make attention weights uniform",
+        "D": "Position encodings are only a way to set the dropout probability"
+      },
+      "key": "A",
+      "mode": "concept-switch",
+      "explanation": "Order information differs from visibility restriction.",
+      "anchor": "L06 Transformer and AQ06/07",
+      "options_unchanged": false
+    },
+    {
+      "id": "X08",
+      "family": "AQ08",
+      "topic": "ViT versus pooling",
+      "stem": "A CNN reduces each 2×2 spatial neighborhood to its maximum. Which operation is this, rather than the ViT global-token mechanism?",
+      "choices": {
+        "A": "Learnable CLS aggregation",
+        "B": "2×2 max pooling",
+        "C": "Causal masking",
+        "D": "ONNX exporting"
+      },
+      "key": "B",
+      "mode": "concept-switch",
+      "explanation": "Max pooling is local spatial reduction.",
+      "anchor": "L05 pooling and AQ08",
+      "options_unchanged": false
+    },
+    {
+      "id": "X09",
+      "family": "AQ09",
+      "topic": "BatchNorm versus LayerNorm",
+      "stem": "A model in eval() contains BatchNorm and LayerNorm. Which statement is accurate?",
+      "choices": {
+        "A": "Both freeze learned weights to zero",
+        "B": "BatchNorm may use stored running statistics; LayerNorm does not depend on running batch means",
+        "C": "LayerNorm becomes Dropout",
+        "D": "BatchNorm must be deleted to export ONNX"
+      },
+      "key": "B",
+      "mode": "concept-switch",
+      "explanation": "Running statistics belong to BatchNorm, not LayerNorm.",
+      "anchor": "L07 normalisation; AQ09",
+      "options_unchanged": false
+    },
+    {
+      "id": "X10",
+      "family": "AQ09",
+      "topic": "Dropout evaluation",
+      "stem": "Standard PyTorch Dropout switches to eval(). What happens to its random masking?",
+      "choices": {
+        "A": "It doubles the mask rate",
+        "B": "It masks every activation",
+        "C": "It stops masking and acts as identity",
+        "D": "It changes channels"
+      },
+      "key": "C",
+      "mode": "concept-switch",
+      "explanation": "Dropout is inactive in evaluation.",
+      "anchor": "L07 inference and AQ09",
+      "options_unchanged": false
+    },
+    {
+      "id": "X11",
+      "family": "AQ02",
+      "topic": "ONNX unused op deletion",
+      "stem": "The model-inference lecture lists both fusion and unused-op deletion. Which is an example of unused-op deletion?",
+      "choices": {
+        "A": "Fuse linear with LayerNorm",
+        "B": "Remove a redundant dropout operator",
+        "C": "Increase floating-point operations",
+        "D": "Disable GPU execution providers"
+      },
+      "key": "B",
+      "mode": "concept-switch",
+      "explanation": "Slide 30 explicitly names dropout as an unused operation to delete.",
+      "anchor": "L07 inference slide 30",
+      "options_unchanged": false
+    },
+    {
+      "id": "X12",
+      "family": "AQ10",
+      "topic": "ONNX numerical verification",
+      "stem": "Which result verifies that an exported ONNX model behaves like its original PyTorch model?",
+      "choices": {
+        "A": "ONNX Runtime outputs agree numerically with PyTorch outputs",
+        "B": "Training dataset becomes ZIP",
+        "C": "Batch size gets tuned automatically",
+        "D": "Convolutions become Triton softmax"
+      },
+      "key": "A",
+      "mode": "concept-switch",
+      "explanation": "Compare output tensors of original and exported models.",
+      "anchor": "L07 ONNX slides 49–51 and AQ10",
+      "options_unchanged": false
+    },
+    {
+      "id": "X13",
+      "family": "AQ11",
+      "topic": "Regression metric",
+      "stem": "Which metric assesses a continuous-valued regression target such as energy usage prediction?",
+      "choices": {
+        "A": "F1 score",
+        "B": "ROC AUC",
+        "C": "RMSE",
+        "D": "Classification accuracy"
+      },
+      "key": "C",
+      "mode": "concept-switch",
+      "explanation": "RMSE quantifies regression error.",
+      "anchor": "AQ11 and L07 inference",
+      "options_unchanged": false
+    },
+    {
+      "id": "X14",
+      "family": "AQ11",
+      "topic": "Ranking metric",
+      "stem": "For binary classification scores, which metric evaluates ranking performance across thresholds rather than one chosen threshold?",
+      "choices": {
+        "A": "F1 at a fixed threshold",
+        "B": "ROC AUC",
+        "C": "RMSE",
+        "D": "Pixel-wise max pooling"
+      },
+      "key": "B",
+      "mode": "concept-switch",
+      "explanation": "ROC AUC summarises discrimination across thresholds.",
+      "anchor": "AQ11 and L07 inference",
+      "options_unchanged": false
+    },
+    {
+      "id": "X15",
+      "family": "AQ18",
+      "topic": "Warp scheduler",
+      "stem": "What role does the warp scheduler have inside a streaming multiprocessor?",
+      "choices": {
+        "A": "Perform every tensor multiply",
+        "B": "Select ready warps for execution",
+        "C": "Store the ONNX graph",
+        "D": "Set every warp size to 64"
+      },
+      "key": "B",
+      "mode": "concept-switch",
+      "explanation": "Warp scheduler coordinates instruction issue.",
+      "anchor": "L09 slides 38,47",
+      "options_unchanged": false
+    },
+    {
+      "id": "X16",
+      "family": "AQ17",
+      "topic": "CUDA 2D flattened index",
+      "stem": "A row-major 2D tensor has width W and coordinate (row,col). Which flattened offset should a CUDA kernel use?",
+      "choices": {
+        "A": "row+col",
+        "B": "row*W+col",
+        "C": "col*W+row",
+        "D": "gridDim.x*row+col"
+      },
+      "key": "B",
+      "mode": "concept-switch",
+      "explanation": "row*width+col is correct for row-major contiguous storage.",
+      "anchor": "L09 CUDA indexing and Assignment 5",
+      "options_unchanged": false
+    },
+    {
+      "id": "X17",
+      "family": "AQ16",
+      "topic": "Triton offsets",
+      "stem": "For 1D Triton elementwise processing, which expression creates current program's vectorised offsets?",
+      "choices": {
+        "A": "blockIdx.x + threadIdx.x",
+        "B": "tl.program_id(0)*BLOCK_SIZE + tl.arange(0,BLOCK_SIZE)",
+        "C": "torch.argmax(x,dim=0)",
+        "D": "gridDim.x*blockIdx.x + threadIdx.x"
+      },
+      "key": "B",
+      "mode": "concept-switch",
+      "explanation": "Program ID selects a tile, arange creates vector offsets within tile.",
+      "anchor": "L09 Triton slides 66–68",
+      "options_unchanged": false
+    },
+    {
+      "id": "X18",
+      "family": "AQ03",
+      "topic": "FlashAttention memory",
+      "stem": "Which best describes the FlashAttention performance idea as taught?",
+      "choices": {
+        "A": "Keep fused tiled attention intermediates in fast on-chip storage to reduce HBM traffic",
+        "B": "Approximate every attention softmax using only linear sums",
+        "C": "Require a one-token sequence",
+        "D": "Discard query projections"
+      },
+      "key": "A",
+      "mode": "concept-switch",
+      "explanation": "IO-aware tiling reduces global-memory traffic without redefining attention.",
+      "anchor": "L09 GPU slide 75",
+      "options_unchanged": false
+    },
+    {
+      "id": "X19",
+      "family": "AQ14",
+      "topic": "Softmax normaliser",
+      "stem": "Why must tiled exact softmax track a running normaliser across blocks?",
+      "choices": {
+        "A": "Different tiles have different partial denominators",
+        "B": "Softmax needs integer inputs",
+        "C": "All future tokens must be masked",
+        "D": "Exponentials cannot run on a GPU"
+      },
+      "key": "A",
+      "mode": "concept-switch",
+      "explanation": "The global softmax denominator must combine all tiles.",
+      "anchor": "L09 FlashAttention; AQ14",
+      "options_unchanged": false
+    },
+    {
+      "id": "X20",
+      "family": "AQ01",
+      "topic": "Broadcasting trap",
+      "stem": "Which shape pair fails right-aligned broadcasting?",
+      "choices": {
+        "A": "(5,1,4) and (6,4)",
+        "B": "(2,4,1) and (4,2)",
+        "C": "(4,3) and (3,4)",
+        "D": "(2,1,5) and (1,3,5)"
+      },
+      "key": "C",
+      "mode": "concept-switch",
+      "explanation": "The original AQ01 erroneously admitted two true answers for 'can broadcast'.",
+      "anchor": "L02 broadcasting; AQ01",
+      "options_unchanged": false
+    }
+  ]
+}
