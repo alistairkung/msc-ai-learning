@@ -1,5 +1,8 @@
 # Technical attendance-quiz question bank — AIMS5702 Quiz 2
 
+**New companion bank:** [68 changed-stem, distractor-switch and U-Net/ResNet sibling-concept questions](ATTENDANCE_SWITCH_BANK.md), with separate [answers and option-feasibility audit](ATTENDANCE_SWITCH_KEY.md). This file preserves original screenshot provenance and option texts; the companion bank is for daily unseen practice.
+
+
 **Origin:** student-uploaded screenshots from two recent in-class attendance quizzes (20 screenshots, **18 distinct question stems**). Original images remain in the ChatGPT Project; this text is a **manual transcription of what was visible**, not an independently supplied lecturer answer sheet. Two screenshots repeat previous stems: `IMG_7082(2).jpeg` duplicates AQ04, and `IMG_7002.jpeg` duplicates AQ13. Verify transcribed punctuation against the original screenshot before claiming byte-for-byte exactness.
 
 **Lecturer guidance, 26 Nov 2026:** of 16 quiz MCQs, eight focus on AI ethics; at least **six of the eight technical MCQs** will be variants of recent attendance questions **with the same answer options**. These are practice-bank statements, **not guaranteed verbatim exam stems**. Preserve each AQ item's four option meanings and wording; vary only the *question* in a way that leaves **exactly one** defensible correct option. Recompute the key; do not assume the original letter remains correct for every variant. When an option set cannot support a legitimate unique-answer variant, flag it rather than inventing one.

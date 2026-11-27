@@ -230,7 +230,7 @@
     {
       "id": "AQ06-V03",
       "family": "AQ06",
-      "stem": "If all permitted attention logits for a query are equal, what do the resulting softmax probabilities look like?",
+      "stem": "If all unmasked attention logits for a query are equal and no attention mask is applied, what happens to the softmax attention weights?",
       "choices": {
         "A": "Weights permute with inputs",
         "B": "Weights zero out future tokens",

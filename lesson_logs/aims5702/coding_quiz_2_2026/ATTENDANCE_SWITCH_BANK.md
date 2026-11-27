@@ -178,7 +178,7 @@ D. Weights remain identical in order
 
 ### AQ06-V03 — AQ06 Unmasked attention permutation [switch]
 
-If all permitted attention logits for a query are equal, what do the resulting softmax probabilities look like?
+If all unmasked attention logits for a query are equal and no attention mask is applied, what happens to the softmax attention weights?
 
 A. Weights permute with inputs
 
