@@ -17,7 +17,10 @@
       "mode": "exam",
       "explanation": "A aligns (6,4) with (5,1,4) to yield (5,6,4).",
       "source_screenshot": "IMG_7068(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L02",
+      "secondary_lectures": [],
+      "topic": "Broadcasting and output shapes"
     },
     {
       "id": "AQ01-V02",
@@ -33,7 +36,10 @@
       "mode": "switch",
       "explanation": "B aligns (2,4,1) with (4,2), giving (2,4,2).",
       "source_screenshot": "IMG_7068(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L02",
+      "secondary_lectures": [],
+      "topic": "Broadcasting and output shapes"
     },
     {
       "id": "AQ02-V01",
@@ -49,7 +55,10 @@
       "mode": "exam",
       "explanation": "Fusion saves intermediate reads and writes.",
       "source_screenshot": "IMG_7069(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [],
+      "topic": "Inference graph optimisations: operation fusion, provider configuration, unused-op deletion"
     },
     {
       "id": "AQ02-V02",
@@ -65,7 +74,10 @@
       "mode": "switch",
       "explanation": "Duplicated math increases total FLOPs.",
       "source_screenshot": "IMG_7069(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [],
+      "topic": "Inference graph optimisations: operation fusion, provider configuration, unused-op deletion"
     },
     {
       "id": "AQ02-V03",
@@ -81,7 +93,10 @@
       "mode": "switch",
       "explanation": "Disabling a GPU execution provider changes execution configuration.",
       "source_screenshot": "IMG_7069(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [],
+      "topic": "Inference graph optimisations: operation fusion, provider configuration, unused-op deletion"
     },
     {
       "id": "AQ03-V01",
@@ -97,7 +112,12 @@
       "mode": "exam",
       "explanation": "Tiling on-chip reduces HBM/global-memory traffic.",
       "source_screenshot": "IMG_7070(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [
+        "L06"
+      ],
+      "topic": "FlashAttention IO awareness and attention tiling"
     },
     {
       "id": "AQ03-V02",
@@ -113,7 +133,12 @@
       "mode": "exam",
       "explanation": "The on-chip strategy avoids large global memory reads/writes.",
       "source_screenshot": "IMG_7070(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [
+        "L06"
+      ],
+      "topic": "FlashAttention IO awareness and attention tiling"
     },
     {
       "id": "AQ04-V01",
@@ -129,7 +154,10 @@
       "mode": "exam",
       "explanation": "Replace the final classification layer to emit 12 outputs.",
       "source_screenshot": "IMG_7071(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L05",
+      "secondary_lectures": [],
+      "topic": "Pretrained CNN classifier head vs input channels; cross-lecture ONNX/BatchNorm distractor"
     },
     {
       "id": "AQ04-V02",
@@ -145,7 +173,10 @@
       "mode": "diagnostic",
       "explanation": "B confuses the first Conv input channel count with class count.",
       "source_screenshot": "IMG_7071(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L05",
+      "secondary_lectures": [],
+      "topic": "Pretrained CNN classifier head vs input channels; cross-lecture ONNX/BatchNorm distractor"
     },
     {
       "id": "AQ04-V03",
@@ -161,7 +192,12 @@
       "mode": "diagnostic",
       "explanation": "D is a false claim; BatchNorm is exportable.",
       "source_screenshot": "IMG_7071(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [
+        "L05"
+      ],
+      "topic": "Pretrained CNN classifier head vs input channels; cross-lecture ONNX/BatchNorm distractor"
     },
     {
       "id": "AQ05-V01",
@@ -177,7 +213,12 @@
       "mode": "exam",
       "explanation": "The additive identity path supports gradient propagation.",
       "source_screenshot": "IMG_7074(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L06",
+      "secondary_lectures": [
+        "L05"
+      ],
+      "topic": "ResNet residual identity addition and gradient preservation; U-Net contrast"
     },
     {
       "id": "AQ05-V02",
@@ -193,7 +234,12 @@
       "mode": "diagnostic",
       "explanation": "ResNet identity addition requires compatible shapes, not channel doubling.",
       "source_screenshot": "IMG_7074(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L06",
+      "secondary_lectures": [
+        "L05"
+      ],
+      "topic": "ResNet residual identity addition and gradient preservation; U-Net contrast"
     },
     {
       "id": "AQ06-V01",
@@ -209,7 +255,10 @@
       "mode": "exam",
       "explanation": "Unmasked self-attention without position is permutation equivariant.",
       "source_screenshot": "IMG_7075(2).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L06",
+      "secondary_lectures": [],
+      "topic": "Permutation-equivariant attention; equal-score softmax; causal-mask crossover"
     },
     {
       "id": "AQ06-V02",
@@ -225,7 +274,12 @@
       "mode": "switch",
       "explanation": "Softmax weights of masked future positions are zero.",
       "source_screenshot": "IMG_7075(2).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [
+        "L06"
+      ],
+      "topic": "Permutation-equivariant attention; equal-score softmax; causal-mask crossover"
     },
     {
       "id": "AQ06-V03",
@@ -241,7 +295,10 @@
       "mode": "switch",
       "explanation": "Equal logits give uniform attention weights.",
       "source_screenshot": "IMG_7075(2).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L06",
+      "secondary_lectures": [],
+      "topic": "Permutation-equivariant attention; equal-score softmax; causal-mask crossover"
     },
     {
       "id": "AQ07-V01",
@@ -257,7 +314,12 @@
       "mode": "exam",
       "explanation": "The query must not see later tokens.",
       "source_screenshot": "IMG_7076(2).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [
+        "L06"
+      ],
+      "topic": "Causal future-token attention mask vs positional information"
     },
     {
       "id": "AQ07-V02",
@@ -273,7 +335,12 @@
       "mode": "diagnostic",
       "explanation": "Causal masking changes access, not the existence of positional encodings.",
       "source_screenshot": "IMG_7076(2).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [
+        "L06"
+      ],
+      "topic": "Causal future-token attention mask vs positional information"
     },
     {
       "id": "AQ08-V01",
@@ -289,7 +356,12 @@
       "mode": "exam",
       "explanation": "A learnable CLS token is the ViT classification representative.",
       "source_screenshot": "IMG_7077(2).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [
+        "L06"
+      ],
+      "topic": "ViT CLS token vs CNN pooling / autoregressive masking"
     },
     {
       "id": "AQ08-V02",
@@ -305,7 +377,12 @@
       "mode": "switch",
       "explanation": "Causal triangular masking blocks future attention.",
       "source_screenshot": "IMG_7077(2).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [
+        "L06"
+      ],
+      "topic": "ViT CLS token vs CNN pooling / autoregressive masking"
     },
     {
       "id": "AQ08-V03",
@@ -321,7 +398,12 @@
       "mode": "switch",
       "explanation": "This is local 2×2 max pooling.",
       "source_screenshot": "IMG_7077(2).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L05",
+      "secondary_lectures": [
+        "L07"
+      ],
+      "topic": "ViT CLS token vs CNN pooling / autoregressive masking"
     },
     {
       "id": "AQ09-V01",
@@ -337,7 +419,12 @@
       "mode": "exam",
       "explanation": "BatchNorm uses running statistics and Dropout stops random masking.",
       "source_screenshot": "IMG_7078(3).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [
+        "L03"
+      ],
+      "topic": "train/eval modes: BatchNorm, LayerNorm and dropout"
     },
     {
       "id": "AQ09-V02",
@@ -353,7 +440,12 @@
       "mode": "diagnostic",
       "explanation": "Dropout is disabled during inference, not increased.",
       "source_screenshot": "IMG_7078(3).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [
+        "L03"
+      ],
+      "topic": "train/eval modes: BatchNorm, LayerNorm and dropout"
     },
     {
       "id": "AQ10-V01",
@@ -369,7 +461,10 @@
       "mode": "exam",
       "explanation": "ONNX provides a portable graph and output verification checks agreement.",
       "source_screenshot": "IMG_7081(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [],
+      "topic": "ONNX portable computation graphs and numerical output verification"
     },
     {
       "id": "AQ10-V02",
@@ -385,7 +480,10 @@
       "mode": "diagnostic",
       "explanation": "C describes hyperparameter tuning, not ONNX.",
       "source_screenshot": "IMG_7081(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L07",
+      "secondary_lectures": [],
+      "topic": "ONNX portable computation graphs and numerical output verification"
     },
     {
       "id": "AQ11-V01",
@@ -401,7 +499,10 @@
       "mode": "exam",
       "explanation": "F1 and suitably configured ROC AUC assess classes; RMSE is for regression.",
       "source_screenshot": "IMG_7083(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L03",
+      "secondary_lectures": [],
+      "topic": "Classification/regression evaluation: F1, ROC AUC and RMSE"
     },
     {
       "id": "AQ11-V02",
@@ -417,7 +518,10 @@
       "mode": "switch",
       "explanation": "I and III correspond to F1 and RMSE.",
       "source_screenshot": "IMG_7083(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L03",
+      "secondary_lectures": [],
+      "topic": "Classification/regression evaluation: F1, ROC AUC and RMSE"
     },
     {
       "id": "AQ11-V03",
@@ -433,7 +537,10 @@
       "mode": "switch",
       "explanation": "ROC AUC uses scores and RMSE uses real values; F1 needs hard decisions.",
       "source_screenshot": "IMG_7083(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L03",
+      "secondary_lectures": [],
+      "topic": "Classification/regression evaluation: F1, ROC AUC and RMSE"
     },
     {
       "id": "AQ11-V04",
@@ -449,7 +556,10 @@
       "mode": "switch",
       "explanation": "All three may apply across classification and regression outputs.",
       "source_screenshot": "IMG_7083(1).jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L03",
+      "secondary_lectures": [],
+      "topic": "Classification/regression evaluation: F1, ROC AUC and RMSE"
     },
     {
       "id": "AQ12-V01",
@@ -465,7 +575,10 @@
       "mode": "exam",
       "explanation": "Warp divergence uses execution masks to process branch paths.",
       "source_screenshot": "IMG_6996.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "Warp divergence and masked branch execution"
     },
     {
       "id": "AQ12-V02",
@@ -481,7 +594,10 @@
       "mode": "diagnostic",
       "explanation": "D is an over-absolute and false description.",
       "source_screenshot": "IMG_6996.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "Warp divergence and masked branch execution"
     },
     {
       "id": "AQ13-V01",
@@ -497,7 +613,10 @@
       "mode": "exam",
       "explanation": "One warp contains 32 threads.",
       "source_screenshot": "IMG_6995.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "NVIDIA warp width and fractions/multiples of a warp"
     },
     {
       "id": "AQ13-V02",
@@ -513,7 +632,10 @@
       "mode": "switch",
       "explanation": "32/8 = 4 threads.",
       "source_screenshot": "IMG_6995.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "NVIDIA warp width and fractions/multiples of a warp"
     },
     {
       "id": "AQ13-V03",
@@ -529,7 +651,10 @@
       "mode": "switch",
       "explanation": "32/2 = 16 threads.",
       "source_screenshot": "IMG_6995.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "NVIDIA warp width and fractions/multiples of a warp"
     },
     {
       "id": "AQ13-V04",
@@ -545,7 +670,10 @@
       "mode": "switch",
       "explanation": "2*32 = 64 threads.",
       "source_screenshot": "IMG_6995.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "NVIDIA warp width and fractions/multiples of a warp"
     },
     {
       "id": "AQ14-V01",
@@ -561,7 +689,12 @@
       "mode": "exam",
       "explanation": "Tilewise normalized attention lacks one common denominator.",
       "source_screenshot": "IMG_6994.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [
+        "L06"
+      ],
+      "topic": "Tiled softmax: shared denominator, non-associativity shorthand"
     },
     {
       "id": "AQ14-V02",
@@ -577,7 +710,12 @@
       "mode": "exam",
       "explanation": "Softmax does not simply compose from independently normalised blocks.",
       "source_screenshot": "IMG_6994.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [
+        "L06"
+      ],
+      "topic": "Tiled softmax: shared denominator, non-associativity shorthand"
     },
     {
       "id": "AQ15-V01",
@@ -593,7 +731,10 @@
       "mode": "exam",
       "explanation": "A multiple of warp width avoids a partly populated final warp.",
       "source_screenshot": "IMG_6999.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "CUDA block size multiples of 32 and underfilled warps"
     },
     {
       "id": "AQ15-V02",
@@ -609,7 +750,10 @@
       "mode": "diagnostic",
       "explanation": "This confuses 32-thread warp size with grid dimensionality.",
       "source_screenshot": "IMG_6999.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "CUDA block size multiples of 32 and underfilled warps"
     },
     {
       "id": "AQ16-V01",
@@ -625,7 +769,10 @@
       "mode": "exam",
       "explanation": "Masking prevents out-of-bounds memory access.",
       "source_screenshot": "IMG_7001.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "Triton vector offsets, tl.load/tl.store masks, OOB prevention"
     },
     {
       "id": "AQ16-V02",
@@ -641,7 +788,10 @@
       "mode": "diagnostic",
       "explanation": "A mask controls participation in memory access, not precision.",
       "source_screenshot": "IMG_7001.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "Triton vector offsets, tl.load/tl.store masks, OOB prevention"
     },
     {
       "id": "AQ17-V01",
@@ -657,7 +807,10 @@
       "mode": "exam",
       "explanation": "Global index = blockIdx.x*blockDim.x+threadIdx.x.",
       "source_screenshot": "IMG_6998.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "CUDA global thread ID, blockIdx/blockDim/threadIdx and 2D flat indexing"
     },
     {
       "id": "AQ17-V02",
@@ -673,7 +826,10 @@
       "mode": "diagnostic",
       "explanation": "A neglects the per-block stride.",
       "source_screenshot": "IMG_6998.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "CUDA global thread ID, blockIdx/blockDim/threadIdx and 2D flat indexing"
     },
     {
       "id": "AQ17-V03",
@@ -689,7 +845,10 @@
       "mode": "diagnostic",
       "explanation": "B swaps the terms.",
       "source_screenshot": "IMG_6998.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "CUDA global thread ID, blockIdx/blockDim/threadIdx and 2D flat indexing"
     },
     {
       "id": "AQ17-V04",
@@ -705,7 +864,10 @@
       "mode": "diagnostic",
       "explanation": "D uses number of blocks rather than threads per block.",
       "source_screenshot": "IMG_6998.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "CUDA global thread ID, blockIdx/blockDim/threadIdx and 2D flat indexing"
     },
     {
       "id": "AQ18-V01",
@@ -721,7 +883,10 @@
       "mode": "exam",
       "explanation": "Tensor Cores accelerate matrix calculations.",
       "source_screenshot": "IMG_6997.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "SM hardware: Tensor Cores, warp scheduler, ALU, threads"
     },
     {
       "id": "AQ18-V02",
@@ -737,7 +902,10 @@
       "mode": "switch",
       "explanation": "A warp scheduler issues ready warp instructions.",
       "source_screenshot": "IMG_6997.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "SM hardware: Tensor Cores, warp scheduler, ALU, threads"
     },
     {
       "id": "AQ18-V03",
@@ -753,7 +921,10 @@
       "mode": "switch",
       "explanation": "An ALU performs general arithmetic and logic.",
       "source_screenshot": "IMG_6997.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "SM hardware: Tensor Cores, warp scheduler, ALU, threads"
     },
     {
       "id": "AQ18-V04",
@@ -769,7 +940,10 @@
       "mode": "switch",
       "explanation": "Threads describe execution entities, not a physical ALU/Tensor Core.",
       "source_screenshot": "IMG_6997.jpeg",
-      "options_unchanged": true
+      "options_unchanged": true,
+      "primary_lecture": "L09",
+      "secondary_lectures": [],
+      "topic": "SM hardware: Tensor Cores, warp scheduler, ALU, threads"
     },
     {
       "id": "X01",
@@ -786,7 +960,11 @@
       "mode": "concept-switch",
       "explanation": "U-Net encoder/decoder and feature recombination provide fine spatial detail.",
       "anchor": "L05 CNN slides 95–97",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L05",
+      "secondary_lectures": [
+        "L06"
+      ]
     },
     {
       "id": "X02",
@@ -803,7 +981,11 @@
       "mode": "concept-switch",
       "explanation": "U-Net restores resolution for segmentation; ResNet identity skips support deep optimisation.",
       "anchor": "L05 CNN slides 95–97,108; L06 slide 34",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L05",
+      "secondary_lectures": [
+        "L06"
+      ]
     },
     {
       "id": "X03",
@@ -820,7 +1002,9 @@
       "mode": "concept-switch",
       "explanation": "Output class count sets final logits; image channels remain RGB.",
       "anchor": "Original AQ04 and L05 CNN",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L05",
+      "secondary_lectures": []
     },
     {
       "id": "X04",
@@ -837,7 +1021,9 @@
       "mode": "concept-switch",
       "explanation": "The data channel count determines in_channels of first Conv.",
       "anchor": "L05 CNN shapes",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L05",
+      "secondary_lectures": []
     },
     {
       "id": "X05",
@@ -854,7 +1040,9 @@
       "mode": "concept-switch",
       "explanation": "CrossEntropyLoss accepts logits directly and normally integer indices.",
       "anchor": "L03 DL basics; AQ04 distractor A",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L03",
+      "secondary_lectures": []
     },
     {
       "id": "X06",
@@ -871,7 +1059,11 @@
       "mode": "concept-switch",
       "explanation": "Causal mask blocks future keys; permutation is a separate property.",
       "anchor": "L06 attention and AQ06/07",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L07",
+      "secondary_lectures": [
+        "L06"
+      ]
     },
     {
       "id": "X07",
@@ -888,7 +1080,11 @@
       "mode": "concept-switch",
       "explanation": "Order information differs from visibility restriction.",
       "anchor": "L06 Transformer and AQ06/07",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L07",
+      "secondary_lectures": [
+        "L06"
+      ]
     },
     {
       "id": "X08",
@@ -905,7 +1101,11 @@
       "mode": "concept-switch",
       "explanation": "Max pooling is local spatial reduction.",
       "anchor": "L05 pooling and AQ08",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L05",
+      "secondary_lectures": [
+        "L07"
+      ]
     },
     {
       "id": "X09",
@@ -922,7 +1122,11 @@
       "mode": "concept-switch",
       "explanation": "Running statistics belong to BatchNorm, not LayerNorm.",
       "anchor": "L07 normalisation; AQ09",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L07",
+      "secondary_lectures": [
+        "L03"
+      ]
     },
     {
       "id": "X10",
@@ -939,7 +1143,11 @@
       "mode": "concept-switch",
       "explanation": "Dropout is inactive in evaluation.",
       "anchor": "L07 inference and AQ09",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L07",
+      "secondary_lectures": [
+        "L03"
+      ]
     },
     {
       "id": "X11",
@@ -956,7 +1164,9 @@
       "mode": "concept-switch",
       "explanation": "Slide 30 explicitly names dropout as an unused operation to delete.",
       "anchor": "L07 inference slide 30",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L07",
+      "secondary_lectures": []
     },
     {
       "id": "X12",
@@ -973,7 +1183,9 @@
       "mode": "concept-switch",
       "explanation": "Compare output tensors of original and exported models.",
       "anchor": "L07 ONNX slides 49–51 and AQ10",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L07",
+      "secondary_lectures": []
     },
     {
       "id": "X13",
@@ -990,7 +1202,9 @@
       "mode": "concept-switch",
       "explanation": "RMSE quantifies regression error.",
       "anchor": "AQ11 and L07 inference",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L03",
+      "secondary_lectures": []
     },
     {
       "id": "X14",
@@ -1007,7 +1221,9 @@
       "mode": "concept-switch",
       "explanation": "ROC AUC summarises discrimination across thresholds.",
       "anchor": "AQ11 and L07 inference",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L03",
+      "secondary_lectures": []
     },
     {
       "id": "X15",
@@ -1024,7 +1240,9 @@
       "mode": "concept-switch",
       "explanation": "Warp scheduler coordinates instruction issue.",
       "anchor": "L09 slides 38,47",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L09",
+      "secondary_lectures": []
     },
     {
       "id": "X16",
@@ -1041,7 +1259,9 @@
       "mode": "concept-switch",
       "explanation": "row*width+col is correct for row-major contiguous storage.",
       "anchor": "L09 CUDA indexing and Assignment 5",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L09",
+      "secondary_lectures": []
     },
     {
       "id": "X17",
@@ -1058,7 +1278,9 @@
       "mode": "concept-switch",
       "explanation": "Program ID selects a tile, arange creates vector offsets within tile.",
       "anchor": "L09 Triton slides 66–68",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L09",
+      "secondary_lectures": []
     },
     {
       "id": "X18",
@@ -1075,7 +1297,11 @@
       "mode": "concept-switch",
       "explanation": "IO-aware tiling reduces global-memory traffic without redefining attention.",
       "anchor": "L09 GPU slide 75",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L09",
+      "secondary_lectures": [
+        "L06"
+      ]
     },
     {
       "id": "X19",
@@ -1092,7 +1318,11 @@
       "mode": "concept-switch",
       "explanation": "The global softmax denominator must combine all tiles.",
       "anchor": "L09 FlashAttention; AQ14",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L09",
+      "secondary_lectures": [
+        "L06"
+      ]
     },
     {
       "id": "X20",
@@ -1109,7 +1339,9 @@
       "mode": "concept-switch",
       "explanation": "The original AQ01 erroneously admitted two true answers for 'can broadcast'.",
       "anchor": "L02 broadcasting; AQ01",
-      "options_unchanged": false
+      "options_unchanged": false,
+      "primary_lecture": "L02",
+      "secondary_lectures": []
     }
   ]
 }

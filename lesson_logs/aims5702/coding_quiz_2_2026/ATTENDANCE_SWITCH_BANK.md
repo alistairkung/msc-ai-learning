@@ -2,6 +2,8 @@
 
 **Source:** all 20 original student-provided attendance screenshots, representing 18 distinct stems; course sources L02, L03, L05, L06, L07, L09. **Authored:** 27 November 2026. **Total:** 68 questions: 48 exact-option variants and 20 concept-switch questions (new options). **27** exact-option questions have a different intended key from the screenshot (including diagnostic questions). This is an authored practice bank, not a prediction of the paper.
 
+**Find your lecture's questions:** [L02/L03/L05/L06/L07/L09 index](ATTENDANCE_LECTURE_MAP.md) (includes cross-lecture distractor links).
+
 **Do not open [the answer key](ATTENDANCE_SWITCH_KEY.md) before a cold attempt.** Exact-option questions reuse the original **A–D text from the repository's screenshot transcription**. Check source screenshots for exact punctuation if literal fidelity matters. New-option concept switches are **separate** from the lecturer's exact-option guarantee.
 
 Mode definitions: **exam** = altered stem, valid positive answer; **switch** = altered concept with another valid original choice; **diagnostic** = identify a specific false claim/bug in the original options (do not treat that false statement as true); **concept-switch** = new A–D answers based on another course-taught topic.

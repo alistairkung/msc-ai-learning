@@ -1,5 +1,7 @@
 # AIMS5702 Coding Quiz 2 — front-loaded exam-focus plan (27 Nov–3 Dec 2026)
 
+**Lecture-grouped technical MCQ index:** [Browse all 68 questions by primary lecture](ATTENDANCE_LECTURE_MAP.md) (L02/L03/L05/L06/L07/L09).
+
 **Daily technical MCQ bank:** [68 inversion/alternative-concept questions, student-facing](ATTENDANCE_SWITCH_BANK.md) · [hidden answer key and distractor audit](ATTENDANCE_SWITCH_KEY.md) · [machine-readable JSON](ATTENDANCE_SWITCH_BANK.json). The [original 20-screenshot/18-stem transcript](TECHNICAL_ATTENDANCE_BANK.md) remains the provenance record. Use the new bank for daily altered-option practice; only the **exact-option** items simulate the lecturer's retained A–D constraint.
 
 
