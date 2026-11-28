@@ -3,15 +3,16 @@ schema_version: 2
 meta:
   title: Learning Atlas
   subtitle: MSc AI
-  reviewed_on: '2026-11-25'
-  evidence_through: '2026-11-25'
+  reviewed_on: '2026-11-28'
+  evidence_through: '2026-11-28'
   repository: alistairkung/msc-ai-learning
   source_ref: 990ac3d2e8c5f458b49bac445cb5c30c0c0274b1
   review_note: >-
-    25 Nov AIMS5701 research closeout recorded the feasibility GO and
-    outbox telemetry READY evidence, alongside unresolved within-condition
-    and temporal discrimination. Personal PF mastery remains at the previous
-    paper-based evidence boundary. AIMS5702 study evidence is preserved.
+    28 Nov AIMS5702 GPU concepts and PyCUDA session recorded static tutor
+    assessment of 1D/2D indexing, wrappers and fusion understanding.
+    Final integrated 2D ceiling division was incorrect; Triton only
+    introduced, FlashAttention and ONNX code not yet attempted.
+    No topic statuses promoted; previous AIMS5701 evidence unchanged.
   stale_after_days: 21
 sources:
   aims5701_readiness_20261125:
@@ -22,7 +23,10 @@ sources:
     sha: 56eb618feba0a821648b4530429d0ef3287f5771
   state:
     path: LEARNING_STATE.md
-    sha: 5d748ee1540fb6f1a3a1e698739f5babc0ee6fa0
+    sha: 8003179d7eb20b0c0099bdb1ae7f881beebf0ba8
+  aims5702_gpu_20261128:
+    path: lesson_logs/aims5702/quiz2_gpu_concepts_pycuda_2026_11_28.md
+    sha: 666b0d12ce32a5b2113d04aef663d958fe720c97
   aims5702_coding_20261124:
     path: lesson_logs/aims5702/quiz2_coding_tensor_window_2026_11_24.md
     sha: 93442948b21c7971a787f3021528dd4e81ae3afe

@@ -5,6 +5,8 @@
 **Daily technical MCQ bank:** [68 inversion/alternative-concept questions, student-facing](ATTENDANCE_SWITCH_BANK.md) · [hidden answer key and distractor audit](ATTENDANCE_SWITCH_KEY.md) · [machine-readable JSON](ATTENDANCE_SWITCH_BANK.json). The [original 20-screenshot/18-stem transcript](TECHNICAL_ATTENDANCE_BANK.md) remains the provenance record. Use the new bank for daily altered-option practice; only the **exact-option** items simulate the lecturer's retained A–D constraint.
 
 
+**Updated 28 Nov (actual GPU session):** the dedicated GPU tutor taught and assessed the CUDA execution model plus 1D/2D PyCUDA indexing/launches, with a late **ceiling-division error in the integrated wrapper**. **Triton remains only conceptually introduced; FlashAttention not taught; ONNX code not yet assessed.** Full reported evidence: [28 Nov GPU session log](../quiz2_gpu_concepts_pycuda_2026_11_28.md). The tutor's local CP01–04 names are **not** master tensor CP01–04; map these results to master **CP17/18**. The weekend plan now uses a short CUDA retrieval instead of repeating the whole tutorial, then Triton + ONNX + FlashAttention concepts. CNN/Transformer conceptual review remains requested, especially Transformers. An evening rest after reported fatigue is reasonable; do not treat unfinished sessions as performance failures.
+
 **Latest coordinator revision, 27 Nov:** front-load the **three lecturer-signalled coding areas (ONNX, PyCUDA, Triton)** into **Sat 28–Sun 29 Nov**. Change the old sequential plan: fully connected/CNN mathematical foundations are **not removed**, but move to Mon 30 Nov, with short cold retrieval on Tue 1 Dec and in the mock. AIMS5702 Quiz 2 is **Thu 3 Dec**.
 
 ## Assessment framing — lecturer hints, not an official question paper
@@ -19,10 +21,10 @@
 | Date | Coding Window B | Concepts Window A |
 |---|---|---|
 | [Fri 27 Nov](2026-11-27.md) | **CP01–03 tensor consolidation already reported completed**; no additional full tensor workshop. Ethics preparation priority for the remainder. | Teach L07 ethics risk-level table and examples + **8 changed attendance-bank technical questions**; 8 taught ethics questions if time |
-| [Sat 28 Nov](2026-11-28.md) | **ONNX (CP16) and PyCUDA (CP17/18)** full examples → guided → **cold code blanks**, kernel index/grid/bounds/wrapper. | **8 ethics + 8 attendance-based technical variants**, original A–D option texts |
-| [Sun 29 Nov](2026-11-29.md) | **Triton (CP19, part of CP20)** index/offset/mask/load/store/launch; then **cold ONNX + PyCUDA + Triton triad assessment**. | **8 ethics + 8 attendance-based technical variants** |
-| [Mon 30 Nov](2026-11-30.md) | **FC and CNN essential maths**: two unfamiliar FC models + two unfamiliar CNN→Pool→Flatten→FC models; stable softmax/training loop if time. | **8 ethics + 8 attendance-based technical variants** |
-| [Tue 1 Dec](2026-12-01.md) | **Attention/Transformer and inference** essentials; bounded backprop/training gaps; **delayed cold ONNX/PyCUDA/Triton + FC/CNN retrieval**. | **8 ethics + 8 attendance-based technical variants** |
+| [Sat 28 Nov](2026-11-28.md) | **Done (reported): GPU concepts and PyCUDA 1D/2D**, with integrated ceiling division still fragile. ONNX/Triton not completed. | No separate technical/ethics MCQ result reported for 28 Nov |
+| [Sun 29 Nov](2026-11-29.md) | **Triton essential code + short CUDA recall**; **ONNX export/verification** still outstanding; FlashAttention concepts if time. | Daily changed attendance MCQs + short EU/HK delayed ethics recall if time |
+| [Mon 30 Nov](2026-11-30.md) | **Mandatory FC/CNN shapes and trainable parameter counts**; stable softmax/training loop as time permits; any unfinished ONNX cold scaffold | 8 ethics + 8 changed technical MCQs; bounded CNN/Transformer conceptual review if not completed earlier |
+| [Tue 1 Dec](2026-12-01.md) | **Transformer conceptual review** (especially rusty points), delayed CUDA/Triton/ONNX cold code fragments, plus weakest FC/CNN gaps | 8 ethics + 8 changed technical MCQs |
 | [Wed 2 Dec](2026-12-02.md) | **60-minute exam-shaped mock** with 16 MCQs and 26 code/numerical marks; targeted repair only. AIMS5701 poster discussion. | Mock replaces separate daily MCQ practice |
 | [Thu 3 Dec](2026-12-03.md) | Brief familiar code/shape/ethics recall, not new lessons; evening Quiz 2. | Optional short recall only |
 

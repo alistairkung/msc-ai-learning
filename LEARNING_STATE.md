@@ -1,8 +1,18 @@
 # Learning State — Current Handover
 
-_Last maintained: 2026-11-25. Learning evidence through 2026-11-25._
+_Last maintained: 2026-11-28. Learning evidence through 2026-11-28._
 
 Read `SESSION_WORKFLOW.md` and `TUTORING_CALIBRATION.md`. `learning_progress.yaml` is the structured projection, not a transcript. Midterm evidence: `lesson_logs/aims5701/midterm_revision_2026_11_14_15.md`. **Exact new-chat tutoring instructions:** `lesson_logs/aims5701/tutoring_handover_2026_11_15.md`.
+
+## Current handover — 28 Nov (AIMS5702 Quiz 2 GPU teaching and PyCUDA)
+
+**Reported learner-tutor evidence:** a substantial L09 GPU concepts + CUDA workshop was completed on 28 Nov. Master **CP17 1D PyCUDA** and **CP18 2D PyCUDA** made tangible gains: learner independently produced 1D global index/bounds, a later correct 1D host wrapper, 2D row/col and row-major flattened index with **AND** bounds, and isolated correct 2D block/grid expressions, **after earlier remediation**. **However**, an accompanying earlier kernel had a sign/syntax error and the **final combined 2D kernel/wrapper was not fully correct** (both ceiling divisions used multiplication instead of addition). This is *not delayed, integrated independent mastery*. **Ceil division** `(n + b - 1) // b` and separate width/height forms need a short fresh cold check; `SourceModule` and `.get_function` were not independently assessed because the session used precompiled handles.
+
+**Concepts:** GPU throughput/memory bandwidth, SMs, warps/blocks/grids, divergence, indexing, scheduling and fusion substantially covered; coalescing, complete hierarchy and Tensor Core/ALU/scheduler distinctions need cold retrieval. **CP19 Triton**: only `tl.program_id`, `tl.arange`, vector offsets taught; no independent masks, loads/stores or launch. **CP22 FlashAttention not taught. CP16 ONNX export/verification code not attempted on 28 Nov**. Tutor stopped on reported fatigue. No GPU code compilation/execution occurred and no AQ03/AQ12–AQ18 bank MCQs were attempted in this tutorial. Detailed receipt: [GPU session log](lesson_logs/aims5702/quiz2_gpu_concepts_pycuda_2026_11_28.md). GPU tutor's local CP01–CP04 are **not** master CP01–CP04 tensor tasks.
+
+**Next:** 10–15min CUDA ceil/integration recall; teach and cold-test Triton, complete ONNX scaffold, teach FlashAttention conceptually. Protect separate FC/CNN layer shapes/parameter-counting practice and the learner-requested CNN/Transformer deck review (Transformer especially). Ethics teaching and non-GPU MCQ session on 27 Nov had separately reported initial scores (ethics 7/8; technical 13/16), **not delayed mastery**. Maintain 2 Dec full mock; Quiz 2 is 3 Dec. No topic status is promoted merely from this note.
+
+---
 
 ## Current handover — 25 Nov (AIMS5701 final project)
 

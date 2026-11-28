@@ -1,5 +1,7 @@
 # AIMS5702 Quiz 2 — weekend ONNX, PyCUDA and Triton triad contract (28–29 November)
 
+**Actual Saturday 28 Nov outcome:** GPU concepts and extensive 1D/2D PyCUDA done, but integrated ceiling-division error remains; Triton only introduced, FlashAttention not covered, ONNX code not attempted. See [reported evidence](../quiz2_gpu_concepts_pycuda_2026_11_28.md). **Sunday should prioritise a short CUDA recall, Triton, and ONNX; FlashAttention conceptual teaching follows as capacity allows.** Do not mislabel the GPU tutor's local CP01–04 as master tensor patterns.
+
 **Why:** the lecturer flagged these as the likely focus of **three out of five coding questions**, so the coordinator moved them forward from Mon/Tue to the Sat/Sun workshop. This is a **priority inference from lecturer hints**, not confirmed questions or exact marks.
 
 ## Before beginning
