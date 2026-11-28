@@ -2,13 +2,29 @@
 
 This is a prioritisation and tracking grid, **not automatic mastery**. The audited study inventory remains **45 conceptual competency families + 23 coding/reasoning patterns** grouped from the 699-entry syllabus audit. For new preselected atomic IDs use the original master audit where available.
 
+## Actual evidence ledger — 28 Nov update
+
+**Source:** [28 Nov reported GPU teaching and PyCUDA coding handover](../quiz2_gpu_concepts_pycuda_2026_11_28.md). This is *self-reported tutoring evidence*, graded statically rather than compiled/executed on a GPU. Original lecture/audit coverage counts are unchanged.
+
+| Master CP | Evidence to record | Boundary / next cold check |
+|---|---|---|
+| **CP17 — CUDA 1D + PyCUDA host** | Correct cold 1D index/guard and later correct complete 1D host wrapper; correct `cuda.InOut` in an accumulation variant | One kernel had sign/syntax error; combined cold correctness, compilation via `SourceModule`/`.get_function` not tested |
+| **CP18 — CUDA 2D** | Correct cold row/col index, row-major flattening and both-coordinate bounds guard after instruction; 2D grid/block formulas demonstrated in isolated task | **Final integrated cold task incorrect** due to both grid ceiling-division expressions: recheck before calling the pattern independent end-to-end |
+| **CP19 — Triton elementwise/tile** | Introduced program IDs, `tl.arange`, vector offsets | No mask/load/store/launch coding; **not cold tested** |
+| **CP20 — Triton GEMM/tile** | No independent coverage recorded | Only essential tiled components later, not full GEMM |
+| **CP21 — GPU architecture/memory/fusion** | Warps, divergence, scheduling, 1D/2D indexing and fused/unfused memory traffic conceptually demonstrated; registers/shared/L1/L2/global taught | Tensor Core/scheduler contrast, coalescing and hierarchy not tested cold |
+| **CP22 — FlashAttention** | **Not taught** | L09 IO/tiled attention and online softmax still due |
+| **CP16 — ONNX** | No coding attempt reported on 28 Nov | Still needs export/verification scaffold |
+
+**CAUTION:** GPU tutor called its *own* 1D kernel, wrapper, 2D kernel and wrapper tasks 'CP01–CP04'. Those labels are **session-local**, NOT master AIMS5702 CP01–04 tensor patterns. No topic status is auto-upgraded.
+
 ## Dates and evidence gates
 
 - **27 Nov:** CP01–03 tensor consolidation *reported* in user handover (mixed transfer 4/5 cold; final `argmax` repair guided); CP04 interpolation deprioritised. Teach ethics EU/HK/China and begin altered-attendance daily drills.
-- **28 Nov:** **CP16 ONNX + CP17/18 PyCUDA**; cold new scaffold and 1D CUDA kernel/launch.
-- **29 Nov:** **CP19 Triton**, CP20 key blank components; fresh **cold ONNX + PyCUDA + Triton triad** by Sunday evening.
-- **30 Nov:** **CP05–11 foundational layers**; mandatory **2 independent unfamiliar FC network worksheets + 2 independent CNN→pool→flatten→FC network worksheets**, with per-layer shapes/weight/bias/parameter counts; stable softmax, cross-entropy, training loop (time permitting).
-- **1 Dec:** **CP12–15 attention/Transformer**, inference CP16 review; core backprop/training repair; cold retrieval on weekend triad and FC/CNN, as capacity.
+- **28 Nov ACTUAL:** GPU conceptual teaching and substantial 1D/2D CP17/18 PyCUDA coding; late integrated **ceiling-division failure**, independent `SourceModule` not tested. ONNX not done; Triton intro only; FlashAttention untouched.
+- **29 Nov revised:** 10–15 min CUDA ceiling-division + integration check; **CP19 Triton** masks/load/store/launch with cold attempt; **CP16 ONNX** export/verification intro and cold blanks if capacity; CP22 FlashAttention conceptual lesson. Sunday triad remains a **target, not claimed mastery**.
+- **30 Nov:** **CP05–11 foundational layers** (preserved); mandatory **2 independent unfamiliar FC network worksheets + 2 independent CNN→pool→flatten→FC network worksheets**, with per-layer shapes/weight/bias/parameter counts; stable softmax, cross-entropy, training loop (time permitting).
+- **1 Dec:** **CP12–15 Transformer conceptual slide review** (user says rusty), ONNX if still untested, and brief delayed CP17/18/19 + FC/CNN retrieval. Preserve A05 and lecture scope rather than broad novel implementation.
 - **2 Dec:** full 60-min exam-shaped mock; 3 Dec light recall/assessment.
 
 ## Mandatory weight and output checkpoints (retained, moved to Monday)
